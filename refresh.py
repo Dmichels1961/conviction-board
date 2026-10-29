@@ -71,6 +71,60 @@ def clean(d):
     return d.groupby("ticker", as_index=False).agg(weight=("weight", "sum"), name=("name", "first"))
 
 
+def get_bytes(url, timeout=60):
+    req = urllib.request.Request(url, headers=UA)
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read()
+
+
+def csv_asof(text):
+    """As-of date of an issuer CSV: a 'date' column (ARK) or an 'as of' line in the preamble (iShares)."""
+    m = re.search(r"^(\d{1,2})/(\d{1,2})/(\d{4}),", text, re.M) or re.search(r"as of[^0-9A-Za-z]*\"?([A-Za-z]{3}) (\d{1,2}), (\d{4})", text, re.I)
+    if not m: return None
+    try:
+        g = m.groups()
+        return str(pd.Timestamp(f"{g[2]}-{g[0]}-{g[1]}").date()) if g[0].isdigit() else str(pd.Timestamp(f"{g[0]} {g[1]} {g[2]}").date())
+    except Exception: return None
+
+
+def parse_holdings_xlsx(data):
+    """Issuer Excel file (Capital Group style): the sheet whose header row has Ticker and a weight/percent-of-net-assets column.
+    Weights given as fractions (0.0571) are converted to percent. Returns (holdings, as-of date or None)."""
+    sheets = pd.read_excel(io.BytesIO(data), sheet_name=None, header=None, dtype=str)
+    for _, df in sheets.items():
+        asof = None
+        for _, row in df.head(15).iterrows():
+            for v in row.dropna():
+                m = re.search(r"as of\s*(\d{1,2}/\d{1,2}/\d{4})", str(v), re.I)
+                if m: asof = str(pd.Timestamp(m.group(1)).date())
+        for i in range(min(30, len(df))):
+            low = [str(c).strip().lower() for c in df.iloc[i].tolist()]
+            if "ticker" in low:
+                wi = next((j for j, c in enumerate(low) if c.startswith("weight") or "percent of net assets" in c or c.startswith("% of")), None)
+                if wi is None: continue
+                ti = low.index("ticker"); ni = next((j for j, c in enumerate(low) if "name" in c), None)
+                body = df.iloc[i + 1:]
+                w = pd.to_numeric(body.iloc[:, wi].astype(str).str.replace("%", "").str.replace(",", ""), errors="coerce")
+                d = pd.DataFrame({"ticker": body.iloc[:, ti].astype(str).map(norm_ticker), "weight": w,
+                                  "name": body.iloc[:, ni].astype(str) if ni is not None else ""}).dropna(subset=["weight"])
+                if d.weight.sum() <= 1.5: d["weight"] = d.weight * 100
+                return clean(d), asof
+    raise ValueError("no Ticker/Weight header found in any sheet")
+
+
+def fetch_daily(f, today):
+    """One fund's daily issuer file -> (holdings, as-of date). Raises if it can't be read or is older than 7 days."""
+    if f.format == "xlsx":
+        d, asof = parse_holdings_xlsx(get_bytes(f.url))
+    else:
+        txt = get(f.url)
+        d = parse_holdings_csv(txt) if f.format == "csv" else parse_holdings_html(txt)
+        asof = csv_asof(txt) if f.format == "csv" else None
+    asof = asof or str(today)
+    if (today - pd.Timestamp(asof).date()).days > 7: raise ValueError(f"daily file is dated {asof}, more than a week old")
+    return d, asof
+
+
 def refresh_holdings(today):
     reg = pd.read_csv(ROOT / "fund_registry.csv")
     h = pd.read_csv(ROOT / "data_web/holdings.csv")
@@ -78,14 +132,17 @@ def refresh_holdings(today):
     for _, f in reg.iterrows():
         try:
             asof, src = str(today), f.url
-            if f.format == "nport":      # SEC EDGAR N-PORT (free, full list, 1-4 months old)
+            d = None
+            if f.format != "nport":      # issuer's own daily file; on any failure fall back to SEC N-PORT below
+                try:
+                    d, asof = fetch_daily(f, today)
+                except Exception as e:
+                    log(f"holdings {f.etf}: daily file failed ({str(e)[:90]}); using SEC filing instead")
+            if d is None:                # SEC EDGAR N-PORT (free, full list, 1-4 months old)
                 import edgar as EG
-                d, asof, _, src = EG.fetch_fund(f.url if isinstance(f.url, str) and f.url else f.etf)
+                d, asof, _, src = EG.fetch_fund(f.etf if f.format != "nport" or not (isinstance(f.url, str) and f.url) else f.url)
                 asof = asof or str(today)
                 if (today - pd.Timestamp(asof).date()).days > 150: raise ValueError(f"newest public N-PORT is {asof}, too old")
-            else:
-                txt = get(f.url)
-                d = parse_holdings_csv(txt) if f.format == "csv" else parse_holdings_html(txt)
             if len(d) < 5 or d.weight.sum() < 30: raise ValueError(f"only {len(d)} rows / {d.weight.sum():.0f}% of weight")
             hist = ROOT / "data/holdings_history" / f.etf; hist.mkdir(parents=True, exist_ok=True)
             d.to_csv(hist / f"{asof}.csv", index=False)
@@ -386,8 +443,30 @@ def earnings_selftest():
     print("earnings selftest ok")
 
 
+def holdings_selftest():
+    ark = ('date,fund,company,ticker,cusip,shares,market value ($),weight (%)\r\n10/29/2026,ARKW,TESLA INC,TSLA,88160R101,"361,353","$146,066,109.66",8.49%\r\n'
+           '10/29/2026,ARKW,META PLATFORMS INC-CLASS A,META,30303M102,"143,896","$88,134,861.04",5.12%\r\n"Investors should carefully consider"\r\n')
+    d = parse_holdings_csv(ark); assert list(d.ticker) == ["META", "TSLA"] and abs(d.weight.sum() - 13.61) < 1e-9, d
+    assert csv_asof(ark) == "2026-10-29" and csv_asof('iShares\nFund Holdings as of,"Oct 27, 2026"\n') == "2026-10-27"
+    try:
+        import openpyxl
+    except ImportError:
+        print("holdings selftest: openpyxl missing, Excel parser not tested"); return
+    wb = openpyxl.Workbook(); ws = wb.active; ws.title = "Disclosure"; ws["B1"] = "Important Disclosures"
+    w2 = wb.create_sheet("Daily Fund Holdings")
+    w2.append(["Holdings for ETF", "CGGR - Capital Group Growth ETF", None, None, None, None, "As Of 10/28/2026"])
+    w2.append(["Security Name", "Ticker", "Asset Type", "Shares or Principal Amount", "Market Value", "Percent of Net Assets", "CUSIP"])
+    w2.append(["META PLATFORMS INC", "META", "Equity", 2433122, 1.49e9, 0.0571, "30303M102"])
+    w2.append(["ALPHABET INC CL C", "GOOG", "Equity", 2534079, 8.1e8, 0.0313, "02079K107"])
+    w2.append(["ALPHABET INC CL A", "GOOGL", "Equity", 2415951, 7.8e8, 0.0301, "02079K305"])
+    b = io.BytesIO(); wb.save(b)
+    d, asof = parse_holdings_xlsx(b.getvalue())
+    assert asof == "2026-10-28" and abs(d.set_index("ticker").weight["GOOGL"] - 6.14) < 1e-9 and abs(d.weight.sum() - 11.85) < 1e-9, (d, asof)
+    print("holdings selftest ok")
+
+
 def selftest():
-    earnings_selftest(); import autodata; autodata.selftest()
+    holdings_selftest(); earnings_selftest(); import autodata; autodata.selftest()
     import edgar, revisions, backtest, form4; edgar.selftest(); revisions.selftest(); backtest.selftest(); form4.selftest(); import factor_backtest; factor_backtest.selftest()
     s = 'iShares\nFund Holdings as of,"Oct 21, 2026"\nTicker,Name,Sector,Asset Class,Market Value,Weight (%),Notional\nMU,MICRON,IT,Equity,1,6.05,1\nNVDA,NVIDIA,IT,Equity,1,5.66,1\nUSD,USD CASH,Cash,Cash,1,-0.03,1\nBRK.B,BERKSHIRE,F,Equity,1,2.0,1\nGOOG,ALPHABET,C,Equity,1,1.0,1\n'
     d = parse_holdings_csv(s); assert list(d.ticker) == ["BRK-B", "GOOGL", "MU", "NVDA"], d

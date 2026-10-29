@@ -1,9 +1,9 @@
 etf,manager,benchmark,style,format,url
 BAI,BlackRock,IWF,AI / tech,csv,https://www.ishares.com/us/products/339081/ishares-a-i-innovation-and-tech-active-etf/latest-holdings.csv
 ILDR,First Trust,IWF,US large growth innovation,html,https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ILDR
-CGGR,Capital Group,IWF,US large growth,nport,
-CGUS,Capital Group,SPY,US core,nport,
-CGDV,Capital Group,SPY,US dividend value,nport,
+CGGR,Capital Group,IWF,US large growth,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cggr/download/daily-holdings?audience=advisor
+CGUS,Capital Group,SPY,US core,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgus/download/daily-holdings?audience=advisor
+CGDV,Capital Group,SPY,US dividend value,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgdv/download/daily-holdings?audience=advisor
 AGTHX,Capital Group,IWF,US large growth (MF),nport,
 TCHP,T. Rowe Price,IWF,US large growth,nport,
 TGRW,T. Rowe Price,IWF,US large growth,nport,
@@ -33,8 +33,8 @@ PRSCX,T. Rowe Price,IWF,Science and tech (MF),nport,
 SLMCX,Columbia Threadneedle,IWF,Tech / software / semis (MF),nport,
 FBIOX,Fidelity,SPY,Biotech (MF),nport,
 FIDSX,Fidelity,SPY,Financials (MF),nport,
-ARKW,ARK Invest,IWF,Innovation,nport,
-ARKQ,ARK Invest,IWF,Autonomous / robotics,nport,
-ARKF,ARK Invest,IWF,Fintech,nport,
-ARKX,ARK Invest,SPY,Space / industrial innovation,nport,
+ARKW,ARK Invest,IWF,Innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_NEXT_GENERATION_TECHNOLOGY_ETF_ARKW_HOLDINGS.csv
+ARKQ,ARK Invest,IWF,Autonomous / robotics,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv
+ARKF,ARK Invest,IWF,Fintech,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_BLOCKCHAIN_&_FINTECH_INNOVATION_ETF_ARKF_HOLDINGS.csv
+ARKX,ARK Invest,SPY,Space / industrial innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_SPACE_&_DEFENSE_INNOVATION_ETF_ARKX_HOLDINGS.csv
 GTEK,Goldman Sachs,IWF,Tech / innovation,nport,
