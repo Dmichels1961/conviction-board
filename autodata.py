@@ -153,6 +153,8 @@ def fundamentals(cf):
     sh_now, sh_old, _ = instant_now_and_year_ago(_facts(cf, "shares"), sum_same_end=True)
     cx = _facts(cf, "capex"); cx_now, cx_end = ttm(cx)
     cx_old = ttm(cx, cx_end - pd.Timedelta(days=330))[0] if cx_end is not None else np.nan
+    rvf = _facts(cf, "revenue"); rv_now = ttm(rvf)[0]
+    rv_old = ttm(rvf, cx_end - pd.Timedelta(days=330))[0] if cx_end is not None else np.nan
     avg_assets = np.nanmean([a_now, a_old]) if not np.isnan(a_now) else np.nan
     ok = lambda x: x is not None and not (isinstance(x, float) and np.isnan(x))
     return dict(
@@ -161,6 +163,8 @@ def fundamentals(cf):
         asset_growth=a_now / a_old - 1 if ok(a_now) and ok(a_old) and a_old > 0 else np.nan,
         net_issuance=sh_now / sh_old - 1 if ok(sh_now) and ok(sh_old) and sh_old > 0 else np.nan,
         capex_growth=abs(cx_now) / abs(cx_old) - 1 if ok(cx_now) and ok(cx_old) and cx_old != 0 else np.nan,
+        capex_intensity=abs(cx_now) / rv_now if ok(cx_now) and ok(rv_now) and rv_now > 0 else np.nan,
+        capex_intensity_chg=(abs(cx_now) / rv_now - abs(cx_old) / rv_old) if ok(cx_now) and ok(cx_old) and ok(rv_now) and ok(rv_old) and rv_now > 0 and rv_old > 0 else np.nan,
         fin_period=str(a_end.date()) if a_end is not None else "")
 
 
@@ -196,6 +200,46 @@ def refresh_sec(a, pool, today, log=print, cap=300, budget_s=1500, fetch=None):
             log(f"sec {t}: {str(e)[:80]}")
         time.sleep(0.12)                                                  # SEC asks for <= 10 requests a second
     save_state(st); log(f"SEC fundamentals: {ok} names refreshed, {miss} not SEC filers")
+
+
+# ----------------------------------------------------------------- AI capex gauge
+HYPERSCALERS = ["MSFT", "GOOGL", "AMZN", "META", "ORCL"]
+
+
+def capex_gauge(today, log=print, fetch=None):
+    """Trailing-12-month capital spending of the five largest AI-infrastructure buyers, quarter by quarter, from SEC filings.
+    Shown on the site as the leading indicator for AI-hardware suppliers; not part of either frozen board's score."""
+    import edgar as EG
+    fetch = fetch or (lambda cik: json.loads(EG._get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json")))
+    cmap = cik_map(); comp = {}
+    for t in HYPERSCALERS:
+        try:
+            cx = _facts(fetch(cmap[t]), "capex"); ends = sorted(set(cx.end[cx.end >= pd.Timestamp(today) - pd.Timedelta(days=3 * 365)]))
+            series = {}
+            for e in ends:
+                v, ve = ttm(cx, e)
+                if v == v and ve is not None and ve == e: series[str(e.date())] = round(abs(v) / 1e9, 1)
+            comp[t] = series
+        except Exception as e:
+            log(f"capex gauge {t}: {str(e)[:60]}")
+        time.sleep(0.15)
+    rows = []
+    for t, s in comp.items():
+        if len(s) < 2: continue
+        k = sorted(s); last = s[k[-1]]
+        cand = [(abs((pd.Timestamp(k[-1]) - pd.Timestamp(x)).days - 365), x) for x in k if 300 <= (pd.Timestamp(k[-1]) - pd.Timestamp(x)).days <= 430]
+        yago = [s[min(cand)[1]]] if cand else []
+        prev = s[k[-2]]
+        rows.append(dict(ticker=t, period=k[-1], ttm_bn=last, yoy=round(last / yago[-1] - 1, 3) if yago else None,
+                         qoq=round(last / prev - 1, 3), series=[[x, s[x]] for x in k]))
+    tot = sum(r["ttm_bn"] for r in rows); tot_y = [r for r in rows if r["yoy"] is not None]
+    out = dict(asof=str(today), companies=rows, total_bn=round(tot, 1),
+               total_yoy=round(sum(r["ttm_bn"] for r in tot_y) / sum(r["ttm_bn"] / (1 + r["yoy"]) for r in tot_y) - 1, 3) if tot_y else None,
+               note="Trailing-12-month purchases of property and equipment, from each company's 10-Q/10-K. Spending growth is revenue for "
+                    "AI-hardware suppliers; a slowdown is the main risk to the AI-heavy part of the boards.")
+    (ROOT / "docs/data").mkdir(parents=True, exist_ok=True); (ROOT / "docs/data/capex.json").write_text(json.dumps(out))
+    log(f"AI capex gauge: ${out['total_bn']}bn trailing 12 months, {out['total_yoy']} year on year")
+    return out
 
 
 # ----------------------------------------------------------------- market reaction to the last 4 reports

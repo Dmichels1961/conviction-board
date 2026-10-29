@@ -61,6 +61,7 @@ input[type=search]{background:var(--bg);color:var(--fg);border:1px solid var(--l
 
   <section id="board">
     <div class="note" id="regime" hidden></div>
+    <div class="card" id="capexcard" hidden><h2>AI capex gauge</h2><p class="mut" style="margin:0 0 8px" id="capexnote"></p><div class="tw" style="max-height:none"><table id="capt"><thead><tr><th>Company</th><th>Latest quarter</th><th>Capex, last 12 months</th><th>vs a year earlier</th><th>vs prior quarter</th></tr></thead><tbody></tbody></table></div></div>
     <div class="tiles" id="tiles"></div>
     <div class="grid2">
       <div class="card"><h2>What moved</h2><div id="moves"></div></div>
@@ -187,14 +188,14 @@ Array.prototype.forEach.call(document.querySelectorAll('.tabs button'),function(
 var h=location.hash.slice(1);if(['signals','emerging','track','risk','bt'].indexOf(h)>=0)document.querySelector('[data-t='+h+']').click();
 
 function load(f){return fetch('data/'+f+'.json?'+Date.now()).then(function(r){if(!r.ok)throw new Error(f);return r.json()})}
-Promise.all([load('board'),load('signals'),load('backtest'),load('factors').catch(function(){return null}),load('track').catch(function(){return null}),load('risk').catch(function(){return null}),load('pit').catch(function(){return null}),load('regime').catch(function(){return null}),load('emerging').catch(function(){return null})]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];D.f=a[3];D.tr=a[4];D.rk=a[5];D.pit=a[6];D.rg=a[7];D.em=a[8];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
+Promise.all([load('board'),load('signals'),load('backtest'),load('factors').catch(function(){return null}),load('track').catch(function(){return null}),load('risk').catch(function(){return null}),load('pit').catch(function(){return null}),load('regime').catch(function(){return null}),load('emerging').catch(function(){return null}),load('capex').catch(function(){return null})]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];D.f=a[3];D.tr=a[4];D.rk=a[5];D.pit=a[6];D.rg=a[7];D.em=a[8];D.cx=a[9];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
 
 function draw(){
   var m=D.b.meta;
   $('#sub').textContent='Ranking as of '+m.asof+' · rebuilt automatically every weekday after the US close · page data generated '+m.generated;
   var tl=$('#tiles');tl.textContent='';
   [['Top conviction',D.b.rows[0].ticker],['Names scored',m.n_scored],['Funds tracked',m.funds],['Avg data coverage (top 25)',fmt(m.avg_cov,0)+'%'],['Top 25 in AI-linked themes',fmt(m.ai_share,0,true)]].forEach(function(t){var d=el('div','tile');d.appendChild(el('span','mut',t[0]));d.appendChild(el('b',null,t[1]));tl.appendChild(d)});
-  drawMoves();drawExpo();drawTable();drawSignals();drawBt();drawTrack();drawRisk();drawPit();drawRegime();drawAlpha();drawEmerging();
+  drawMoves();drawExpo();drawTable();drawSignals();drawBt();drawTrack();drawRisk();drawPit();drawRegime();drawAlpha();drawEmerging();drawCapex();
 }
 function drawMoves(){
   var b=$('#moves');b.textContent='';var mv=D.b.moves;
@@ -346,6 +347,11 @@ function drawEmerging(){
   var tb=$('#emt tbody');tb.textContent='';
   E.slice(0,40).forEach(function(r){var tr=el('tr');[r.rank,r.ticker,fmt(r.score,1),r.sector||'–',r.why||'–',r.rd_intensity==null?'–':Math.round(r.rd_intensity*100)+'%',r.rev_accel==null?'–':(r.rev_accel>=0?'+':'')+Math.round(r.rev_accel*100)+' pts',r.top_theme||'–',r.signals+' of 8'].forEach(function(c,i){var td=el('td',i===1?'tk':(i===3||i>6?'hide-s':null),c);if(i===4)td.style.whiteSpace='normal';tr.appendChild(td)});tb.appendChild(tr)});
   $('#emnote').textContent='Not yet included: patents (needs a free USPTO key) and federal contract awards. R&D, revenue acceleration and margins can be backtested once their filing-date history builds; filing themes and new positions can only be judged live.';
+}
+function drawCapex(){
+  var C=D.cx;if(!C||!C.companies||!C.companies.length)return;$('#capexcard').hidden=false;
+  $('#capexnote').textContent='Microsoft, Alphabet, Amazon, Meta and Oracle together: $'+C.total_bn+' billion over the last 12 months'+(C.total_yoy==null?'':', '+pct(C.total_yoy)+' on a year earlier')+'. '+C.note;
+  var tb=$('#capt tbody');tb.textContent='';C.companies.forEach(function(r){var tr=el('tr');[r.ticker,r.period,'$'+r.ttm_bn+'bn',r.yoy==null?'–':pct(r.yoy),pct(r.qoq)].forEach(function(c,i){var td=el('td',i===0?'tk':(i===3?(r.yoy>=0?'up':'dn'):null),c);tr.appendChild(td)});tb.appendChild(tr)});
 }
 function bars(id,rows){var b=$(id);b.textContent='';rows.forEach(function(r){var x=el('div','xrow');x.appendChild(el('span',null,r[0]));var t=el('div','track'),i=el('i');i.style.cssText='left:0;width:'+(r[2]*100)+'%;background:var(--acc)';t.appendChild(i);x.appendChild(t);x.appendChild(el('span','mut',r[1]+' · '+Math.round(r[2]*100)+'%'));b.appendChild(x)})}
 function drawRisk(){

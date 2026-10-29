@@ -24,6 +24,19 @@ def daily_files():
     return [(pd.Timestamp(f.stem), f) for f in fs]
 
 
+def _capex():
+    p = ROOT / "data_web/auto.csv"
+    try:
+        a = pd.read_csv(p)
+        if "capex_intensity" not in a.columns: return {}
+        cc = a["capex_intensity_chg"] if "capex_intensity_chg" in a.columns else np.nan
+        return {t: (i, c) for t, i, c in zip(a.ticker, a.capex_intensity, cc if isinstance(cc, pd.Series) else [np.nan] * len(a))}
+    except Exception: return {}
+
+
+CAPEX = _capex()
+
+
 def evidence():
     w = lambda *k: sum(W_BY_KEY.get(x, 0) for x in k)
     E = [
@@ -95,6 +108,9 @@ def main():
         if pd.notna(r.data_coverage) and r.data_coverage < 70: fl.append("Thin data")
         if pd.notna(r.days_to_earnings) and 0 <= r.days_to_earnings <= 14: fl.append(f"Reports in {int(r.days_to_earnings)}d")
         if pd.notna(r.get("share_chg", np.nan)) and r.get("share_chg", 0) > 0.05: fl.append("Share dilution")
+        ci, cc = CAPEX.get(r.ticker, (np.nan, np.nan))     # capex flag: shown, not scored (heavy spenders have tended to lag)
+        if pd.notna(ci) and ci > 0.20 and pd.notna(cc) and cc > 0.03: fl.append(f"Heavy capex {ci*100:.0f}% of sales, rising")
+        o["capex_intensity"], o["capex_intensity_chg"] = (clean(ci), clean(cc))
         o["flags"] = fl
         g = lambda ks: float(sum(r.get(f"pts_{k}", 0) or 0 for k in ks))
         o["pts"] = dict(earnings=g(["earn_growth", "earn_surprise", "earn_consistency", "earn_revisions", "earn_accel", "earn_sales", "earn_reaction", "earn_guidance", "earn_dispersion"]),

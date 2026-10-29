@@ -512,6 +512,9 @@ def main():
     import autodata as AD
     ok = refresh_holdings(today)
     refresh_fund_returns(today); refresh_regime(today)
+    try:
+        import autodata as _AD; _AD.capex_gauge(today, log=log)
+    except Exception as e: log(f"AI capex gauge FAILED ({e})")
     pool = pd.read_csv(ROOT / "data_web/holdings.csv").groupby("ticker").etf.nunique().loc[lambda s: s >= 2].index.tolist()
     a = AD.load_auto(pool)
     steps = [lambda: refresh_revisions(pool, today, a), lambda: refresh_earnings(pool, today, a),
