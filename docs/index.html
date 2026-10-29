@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conviction Board</title>
+<style>
+:root{--bg:#fafaf8;--panel:#fff;--fg:#1c1c1a;--mut:#6b6b66;--line:#e4e3de;--acc:#2f5fd0;--up:#1f7a4d;--dn:#b3382c;--warn:#a8680c;--c1:#2f5fd0;--c2:#2a9d8f;--c3:#c98a1b;--c4:#8d8d86}
+@media (prefers-color-scheme:dark){:root{--bg:#161614;--panel:#1f1f1c;--fg:#ecebe6;--mut:#a09f98;--line:#33332f;--acc:#7ea0ff;--up:#5fcf95;--dn:#ff8b7e;--warn:#e5ad4f;--c1:#7ea0ff;--c2:#5fc8bb;--c3:#e5ad4f;--c4:#8d8d86}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+h1{font:400 28px/1.2 Georgia,serif;margin:0 0 4px}
+h2{font-size:17px;margin:0 0 8px;font-weight:600}
+.mut{color:var(--mut);font-size:13px}
+.tabs{display:flex;gap:4px;margin:18px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:10px 14px;font:inherit;color:var(--mut);cursor:pointer}
+.tabs button[aria-selected=true]{color:var(--fg);border-color:var(--acc);font-weight:600}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.tile b{display:block;font:400 26px Georgia,serif;font-variant-numeric:tabular-nums}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th{text-align:left;color:var(--mut);font-weight:500;padding:6px 8px;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;position:sticky;top:0;background:var(--panel)}
+td{padding:7px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+tr.row{cursor:pointer}tr.row:hover td{background:color-mix(in srgb,var(--acc) 6%,transparent)}
+.tw{overflow:auto;max-height:640px}
+.tk{font-weight:600}.up{color:var(--up)}.dn{color:var(--dn)}
+.chip{display:inline-block;font-size:11px;padding:1px 7px;border-radius:9px;border:1px solid var(--line);color:var(--mut);margin-right:4px}
+.chip.w{color:var(--warn);border-color:var(--warn)}
+.bar{display:flex;height:9px;width:110px;border-radius:5px;overflow:hidden;background:var(--line)}
+.bar i{display:block;height:100%}
+.leg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin:6px 0}
+.leg span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;background:var(--c)}
+.detail td{white-space:normal;background:color-mix(in srgb,var(--acc) 4%,transparent);padding:12px 14px}
+input[type=search]{background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font:inherit;width:220px;max-width:100%}
+.pill{display:inline-block;padding:1px 8px;border-radius:9px;font-size:12px;font-weight:600}
+.s-Strong{background:color-mix(in srgb,var(--up) 18%,transparent);color:var(--up)}
+.s-Moderate{background:color-mix(in srgb,var(--c3) 20%,transparent);color:var(--warn)}
+.s-Weak,.s-Weaklately{background:color-mix(in srgb,var(--mut) 18%,transparent);color:var(--mut)}
+.note{border-left:3px solid var(--warn);padding:6px 12px;margin:10px 0;font-size:13px;color:var(--mut)}
+.xrow{display:grid;grid-template-columns:150px 1fr 70px;gap:8px;align-items:center;font-size:12px;margin:5px 0}
+.track{position:relative;height:10px;background:var(--line);border-radius:5px}
+.track i{position:absolute;top:0;height:100%;border-radius:5px}
+@media(max-width:600px){.hide-s{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Conviction Board</h1>
+  <div class="mut" id="sub">Loading…</div>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-t="board">Board</button>
+    <button role="tab" aria-selected="false" data-t="signals">What predicts returns</button>
+    <button role="tab" aria-selected="false" data-t="bt">Backtest</button>
+  </div>
+
+  <section id="board">
+    <div class="tiles" id="tiles"></div>
+    <div class="grid2">
+      <div class="card"><h2>What moved</h2><div id="moves"></div></div>
+      <div class="card"><h2>What the top 25 have in common</h2><p class="mut" style="margin:0 0 6px">Average signal score (0–100) of the top 25 against the other names. Weight is the share of the total score.</p><div id="expo"></div></div>
+    </div>
+    <div class="card">
+      <h2>Ranking</h2>
+      <p class="mut" style="margin:0 0 8px">Click a row for the evidence. Click a header to sort. Rank range is the 10th–90th percentile across 1,000 reshuffles of the weights.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:8px">
+        <input type="search" id="q" placeholder="Filter ticker or theme" aria-label="Filter">
+        <label class="mut"><input type="checkbox" id="all"> show all names, not only the top 25</label>
+      </div>
+      <div class="leg" id="leg"></div>
+      <div class="tw"><table id="rt"><thead></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="signals" hidden>
+    <div class="card">
+      <h2>Public data that has historically predicted returns</h2>
+      <p class="mut" style="margin:0">Every metric below is free to get. "Strength" is my own reading of the research, not a measured number. Whether it is in this model, and at what weight, is shown on the right.</p>
+      <div class="note" id="decay"></div>
+      <div class="tw" style="max-height:none"><table id="st"><thead><tr><th>Metric</th><th>What it says</th><th>Evidence</th><th>Strength</th><th class="hide-s">Caveat</th><th class="hide-s">Free source</th><th>In this model</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="bt" hidden>
+    <div class="card">
+      <h2>Does manager overlap predict returns?</h2>
+      <p id="btread" style="margin:4px 0 10px"></p>
+      <p class="mut" style="margin:0 0 10px">Each month the test picks the 25 most-held stocks (overlap), the stocks most added to (flow), or both, using only holdings that were already public. It holds them for 21, 63 or 126 trading days and compares them with the average of all stocks the funds hold.</p>
+      <div class="tw" style="max-height:none"><table id="bt_t"><thead><tr><th>Signal</th><th>Hold (days)</th><th>Months tested</th><th>Avg excess return</th><th>Beat the pool</th><th>Rank correlation</th><th>t-statistic</th></tr></thead><tbody></tbody></table></div>
+      <div id="btchart" style="margin-top:14px"></div>
+      <div class="note">How to read it: a t-statistic above 2 is the usual bar. Rank correlation near zero means a higher score does not reliably mean a higher return among the stocks. The funds were chosen because they did well recently, which flatters the early periods. Windows overlap, so the t-statistic uses non-overlapping months. The record is short, and stocks that were delisted are missing.</div>
+      <p class="mut" id="btmeta"></p>
+    </div>
+  </section>
+</div>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var N=function(x){return x==null||x===''?null:Number(x)};
+var fmt=function(v,d,p){v=N(v);return v==null?'–':(p?(v*100).toFixed(d||0)+'%':v.toFixed(d||0))};
+var sgn=function(v){v=N(v);return v==null?'–':(v>=0?'+':'')+(v*100).toFixed(1)+'%'};
+var D={},sortK='rank',sortD=1,open={};
+var COL={earnings:'var(--c1)',overlap:'var(--c2)',flow:'var(--c3)',other:'var(--c4)'};
+var NAMES={earnings:'Earnings',overlap:'Manager overlap',flow:'Manager flow',other:'Other signals'};
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+
+Array.prototype.forEach.call(document.querySelectorAll('.tabs button'),function(b){b.onclick=function(){
+  document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
+  ['board','signals','bt'].forEach(function(id){$('#'+id).hidden=(id!==b.dataset.t)});
+  if(location.hash!=='#'+b.dataset.t)history.replaceState(null,'','#'+b.dataset.t)}});
+var h=location.hash.slice(1);if(['signals','bt'].indexOf(h)>=0)document.querySelector('[data-t='+h+']').click();
+
+function load(f){return fetch('data/'+f+'.json?'+Date.now()).then(function(r){if(!r.ok)throw new Error(f);return r.json()})}
+Promise.all([load('board'),load('signals'),load('backtest')]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
+
+function draw(){
+  var m=D.b.meta;
+  $('#sub').textContent='Ranking as of '+m.asof+' · rebuilt automatically every weekday after the US close · page data generated '+m.generated;
+  var tl=$('#tiles');tl.textContent='';
+  [['Top conviction',D.b.rows[0].ticker],['Names scored',m.n_scored],['Funds tracked',m.funds],['Avg data coverage (top 25)',fmt(m.avg_cov,0)+'%'],['Top 25 in AI-linked themes',fmt(m.ai_share,0,true)]].forEach(function(t){var d=el('div','tile');d.appendChild(el('span','mut',t[0]));d.appendChild(el('b',null,t[1]));tl.appendChild(d)});
+  drawMoves();drawExpo();drawTable();drawSignals();drawBt();
+}
+function drawMoves(){
+  var b=$('#moves');b.textContent='';var mv=D.b.moves;
+  if(!mv){b.appendChild(el('p','mut','Movement appears after the second daily run.'));return}
+  function line(lbl,arr,cls,fn){var p=el('p');p.style.margin='4px 0';p.appendChild(el('b',null,lbl+' '));
+    if(!arr.length)p.appendChild(el('span','mut','none'));
+    arr.forEach(function(x,i){var s=el('span',cls,fn(x));p.appendChild(s);if(i<arr.length-1)p.appendChild(document.createTextNode(', '))});b.appendChild(p)}
+  line('Entered the top 25:',mv.entered,'up',function(x){return x});
+  line('Left the top 25:',mv.left,'dn',function(x){return x});
+  line('Biggest risers:',mv.risers,'up',function(x){return x[0]+' ▲'+x[1]});
+  line('Biggest fallers:',mv.fallers,'dn',function(x){return x[0]+' ▼'+Math.abs(x[1])});
+  b.appendChild(el('p','mut','Compared with the run on '+mv.compared_to+'. Early comparisons also reflect new funds and data being added, so some moves are not real changes.'));
+}
+function drawExpo(){
+  var b=$('#expo');b.textContent='';
+  D.b.exposure.filter(function(e){return e.weight>0}).sort(function(a,c){return c.weight-a.weight}).forEach(function(e){
+    var r=el('div','xrow');var nod=(N(e.top25)===50&&N(e.rest)===50);r.appendChild(el('span',null,e.signal.replace(/_/g,' ')+' ('+e.weight+')'+(nod?' no data yet':'')));
+    var t=el('div','track'),a=N(e.top25)||0,c=N(e.rest)||0;
+    var i1=el('i');i1.style.cssText='left:0;width:'+c+'%;background:var(--line);filter:brightness(.85)';
+    var i2=el('i');i2.style.cssText='left:0;width:'+a+'%;background:var(--acc);height:5px;top:2.5px';
+    t.appendChild(i1);t.appendChild(i2);r.appendChild(t);r.appendChild(el('span','mut',a.toFixed(0)+' vs '+c.toFixed(0)));b.appendChild(r)});
+  b.appendChild(el('p','mut','Blue = top 25, grey = the rest. Weight in brackets.'));
+}
+function spark(h){
+  var s=document.createElementNS('http://www.w3.org/2000/svg','svg');s.setAttribute('width',90);s.setAttribute('height',24);s.setAttribute('viewBox','0 0 90 24');
+  if(!h||h.length<2){return el('span','mut','–')}
+  var mx=Math.max.apply(null,h.map(function(x){return x[1]})),mn=Math.min.apply(null,h.map(function(x){return x[1]}));if(mx==mn)mx=mn+1;
+  var pts=h.map(function(x,i){return (i*(86/(h.length-1))+2)+','+(2+20*(x[1]-mn)/(mx-mn))}).join(' ');
+  var pl=document.createElementNS('http://www.w3.org/2000/svg','polyline');pl.setAttribute('points',pts);pl.setAttribute('fill','none');pl.setAttribute('stroke','currentColor');pl.setAttribute('stroke-width','1.5');s.appendChild(pl);return s}
+function chg(r){var p=N(r.prev_rank);if(p==null)return el('span','mut','–');var d=p-r.rank;
+  return el('span',d>0?'up':d<0?'dn':'mut',d>0?'▲'+d:d<0?'▼'+(-d):'=')}
+var COLS=[['rank','#'],['ticker','Ticker'],['score','Score'],['chg','Move'],['mix','Score mix'],['rng','Rank range'],['n_managers','Managers'],['fwd_growth','Fwd EPS growth'],['avg_surprise','Avg beat'],['rev_30d','30d revisions'],['days_to_earnings','Days to report'],['bucket','Theme'],['flags','Flags'],['trend','Trend']];
+function drawTable(){
+  var th=$('#rt thead');th.textContent='';var tr=el('tr');
+  COLS.forEach(function(c){var t=el('th',null,c[1]);t.onclick=function(){var k=c[0];if(k==='chg')k='prev_rank';if(k==='mix')k='score';if(k==='rng')k='rank';if(k==='flags'||k==='trend')return;if(sortK===k)sortD=-sortD;else{sortK=k;sortD=1}drawTable()};tr.appendChild(t)});th.appendChild(tr);
+  var leg=$('#leg');leg.textContent='';Object.keys(NAMES).forEach(function(k){var s=el('span',null,NAMES[k]);s.style.setProperty('--c',COL[k]);leg.appendChild(s)});
+  var all=$('#all').checked,f=$('#q').value.toLowerCase();
+  var rows=D.b.rows.filter(function(r){return(all||r.rank<=25)&&(!f||(r.ticker+' '+r.bucket+' '+(r.name||'')).toLowerCase().indexOf(f)>=0)});
+  rows.sort(function(a,b){var x=N(a[sortK]),y=N(b[sortK]);if(x==null&&y==null){x=String(a[sortK]);y=String(b[sortK]);return x<y?-sortD:x>y?sortD:0}if(x==null)return 1;if(y==null)return -1;return(x-y)*sortD});
+  var tb=$('#rt tbody');tb.textContent='';
+  rows.forEach(function(r){
+    var tr=el('tr','row');tr.onclick=function(){open[r.ticker]=!open[r.ticker];drawTable()};
+    var cells=[r.rank,null,fmt(r.score,1),null,null,Math.round(N(r.rank_p10)||r.rank)+'–'+Math.round(N(r.rank_p90)||r.rank),r.n_managers+' of '+r.n_etfs,sgn(r.fwd_growth),sgn(r.avg_surprise),sgn(r.rev_30d),r.days_to_earnings==null?'–':Math.round(r.days_to_earnings),r.bucket,null,null];
+    cells.forEach(function(c,i){var td=el('td');
+      if(i===1){td.className='tk';td.textContent=r.ticker}
+      else if(i===3)td.appendChild(chg(r));
+      else if(i===4){var bar=el('div','bar');['earnings','overlap','flow','other'].forEach(function(k){var s=el('i');s.style.width=(r.pts[k]||0)/(r.score_raw||r.score||100)*Math.min(100,(r.score/(r.score_raw||r.score))*100)+'%';s.style.background=COL[k];bar.appendChild(s)});td.appendChild(bar)}
+      else if(i===12){(r.flags||[]).forEach(function(x){td.appendChild(el('span','chip w',x))})}
+      else if(i===13){td.appendChild(spark(r.hist))}
+      else td.textContent=c==null?'':String(c);
+      tr.appendChild(td)});
+    tb.appendChild(tr);
+    if(open[r.ticker]){var d=el('tr','detail'),td=el('td');td.colSpan=COLS.length;
+      var h=el('div');h.appendChild(el('b',null,(r.name||r.ticker)+' · '));h.appendChild(document.createTextNode(r.thesis||''));td.appendChild(h);
+      var p=el('p','mut');p.style.margin='6px 0 0';p.textContent='Main drivers: '+(r.drivers||'–')+' · Data coverage '+fmt(r.data_coverage,0)+'% · Chance of staying in the top 10: '+fmt(r.p_top10,0,true)+' · Rank 1 week ago: '+(r.wk_rank==null?'n/a':r.wk_rank)+' · Insider buyers (90d): '+(r.insider_buyers==null?'no data':r.insider_buyers);
+      td.appendChild(p);d.appendChild(td);tb.appendChild(d)}
+  });
+}
+$('#q').oninput=drawTable;$('#all').onchange=drawTable;
+function drawSignals(){
+  $('#decay').textContent=D.s.decay;
+  var tb=$('#st tbody');tb.textContent='';
+  D.s.items.forEach(function(e){var tr=el('tr');
+    [e.metric,e.what,e.paper,null,e.note,e.source,e.model].forEach(function(c,i){var td=el('td');td.style.whiteSpace='normal';td.style.minWidth=i===1?'220px':'';
+      if(i===0)td.style.fontWeight=600;
+      if(i===3){var p=el('span','pill s-'+e.strength.replace(/ /g,''),e.strength);td.appendChild(p)}else td.textContent=c;
+      if(i===4||i===5)td.className='hide-s';tr.appendChild(td)});
+    tb.appendChild(tr)});
+}
+function drawBt(){
+  $('#btread').textContent=D.t.reading||'';
+  var tb=$('#bt_t tbody');tb.textContent='';var LB={overlap:'Overlap',flow:'Manager adds',combined:'Both'};
+  (D.t.rows||[]).forEach(function(r){var tr=el('tr');
+    [LB[r.signal]||r.signal,r.h,r.months,(r['mean_excess_%']>0?'+':'')+r['mean_excess_%']+'%',Math.round(r.hit_rate*100)+'% of months',r.mean_IC,r.t_nonoverlap].forEach(function(c,i){var td=el('td',i===3?(r['mean_excess_%']>0?'up':'dn'):null,c);tr.appendChild(td)});tb.appendChild(tr)});
+  var c=$('#btchart');c.textContent='';
+  var rows=(D.t.rows||[]).filter(function(r){return r.h===63});
+  if(rows.length){c.appendChild(el('b',null,'Average excess return over 63 trading days'));
+    var mx=Math.max.apply(null,rows.map(function(r){return Math.abs(r['mean_excess_%'])}).concat([1]));
+    rows.forEach(function(r){var x=el('div','xrow');x.appendChild(el('span',null,LB[r.signal]||r.signal));var t=el('div','track'),i=el('i');i.style.cssText='left:0;width:'+Math.abs(r['mean_excess_%'])/mx*100+'%;background:'+(r['mean_excess_%']>0?'var(--up)':'var(--dn)');t.appendChild(i);x.appendChild(t);x.appendChild(el('span','mut',r['mean_excess_%']+'%'));c.appendChild(x)})}
+  $('#btmeta').textContent=(D.t.filings?D.t.filings+' fund filings · ':'')+(D.t.updated?'last run '+D.t.updated:'');
+}
+})();
+</script>
+</body>
+</html>

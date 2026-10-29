@@ -150,5 +150,5 @@ if __name__ == "__main__":
     hist = load_history(ROOT / "data/holdings_history"); px = load_prices(ROOT / "data/prices")
     if not hist or px.empty: sys.exit("No history yet: run `python refresh.py --history` (needs internet) first.")
     summ = summarize(run(hist, px)); print(summ.to_string()); print("\nverdict at 63d:", verdict(summ))
-    summ.to_csv(ROOT / "data/backtest_summary.csv")
+    summ.rename_axis(["signal", "h"]).to_csv(ROOT / "data/backtest_summary.csv")
     print(__doc__.split("Known biases")[1].strip())

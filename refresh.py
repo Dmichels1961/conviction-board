@@ -268,6 +268,9 @@ def history_mode(today):
         log(f"prices: {len(list(pdir.glob('*.csv')))} files")
     except Exception as e: log(f"prices FAILED ({e})")
     subprocess.run([sys.executable, str(ROOT / "backtest.py")], cwd=ROOT)
+    try:
+        import build_site; build_site.main()
+    except Exception as e: log(f"site data FAILED ({e})")
     (ROOT / "data/history_run.log").write_text("\n".join(LOG))
 
 
@@ -278,6 +281,10 @@ def main():
     pool = pd.read_csv(ROOT / "data_web/holdings.csv").groupby("ticker").etf.nunique().loc[lambda s: s >= 2].index.tolist()
     refresh_prices(pool); refresh_revisions(pool, today); refresh_earnings(pool, os.environ.get("ALPHAVANTAGE_API_KEY", ""), today)
     rebuild(today, weekly)
+    try:
+        import build_site; build_site.main()
+    except Exception as e:
+        log(f"site data FAILED ({e})")
     (ROOT / "data/daily" / f"{today}.log").write_text("\n".join(LOG))
 
 
