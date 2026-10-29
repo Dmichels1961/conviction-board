@@ -4,7 +4,7 @@
   python refresh.py --weekly    same, then freezes the board into data/weeks/<Monday>/ (this drives the manager-flow signal)
   python refresh.py --selftest  offline checks of the parsers and diff logic (no network)
 
-Env: ALPHAVANTAGE_API_KEY (free key, 25 calls/day: used for the earnings calendar (1 call) and surprise history (rotating, ~20 names/day)).
+Env: SEC_USER_AGENT. Prices, consensus revisions and earnings (surprises, next report date) come from Yahoo via yfinance: free, no key.
 Every network step is wrapped: a failed source is logged and skipped, never fatal, and the previous value stays in place.
 """
 import csv, io, json, os, re, subprocess, sys, time, urllib.request
@@ -142,8 +142,8 @@ def refresh_revisions(pool, today):
         snaps = RV.snapshot(pool, today, log=log)
         r = RV.rev_30d(snaps, today)
         base = pd.read_csv(ROOT / "data_web/earnings_base.csv").set_index("ticker")
-        for c in ("rev_breadth", "rev_source"):
-            base[c] = base[c].astype(object) if c in base.columns else np.nan
+        base["rev_breadth"] = pd.to_numeric(base["rev_breadth"], errors="coerce") if "rev_breadth" in base.columns else np.nan
+        base["rev_source"] = base["rev_source"].astype(object) if "rev_source" in base.columns else pd.Series(None, index=base.index, dtype=object)
         for t, row in r.iterrows():
             if t in base.index:
                 base.loc[t, "rev_30d"] = round(row.rev_30d, 4); base.loc[t, "rev_breadth"] = row.rev_breadth; base.loc[t, "rev_source"] = row.rev_source
@@ -153,48 +153,64 @@ def refresh_revisions(pool, today):
         log(f"revisions FAILED ({e}); keeping previous values")
 
 
-# ---------------------------------------------------------------- earnings (Alpha Vantage, free key)
-AV = "https://www.alphavantage.co/query"
+# ---------------------------------------------------------------- earnings (Yahoo via yfinance, free, no key)
+def parse_earnings_dates(e, today, n=4):
+    """yfinance get_earnings_dates() frame -> (last n surprises oldest->newest as fractions, next report date or None, past event rows).
+    Surprise is taken from Yahoo's Surprise(%) column, or worked out from estimate vs reported EPS when that column is missing."""
+    if e is None or not len(e): return [], None, []
+    e = e.reset_index(); dcol = e.columns[0]
+    e["d"] = pd.to_datetime(e[dcol], utc=True).dt.tz_convert(None).dt.normalize()
+    act = pd.to_numeric(e.get("Reported EPS"), errors="coerce"); est = pd.to_numeric(e.get("EPS Estimate"), errors="coerce")
+    sur = pd.to_numeric(e["Surprise(%)"], errors="coerce") / 100 if "Surprise(%)" in e.columns else pd.Series(np.nan, index=e.index)
+    calc = (act - est) / est.abs().where(est.abs() > 0)
+    e["sur"] = sur.fillna(calc); e["act"] = act; e["est"] = est
+    past = e[e.act.notna() & (e.d <= pd.Timestamp(today))].sort_values("d")
+    fut = e[e.act.isna() & (e.d > pd.Timestamp(today) - pd.Timedelta(days=1))].sort_values("d")
+    s = [round(float(x), 4) for x in past.sur.dropna().tail(n)]
+    nxt = str(fut.d.iloc[0].date()) if len(fut) else None
+    rows = [dict(date=str(d), eps_est=a, eps_act=b, surprise_pct=None if pd.isna(x) else round(float(x) * 100, 4)) for d, a, b, x in zip(past.d, past.est, past.act, past.sur)]
+    return s, nxt, rows
 
 
-def av_json(params, key):
-    j = json.loads(get(AV + "?" + "&".join(f"{k}={v}" for k, v in params.items()) + f"&apikey={key}"))
-    if any(k in j for k in ("Note", "Information")) and "quarterlyEarnings" not in j: raise RuntimeError(list(j.values())[0][:120])
-    return j
+def due_for_earnings(pool, base, seen, today, stale_days=7):
+    """Names to refresh today: never done, refreshed over a week ago, or whose last known report date has now passed."""
+    out = []
+    for t in pool:
+        if t not in base.index: continue
+        last = seen.get(t); nxt = base.loc[t, "next_earnings"] if "next_earnings" in base.columns else None
+        if not last or (pd.Timestamp(today) - pd.Timestamp(last)).days >= stale_days: out.append(t); continue
+        if isinstance(nxt, str) and nxt and pd.Timestamp(last) <= pd.Timestamp(nxt) <= pd.Timestamp(today): out.append(t)
+    return sorted(out, key=lambda t: seen.get(t, ""))
 
 
-def surprises_from_av(j, n=4):
-    q = [x for x in j.get("quarterlyEarnings", []) if x.get("surprisePercent") not in (None, "None", "")][:n]
-    return [round(float(x["surprisePercent"]) / 100, 4) for x in reversed(q)]  # oldest -> newest
-
-
-def refresh_earnings(pool, key, today, per_day=22):
-    if not key: log("earnings: no ALPHAVANTAGE_API_KEY, skipped"); return
+def refresh_earnings(pool, today, cap=500, fetch=None, sleep=0.5):
+    """Surprise history (last 4 quarters), next report date and the event log, all from Yahoo. Replaces Alpha Vantage (daily cap too low)."""
+    if fetch is None:
+        import yfinance as yf
+        fetch = lambda t: yf.Ticker(t).get_earnings_dates(limit=12)
     base = pd.read_csv(ROOT / "data_web/earnings_base.csv").set_index("ticker")
-    try:  # one call: every expected report date for the next 3 months
-        cal = pd.read_csv(io.StringIO(get(f"{AV}?function=EARNINGS_CALENDAR&horizon=3month&apikey={key}")))
-        cal = cal.sort_values("reportDate").drop_duplicates("symbol")
-        for t, d in zip(cal.symbol, cal.reportDate):
-            t = norm_ticker(t)
-            if t in base.index: base.loc[t, "next_earnings"] = d
-        log(f"earnings calendar: {len(cal)} rows")
-    except Exception as e:
-        log(f"earnings calendar FAILED ({e})")
-    state = ROOT / "data/av_state.json"; seen = json.loads(state.read_text()) if state.exists() else {}
-    todo = sorted([t for t in pool if t in base.index], key=lambda t: seen.get(t, ""))[:per_day]
+    base["next_earnings"] = base["next_earnings"].astype(object) if "next_earnings" in base.columns else pd.Series(None, index=base.index, dtype=object)
+    state = ROOT / "data/yahoo_earnings_state.json"; seen = json.loads(state.read_text()) if state.exists() else {}
+    todo = due_for_earnings(pool, base, seen, today)[:cap]; ok = fail = 0; events = []
     for t in todo:
         try:
-            s = surprises_from_av(av_json({"function": "EARNINGS", "symbol": t}, key))
+            s, nxt, rows = parse_earnings_dates(fetch(t), today)
             if len(s) >= 2:
                 s = ([np.nan] * 4 + s)[-4:]
                 for i, v in enumerate(s): base.loc[t, f"s{i+1}"] = v
-            seen[t] = str(today)
+            if nxt: base.loc[t, "next_earnings"] = nxt
+            events += [dict(ticker=t, **r) for r in rows]
+            seen[t] = str(today); ok += 1
         except Exception as e:
-            log(f"earnings {t}: {e}")
-            if "rate" in str(e).lower() or "25" in str(e): break
-        time.sleep(2.0)
+            fail += 1; log(f"earnings {t}: {str(e)[:100]}")
+        if sleep: time.sleep(sleep)
     state.write_text(json.dumps(seen)); base.reset_index().to_csv(ROOT / "data_web/earnings_base.csv", index=False)
-    log(f"earnings surprises refreshed for {len(todo)} names")
+    if events:   # keep the event log current for the factor backtest (one row per ticker and report date)
+        p = ROOT / "data/earnings_events.csv"
+        old = pd.read_csv(p) if p.exists() else pd.DataFrame(columns=["ticker", "date", "eps_est", "eps_act", "surprise_pct"])
+        new = pd.DataFrame(events); old["date"] = pd.to_datetime(old.date, errors="coerce").dt.normalize().astype(str); new["date"] = pd.to_datetime(new.date).dt.normalize().astype(str)
+        pd.concat([old, new]).drop_duplicates(["ticker", "date"], keep="last").sort_values(["ticker", "date"]).to_csv(p, index=False)
+    log(f"earnings (Yahoo): {ok} names refreshed, {fail} failed, {len(todo)} due of {len(pool)}")
 
 
 # ---------------------------------------------------------------- rebuild + snapshot
@@ -306,7 +322,7 @@ def main():
     if "--history" in sys.argv: return history_mode(today)
     ok = refresh_holdings(today)
     pool = pd.read_csv(ROOT / "data_web/holdings.csv").groupby("ticker").etf.nunique().loc[lambda s: s >= 2].index.tolist()
-    refresh_prices(pool); refresh_revisions(pool, today); refresh_earnings(pool, os.environ.get("ALPHAVANTAGE_API_KEY", ""), today)
+    refresh_prices(pool); refresh_revisions(pool, today); refresh_earnings(pool, today)
     rebuild(today, weekly)
     try:
         import build_site; build_site.main()
@@ -315,13 +331,26 @@ def main():
     (ROOT / "data/daily" / f"{today}.log").write_text("\n".join(LOG))
 
 
+def earnings_selftest():
+    idx = pd.to_datetime(["2026-11-20", "2026-08-21", "2026-05-29", "2026-02-27", "2025-11-21"]).tz_localize("America/New_York")
+    e = pd.DataFrame({"EPS Estimate": [0.8, 0.6, 0.5, 0.4, 0.4], "Reported EPS": [np.nan, 0.66, 0.5, 0.5, 0.42], "Surprise(%)": [np.nan, 10.0, 0.0, 25.0, 5.0]}, index=idx)
+    s, nxt, rows = parse_earnings_dates(e, date(2026, 10, 29))
+    assert s == [0.05, 0.25, 0.0, 0.1] and nxt == "2026-11-20" and len(rows) == 4, (s, nxt)
+    s2, _, _ = parse_earnings_dates(e.drop(columns="Surprise(%)"), date(2026, 10, 29))   # column missing: work it out from EPS
+    assert abs(s2[-1] - 0.1) < 1e-9
+    base = pd.DataFrame({"next_earnings": ["2026-10-28", "2026-12-01", None]}, index=["A", "B", "C"])
+    due = due_for_earnings(["A", "B", "C", "Z"], base, {"A": "2026-10-27", "B": "2026-10-27"}, date(2026, 10, 29))
+    assert set(due) == {"A", "C"}, due    # A just reported, C never done, B fresh, Z not in base
+    print("earnings selftest ok")
+
+
 def selftest():
+    earnings_selftest()
     import edgar, revisions, backtest, form4; edgar.selftest(); revisions.selftest(); backtest.selftest(); form4.selftest(); import factor_backtest; factor_backtest.selftest()
     s = 'iShares\nFund Holdings as of,"Oct 21, 2026"\nTicker,Name,Sector,Asset Class,Market Value,Weight (%),Notional\nMU,MICRON,IT,Equity,1,6.05,1\nNVDA,NVIDIA,IT,Equity,1,5.66,1\nUSD,USD CASH,Cash,Cash,1,-0.03,1\nBRK.B,BERKSHIRE,F,Equity,1,2.0,1\nGOOG,ALPHABET,C,Equity,1,1.0,1\n'
     d = parse_holdings_csv(s); assert list(d.ticker) == ["BRK-B", "GOOGL", "MU", "NVDA"], d
     h = "<table><tr><th>Ticker</th><th>Weight %</th></tr><tr><td>NVDA</td><td>9.97%</td></tr><tr><td>AMD</td><td>5.83%</td></tr></table>"
     assert parse_holdings_html(h).weight.sum() > 15
-    assert surprises_from_av({"quarterlyEarnings": [{"surprisePercent": "5"}, {"surprisePercent": "None"}, {"surprisePercent": "-2"}]}) == [-0.02, 0.05]
     px = "Date,Open,High,Low,Close,Volume\n" + "\n".join(f"{d.date()},1,1,1,{100+i*0.1},1" for i, d in enumerate(pd.date_range("2025-01-01", periods=400)))
     st = price_stats(px); assert st and abs(st["off_high"]) < 1e-9 and st["mom_12_1"] > 0
     print("selftest ok")

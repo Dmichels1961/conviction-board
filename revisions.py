@@ -25,8 +25,8 @@ def fetch_one(t):
     rows = []
     for per in ("0y", "+1y"):
         if per not in tr.index: continue
-        up = rv.loc[per, "upLast30days"] if rv is not None and per in rv.index else np.nan
-        dn = rv.loc[per, "downLast30days"] if rv is not None and per in rv.index else np.nan
+        up = rv.loc[per].get("upLast30days", np.nan) if rv is not None and per in rv.index else np.nan     # missing for some foreign listings
+        dn = rv.loc[per].get("downLast30days", np.nan) if rv is not None and per in rv.index else np.nan
         na = np.nan
         try: na = tk.earnings_estimate.loc[per, "numberOfAnalysts"]
         except Exception: pass

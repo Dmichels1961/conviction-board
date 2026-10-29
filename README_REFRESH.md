@@ -2,7 +2,7 @@
 
 1. Create a GitHub repository and upload this folder (do NOT upload `.env`).
 2. Repo Settings, Secrets and variables, Actions: add secrets
-   - `ALPHAVANTAGE_API_KEY`  your free Alpha Vantage key (earnings calendar + surprise history, ~22 names/day)
+   - (no data keys needed: prices, estimate revisions and earnings surprises all come free from Yahoo)
    - `SEC_USER_AGENT`        e.g. `Your Name you@example.com` (SEC rejects requests without a contact)
 3. Actions tab, run "refresh-conviction-board" once by hand and read the log. Every source that fails is logged and skipped.
 4. After that it runs itself: weekdays 23:00 UTC (daily re-rank, `data/daily/<date>.csv`) and Mondays 14:30 UTC
