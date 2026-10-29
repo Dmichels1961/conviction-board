@@ -255,8 +255,8 @@ def compare(pan, ins, oos, cur):
     return out
 
 
-def paper_rules(pan, w, n=10, cap=None, cost=0.001):
-    """The paper portfolio's rules on history: main-board score, top 10 (no sector cap), equal weight, held two months
+def paper_rules(pan, w, n=5, cap=None, cost=0.001):
+    """The paper portfolio's rules on history: main-board score, top 5 (no sector cap), equal weight, held two months
     (rebalanced every other month-end, about 60 days), 0.10% cost per trade. Compared with SPY and QQQ held over the same windows."""
     rows, prev = [], set(); nav = spy = qqq = 1.0; series = []
     for j in range(0, len(pan) - 1, 2):
