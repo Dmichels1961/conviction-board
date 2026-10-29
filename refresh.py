@@ -243,6 +243,27 @@ def probe():
     (ROOT / "data/probe.txt").write_text("\n".join(out)); log("\n".join(out))
 
 
+def fetch_earnings_events(tickers, log=log, limit=16, cap=600):
+    """Past report dates with estimate, actual and surprise % from Yahoo, saved to data/earnings_events.csv (kept, never overwritten)."""
+    import yfinance as yf
+    p = ROOT / "data/earnings_events.csv"
+    old = pd.read_csv(p) if p.exists() else pd.DataFrame(columns=["ticker", "date", "eps_est", "eps_act", "surprise_pct"])
+    done = set(old.ticker); rows = []
+    for t in [x for x in tickers if x not in done][:cap]:
+        try:
+            e = yf.Ticker(t).get_earnings_dates(limit=limit)
+            if e is None or not len(e): continue
+            e = e.dropna(subset=["Reported EPS"]).reset_index()
+            dcol = e.columns[0]
+            rows += [dict(ticker=t, date=str(pd.Timestamp(d).tz_localize(None)) if pd.Timestamp(d).tzinfo is None else str(pd.Timestamp(d).tz_convert(None)),
+                          eps_est=a, eps_act=b, surprise_pct=s) for d, a, b, s in zip(e[dcol], e["EPS Estimate"], e["Reported EPS"], e["Surprise(%)"])]
+        except Exception as ex:
+            log(f"events {t}: {str(ex)[:80]}")
+        time.sleep(0.5)
+    if rows: old = pd.concat([old, pd.DataFrame(rows)], ignore_index=True)
+    old.to_csv(p, index=False); log(f"earnings events: {len(old)} rows for {old.ticker.nunique()} names")
+
+
 def history_mode(today):
     probe()
     """One-off (re-runnable): pull every fund's past N-PORT filings and daily prices for the backtest, then run it."""
@@ -255,6 +276,7 @@ def history_mode(today):
     for p in (ROOT / "data/holdings_history").glob("*/*.csv"):
         if p.name != "filed.csv": names |= set(pd.read_csv(p).ticker.astype(str))
     pdir = ROOT / "data/prices"; pdir.mkdir(parents=True, exist_ok=True)
+    names.add("SPY")
     todo = [t for t in sorted(names) if not ((pdir / f"{t}.csv").exists() and time.time() - (pdir / f"{t}.csv").stat().st_mtime < 7 * 86400)]
     try:    # Yahoo via yfinance (Stooq times out from GitHub's servers)
         import yfinance as yf
@@ -268,6 +290,11 @@ def history_mode(today):
         log(f"prices: {len(list(pdir.glob('*.csv')))} files")
     except Exception as e: log(f"prices FAILED ({e})")
     subprocess.run([sys.executable, str(ROOT / "backtest.py")], cwd=ROOT)
+    try:
+        pool = pd.read_csv(ROOT / "data_web/holdings.csv").groupby("ticker").etf.nunique().loc[lambda s: s >= 2].index.tolist()
+        fetch_earnings_events(pool)
+    except Exception as e: log(f"earnings events FAILED ({e})")
+    subprocess.run([sys.executable, str(ROOT / "factor_backtest.py")], cwd=ROOT)
     try:
         import build_site; build_site.main()
     except Exception as e: log(f"site data FAILED ({e})")
@@ -289,7 +316,7 @@ def main():
 
 
 def selftest():
-    import edgar, revisions, backtest, form4; edgar.selftest(); revisions.selftest(); backtest.selftest(); form4.selftest()
+    import edgar, revisions, backtest, form4; edgar.selftest(); revisions.selftest(); backtest.selftest(); form4.selftest(); import factor_backtest; factor_backtest.selftest()
     s = 'iShares\nFund Holdings as of,"Oct 21, 2026"\nTicker,Name,Sector,Asset Class,Market Value,Weight (%),Notional\nMU,MICRON,IT,Equity,1,6.05,1\nNVDA,NVIDIA,IT,Equity,1,5.66,1\nUSD,USD CASH,Cash,Cash,1,-0.03,1\nBRK.B,BERKSHIRE,F,Equity,1,2.0,1\nGOOG,ALPHABET,C,Equity,1,1.0,1\n'
     d = parse_holdings_csv(s); assert list(d.ticker) == ["BRK-B", "GOOGL", "MU", "NVDA"], d
     h = "<table><tr><th>Ticker</th><th>Weight %</th></tr><tr><td>NVDA</td><td>9.97%</td></tr><tr><td>AMD</td><td>5.83%</td></tr></table>"

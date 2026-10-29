@@ -79,6 +79,8 @@ input[type=search]{background:var(--bg);color:var(--fg);border:1px solid var(--l
       <h2>Public data that has historically predicted returns</h2>
       <p class="mut" style="margin:0">Every metric below is free to get. "Strength" is my own reading of the research, not a measured number. Whether it is in this model, and at what weight, is shown on the right.</p>
       <div class="note" id="decay"></div>
+      <div class="note" style="border-color:var(--acc)" id="ftest">Tests on our own stocks have not run yet.</div>
+      <div class="tw" style="max-height:none;margin-bottom:14px"><table id="ft" hidden><thead><tr><th>Signal</th><th>Hold (days)</th><th>Top fifth minus bottom fifth</th><th>Top fifth alone</th><th>Beat in</th><th>t-statistic</th><th>Periods</th><th>Result</th></tr></thead><tbody></tbody></table></div>
       <div class="tw" style="max-height:none"><table id="st"><thead><tr><th>Metric</th><th>What it says</th><th>Evidence</th><th>Strength</th><th class="hide-s">Caveat</th><th class="hide-s">Free source</th><th>In this model</th></tr></thead><tbody></tbody></table></div>
     </div>
   </section>
@@ -113,7 +115,7 @@ Array.prototype.forEach.call(document.querySelectorAll('.tabs button'),function(
 var h=location.hash.slice(1);if(['signals','bt'].indexOf(h)>=0)document.querySelector('[data-t='+h+']').click();
 
 function load(f){return fetch('data/'+f+'.json?'+Date.now()).then(function(r){if(!r.ok)throw new Error(f);return r.json()})}
-Promise.all([load('board'),load('signals'),load('backtest')]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
+Promise.all([load('board'),load('signals'),load('backtest'),load('factors').catch(function(){return null})]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];D.f=a[3];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
 
 function draw(){
   var m=D.b.meta;
@@ -180,7 +182,15 @@ function drawTable(){
   });
 }
 $('#q').oninput=drawTable;$('#all').onchange=drawTable;
+function drawFactors(){
+  var f=D.f;if(!f||!f.rows||!f.rows.length)return;
+  $('#ftest').textContent='Tested on our own universe: '+f.tickers+' stocks, prices '+f.first+' to '+f.last+(f.events?', '+f.events+' earnings reports':'')+'. Each month (or quarter, for earnings) the stocks are split into fifths by the signal and we compare the top fifth with the bottom fifth after 21 and 63 trading days, versus the S&P 500 ETF. A t-statistic above 2 is the usual bar. Stocks that stopped trading are missing, which flatters every result.';
+  var t=$('#ft');t.hidden=false;var tb=t.querySelector('tbody');tb.textContent='';
+  f.rows.forEach(function(r){var tr=el('tr');
+    [r.factor,r.h,(r.spread_pct>0?'+':'')+r.spread_pct+'%',(r.top_pct>0?'+':'')+r.top_pct+'%',Math.round(r.hit*100)+'% of periods',r.t,r.periods,r.verdict].forEach(function(c,i){var td=el('td',i===2?(r.spread_pct>0?'up':'dn'):null,c);if(i===0)td.style.fontWeight=600;if(i===7){td.textContent='';td.appendChild(el('span','pill s-'+(r.verdict==='Worked'?'Strong':r.verdict==='Reversed'?'Weak':'Moderate'),r.verdict))}tr.appendChild(td)});tb.appendChild(tr)});
+}
 function drawSignals(){
+  drawFactors();
   $('#decay').textContent=D.s.decay;
   var tb=$('#st tbody');tb.textContent='';
   D.s.items.forEach(function(e){var tr=el('tr');
