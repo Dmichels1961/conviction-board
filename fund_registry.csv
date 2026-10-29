@@ -38,3 +38,10 @@ ARKQ,ARK Invest,IWF,Autonomous / robotics,csv,https://assets.ark-funds.com/fund-
 ARKF,ARK Invest,IWF,Fintech,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_BLOCKCHAIN_&_FINTECH_INNOVATION_ETF_ARKF_HOLDINGS.csv
 ARKX,ARK Invest,SPY,Space / industrial innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_SPACE_&_DEFENSE_INNOVATION_ETF_ARKX_HOLDINGS.csv
 GTEK,Goldman Sachs,IWF,Tech / innovation,nport,
+ARKK,ARK Invest,IWF,Disruptive innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv
+ARKG,ARK Invest,IWF,Genomics,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv
+CGGO,Capital Group,IWF,Global growth,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cggo/download/daily-holdings?audience=advisor
+CGCV,Capital Group,SPY,US conservative equity,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgcv/download/daily-holdings?audience=advisor
+CGDG,Capital Group,SPY,Dividend growers,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgdg/download/daily-holdings?audience=advisor
+CGMM,Capital Group,SPY,US mid cap,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgmm/download/daily-holdings?audience=advisor
+CGBL,Capital Group,SPY,Balanced (equity sleeve),xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgbl/download/daily-holdings?audience=advisor

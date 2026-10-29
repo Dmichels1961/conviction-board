@@ -1,8 +1,9 @@
-holdings BAI: 38 rows, 82.8% of weight, as of 2026-10-29
-holdings ILDR: FAILED (no holdings table found); keeping previous list
-holdings CGGR: 95 rows, 99.9% of weight, as of 2026-08-31
-holdings CGUS: 67 rows, 100.0% of weight, as of 2026-08-31
-holdings CGDV: 53 rows, 99.9% of weight, as of 2026-08-31
+holdings BAI: 38 rows, 82.5% of weight, as of 2026-10-28
+holdings ILDR: daily file failed (no holdings table found); using SEC filing instead
+holdings ILDR: 81 rows, 99.8% of weight, as of 2026-08-31
+holdings CGGR: 95 rows, 98.5% of weight, as of 2026-10-28
+holdings CGUS: 67 rows, 100.0% of weight, as of 2026-10-28
+holdings CGDV: 54 rows, 100.2% of weight, as of 2026-10-28
 holdings AGTHX: FAILED (newest public N-PORT is 2026-05-31, too old); keeping previous list
 holdings TCHP: 65 rows, 99.7% of weight, as of 2026-06-30
 holdings TGRW: 80 rows, 99.8% of weight, as of 2026-06-30
@@ -32,51 +33,69 @@ holdings PRSCX: 108 rows, 90.5% of weight, as of 2026-06-30
 holdings SLMCX: 62 rows, 94.0% of weight, as of 2026-08-31
 holdings FBIOX: 171 rows, 97.6% of weight, as of 2026-08-31
 holdings FIDSX: 63 rows, 99.6% of weight, as of 2026-08-31
-holdings ARKW: 40 rows, 97.2% of weight, as of 2026-07-31
-holdings ARKQ: 39 rows, 99.6% of weight, as of 2026-07-31
-holdings ARKF: 38 rows, 97.0% of weight, as of 2026-07-31
-holdings ARKX: 34 rows, 99.8% of weight, as of 2026-07-31
+holdings ARKW: 34 rows, 90.5% of weight, as of 2026-10-29
+holdings ARKQ: 35 rows, 95.7% of weight, as of 2026-10-29
+holdings ARKF: 32 rows, 89.3% of weight, as of 2026-10-29
+holdings ARKX: 28 rows, 88.6% of weight, as of 2026-10-29
 holdings GTEK: 60 rows, 99.5% of weight, as of 2026-08-31
-prices: updated 619 names
+holdings ARKK: NEW FUND confirmed, 41 rows, as of 2026-10-29
+holdings ARKG: NEW FUND confirmed, 33 rows, as of 2026-10-29
+holdings CGGO: NEW FUND confirmed, 93 rows, as of 2026-10-28
+holdings CGCV: NEW FUND confirmed, 73 rows, as of 2026-10-28
+holdings CGDG: NEW FUND confirmed, 93 rows, as of 2026-10-28
+holdings CGMM: NEW FUND confirmed, 118 rows, as of 2026-10-28
+holdings CGBL: NEW FUND confirmed, 77 rows, as of 2026-10-28
+funds in the overlap analysis: 43 (16 on daily issuer files)
+fund returns (Yahoo): 48 funds and benchmarks
+prices: updated 644 names
 consensus ADTTF: 'current'
 consensus ASMXF: 'current'
 consensus BESVF: 'current'
 consensus BN: 'current'
-consensus BTAFF: 'current'
-consensus EADSF: 'current'
 consensus GDERF: 'current'
 consensus IDRSF: 'current'
 consensus KXHCF: 'current'
 consensus MHVYF: 'current'
 consensus RYCEF: 'current'
-consensus SLMT: 'current'
 consensus SSNLF: 'current'
 consensus UCBJF: 'current'
 consensus ZLDPF: 'current'
-consensus: 1274 rows for 699 names; history spans 1 days
-revisions: 635 names (0 from our own history); consensus growth: 637 names
-earnings (Yahoo): 500 names refreshed, 0 failed, 500 due of 699
-market reaction to reports: 551 names
+consensus: 1330 rows for 724 names; history spans 1 days
+revisions: 661 names (0 from our own history); consensus growth: 665 names
+earnings (Yahoo): 153 names refreshed, 0 failed, 153 due of 724
+market reaction to reports: 658 names
 info BRK/B: Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'descrip
-info ETHQ/U: Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'descrip
-short interest / beta / P/E (Yahoo): 258 names refreshed
+info GOOGL-6-1/4: Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'descrip
+info KKR-6-1/4-03: Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'descrip
+info MCHPP-7-1/2: Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'descrip
+short interest / beta / P/E (Yahoo): 256 names refreshed
 sec ATZAF: HTTP Error 404: Not Found
 sec BYDDF: HTTP Error 404: Not Found
-SEC fundamentals: 174 names refreshed, 24 not SEC filers
+sec GDERF: HTTP Error 404: Not Found
+sec KATJF: HTTP Error 404: Not Found
+sec KXHCF: HTTP Error 404: Not Found
+SEC fundamentals: 181 names refreshed, 14 not SEC filers
+form4 CNQ: HTTP Error 503: Service Unavailable
 insiders: time budget reached, rest continue tomorrow
-insiders (SEC Form 4): 88 names checked today, 88 covered, 8 with open-market buying
-coverage of 699 candidates (has value / updated within 7 days):
-  momentum: 619 / 619
-  EPS growth: 635 / 635
-  revisions: 635 / 635
-  sales growth: 636 / 635
-  surprises: 426 / 500
-  reaction: 551 / 551
-  short interest: 215 / 258
-  beta: 203 / 258
-  gross profitability: 99 / 174
-  accruals: 163 / 174
-  asset growth: 165 / 174
-  net issuance: 145 / 174
-  insider buying: 88 / 88
-ranked 380 names; top 10: MRVL, SPCX, INTC, AMD, MU, WDC, TSM, NET, AVGO, ANET
+insiders (SEC Form 4): 92 names checked today, 178 covered, 17 with open-market buying
+ivol: 652 names
+customer_mom: 32 names
+options skew (Yahoo): 175 names refreshed
+filing text similarity (SEC): 72 new comparisons
+coverage of 724 candidates (has value / updated within 7 days):
+  momentum: 644 / 644
+  EPS growth: 663 / 661
+  revisions: 661 / 661
+  sales growth: 664 / 661
+  surprises: 546 / 624
+  reaction: 658 / 658
+  short interest: 445 / 508
+  beta: 412 / 508
+  gross profitability: 199 / 352
+  accruals: 330 / 352
+  asset growth: 332 / 352
+  net issuance: 290 / 352
+  insider buying: 178 / 178
+ranked 399 names; top 10: WDC, MU, MRVL, INTC, FLEX, LRCX, STX, TSM, SPCX, BE
+point-in-time backtest: 59 months; out of sample 0.0161 per month vs pool, t = 1.11
+track record: 3 boards tracked; concentration: 6.3 effective bets, avg correlation 0.248
