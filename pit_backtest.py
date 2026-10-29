@@ -255,6 +255,37 @@ def compare(pan, ins, oos, cur):
     return out
 
 
+def paper_rules(pan, w, n=10, cap=3, cost=0.001):
+    """The paper portfolio's rules on history: main-board score, top 10 with at most 3 per sector, equal weight, held two months
+    (rebalanced every other month-end, about 60 days), 0.10% cost per trade. Compared with SPY and QQQ held over the same windows."""
+    rows, prev = [], set(); nav = spy = qqq = 1.0; series = []
+    for j in range(0, len(pan) - 1, 2):
+        T, d = pan[j]; T2, d2 = pan[j + 1]
+        s = sum(d[k] * v for k, v in w.items()).sort_values(ascending=False); out, per = [], {}
+        for t in s.index:
+            sec = d.loc[t, "sector"]
+            if sec != "Unknown" and per.get(sec, 0) >= cap: continue
+            out.append(t); per[sec] = per.get(sec, 0) + 1
+            if len(out) == n: break
+        r1 = d.loc[out, "fwd"]; r2 = d2["fwd"].reindex(out).fillna(d2["fwd"].mean())
+        port = float(((1 + r1) * (1 + r2) - 1).mean())
+        turn = len(set(out) - prev) / n if prev else 1.0; port -= 2 * turn * cost; prev = set(out)
+        b = lambda c: float((1 + d[c].iloc[0]) * (1 + d2[c].iloc[0]) - 1) if c in d.columns and pd.notna(d[c].iloc[0]) and pd.notna(d2[c].iloc[0]) else np.nan
+        rs, rq = b("fwd_spy"), b("fwd_qqq")
+        nav *= 1 + port; spy *= 1 + (rs if rs == rs else 0); qqq *= 1 + (rq if rq == rq else 0)
+        rows.append(dict(date=str(T.date()), port=port, spy=rs, qqq=rq)); series.append([str(T2.date()), round(nav, 4), round(spy, 4), round(qqq, 4)])
+    r = pd.DataFrame(rows)
+    if r.empty: return {}
+    tt = lambda x: float(x.mean() / (x.std(ddof=1) / np.sqrt(len(x)))) if len(x) > 2 and x.std(ddof=1) > 0 else np.nan
+    yrs = len(r) / 6; cum = pd.Series([v[1] for v in series]); dd = float((cum / cum.cummax() - 1).min())
+    es, eq = (r.port - r.spy).dropna(), (r.port - r.qqq).dropna()
+    return dict(periods=len(r), first=rows[0]["date"], last=series[-1][0], ann=round(nav ** (1 / yrs) - 1, 4), ann_spy=round(spy ** (1 / yrs) - 1, 4),
+                ann_qqq=round(qqq ** (1 / yrs) - 1, 4), total=round(nav - 1, 4), total_spy=round(spy - 1, 4), total_qqq=round(qqq - 1, 4),
+                t_spy=round(tt(es), 2), t_qqq=round(tt(eq), 2), hit_spy=round(float((es > 0).mean()), 2), hit_qqq=round(float((eq > 0).mean()), 2),
+                max_drawdown=round(dd, 4), series=series,
+                note="Two-month holding windows from month-end; history uses today's sector labels and only stocks still listed, so it is optimistic.")
+
+
 def run(hist, px, ev, managers=None):
     pan = panel(hist, px, ev, managers=managers)
     if len(pan) < 10: return dict(error=f"only {len(pan)} months of history; need 10+"), pan
@@ -283,7 +314,11 @@ def main():
     ev = pd.read_csv(ROOT / "data/earnings_events.csv"); ev["date"] = pd.to_datetime(ev.date, errors="coerce").dt.tz_localize(None).dt.normalize()
     ev = ev.dropna(subset=["date"])
     reg = pd.read_csv(ROOT / "fund_registry.csv"); managers = dict(zip(reg.etf, reg.manager))
-    res, _ = run(hist, px, ev, managers)
+    res, pan = run(hist, px, ev, managers)
+    try:
+        pr_ = paper_rules(pan, norm(CURRENT)); (ROOT / "data/paper").mkdir(parents=True, exist_ok=True)
+        (ROOT / "data/paper/backtest.json").write_text(json.dumps(pr_, default=str)); res["paper_rules"] = {k: v for k, v in pr_.items() if k != "series"}
+    except Exception as e: res["paper_rules_error"] = str(e)
     for p in (ROOT / "data/pit_backtest.json", ROOT / "docs/data/pit.json"):
         p.parent.mkdir(parents=True, exist_ok=True); p.write_text(json.dumps(res, default=str))
     return res
