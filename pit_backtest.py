@@ -1,7 +1,8 @@
 """Point-in-time backtest of the whole score: does the board's top 25 beat the pool and the S&P 500?
 
 Each month-end T the board is rebuilt using only what was public on T:
-  overlap    funds holding each stock, from the newest N-PORT filing FILED on or before T (not the period it covers)
+  overlap    best ideas: distinct managers holding each stock among a fund's 15 largest positions, from the newest N-PORT filing
+             FILED on or before T (not the period it covers). The pool is every stock 2+ funds hold.
   flow       initiations / adds minus trims / exits between each fund's last two filings public by T
   earnings   last 4 reported surprises (size, consistency) and the 2-day price reaction vs SPY, all dated on or before T
   momentum   12-month return excluding the latest month, from prices up to T
@@ -22,7 +23,18 @@ import pandas as pd
 import backtest as BT
 
 ROOT = Path(__file__).resolve().parent
-CURRENT = {"earnings": 50 * 0.36, "overlap": 30, "flow": 10, "momentum": 1}   # earnings: only the 18 of its 50 pts that have history
+CURRENT = {"earnings": 20, "overlap": 16, "flow": 5, "momentum": 5}   # earnings: only the 20 of its 60 pts that have history (surprise, consistency, reaction)
+BEST_N = 15
+
+
+def best_ideas_at(hist, T, managers):
+    """Distinct managers holding the stock among a fund's 15 largest positions, from filings public by T."""
+    by = {}
+    for fund, snaps in hist.items():
+        vis = [s for s in snaps if s[0] <= T]
+        if not vis: continue
+        for t in vis[-1][2].sort_values(ascending=False).index[:BEST_N]: by.setdefault(t, set()).add(managers.get(fund, fund))
+    return pd.Series({t: len(m) for t, m in by.items()}, dtype=float)
 
 
 def earnings_at(ev, px, T):
@@ -48,7 +60,7 @@ def pr(s):
     return s.rank(pct=True).fillna(0.5)
 
 
-def panel(hist, px, ev, start=None):
+def panel(hist, px, ev, start=None, managers=None):
     """Signal ranks for every rebalance month: list of (T, DataFrame[ticker -> earnings, overlap, flow, momentum, fwd, fwd_spy])."""
     dates = px.index
     rebal = pd.Series(dates, index=dates).groupby([dates.year, dates.month]).last().values
@@ -68,7 +80,7 @@ def panel(hist, px, ev, start=None):
         mom = px.iloc[i - 21][pool] / px.iloc[i - 252][pool] - 1
         d = pd.DataFrame(index=pool)
         d["earnings"] = pd.concat([pr(e.surprise), pr(e.sue), pr(e.beats), pr(e.reaction)], axis=1).mean(axis=1) if len(e.columns) else 0.5
-        d["overlap"] = pr(ov.reindex(pool)); d["flow"] = pr(fl.reindex(pool).fillna(0)); d["momentum"] = pr(mom)
+        d["overlap"] = pr(best_ideas_at(hist, T, managers or {}).reindex(pool).fillna(0)); d["flow"] = pr(fl.reindex(pool).fillna(0)); d["momentum"] = pr(mom)
         d["fwd"] = fwd[pool]; d["fwd_spy"] = float(px["SPY"].iloc[i + 21] / px["SPY"].iloc[i] - 1)
         d["has_earn"] = e.surprise.notna().values if len(e.columns) else False
         out.append((T, d))
@@ -110,8 +122,8 @@ def norm(w):
     t = sum(w.values()); return {k: round(v / t, 3) for k, v in w.items()}
 
 
-def run(hist, px, ev):
-    pan = panel(hist, px, ev)
+def run(hist, px, ev, managers=None):
+    pan = panel(hist, px, ev, managers=managers)
     if len(pan) < 10: return dict(error=f"only {len(pan)} months of history; need 10+"), pan
     cut = int(len(pan) * 0.6); ins, oos = pan[:cut], pan[cut:]
     tried = []
@@ -135,7 +147,8 @@ def main():
     hist = BT.load_history(ROOT / "data/holdings_history"); px = BT.load_prices(ROOT / "data/prices")
     ev = pd.read_csv(ROOT / "data/earnings_events.csv"); ev["date"] = pd.to_datetime(ev.date, errors="coerce").dt.tz_localize(None).dt.normalize()
     ev = ev.dropna(subset=["date"])
-    res, _ = run(hist, px, ev)
+    reg = pd.read_csv(ROOT / "fund_registry.csv"); managers = dict(zip(reg.etf, reg.manager))
+    res, _ = run(hist, px, ev, managers)
     for p in (ROOT / "data/pit_backtest.json", ROOT / "docs/data/pit.json"):
         p.parent.mkdir(parents=True, exist_ok=True); p.write_text(json.dumps(res, default=str))
     return res

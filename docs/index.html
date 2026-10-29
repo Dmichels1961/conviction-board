@@ -98,6 +98,12 @@ input[type=search]{background:var(--bg);color:var(--fg);border:1px solid var(--l
       <p class="mut" id="trnote"></p>
     </div>
     <div class="card">
+      <h2>Which signals are earning their weight</h2>
+      <p class="mut" style="margin:0 0 8px">Each signal's own top 25 on every board, measured against the pool from that day to now. This is how manager flow earns more weight.</p>
+      <div class="tw" style="max-height:none"><table id="sct"><thead><tr><th>Signal</th><th>Boards</th><th>Average vs pool</th><th>Beat the pool</th></tr></thead><tbody></tbody></table></div>
+      <div class="note" id="flowrule"></div>
+    </div>
+    <div class="card">
       <h2>Post-mortems</h2>
       <p class="mut" style="margin:0 0 8px">Picks running more than 5 points behind the S&amp;P 500, what put them on the board, and where they rank now.</p>
       <div class="tw" style="max-height:none"><table id="pmt"><thead><tr><th>Ticker</th><th>Board</th><th>Return</th><th>vs S&amp;P</th><th>Picked mainly on</th><th>Rank then</th><th>Rank now</th></tr></thead><tbody></tbody></table></div>
@@ -275,6 +281,9 @@ function drawTrack(){
   var tb=$('#trt tbody');tb.textContent='';
   T.cohorts.forEach(function(r){var tr=el('tr');var cells=[r.date+(r.label==='early board'?' (early)':''),r.days,pct(r.top25),pct(r.spy),pct(r.pool),r.beat_spy+' of '+r.n,r.best.map(function(b){return b[0]+' '+pct(b[1],0)}).join(', '),r.worst.map(function(b){return b[0]+' '+pct(b[1],0)}).join(', ')];
     cells.forEach(function(v,i){var td=el('td',i===2?(r.top25>=r.spy?'up':'dn'):(i>5?'hide-s':null),v);tr.appendChild(td)});tb.appendChild(tr)});
+  var sb=$('#sct tbody');sb.textContent='';(T.scorecard||[]).forEach(function(r){var tr=el('tr');[r.signal,r.boards,pct(r.avg_vs_pool),r.beat_pool+' of '+r.boards].forEach(function(v,i){var td=el('td',i===2?(r.avg_vs_pool>=0?'up':'dn'):null,v);if(i===0)td.style.fontWeight=600;tr.appendChild(td)});sb.appendChild(tr)});
+  if(!(T.scorecard||[]).length){var tr0=el('tr'),td0=el('td','mut','Appears once boards carry signal scores.');td0.colSpan=4;tr0.appendChild(td0);sb.appendChild(tr0)}
+  $('#flowrule').textContent=T.flow_rule||'';
   $('#trnote').textContent=T.note+' A few weeks of results say very little; judge this after six months or more.';
   var pb=$('#pmt tbody');pb.textContent='';
   if(!(T.postmortems||[]).length){var tr=el('tr'),td=el('td','mut','No pick is more than 5 points behind the S&P 500 yet.');td.colSpan=7;tr.appendChild(td);pb.appendChild(tr)}

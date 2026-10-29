@@ -20,6 +20,11 @@ GROUPS = {"Earnings": ["earn_growth", "earn_surprise", "earn_consistency", "earn
           "Manager overlap": ["breadth", "active_weight"], "Manager flow": ["flow"]}
 
 
+SHADOW = {"Earnings": "earn_score", "Best-ideas overlap": "sig_breadth", "Manager flow": "sig_flow", "Momentum": "sig_momentum"}
+FLOW_RULE = ("Flow now runs on daily holdings for part of the fund list. Raise its weight from 5 to 10 points once its own top 25 has beaten "
+             "the pool on at least two thirds of weekly boards over three months or more; cut it to 0 if it trails over six months.")
+
+
 def cohorts():
     """[(date, label, ranking frame with every name scored that day)], oldest first."""
     out = []
@@ -62,7 +67,12 @@ def track(closes, latest_rank, today):
         if not names: continue
         ret = lambda ts: (closes[ts].iloc[last] / closes[ts].iloc[i0] - 1)
         tr = ret(names); pr = ret(pool); sr = float(spy.iloc[last] / spy.iloc[i0] - 1)
-        res.append(dict(date=d, label=lab, days=int(last - i0), n=len(names), top25=round(float(tr.mean()), 4), pool=round(float(pr.mean()), 4), spy=round(sr, 4),
+        sig = {}
+        for name, col in SHADOW.items():               # each signal's own top 25 that day, to see which signals are earning their weight
+            if col in r.columns and r[col].notna().sum() >= 50 and r[col].nunique() > 5:
+                pk = [t for t in r.sort_values(col, ascending=False).ticker if t in closes.columns][:25]
+                if pk: sig[name] = round(float(ret(pk).mean() - pr.mean()), 4)
+        res.append(dict(date=d, label=lab, days=int(last - i0), n=len(names), top25=round(float(tr.mean()), 4), pool=round(float(pr.mean()), 4), spy=round(sr, 4), by_signal=sig,
                         beat_spy=int((tr > sr).sum()), best=[[t, round(float(v), 4)] for t, v in tr.sort_values().tail(3)[::-1].items()],
                         worst=[[t, round(float(v), 4)] for t, v in tr.sort_values().head(3).items()]))
         for t, v in tr.items():
@@ -85,7 +95,11 @@ def track(closes, latest_rank, today):
                     v *= 1 + float(g[held].mean()); p *= 1 + float(g[pool].mean()); s *= 1 + float(g["SPY"])
                 nav.append([str(dt.date()), round(v, 4), round(s, 4), round(p, 4)])
     post.sort(key=lambda x: x["vs_spy"])
-    return dict(cohorts=res[::-1], nav=nav, postmortems=post[:30], asof=str(today),
+    card = []
+    for name in SHADOW:
+        v = [c["by_signal"][name] for c in res if name in c.get("by_signal", {})]
+        if v: card.append(dict(signal=name, boards=len(v), avg_vs_pool=round(float(np.mean(v)), 4), beat_pool=int(sum(x > 0 for x in v))))
+    return dict(cohorts=res[::-1], nav=nav, postmortems=post[:30], scorecard=card, flow_rule=FLOW_RULE, asof=str(today),
                 note="Equal weight, no costs, prices to the latest close. Early boards were made while the model was still being built.")
 
 

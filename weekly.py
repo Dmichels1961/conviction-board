@@ -37,32 +37,32 @@ HERE = Path(__file__).parent
 SIGNALS = [
     ("flow", "Manager flow", "Manager flow", 5,
      "Net adds/initiations minus trims/exits by skilled active ETFs since last week (drift-adjusted, skill-weighted)"),
-    ("earn_growth", "Fwd EPS growth", "Earnings", 9, "Consensus EPS growth, next fiscal year (Yahoo, daily)"),
+    ("earn_growth", "Fwd EPS growth", "Earnings", 11, "Consensus EPS growth, next fiscal year (Yahoo, daily)"),
     ("earn_dispersion", "Analyst agreement", "Earnings", 1, "Narrow range of analysts' next-year EPS estimates scores higher (Diether, Malloy & Scherbina 2002)"),
-    ("earn_surprise", "Beat size", "Earnings", 8,
+    ("earn_surprise", "Beat size", "Earnings", 10,
      "Average EPS surprise over last 4 quarters (capped at 50%), blended with a standardized surprise (average beat / its variability)"),
-    ("earn_consistency", "Beat consistency", "Earnings", 5, "Share of last 4 quarters that beat consensus"),
-    ("earn_revisions", "Estimate revisions", "Earnings", 12, "30-day change in consensus EPS (current and next fiscal year, Yahoo)"),
-    ("earn_accel", "Growth acceleration", "Earnings", 4, "Next-year EPS growth minus this year's: is growth speeding up?"),
-    ("earn_sales", "Sales strength", "Earnings", 4, "Consensus revenue growth next year, blended with the average revenue beat over 4 quarters"),
-    ("earn_reaction", "Market reaction", "Earnings", 3, "Average 2-day move vs SPY after the last 4 reports: did the market believe the beat?"),
+    ("earn_consistency", "Beat consistency", "Earnings", 6, "Share of last 4 quarters that beat consensus"),
+    ("earn_revisions", "Estimate revisions", "Earnings", 14, "30-day change in consensus EPS (current and next fiscal year, Yahoo)"),
+    ("earn_accel", "Growth acceleration", "Earnings", 5, "Next-year EPS growth minus this year's: is growth speeding up?"),
+    ("earn_sales", "Sales strength", "Earnings", 5, "Consensus revenue growth next year, blended with the average revenue beat over 4 quarters"),
+    ("earn_reaction", "Market reaction", "Earnings", 4, "Average 2-day move vs SPY after the last 4 reports: did the market believe the beat?"),
     ("earn_guidance", "Guidance", "Earnings", 4, "Raised / maintained / lowered guidance at the last report, adjusted for guide vs consensus"),
-    ("breadth", "Manager overlap", "Overlap", 24,
-     "Distinct active-fund managers holding it. Scales with the count (most overlap = 100); funds that have not beaten their benchmark count at half"),
-    ("active_weight", "Active weight", "Overlap", 6, "Average weight above the benchmark (an active bet, not index beta)"),
+    ("breadth", "Best-ideas overlap", "Overlap", 16,
+     "Distinct managers holding it as one of a fund's 15 largest positions (most = 100); managers that have not beaten their benchmark count at half"),
+    ("active_weight", "Active weight", "Overlap", 4, "Average weight above the benchmark (an active bet, not index beta)"),
+    ("momentum", "Momentum 12-1", "Momentum", 5, "12-month price return excluding the latest month"),
     ("profitability", "Gross profitability", "Fundamentals", 2, "Trailing-12-month gross profit / total assets (Novy-Marx 2013; SEC filings)"),
-    ("accruals", "Earnings quality", "Fundamentals", 2, "Low accruals: net income backed by operating cash flow, scaled by assets (Sloan 1996; SEC filings)"),
-    ("asset_growth", "Asset growth", "Fundamentals", 1, "Slower year-over-year balance-sheet growth scores higher (Cooper, Gulen & Schill 2008; SEC filings)"),
+    ("accruals", "Earnings quality", "Fundamentals", 1.5, "Low accruals: net income backed by operating cash flow, scaled by assets (Sloan 1996; SEC filings)"),
     ("issuance", "Net share issuance", "Fundamentals", 1, "Share count shrinking (buybacks) scores higher, dilution lower (Pontiff & Woodgate 2008; SEC filings)"),
     ("crowding", "Short interest", "Fundamentals", 1, "Lower short interest and falling short interest score higher"),
-    ("filing_sim", "Filing changes", "Market signals", 2, "Latest 10-K/10-Q worded much like a year earlier scores higher; big rewrites score lower (Cohen, Malloy & Nguyen 2020)"),
+    ("insider", "Insider buying", "Fundamentals", 0.5, "Distinct insiders making open-market purchases in the last 90 days (SEC Form 4, code P); 3 or more = full score"),
+    ("asset_growth", "Asset growth", "Fundamentals", 0, "Slower balance-sheet growth scores higher (Cooper, Gulen & Schill 2008; off: weak lately)"),
+    ("filing_sim", "Filing changes", "Market signals", 1.5, "Latest 10-K/10-Q worded much like a year earlier scores higher; big rewrites score lower (Cohen, Malloy & Nguyen 2020)"),
     ("put_skew", "Options skew", "Market signals", 1, "Cheap downside protection (low put skew) scores higher (Xing, Zhang & Zhao 2010)"),
-    ("customer_mom", "Customer momentum", "Market signals", 1, "Main customers' last-month return and capital-spending growth, for suppliers (Cohen & Frazzini 2008)"),
+    ("customer_mom", "Customer momentum", "Market signals", 0.5, "Main customers' last-month return and capital-spending growth, for suppliers (Cohen & Frazzini 2008)"),
     ("ivol", "Low volatility", "Market signals", 1, "Lower idiosyncratic volatility scores higher (Ang, Hodrick, Xing & Zhang 2006)"),
-    ("momentum", "Momentum 12-1", "Other", 1, "12-month price return excluding the latest month"),
-    ("insider", "Insider buying", "Other", 1, "Distinct insiders making open-market purchases in the last 90 days (SEC Form 4, code P); 3 or more = full score"),
-    ("valuation", "Valuation", "Other", 0.5, "Forward P/E relative to growth (PEG) and free-cash-flow yield; deliberately light"),
-    ("theme", "Structural theme", "Other", 0.5, "Tailwind score (0-3) from themes.csv, e.g. the AI build-out chain"),
+    ("valuation", "Valuation", "Other", 0, "Forward P/E relative to growth (PEG) and free-cash-flow yield (off)"),
+    ("theme", "Structural theme", "Other", 0, "Tailwind score (0-3) from themes.csv (off: shown on the board, not scored)"),
     ("quality", "Quality", "Other", 0, "Retired: replaced by gross profitability, accruals and issuance"),
     ("beta", "Beta", "Other", 0, "Beta 1.0 or below scores 100, falling to 0 at beta 2.0 (off)"),
     ("analyst_drift", "Analyst drift", "Other", 0, "Change in mean price target over 3 months (off: targets follow prices)"),
@@ -81,6 +81,7 @@ class Config(S.Config):
     gaap_surprise_cap: float = 0.05  # GAAP-only reporters: beat size is capped at 5% so they cannot out-beat adjusted reporters
     min_beats: int = 2               # sanity gate only; beat quality is scored
     min_fwd_growth: float = 0.0
+    best_n: int = 15                 # a fund's top-N positions count as its best ideas
     flow_min_abs: float = 0.15       # pts of weight: ignore smaller changes
     flow_min_rel: float = 0.08       # ...and changes under 8% of the position
     flow_full: float = 2.0           # a 2-pt weight change = full-strength signal
@@ -185,6 +186,21 @@ def compute_flow(skilled: pd.DataFrame, cur: pd.DataFrame, prev: pd.DataFrame, c
 
 
 # =====================  signals & scoring  =====================
+def best_ideas(skilled, holdings, cfg) -> pd.DataFrame:
+    """Best-ideas overlap: distinct managers holding the stock among a fund's top `best_n` positions by weight, skill-weighted
+    (a manager that has not beaten its benchmark counts at cfg.unskilled_mult). One manager counts once however many of its funds agree.
+    Backtest 2024-26: top-15 overlap beat counting every holder about two to four times over (Cohen, Polk & Silli 2010)."""
+    by_mgr = {}
+    for _, f in skilled.iterrows():
+        h = holdings.get(f["etf"])
+        if h is None or h.empty: continue
+        top = h.sort_values("weight", ascending=False)["ticker"].head(cfg.best_n)
+        w = float(f.get("ir", 1.0))
+        for t in top: by_mgr.setdefault(t, {})[f["manager"]] = max(by_mgr.get(t, {}).get(f["manager"], 0.0), w)
+    return pd.DataFrame([dict(ticker=t, best_raw=sum(m.values()), n_best=len(m)) for t, m in by_mgr.items()],
+                        columns=["ticker", "best_raw", "n_best"])
+
+
 def _pr(s, higher=True) -> pd.Series:
     s = pd.to_numeric(s, errors="coerce")
     r = s.rank(pct=True, method="average") * 100
@@ -237,7 +253,7 @@ def score_signals(df: pd.DataFrame, cfg: Config, flow_available: bool) -> pd.Dat
     sig["earn_accel"] = _pr(df["fwd_growth"] - df["cur_growth"])
     sig["earn_consistency"] = _pr(df["beats"] / df["n_q"].clip(lower=1))
     sig["earn_revisions"] = _pr(df["rev_30d"])
-    sig["breadth"] = 100 * df["overlap_raw"] / df["overlap_raw"].max()
+    sig["breadth"] = (100 * df["best_raw"] / df["best_raw"].max()) if "best_raw" in df.columns and df["best_raw"].max() > 0 else 100 * df["overlap_raw"] / df["overlap_raw"].max()
     sig["active_weight"] = _pr(df["avg_active_weight"])
     sig["momentum"] = _pr(df["mom_12_1"])
     sig["earn_sales"] = pd.concat([_pr(df["rev_growth"]), _pr(df["rev_surprise"])], axis=1).mean(axis=1)
@@ -360,6 +376,8 @@ def run_week(provider, universe, cfg: Config, themes: pd.DataFrame, prev_hold, l
     if ov.empty:
         return dict(skill=skill, cur=cur, events=events, all=pd.DataFrame(), ranking=pd.DataFrame(),
                     flow_available=flow_available, partial=partial, spy=px.get("SPY"))
+    ov = ov.merge(best_ideas(skilled, holdings, cfg), on="ticker", how="left")
+    ov["best_raw"] = ov["best_raw"].fillna(0.0); ov["n_best"] = ov["n_best"].fillna(0).astype(int)
     ov = ov.merge(fagg, on="ticker", how="left")
     ov["flow_raw"] = ov["flow_raw"].fillna(0.0)
     ov["n_adds"] = ov["n_adds"].fillna(0).astype(int)
