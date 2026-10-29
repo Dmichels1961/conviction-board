@@ -210,7 +210,28 @@ def rebuild(today, weekly):
     return rk
 
 
+def probe():
+    """Record what each free source answers from the runner (status, size, first bytes) in data/probe.txt, so failures are visible."""
+    import edgar as EG, urllib.error
+    out = []
+    tests = [("sec browse by ticker", "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=CGGR&type=NPORT-P&dateb=&owner=include&count=5&output=atom", True),
+             ("sec browse by ticker (MF)", "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=FCNTX&type=NPORT-P&dateb=&owner=include&count=5&output=atom", True),
+             ("sec mf ticker map", "https://www.sec.gov/files/company_tickers_mf.json", True),
+             ("sec submissions", "https://data.sec.gov/submissions/CIK0000024238.json", True),
+             ("stooq", "https://stooq.com/q/d/l/?s=aapl.us&i=d", False), ("openfigi", "https://api.openfigi.com/v3/mapping", False),
+             ("ishares csv", "https://www.ishares.com/us/products/339081/ishares-a-i-innovation-and-tech-active-etf/latest-holdings.csv", False)]
+    for name, url, sec in tests:
+        try:
+            r = EG._get(url) if sec else get(url)
+            out.append(f"{name}: OK {len(r)} bytes :: {r[:160]!r}")
+        except urllib.error.HTTPError as e: out.append(f"{name}: HTTP {e.code} {e.reason}")
+        except Exception as e: out.append(f"{name}: {type(e).__name__} {e}")
+    out.append(f"SEC_UA set: {bool(os.environ.get('SEC_USER_AGENT'))}")
+    (ROOT / "data/probe.txt").write_text("\n".join(out)); log("\n".join(out))
+
+
 def history_mode(today):
+    probe()
     """One-off (re-runnable): pull every fund's past N-PORT filings and daily prices for the backtest, then run it."""
     import edgar as EG, subprocess
     reg = pd.read_csv(ROOT / "fund_registry.csv")
@@ -227,6 +248,7 @@ def history_mode(today):
         except Exception as e: log(f"prices {t}: {e}")
         time.sleep(0.3)
     subprocess.run([sys.executable, str(ROOT / "backtest.py")], cwd=ROOT)
+    (ROOT / "data/history_run.log").write_text("\n".join(LOG))
 
 
 def main():
