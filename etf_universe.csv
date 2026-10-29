@@ -45,3 +45,12 @@ CGCV,Capital Group,SPY,US conservative equity
 CGDG,Capital Group,SPY,Dividend growers
 CGMM,Capital Group,SPY,US mid cap
 CGBL,Capital Group,SPY,Balanced (equity sleeve)
+VSOIX,Victory Capital,IWN,US small value (MF)
+VEVIX,Victory Capital,IWS,US mid value (MF)
+HWSIX,Hotchkis & Wiley,IWN,US small value (MF)
+HRTVX,Heartland Advisors,IWN,US small value (MF)
+ASVIX,American Century,IWN,US small value (MF)
+JVTIX,Janus Henderson,IWO,US small growth (MF)
+LSSIX,Natixis / Loomis,IWO,US small growth (MF)
+PRDMX,T. Rowe Price,IWP,US mid growth (MF)
+TMSL,T. Rowe Price,SMMD,US small-mid core

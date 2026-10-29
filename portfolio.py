@@ -26,6 +26,7 @@ FLOW_RULE = ("Flow now runs on daily holdings for part of the fund list. Raise i
 
 
 RC_N = 40
+V2_START = "2026-10-30"     # small/mid fund universe added; the pre-registered 12-month test restarts here
 
 
 def betas(closes, i0, names, days=252):
@@ -51,14 +52,14 @@ def emerging_track(closes):
 def cohorts():
     """[(date, label, ranking frame with every name scored that day)], oldest first."""
     out = []
-    for path, d, lab in [(ROOT / "data_web/ranking_2026_10_15.csv", "2026-10-15", "early board"),
-                         (ROOT / "data/daily/2026-10-22.csv", "2026-10-22", "early board")]:
+    for path, d, lab in [(ROOT / "data_web/ranking_2026_10_15.csv", "2026-10-15", "pre-v2 board"),
+                         (ROOT / "data/daily/2026-10-22.csv", "2026-10-22", "pre-v2 board")]:
         if path.exists(): out.append((d, lab, pd.read_csv(path)))
     wd = ROOT / "data/weeks"
     if wd.exists():
         for w in sorted(p for p in wd.iterdir() if p.is_dir()):
             f = w / "ranking_all.csv" if (w / "ranking_all.csv").exists() else w / "ranking.csv"
-            if f.exists(): out.append((w.name, "weekly board", pd.read_csv(f)))
+            if f.exists(): out.append((w.name, "weekly board" if w.name >= V2_START else "pre-v2 board", pd.read_csv(f)))
     out = sorted({d: (d, l, r) for d, l, r in out}.values(), key=lambda x: x[0])
     for _, _, r in out:
         if "rank" not in r.columns: r["rank"] = r["score"].rank(ascending=False, method="first") if "score" in r.columns else np.arange(1, len(r) + 1)

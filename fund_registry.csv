@@ -45,3 +45,12 @@ CGCV,Capital Group,SPY,US conservative equity,xlsx,https://www.capitalgroup.com/
 CGDG,Capital Group,SPY,Dividend growers,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgdg/download/daily-holdings?audience=advisor
 CGMM,Capital Group,SPY,US mid cap,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgmm/download/daily-holdings?audience=advisor
 CGBL,Capital Group,SPY,Balanced (equity sleeve),xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgbl/download/daily-holdings?audience=advisor
+VSOIX,Victory Capital,IWN,US small value (MF),nport,
+VEVIX,Victory Capital,IWS,US mid value (MF),nport,
+HWSIX,Hotchkis & Wiley,IWN,US small value (MF),nport,
+HRTVX,Heartland Advisors,IWN,US small value (MF),nport,
+ASVIX,American Century,IWN,US small value (MF),nport,
+JVTIX,Janus Henderson,IWO,US small growth (MF),nport,
+LSSIX,Natixis / Loomis,IWO,US small growth (MF),nport,
+PRDMX,T. Rowe Price,IWP,US mid growth (MF),nport,
+TMSL,T. Rowe Price,SMMD,US small-mid core,nport,
