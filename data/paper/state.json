@@ -1,0 +1,99 @@
+{
+ "start": "2026-10-29",
+ "cash": 0.10000000001309672,
+ "positions": {
+  "MU": {
+   "shares": 21.385680351837188,
+   "cost_basis": 934.27001953125,
+   "entry_date": "2026-10-29",
+   "last": 934.27001953125
+  },
+  "WDC": {
+   "shares": 50.52982932893513,
+   "cost_basis": 395.4100036621094,
+   "entry_date": "2026-10-29",
+   "last": 395.4100036621094
+  },
+  "INTC": {
+   "shares": 217.00879837325763,
+   "cost_basis": 92.06999969482422,
+   "entry_date": "2026-10-29",
+   "last": 92.06999969482422
+  },
+  "MRVL": {
+   "shares": 91.50865775906712,
+   "cost_basis": 218.33999633789062,
+   "entry_date": "2026-10-29",
+   "last": 218.33999633789062
+  },
+  "FLEX": {
+   "shares": 214.6771254487403,
+   "cost_basis": 93.06999969482422,
+   "entry_date": "2026-10-29",
+   "last": 93.06999969482422
+  }
+ },
+ "trades": [
+  {
+   "date": "2026-10-29",
+   "ticker": "MU",
+   "action": "buy",
+   "shares": 21.3857,
+   "price": 934.27,
+   "value": 19980.0,
+   "gain": null
+  },
+  {
+   "date": "2026-10-29",
+   "ticker": "WDC",
+   "action": "buy",
+   "shares": 50.5298,
+   "price": 395.41,
+   "value": 19980.0,
+   "gain": null
+  },
+  {
+   "date": "2026-10-29",
+   "ticker": "INTC",
+   "action": "buy",
+   "shares": 217.0088,
+   "price": 92.07,
+   "value": 19980.0,
+   "gain": null
+  },
+  {
+   "date": "2026-10-29",
+   "ticker": "MRVL",
+   "action": "buy",
+   "shares": 91.5087,
+   "price": 218.34,
+   "value": 19980.0,
+   "gain": null
+  },
+  {
+   "date": "2026-10-29",
+   "ticker": "FLEX",
+   "action": "buy",
+   "shares": 214.6771,
+   "price": 93.07,
+   "value": 19980.0,
+   "gain": null
+  }
+ ],
+ "nav": [
+  [
+   "2026-10-29",
+   99900.1,
+   100000.0,
+   100000.0
+  ]
+ ],
+ "realized": 0.0,
+ "costs": 99.9,
+ "bench_start": {
+  "SPY": 769.489990234375,
+  "QQQ": 715.3400268554688
+ },
+ "last_rebalance": "2026-10-29",
+ "next_rebalance": "2026-12-28"
+}
