@@ -370,6 +370,7 @@ def rebuild(today, weekly):
     prev = sorted(f for f in (ROOT / "data/daily").glob("20??-??-??.csv") if f.stem < str(today))   # sell discipline: yesterday's board
     if prev:
         pb = pd.read_csv(prev[-1]); cfg.prev_board = tuple(pb[pb["rank"] <= cfg.top_n].ticker) if "rank" in pb.columns else ()
+        cfg.prev_rc_board = tuple(pb[pb["rc_rank"] <= W.RC_N].ticker) if "rc_rank" in pb.columns else ()
     ddir = ROOT / "data" if weekly else Path(tempfile.mkdtemp())
     res = W.generate(prov, pd.read_csv(ROOT / "etf_universe.csv"), cfg, W.load_themes(), today, force=weekly, ddir=ddir, log=lambda *a: None)
     rk = res["all"].copy()
@@ -467,17 +468,31 @@ def history_mode(today):
         try: return pd.read_csv(f, nrows=1, parse_dates=["Date"]).Date.iloc[0] <= pd.Timestamp("2019-01-31")
         except Exception: return False
     todo = [t for t in sorted(names) if not fresh_enough(t)]
-    try:    # Yahoo via yfinance (Stooq times out from GitHub's servers)
-        import yfinance as yf
-        for k in range(0, len(todo), 100):
-            b = todo[k:k + 100]
-            d = yf.download(b, period="8y", interval="1d", auto_adjust=True, progress=False, threads=True)["Close"]
-            if len(b) == 1: d = d.to_frame(b[0]) if hasattr(d, "to_frame") else d
+    # Yahoo via yfinance (Stooq times out from GitHub's servers). Batches of 50, slowed down; anything a batch misses is retried
+    # one ticker at a time, and the coverage is logged so a partial download cannot pass unnoticed.
+    import yfinance as yf
+    def save(t, s):
+        s = s.dropna()
+        if len(s) > 100: s.rename("Close").rename_axis("Date").reset_index().to_csv(pdir / f"{t}.csv", index=False); return True
+        return False
+    got, missed = set(), []
+    for k in range(0, len(todo), 50):
+        b = todo[k:k + 50]
+        try:
+            d = yf.download(b, period="8y", interval="1d", auto_adjust=True, progress=False, threads=False)["Close"]
+            if not hasattr(d, "columns"): d = d.to_frame(b[0])
             for t in b:
-                if t in d.columns and d[t].notna().sum() > 100:
-                    d[[t]].dropna().rename(columns={t: "Close"}).rename_axis("Date").reset_index().to_csv(pdir / f"{t}.csv", index=False)
-        log(f"prices: {len(list(pdir.glob('*.csv')))} files")
-    except Exception as e: log(f"prices FAILED ({e})")
+                if t in d.columns and save(t, d[t]): got.add(t)
+        except Exception as e: log(f"prices batch {k}: {str(e)[:80]}")
+        missed += [t for t in b if t not in got]; time.sleep(2)
+    for t in missed:
+        try:
+            d = yf.download(t, period="8y", interval="1d", auto_adjust=True, progress=False)["Close"]
+            if save(t, d.squeeze() if hasattr(d, "squeeze") else d): got.add(t)
+        except Exception: pass
+        time.sleep(0.5)
+    early = sum(1 for f in pdir.glob("*.csv") if pd.read_csv(f, nrows=1).Date.iloc[0] <= "2019-01-31")
+    log(f"prices: {len(got)} of {len(todo)} downloaded; {early} of {len(list(pdir.glob('*.csv')))} files reach back to January 2019")
     subprocess.run([sys.executable, str(ROOT / "backtest.py")], cwd=ROOT)
     try:
         pool = pd.read_csv(ROOT / "data_web/holdings.csv").groupby("ticker").etf.nunique().loc[lambda s: s >= 2].index.tolist()

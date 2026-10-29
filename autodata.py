@@ -64,7 +64,7 @@ def info_fields(info):
                 name=info.get("shortName") or info.get("longName"), sector=info.get("sector"), industry=info.get("industry"))
 
 
-def refresh_info(a, pool, today, log=print, cap=260, fetch=None, sleep=0.35):
+def refresh_info(a, pool, today, log=print, cap=420, fetch=None, sleep=0.35):
     if fetch is None:
         import yfinance as yf
         fetch = lambda t: yf.Ticker(t).info

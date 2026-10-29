@@ -25,6 +25,15 @@ FLOW_RULE = ("Flow now runs on daily holdings for part of the fund list. Raise i
              "the pool on at least two thirds of weekly boards over three months or more; cut it to 0 if it trails over six months.")
 
 
+RC_N = 40
+
+
+def betas(closes, i0, names, days=252):
+    """Each stock's beta to the S&P 500 over the year before the board date (point in time)."""
+    r = closes.iloc[max(0, i0 - days):i0 + 1][[n for n in names if n in closes.columns] + ["SPY"]].pct_change().iloc[1:]
+    m = r["SPY"]; return (r.drop(columns="SPY").apply(lambda c: c.cov(m)) / m.var()).clip(0, 3)
+
+
 def cohorts():
     """[(date, label, ranking frame with every name scored that day)], oldest first."""
     out = []
@@ -67,12 +76,17 @@ def track(closes, latest_rank, today):
         if not names: continue
         ret = lambda ts: (closes[ts].iloc[last] / closes[ts].iloc[i0] - 1)
         tr = ret(names); pr = ret(pool); sr = float(spy.iloc[last] / spy.iloc[i0] - 1)
+        beta = betas(closes, i0, pool)
+        adj = lambda ts: float((ret(ts) - beta.reindex(ts).fillna(1.0) * sr).mean())     # return left after the market's move x beta
+        rc_names = [t for t in r[r["rc_rank"] <= RC_N].ticker if t in closes.columns] if "rc_rank" in r.columns else []
+        rc = dict(rc40=round(float(ret(rc_names).mean()), 4), rc40_adj=round(adj(rc_names) - adj(pool), 4)) if rc_names else {}
         sig = {}
         for name, col in SHADOW.items():               # each signal's own top 25 that day, to see which signals are earning their weight
             if col in r.columns and r[col].notna().sum() >= 50 and r[col].nunique() > 5:
                 pk = [t for t in r.sort_values(col, ascending=False).ticker if t in closes.columns][:25]
                 if pk: sig[name] = round(float(ret(pk).mean() - pr.mean()), 4)
         res.append(dict(date=d, label=lab, days=int(last - i0), n=len(names), top25=round(float(tr.mean()), 4), pool=round(float(pr.mean()), 4), spy=round(sr, 4), by_signal=sig,
+                        top25_adj=round(adj(names) - adj(pool), 4), **rc,
                         beat_spy=int((tr > sr).sum()), best=[[t, round(float(v), 4)] for t, v in tr.sort_values().tail(3)[::-1].items()],
                         worst=[[t, round(float(v), 4)] for t, v in tr.sort_values().head(3).items()]))
         for t, v in tr.items():
@@ -85,22 +99,25 @@ def track(closes, latest_rank, today):
     if cs:
         start = _entry_idx(closes, cs[0][0])
         if start is not None:
-            v = s = p = 1.0; held = pool = None; ci = 0
+            v = s = p = q = 1.0; held = pool = rcb = None; ci = 0
             for i in range(start, len(closes)):
                 dt = closes.index[i]
                 while ci < len(cs) and pd.Timestamp(cs[ci][0]) <= dt:
-                    rr = cs[ci][2]; held = [t for t in rr[rr["rank"] <= 25].ticker if t in closes.columns]; pool = [t for t in rr.ticker if t in closes.columns]; ci += 1
+                    rr = cs[ci][2]; held = [t for t in rr[rr["rank"] <= 25].ticker if t in closes.columns]; pool = [t for t in rr.ticker if t in closes.columns]
+                    if "rc_rank" in rr.columns: rcb = [t for t in rr[rr["rc_rank"] <= RC_N].ticker if t in closes.columns] or rcb
+                    ci += 1
                 if i > start and held:
                     g = closes.iloc[i] / closes.iloc[i - 1] - 1
                     v *= 1 + float(g[held].mean()); p *= 1 + float(g[pool].mean()); s *= 1 + float(g["SPY"])
-                nav.append([str(dt.date()), round(v, 4), round(s, 4), round(p, 4)])
+                    if rcb: q *= 1 + float(g[rcb].mean())
+                nav.append([str(dt.date()), round(v, 4), round(s, 4), round(p, 4), round(q, 4) if rcb else None])
     post.sort(key=lambda x: x["vs_spy"])
     card = []
     for name in SHADOW:
         v = [c["by_signal"][name] for c in res if name in c.get("by_signal", {})]
         if v: card.append(dict(signal=name, boards=len(v), avg_vs_pool=round(float(np.mean(v)), 4), beat_pool=int(sum(x > 0 for x in v))))
     return dict(cohorts=res[::-1], nav=nav, postmortems=post[:30], scorecard=card, flow_rule=FLOW_RULE, asof=str(today),
-                note="Equal weight, no costs, prices to the latest close. Early boards were made while the model was still being built.")
+                note="Equal weight, no costs, prices to the latest close. Beta-adjusted = return left after the S&P 500's move times each stock's beta, against the same for the pool. Early boards were made while the model was still being built.")
 
 
 def concentration(rk, closes, auto, today):

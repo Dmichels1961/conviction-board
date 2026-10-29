@@ -80,7 +80,7 @@ def main():
     for d, ff in fs[-30:]:
         r = pd.read_csv(ff, usecols=["ticker", "rank"])
         for t, k in zip(r.ticker, r["rank"]): hist.setdefault(t, []).append([d.strftime("%Y-%m-%d"), int(k)])
-    keep = ["rank", "ticker", "name", "score", "bucket", "data_coverage", "n_managers", "n_etfs", "fwd_growth", "avg_surprise", "rev_30d", "days_to_earnings", "mom_12_1", "beta", "fwd_pe",
+    keep = ["rank", "rc_rank", "rc_score", "held_by_buffer", "ticker", "name", "score", "bucket", "data_coverage", "n_managers", "n_etfs", "fwd_growth", "avg_surprise", "rev_30d", "days_to_earnings", "mom_12_1", "beta", "fwd_pe",
             "insider_buyers", "gaap_only", "bucket_capped", "thesis", "drivers", "rank_p10", "rank_p90", "p_top10", "score_raw"]
     keep = [c for c in keep if c in cur.columns]
     rows = []

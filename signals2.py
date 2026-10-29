@@ -45,6 +45,20 @@ def ivol(closes, days=252):
     return out
 
 
+def resmom(closes, days=252, skip=21):
+    """Residual momentum (Blitz, Huij & Martens 2011): sum of daily returns left after removing the S&P 500's move, over months 12 to 2,
+    divided by their volatility. Less crash-prone than plain momentum and less tied to the market's direction."""
+    if "SPY" not in closes.columns or len(closes) < days + 1: return {}
+    r = closes.iloc[-days - 1:].pct_change().iloc[1:]; m = r["SPY"]; out = {}
+    for t in r.columns:
+        if t == "SPY": continue
+        y = r[t]; ok = y.notna() & m.notna()
+        if ok.sum() < 200: continue
+        b = np.polyfit(m[ok], y[ok], 1); res = (y - np.polyval(b, m)).where(ok).iloc[:-skip].dropna()
+        if len(res) > 150: out[t] = float(res.sum() / res.std()) if res.std() > 1e-4 else 0.0   # no stock-specific movement: no signal
+    return out
+
+
 # ----------------------------------------------------------------- customer momentum (from closes + SEC capex)
 def customer_mom(closes, capex):
     out = {}
@@ -147,7 +161,7 @@ def refresh_filings(a, pool, today, log=print, cap=120, budget_s=600):
 
 # ----------------------------------------------------------------- run all
 def refresh(a, pool, today, closes, log=print):
-    for name, fn in [("ivol", lambda: ivol(closes)), ("customer_mom", lambda: customer_mom(closes, a["capex_growth"].dropna().to_dict() if "capex_growth" in a.columns else {}))]:
+    for name, fn in [("ivol", lambda: ivol(closes)), ("resmom", lambda: resmom(closes)), ("customer_mom", lambda: customer_mom(closes, a["capex_growth"].dropna().to_dict() if "capex_growth" in a.columns else {}))]:
         try:
             v = fn(); [AD.setv(a, t, name, round(x, 4)) for t, x in v.items() if t in a.index]; log(f"{name}: {len(v)} names")
         except Exception as e: log(f"{name} FAILED ({e})")
@@ -170,7 +184,8 @@ def selftest():
     assert abs(skew_from_chain(calls, puts, 100) - 0.15) < 1e-9
     idx = pd.bdate_range("2025-01-01", periods=300); rng = np.random.default_rng(0); m = rng.normal(0, 0.01, 300)
     cl = pd.DataFrame({"SPY": 100 * np.cumprod(1 + m), "X": 100 * np.cumprod(1 + 1.5 * m + rng.normal(0, 0.02, 300)), "MSFT": 100 * np.cumprod(1 + m)}, index=idx)
-    v = ivol(cl); assert 0.25 < v["X"] < 0.4, v                           # 2% daily idiosyncratic noise is about 32% a year
+    v = ivol(cl); assert 0.25 < v["X"] < 0.4, v
+    rm = resmom(cl); assert "X" in rm and rm["MSFT"] == 0.0, rm                           # 2% daily idiosyncratic noise is about 32% a year
     cm = customer_mom(cl.assign(GOOGL=cl.MSFT, AMZN=cl.MSFT, META=cl.MSFT, ORCL=cl.MSFT), {"MSFT": 0.4}); assert "VRT" in cm
     print("signals2 selftest ok")
 

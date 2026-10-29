@@ -65,6 +65,39 @@ MACRO = Path(__file__).resolve().parent / "data/macro/hy_oas.csv"
 _OAS = None
 
 
+def _sector():
+    p = Path(__file__).resolve().parent / "data_web/auto.csv"
+    try:
+        a = pd.read_csv(p); return a.set_index("ticker")["sector"] if "sector" in a.columns else pd.Series(dtype=str)
+    except Exception: return pd.Series(dtype=str)
+
+
+SECTOR = _sector()      # today's sector labels (sectors rarely change; a small, stated approximation)
+
+
+def active_best_at(hist, T, managers):
+    """Active-weight best ideas: managers holding the stock among a fund's 15 largest weights above the peer consensus weight."""
+    snaps = {}
+    for f, s in hist.items():
+        vis = [x for x in s if x[0] <= T]
+        if vis: snaps[f] = vis[-1][2]
+    if not snaps: return pd.Series(dtype=float)
+    W = pd.DataFrame(snaps).fillna(0.0); cons = W.mean(axis=1); by = {}
+    for f in W.columns:
+        for t in (W[f] - cons)[W[f] > 0].sort_values(ascending=False).index[:BEST_N]: by.setdefault(t, set()).add(managers.get(f, f))
+    return pd.Series({t: len(m) for t, m in by.items()}, dtype=float)
+
+
+RC_LOWVOL, RC_N, RC_EXIT = 0.05, 40, 55
+
+
+def rc_score(d, w):
+    """Risk-controlled board score: each signal ranked within its sector, residual momentum, active-weight best ideas, 5% low volatility."""
+    x = d.assign(overlap=d["abi"], momentum=d["resmom"])
+    ww = {k: v * (1 - RC_LOWVOL) / sum(w.values()) for k, v in w.items()}; ww["lowvol"] = RC_LOWVOL
+    return sum(v * x.groupby("sector")[k].rank(pct=True).fillna(0.5) for k, v in ww.items())
+
+
 def regime_at(px, i, T):
     """Risk-off when the S&P 500 is below its 200-day average, or high-yield credit spreads (FRED BAMLH0A0HYM2) have widened by more
     than 0.75 points over three months. Both are standard, free stress gauges; only data up to T is used."""
@@ -95,6 +128,7 @@ def panel(hist, px, ev, start=None, managers=None):
         if start is not None and T < start: continue
         i = dates.get_loc(T)
         if i + 21 >= len(dates) or i < 252: continue
+        if pd.isna(px["SPY"].iloc[i - 252]) or pd.isna(px["SPY"].iloc[i + 21]): continue   # data guard: needs a full year of S&P prices
         ov, fl = BT.scores_at(hist, T)
         pool = [t for t in ov[ov >= 2].index if t in px.columns]
         if len(pool) < 60: continue
@@ -104,14 +138,20 @@ def panel(hist, px, ev, start=None, managers=None):
         e = earnings_at(ev, px, T).reindex(pool)
         mom = px.iloc[i - 21][pool] / px.iloc[i - 252][pool] - 1
         d = pd.DataFrame(index=pool)
-        d["earnings_old"] = pd.concat([pr(e.surprise), pr(e.sue), pr(e.beats), pr(e.reaction)], axis=1).mean(axis=1) if len(e.columns) else 0.5
-        # fresh earnings: the latest report counts double, scaled down as it ages (full weight for 60 days, a quarter after 180)
-        d["earnings"] = pd.concat([pr(e.surprise), pr(e.sue), pr(e.beats), pr(e.reaction), pr(e.fresh), pr(e.fresh)], axis=1).mean(axis=1) if len(e.columns) else 0.5
+        d["earnings"] = pd.concat([pr(e.surprise), pr(e.sue), pr(e.beats), pr(e.reaction)], axis=1).mean(axis=1) if len(e.columns) else 0.5
+        # fresh-weighted version kept for comparison only (the audit found it weaker on rank correlation)
+        d["earnings_fresh"] = pd.concat([pr(e.surprise), pr(e.sue), pr(e.beats), pr(e.reaction), pr(e.fresh), pr(e.fresh)], axis=1).mean(axis=1) if len(e.columns) else 0.5
         r1 = px.iloc[i - 252:i + 1][pool + ["SPY"]].pct_change().iloc[1:]
         beta_ = r1[pool].apply(lambda c: c.cov(r1["SPY"])) / r1["SPY"].var()
-        d["lowvol"] = pr(-(r1[pool] - np.outer(r1["SPY"], beta_)).std())               # low idiosyncratic volatility, past year
+        resid = r1[pool] - np.outer(r1["SPY"], beta_)
+        d["lowvol"] = pr(-resid.std())                                                     # low idiosyncratic volatility, past year
+        rr = resid.iloc[:-21]; d["resmom"] = pr(rr.sum() / rr.std().where(rr.std() > 1e-4))   # residual momentum, months 12 to 2
+        d["beta"] = beta_.clip(0, 3)
+        d["abi"] = pr(active_best_at(hist, T, managers or {}).reindex(pool).fillna(0))     # active-weight best ideas
+        d["sector"] = SECTOR.reindex(pool).fillna("Unknown").values
         d["overlap"] = pr(best_ideas_at(hist, T, managers or {}).reindex(pool).fillna(0)); d["flow"] = pr(fl.reindex(pool).fillna(0)); d["momentum"] = pr(mom)
         d["fwd"] = fwd[pool]; d["fwd_spy"] = float(px["SPY"].iloc[i + 21] / px["SPY"].iloc[i] - 1)
+        d["fwd_res"] = d["fwd"] - d["beta"] * d["fwd_spy"]                                 # return left after the market's move x beta
         f = lambda t: float(px[t].iloc[i + 21] / px[t].iloc[i] - 1) if t in px.columns and pd.notna(px[t].iloc[i]) else np.nan
         mq = mom.rank(pct=True)
         d.attrs["factors"] = dict(mkt=f("SPY"), growth=f("IWF") - f("SPY") if "IWD" not in px.columns else f("IWF") - f("IWD"),
@@ -125,12 +165,12 @@ def panel(hist, px, ev, start=None, managers=None):
 RISK_OFF = {"earnings": 0.4, "overlap": 0.3, "flow": 0.05, "momentum": 0.0, "lowvol": 0.25}
 
 
-def evaluate(pan, w, top_n=25, exit_rank=None, regime=None):
+def evaluate(pan, w, top_n=25, exit_rank=None, regime=None, score_fn=None):
     """exit_rank: sell discipline. Names already held stay while they rank exit_rank or better; new names enter only in the top_n."""
     rows, prev = [], set()
     for T, d in pan:
         ww = regime if (regime and d.attrs.get("risk_off")) else w
-        s = sum(d[k] * v for k, v in ww.items())
+        s = score_fn(d, ww) if score_fn else sum(d[k] * v for k, v in ww.items())
         order = list(s.sort_values(ascending=False).index)
         if exit_rank and prev:
             keep = [t for t in order[:exit_rank] if t in prev][:top_n]
@@ -139,7 +179,10 @@ def evaluate(pan, w, top_n=25, exit_rank=None, regime=None):
             pick = order[:top_n]
         top, pool = d.loc[pick, "fwd"].mean(), d["fwd"].mean()
         ic = s.rank().corr(d["fwd"].rank())
-        rows.append(dict(date=T, top=top, pool=pool, spy=d["fwd_spy"].iloc[0], ex_pool=top - pool, ex_spy=top - d["fwd_spy"].iloc[0], ic=ic,
+        res = d.loc[pick, "fwd_res"].mean() - d["fwd_res"].mean() if "fwd_res" in d.columns else np.nan
+        ic_res = s.rank().corr(d["fwd_res"].rank()) if "fwd_res" in d.columns else np.nan
+        beta_top = d.loc[pick, "beta"].mean() if "beta" in d.columns else np.nan
+        rows.append(dict(date=T, top=top, pool=pool, spy=d["fwd_spy"].iloc[0], ex_pool=top - pool, ex_spy=top - d["fwd_spy"].iloc[0], ic=ic, ex_adj=res, ic_res=ic_res, beta_top=beta_top,
                          risk_off=d.attrs.get("risk_off", False), **d.attrs.get("factors", {}),
                          turnover=(len(set(pick) - prev) / top_n) if prev else np.nan))
         prev = set(pick)
@@ -154,7 +197,13 @@ def stats(r):
                 ex_pool_month=round(float(r.ex_pool.mean()), 4), ex_spy_month=round(float(r.ex_spy.mean()), 4),
                 ex_pool_ann=round(float((1 + r.ex_pool.mean()) ** 12 - 1), 4), hit_pool=round(float((r.ex_pool > 0).mean()), 2),
                 hit_spy=round(float((r.ex_spy > 0).mean()), 2), t_pool=round(t(r.ex_pool), 2), t_spy=round(t(r.ex_spy), 2),
-                ic=round(float(r.ic.mean()), 3), max_dd_vs_pool=round(dd, 4), turnover=round(float(r.turnover.mean()), 2) if r.turnover.notna().any() else None)
+                ic=round(float(r.ic.mean()), 3), max_dd_vs_pool=round(dd, 4), turnover=round(float(r.turnover.mean()), 2) if r.turnover.notna().any() else None,
+                ex_adj_month=round(float(r.ex_adj.mean()), 4) if "ex_adj" in r and r.ex_adj.notna().any() else None,
+                t_adj=round(t(r.ex_adj.dropna()), 2) if "ex_adj" in r and r.ex_adj.notna().sum() > 2 else None,
+                ir_adj=round(float(r.ex_adj.mean() / r.ex_adj.std() * np.sqrt(12)), 2) if "ex_adj" in r and r.ex_adj.notna().sum() > 2 else None,
+                t_ic=round(t(r.ic.dropna()), 2), ic_res=round(float(r.ic_res.mean()), 3) if "ic_res" in r else None,
+                t_ic_res=round(t(r.ic_res.dropna()), 2) if "ic_res" in r and r.ic_res.notna().sum() > 2 else None,
+                beta=round(float(r.beta_top.mean()), 2) if "beta_top" in r and r.beta_top.notna().any() else None)
 
 
 def alpha(r):
@@ -186,13 +235,14 @@ def norm(w):
 
 
 def compare(pan, ins, oos, cur):
-    """The model before today's changes, with fresh earnings, and with fresh earnings plus the regime switch: return, alpha, risk."""
-    old = {**cur}; old["earnings_old"] = old.pop("earnings")
-    v = {"Before (earnings without freshness)": (old, None), "Fresh earnings": (cur, None), "Fresh earnings + regime switch": (cur, {**RISK_OFF})}
+    """Main board (top 25) and the risk-controlled board (top 40): raw and beta-adjusted return, rank correlation, alpha, risk."""
+    fresh = {**cur}; fresh["earnings_fresh"] = fresh.pop("earnings")
+    v = {"Main board (25)": (cur, None, 25, EXIT), "Risk-controlled board (40)": (cur, rc_score, RC_N, RC_EXIT),
+         "Main board with fresh-weighted earnings": (fresh, None, 25, EXIT)}
     out = {}
-    for name, (w, reg) in v.items():
-        rf = evaluate(pan, w, exit_rank=EXIT, regime=reg); ro = evaluate(oos, w, exit_rank=EXIT, regime=reg)
-        ri = evaluate(ins, w, exit_rank=EXIT, regime=reg)
+    for name, (w, fn, n, ex) in v.items():
+        reg = None
+        rf = evaluate(pan, w, n, ex, score_fn=fn); ro = evaluate(oos, w, n, ex, score_fn=fn); ri = evaluate(ins, w, n, ex, score_fn=fn)
         off = rf[rf.risk_off] if "risk_off" in rf.columns else rf.iloc[:0]
         out[name] = dict(full=stats(rf), in_sample=stats(ri), out_of_sample=stats(ro), alpha=alpha(rf),
                          risk_off=dict(months=len(off), top=round(float(off.top.mean()), 4) if len(off) else None,

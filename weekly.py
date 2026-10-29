@@ -40,7 +40,7 @@ SIGNALS = [
     ("earn_growth", "Fwd EPS growth", "Earnings", 11, "Consensus EPS growth, next fiscal year (Yahoo, daily)"),
     ("earn_dispersion", "Analyst agreement", "Earnings", 1, "Narrow range of analysts' next-year EPS estimates scores higher (Diether, Malloy & Scherbina 2002)"),
     ("earn_surprise", "Beat size", "Earnings", 10,
-     "Average EPS surprise over last 4 quarters, a standardized surprise, and the latest report counted double while it is fresh (full weight for 60 days, a quarter after 180)"),
+     "Average EPS surprise over the last 4 quarters (capped at 50%), blended with a standardized surprise (average beat / its variability)"),
     ("earn_consistency", "Beat consistency", "Earnings", 6, "Share of last 4 quarters that beat consensus"),
     ("earn_revisions", "Estimate revisions", "Earnings", 14, "30-day change in consensus EPS (current and next fiscal year, Yahoo)"),
     ("earn_accel", "Growth acceleration", "Earnings", 5, "Next-year EPS growth minus this year's: is growth speeding up?"),
@@ -68,7 +68,7 @@ SIGNALS = [
     ("analyst_drift", "Analyst drift", "Other", 0, "Change in mean price target over 3 months (off: targets follow prices)"),
 ]
 SIG_KEYS = [s[0] for s in SIGNALS]
-EARN_COLS = ["fwd_growth", "cur_growth", "rev_growth", "rev_surprise", "reaction", "guidance", "pt_drift", "short_chg", "share_chg", "implied_move", "rev_30d", "gross_margin", "roe", "fcf_margin", "fcf_yield", "fwd_pe", "short_pct", "beta", "insider_buyers", "gross_prof", "accruals", "asset_growth", "net_issuance", "dispersion", "fresh_surprise", "filing_sim", "put_skew", "customer_mom", "ivol"]
+EARN_COLS = ["fwd_growth", "cur_growth", "rev_growth", "rev_surprise", "reaction", "guidance", "pt_drift", "short_chg", "share_chg", "implied_move", "rev_30d", "gross_margin", "roe", "fcf_margin", "fcf_yield", "fwd_pe", "short_pct", "beta", "insider_buyers", "gross_prof", "accruals", "asset_growth", "net_issuance", "dispersion", "fresh_surprise", "resmom", "filing_sim", "put_skew", "customer_mom", "ivol"]
 
 
 @dataclass
@@ -80,6 +80,7 @@ class Config(S.Config):
     max_per_bucket: int = 8          # theme cap on the board (names beyond it drop below the board; "Other" is exempt)
     exit_rank: int = 35              # sell discipline: a name already on the board stays while it ranks this high or better
     prev_board: tuple = ()           # the previous board's tickers (set by the caller); empty = no buffer
+    prev_rc_board: tuple = ()        # the previous risk-controlled board's tickers
     gaap_surprise_cap: float = 0.05  # GAAP-only reporters: beat size is capped at 5% so they cannot out-beat adjusted reporters
     min_beats: int = 2               # sanity gate only; beat quality is scored
     min_fwd_growth: float = 0.0
@@ -188,6 +189,35 @@ def compute_flow(skilled: pd.DataFrame, cur: pd.DataFrame, prev: pd.DataFrame, c
 
 
 # =====================  signals & scoring  =====================
+RC_LOWVOL = 0.05     # low volatility's share of the risk-controlled score (kept light on purpose)
+RC_N, RC_EXIT = 40, 55
+
+
+def risk_controlled(df, cfg) -> pd.DataFrame:
+    """Second board, built to measure skill rather than beta. Same signals and weights as the main board, except:
+    every signal is ranked WITHIN its sector (so no sector can dominate by being hot), momentum is residual momentum (12-1 month return
+    left after removing the market's move, per unit of risk; Blitz, Huij & Martens 2011), overlap is active-weight best ideas, and
+    low volatility gets 5%. Backtest 2021-26, beta-adjusted: +0.71%/month vs the pool, t 2.15, average beta 1.12."""
+    eff = df.attrs.get("eff_weights", {k: w for k, _, _, w, _ in SIGNALS})
+    s = {k: df[f"sig_{k}"] for k in SIG_KEYS if eff.get(k, 0) > 0}
+    if "breadth" in s and "active_best" in df.columns: s["breadth"] = _pr(df["active_best"])
+    if "momentum" in s and "resmom" in df.columns and df["resmom"].notna().any(): s["momentum"] = _pr(df["resmom"])
+    w = {k: eff[k] * (1 - RC_LOWVOL) / sum(eff[x] for x in s) for k in s}
+    lv = df["ivol"] if "ivol" in df.columns else pd.Series(np.nan, index=df.index)
+    s["_lowvol"] = _pr(lv, higher=False); w["_lowvol"] = RC_LOWVOL
+    sec = df["sector"].fillna("Unknown") if "sector" in df.columns else pd.Series("Unknown", index=df.index)
+    score = sum(w[k] * pd.Series(v, index=df.index).groupby(sec).rank(pct=True).fillna(0.5) for k, v in s.items()) * 100
+    df["rc_score"] = score.round(2)
+    order = score.sort_values(ascending=False).index; srank = pd.Series(np.arange(1, len(order) + 1), index=order)
+    prev = set(getattr(cfg, "prev_rc_board", ()) or ())
+    keep = [i for i in order if df.loc[i, "ticker"] in prev and srank[i] <= RC_EXIT][:RC_N]
+    keep += [i for i in order if i not in set(keep)][:RC_N - len(keep)]
+    rest = [i for i in order if i not in set(keep)]
+    rk = pd.Series(np.arange(1, len(order) + 1), index=sorted(keep, key=lambda i: -score[i]) + rest)
+    df["rc_rank"] = rk.reindex(df.index).astype(int)
+    return df
+
+
 def best_ideas(skilled, holdings, cfg) -> pd.DataFrame:
     """Best-ideas overlap: distinct managers holding the stock among a fund's top `best_n` positions by weight, skill-weighted
     (a manager that has not beaten its benchmark counts at cfg.unskilled_mult). One manager counts once however many of its funds agree.
@@ -199,8 +229,18 @@ def best_ideas(skilled, holdings, cfg) -> pd.DataFrame:
         top = h.sort_values("weight", ascending=False)["ticker"].head(cfg.best_n)
         w = float(f.get("ir", 1.0))
         for t in top: by_mgr.setdefault(t, {})[f["manager"]] = max(by_mgr.get(t, {}).get(f["manager"], 0.0), w)
-    return pd.DataFrame([dict(ticker=t, best_raw=sum(m.values()), n_best=len(m)) for t, m in by_mgr.items()],
-                        columns=["ticker", "best_raw", "n_best"])
+    # active-weight best ideas (for the risk-controlled board): a fund's 15 largest weights ABOVE the peer consensus weight
+    # (average weight across all funds, zeros included), so mega caps every fund holds near index weight do not count automatically
+    W = pd.DataFrame({e: h.set_index("ticker")["weight"] for e, h in holdings.items() if h is not None and not h.empty}).fillna(0.0)
+    act_by = {}
+    if not W.empty:
+        cons = W.mean(axis=1); mgr = dict(zip(skilled["etf"], skilled["manager"])); irw = dict(zip(skilled["etf"], skilled.get("ir", 1.0)))
+        for e in W.columns:
+            a = (W[e] - cons)[W[e] > 0].sort_values(ascending=False).head(cfg.best_n)
+            for t in a.index: act_by.setdefault(t, {})[mgr.get(e, e)] = max(act_by.get(t, {}).get(mgr.get(e, e), 0.0), float(irw.get(e, 1.0)))
+    tick = sorted(set(by_mgr) | set(act_by))
+    return pd.DataFrame([dict(ticker=t, best_raw=sum(by_mgr.get(t, {}).values()), n_best=len(by_mgr.get(t, {})),
+                              active_best=sum(act_by.get(t, {}).values())) for t in tick], columns=["ticker", "best_raw", "n_best", "active_best"])
 
 
 def _pr(s, higher=True) -> pd.Series:
@@ -251,7 +291,7 @@ def score_signals(df: pd.DataFrame, cfg: Config, flow_available: bool) -> pd.Dat
     sig = pd.DataFrame(index=df.index)
     sig["flow"] = 50 + 50 * np.tanh(df["flow_raw"].fillna(0)) if flow_available else 50.0
     sig["earn_growth"] = _pr(df["fwd_growth"])
-    sig["earn_surprise"] = pd.concat([_pr(df["avg_surprise"]), _pr(df["sue"]), _pr(df["fresh_surprise"]), _pr(df["fresh_surprise"])], axis=1).mean(axis=1)
+    sig["earn_surprise"] = pd.concat([_pr(df["avg_surprise"]), _pr(df["sue"])], axis=1).mean(axis=1)   # four quarters, equal (audit: beat the fresh-weighted version on IC)
     sig["earn_accel"] = _pr(df["fwd_growth"] - df["cur_growth"])
     sig["earn_consistency"] = _pr(df["beats"] / df["n_q"].clip(lower=1))
     sig["earn_revisions"] = _pr(df["rev_30d"])
@@ -379,7 +419,7 @@ def run_week(provider, universe, cfg: Config, themes: pd.DataFrame, prev_hold, l
         return dict(skill=skill, cur=cur, events=events, all=pd.DataFrame(), ranking=pd.DataFrame(),
                     flow_available=flow_available, partial=partial, spy=px.get("SPY"))
     ov = ov.merge(best_ideas(skilled, holdings, cfg), on="ticker", how="left")
-    ov["best_raw"] = ov["best_raw"].fillna(0.0); ov["n_best"] = ov["n_best"].fillna(0).astype(int)
+    ov["best_raw"] = ov["best_raw"].fillna(0.0); ov["n_best"] = ov["n_best"].fillna(0).astype(int); ov["active_best"] = ov["active_best"].fillna(0.0)
     ov = ov.merge(fagg, on="ticker", how="left")
     ov["flow_raw"] = ov["flow_raw"].fillna(0.0)
     ov["n_adds"] = ov["n_adds"].fillna(0).astype(int)
@@ -427,6 +467,7 @@ def run_week(provider, universe, cfg: Config, themes: pd.DataFrame, prev_hold, l
         if c in df.columns:
             df.loc[df["gaap_only"], c] = df.loc[df["gaap_only"], c].clip(upper=cfg.gaap_surprise_cap)
     df = score_signals(df, cfg, flow_available)
+    df = risk_controlled(df, cfg)
     import diagnostics as _D                        # lazy: diagnostics imports this module
     df["data_coverage"] = _D.coverage(df, cfg, flow_available).round(0)
     df["score_raw"] = df["score"]
