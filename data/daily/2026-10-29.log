@@ -37,7 +37,7 @@ holdings ARKQ: 39 rows, 99.6% of weight, as of 2026-07-31
 holdings ARKF: 38 rows, 97.0% of weight, as of 2026-07-31
 holdings ARKX: 34 rows, 99.8% of weight, as of 2026-07-31
 holdings GTEK: 60 rows, 99.5% of weight, as of 2026-08-31
-prices: updated 98 names
+prices: updated 619 names
 consensus ADTTF: 'current'
 consensus ASMXF: 'current'
 consensus BESVF: 'current'
@@ -54,6 +54,29 @@ consensus SSNLF: 'current'
 consensus UCBJF: 'current'
 consensus ZLDPF: 'current'
 consensus: 1274 rows for 699 names; history spans 1 days
-revisions: 635 names (0 from our own history)
-earnings (Yahoo): 100 names refreshed, 0 failed, 100 due of 699
-ranked 83 names; top 10: MRVL, MU, WDC, INTC, AMZN, AMD, LLY, SNOW, STX, NET
+revisions: 635 names (0 from our own history); consensus growth: 637 names
+earnings (Yahoo): 500 names refreshed, 0 failed, 500 due of 699
+market reaction to reports: 551 names
+info BRK/B: Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'descrip
+info ETHQ/U: Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'descrip
+short interest / beta / P/E (Yahoo): 258 names refreshed
+sec ATZAF: HTTP Error 404: Not Found
+sec BYDDF: HTTP Error 404: Not Found
+SEC fundamentals: 174 names refreshed, 24 not SEC filers
+insiders: time budget reached, rest continue tomorrow
+insiders (SEC Form 4): 88 names checked today, 88 covered, 8 with open-market buying
+coverage of 699 candidates (has value / updated within 7 days):
+  momentum: 619 / 619
+  EPS growth: 635 / 635
+  revisions: 635 / 635
+  sales growth: 636 / 635
+  surprises: 426 / 500
+  reaction: 551 / 551
+  short interest: 215 / 258
+  beta: 203 / 258
+  gross profitability: 99 / 174
+  accruals: 163 / 174
+  asset growth: 165 / 174
+  net issuance: 145 / 174
+  insider buying: 88 / 88
+ranked 380 names; top 10: MRVL, SPCX, INTC, AMD, MU, WDC, TSM, NET, AVGO, ANET
