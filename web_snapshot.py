@@ -95,4 +95,6 @@ class WebSnapshotProvider:
             return None
         if prefer_source is not None and (d["source"] == prefer_source).any():
             return d[d["source"] == prefer_source].iloc[0]
-        return d[d["source"] == "etfdb"].iloc[0] if (d["source"] == "etfdb").any() else d.iloc[0]
+        for s in ("yahoo", "etfdb"):              # live Yahoo returns first, the older hand-collected figures as fallback
+            if (d["source"] == s).any(): return d[d["source"] == s].iloc[0]
+        return d.iloc[0]

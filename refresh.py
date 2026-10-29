@@ -151,7 +151,23 @@ def refresh_holdings(today):
             ok.append(f.etf); log(f"holdings {f.etf}: {len(d)} rows, {d.weight.sum():.1f}% of weight, as of {asof}")
         except Exception as e:
             log(f"holdings {f.etf}: FAILED ({e}); keeping previous list")
+    # candidates: funds whose daily file is not yet confirmed. Each run tries them; one that reads cleanly joins the registry for good.
+    cpath = ROOT / "fund_candidates.csv"
+    if cpath.exists():
+        cand = pd.read_csv(cpath); promoted = []
+        for _, f in cand[~cand.etf.isin(reg.etf)].iterrows():
+            try:
+                d, asof = fetch_daily(f, today)
+                if len(d) < 10 or d.weight.sum() < 30: raise ValueError(f"only {len(d)} rows / {d.weight.sum():.0f}% of weight")
+                hist = ROOT / "data/holdings_history" / f.etf; hist.mkdir(parents=True, exist_ok=True); d.to_csv(hist / f"{asof}.csv", index=False)
+                h = pd.concat([h[h.etf != f.etf], d.assign(etf=f.etf, source=f.url, asof=str(asof), fresh=True)[["etf", "ticker", "weight", "source", "asof", "fresh"]]])
+                promoted.append(f); ok.append(f.etf); log(f"holdings {f.etf}: NEW FUND confirmed, {len(d)} rows, as of {asof}")
+            except Exception as e:
+                log(f"candidate {f.etf}: not added yet ({str(e)[:90]})")
+        if promoted:
+            reg = pd.concat([reg, pd.DataFrame(promoted)[reg.columns]], ignore_index=True); reg.to_csv(ROOT / "fund_registry.csv", index=False)
     h.to_csv(ROOT / "data_web/holdings.csv", index=False)
+    log(f"funds in the overlap analysis: {h.etf.nunique()} ({sum(1 for _, f in reg.iterrows() if f.format != 'nport')} on daily issuer files)")
     # universe = existing funds + any registry fund
     u = pd.read_csv(ROOT / "etf_universe.csv")
     add = reg[~reg.etf.isin(u.etf)][["etf", "manager", "benchmark", "style"]]
@@ -167,6 +183,31 @@ def price_stats(csv_text):
     last = c.iloc[-1]; m1 = c[c.index <= c.index[-1] - pd.Timedelta(days=30)].iloc[-1]; y1 = c[c.index <= c.index[-1] - pd.Timedelta(days=365)].iloc[-1]
     hi = c.iloc[-252:].max()
     return dict(r52w=last / y1 - 1, r1m=last / m1 - 1, mom_12_1=(last / y1) / (last / m1) - 1, off_high=last / hi - 1)
+
+
+def refresh_fund_returns(today):
+    """1- and 3-year total returns for every fund and benchmark from Yahoo adjusted prices, so 'skilled manager' is judged on live numbers."""
+    try:
+        import yfinance as yf
+        u = pd.read_csv(ROOT / "etf_universe.csv"); names = sorted(set(u.etf) | set(u.benchmark))
+        px = yf.download(names, period="3y", interval="1d", auto_adjust=True, progress=False, threads=True)["Close"]
+        rows = []
+        for n in names:
+            if n not in px.columns: continue
+            c = px[n].dropna()
+            if len(c) < 240: continue
+            last = c.iloc[-1]; at = lambda days: c[c.index <= c.index[-1] - pd.Timedelta(days=days)]
+            y1 = at(365); y3 = at(3 * 365 - 10)
+            r1 = (last / y1.iloc[-1] - 1) * 100 if len(y1) else np.nan
+            r3 = ((last / y3.iloc[-1]) ** (1 / 3) - 1) * 100 if len(y3) and (c.index[-1] - c.index[0]).days >= 3 * 365 - 15 else np.nan
+            ytd = c[c.index < pd.Timestamp(today.year, 1, 1)]
+            rows.append(dict(fund=n, source="yahoo", ret_1y=round(r1, 2), ret_3y=round(r3, 2) if pd.notna(r3) else np.nan,
+                             ytd=round((last / ytd.iloc[-1] - 1) * 100, 2) if len(ytd) else np.nan))
+        old = pd.read_csv(ROOT / "data_web/returns.csv")
+        new = pd.concat([old[old.source != "yahoo"], pd.DataFrame(rows)], ignore_index=True)
+        new.to_csv(ROOT / "data_web/returns.csv", index=False); log(f"fund returns (Yahoo): {len(rows)} funds and benchmarks")
+    except Exception as e:
+        log(f"fund returns FAILED ({e}); keeping previous values")
 
 
 def refresh_prices(tickers, a):
@@ -411,6 +452,7 @@ def main():
     if "--history" in sys.argv: return history_mode(today)
     import autodata as AD
     ok = refresh_holdings(today)
+    refresh_fund_returns(today)
     pool = pd.read_csv(ROOT / "data_web/holdings.csv").groupby("ticker").etf.nunique().loc[lambda s: s >= 2].index.tolist()
     a = AD.load_auto(pool)
     steps = [lambda: refresh_revisions(pool, today, a), lambda: refresh_earnings(pool, today, a),
