@@ -1,7 +1,7 @@
 """Paper portfolio: 10 holdings from the main board, rebalanced every 60 days. No real money.
 
 Rules (fixed at the start, 29 October 2026):
-  - Picks: the 10 highest-ranked names on the main board, at most 3 from any one sector.
+  - Picks: the 10 highest-ranked names on the main board, no sector cap.
     (Backtest 2021-26 of these rules: 20.2%/yr vs 12.1% S&P 500 and 14.8% QQQ, with high beta. The risk-controlled board's top 10
     returned 8.9%/yr: its edge is small and spread over many names, so 10 names cannot express it.)
   - Equal weight (10% each), bought at the day's close.
@@ -18,7 +18,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent
 STATE = ROOT / "data/paper/state.json"
-N, MAX_PER_SECTOR, HOLD_DAYS, COST, TAX, START_CASH = 10, 3, 60, 0.001, 0.37, 100_000.0
+N, MAX_PER_SECTOR, HOLD_DAYS, COST, TAX, START_CASH = 10, None, 60, 0.001, 0.37, 100_000.0   # no sector cap (owner's choice)
 
 
 def picks(rk, n=N, cap=MAX_PER_SECTOR):
@@ -26,7 +26,7 @@ def picks(rk, n=N, cap=MAX_PER_SECTOR):
     out, per = [], {}
     for _, r in b.iterrows():
         s = r.get("sector") if isinstance(r.get("sector"), str) else "Unknown"
-        if s != "Unknown" and per.get(s, 0) >= cap: continue
+        if cap and s != "Unknown" and per.get(s, 0) >= cap: continue
         out.append(r["ticker"]); per[s] = per.get(s, 0) + 1
         if len(out) == n: break
     for t in b.ticker:                       # only if the cap leaves seats empty: fill them in rank order
@@ -121,7 +121,7 @@ def write_site(st, rk, day):
                cash=round(st["cash"], 2), costs=round(st.get("costs", 0.0), 2), realized=round(st.get("realized", 0.0), 2),
                est_tax=round(max(0.0, st.get("realized", 0.0)) * TAX, 2), unrealized=round(unreal, 2), holdings=hold,
                trades=st["trades"][-40:][::-1], series=navs,
-               rules="The 10 highest-ranked names on the main board, at most 3 per sector, equal weight, rebalanced every 60 days. "
+               rules="The 10 highest-ranked names on the main board, equal weight, rebalanced every 60 days. "
                      "0.10% cost per trade. Taxes estimated at 37% on realized short-term gains (shown, not deducted). No real money.")
     p = ROOT / "data/paper/backtest.json"
     if p.exists(): out["backtest"] = json.loads(p.read_text())
@@ -139,7 +139,8 @@ def selftest():
         cl["SPY"] = 400.0; cl["QQQ"] = 500.0
         rk = pd.DataFrame({"ticker": names, "rank": range(1, 15), "sector": ["Tech"] * 5 + ["Energy"] * 3 + ["Health"] * 3 + ["Banks"] * 3, "name": names})
         st = update(rk, cl.iloc[:1], idx[0].date(), log=lambda *a: None)
-        assert len(st["positions"]) == 10 and sum(1 for t in st["positions"] if rk.set_index("ticker").sector[t] == "Tech") == 3   # sector cap
+        assert set(st["positions"]) == set(names[:10])                                        # top 10 by rank, no cap
+        assert picks(rk, cap=3).count("S3") == 0                                              # the cap still works when asked for
         assert abs(_value(st, cl.iloc[0].to_dict()) - START_CASH * (1 - COST)) < 50
         rk2 = rk.assign(rank=list(range(14, 0, -1)))                                     # ranking reversed
         st = update(rk2, cl.iloc[:30], idx[29].date(), log=lambda *a: None); assert st["last_rebalance"] == str(idx[0].date())   # not due yet

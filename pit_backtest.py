@@ -255,8 +255,8 @@ def compare(pan, ins, oos, cur):
     return out
 
 
-def paper_rules(pan, w, n=10, cap=3, cost=0.001):
-    """The paper portfolio's rules on history: main-board score, top 10 with at most 3 per sector, equal weight, held two months
+def paper_rules(pan, w, n=10, cap=None, cost=0.001):
+    """The paper portfolio's rules on history: main-board score, top 10 (no sector cap), equal weight, held two months
     (rebalanced every other month-end, about 60 days), 0.10% cost per trade. Compared with SPY and QQQ held over the same windows."""
     rows, prev = [], set(); nav = spy = qqq = 1.0; series = []
     for j in range(0, len(pan) - 1, 2):
@@ -264,7 +264,7 @@ def paper_rules(pan, w, n=10, cap=3, cost=0.001):
         s = sum(d[k] * v for k, v in w.items()).sort_values(ascending=False); out, per = [], {}
         for t in s.index:
             sec = d.loc[t, "sector"]
-            if sec != "Unknown" and per.get(sec, 0) >= cap: continue
+            if cap and sec != "Unknown" and per.get(sec, 0) >= cap: continue
             out.append(t); per[sec] = per.get(sec, 0) + 1
             if len(out) == n: break
         r1 = d.loc[out, "fwd"]; r2 = d2["fwd"].reindex(out).fillna(d2["fwd"].mean())
