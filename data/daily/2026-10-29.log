@@ -38,15 +38,17 @@ holdings ARKQ: 35 rows, 95.7% of weight, as of 2026-10-29
 holdings ARKF: 32 rows, 89.3% of weight, as of 2026-10-29
 holdings ARKX: 28 rows, 88.6% of weight, as of 2026-10-29
 holdings GTEK: 60 rows, 99.5% of weight, as of 2026-08-31
-holdings ARKK: NEW FUND confirmed, 41 rows, as of 2026-10-29
-holdings ARKG: NEW FUND confirmed, 33 rows, as of 2026-10-29
-holdings CGGO: NEW FUND confirmed, 93 rows, as of 2026-10-28
-holdings CGCV: NEW FUND confirmed, 73 rows, as of 2026-10-28
-holdings CGDG: NEW FUND confirmed, 93 rows, as of 2026-10-28
-holdings CGMM: NEW FUND confirmed, 118 rows, as of 2026-10-28
-holdings CGBL: NEW FUND confirmed, 77 rows, as of 2026-10-28
+holdings ARKK: 41 rows, 92.6% of weight, as of 2026-10-29
+holdings ARKG: 33 rows, 98.1% of weight, as of 2026-10-29
+holdings CGGO: 93 rows, 92.3% of weight, as of 2026-10-28
+holdings CGCV: 73 rows, 99.9% of weight, as of 2026-10-28
+holdings CGDG: 93 rows, 91.0% of weight, as of 2026-10-28
+holdings CGMM: 118 rows, 99.4% of weight, as of 2026-10-28
+holdings CGBL: 77 rows, 99.8% of weight, as of 2026-10-28
 funds in the overlap analysis: 43 (16 on daily issuer files)
 fund returns (Yahoo): 48 funds and benchmarks
+regime: credit spreads FAILED (The read operation timed out)
+market regime: normal ({'asof': '2026-10-29', 'spy': 768.97, 'spy_200d': 725.63, 'spy_below_200d': False, 'risk_off': False})
 prices: updated 644 names
 consensus ADTTF: 'current'
 consensus ASMXF: 'current'
@@ -62,26 +64,26 @@ consensus UCBJF: 'current'
 consensus ZLDPF: 'current'
 consensus: 1330 rows for 724 names; history spans 1 days
 revisions: 661 names (0 from our own history); consensus growth: 665 names
-earnings (Yahoo): 153 names refreshed, 0 failed, 153 due of 724
+earnings (Yahoo): 24 names refreshed, 0 failed, 24 due of 724
 market reaction to reports: 658 names
 info BRK/B: Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'descrip
 info GOOGL-6-1/4: Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'descrip
 info KKR-6-1/4-03: Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'descrip
 info MCHPP-7-1/2: Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'descrip
-short interest / beta / P/E (Yahoo): 256 names refreshed
+short interest / beta / P/E (Yahoo): 212 names refreshed
 sec ATZAF: HTTP Error 404: Not Found
 sec BYDDF: HTTP Error 404: Not Found
 sec GDERF: HTTP Error 404: Not Found
 sec KATJF: HTTP Error 404: Not Found
 sec KXHCF: HTTP Error 404: Not Found
-SEC fundamentals: 181 names refreshed, 14 not SEC filers
-form4 CNQ: HTTP Error 503: Service Unavailable
+SEC fundamentals: 180 names refreshed, 15 not SEC filers
 insiders: time budget reached, rest continue tomorrow
-insiders (SEC Form 4): 92 names checked today, 178 covered, 17 with open-market buying
+insiders (SEC Form 4): 64 names checked today, 242 covered, 24 with open-market buying
 ivol: 652 names
 customer_mom: 32 names
-options skew (Yahoo): 175 names refreshed
-filing text similarity (SEC): 72 new comparisons
+options skew (Yahoo): 177 names refreshed
+filing text CORT: HTTP Error 503: Service Unavailable
+filing text similarity (SEC): 100 new comparisons
 coverage of 724 candidates (has value / updated within 7 days):
   momentum: 644 / 644
   EPS growth: 663 / 661
@@ -89,13 +91,13 @@ coverage of 724 candidates (has value / updated within 7 days):
   sales growth: 664 / 661
   surprises: 546 / 624
   reaction: 658 / 658
-  short interest: 445 / 508
-  beta: 412 / 508
-  gross profitability: 199 / 352
-  accruals: 330 / 352
-  asset growth: 332 / 352
-  net issuance: 290 / 352
-  insider buying: 178 / 178
-ranked 399 names; top 10: WDC, MU, MRVL, INTC, FLEX, LRCX, STX, TSM, SPCX, BE
-point-in-time backtest: 59 months; out of sample 0.0161 per month vs pool, t = 1.11
-track record: 3 boards tracked; concentration: 6.3 effective bets, avg correlation 0.248
+  short interest: 641 / 720
+  beta: 605 / 720
+  gross profitability: 303 / 532
+  accruals: 501 / 532
+  asset growth: 504 / 532
+  net issuance: 441 / 532
+  insider buying: 242 / 242
+ranked 399 names; top 10: WDC, MU, INTC, MRVL, SPCX, FLEX, LRCX, TSM, STX, BE
+point-in-time backtest: 59 months; out of sample 0.0181 per month vs pool, t = 1.22
+track record: 3 boards tracked; concentration: 6.9 effective bets, avg correlation 0.227
