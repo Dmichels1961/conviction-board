@@ -143,7 +143,7 @@ def refresh_revisions(pool, today):
         r = RV.rev_30d(snaps, today)
         base = pd.read_csv(ROOT / "data_web/earnings_base.csv").set_index("ticker")
         for c in ("rev_breadth", "rev_source"):
-            if c not in base.columns: base[c] = np.nan
+            base[c] = base[c].astype(object) if c in base.columns else np.nan
         for t, row in r.iterrows():
             if t in base.index:
                 base.loc[t, "rev_30d"] = round(row.rev_30d, 4); base.loc[t, "rev_breadth"] = row.rev_breadth; base.loc[t, "rev_source"] = row.rev_source
@@ -192,7 +192,7 @@ def refresh_earnings(pool, key, today, per_day=22):
         except Exception as e:
             log(f"earnings {t}: {e}")
             if "rate" in str(e).lower() or "25" in str(e): break
-        time.sleep(1.2)
+        time.sleep(2.0)
     state.write_text(json.dumps(seen)); base.reset_index().to_csv(ROOT / "data_web/earnings_base.csv", index=False)
     log(f"earnings surprises refreshed for {len(todo)} names")
 
