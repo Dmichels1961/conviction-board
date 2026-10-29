@@ -78,6 +78,8 @@ class Config(S.Config):
     allow_niche: bool = True         # small/mid caps with little or no benchmark weight qualify if funds overweight them
     coverage_penalty: float = 0.35   # score x (1 - penalty x share of signal weight that lacks real data)
     max_per_bucket: int = 8          # theme cap on the board (names beyond it drop below the board; "Other" is exempt)
+    exit_rank: int = 35              # sell discipline: a name already on the board stays while it ranks this high or better
+    prev_board: tuple = ()           # the previous board's tickers (set by the caller); empty = no buffer
     gaap_surprise_cap: float = 0.05  # GAAP-only reporters: beat size is capped at 5% so they cannot out-beat adjusted reporters
     min_beats: int = 2               # sanity gate only; beat quality is scored
     min_fwd_growth: float = 0.0
@@ -431,15 +433,24 @@ def run_week(provider, universe, cfg: Config, themes: pd.DataFrame, prev_hold, l
     df["score"] = df["score_raw"] * (1 - cfg.coverage_penalty * (1 - df["data_coverage"] / 100))
     df["bucket"] = df["ticker"].map(_D.BUCKET).fillna("Other")
     df = df.sort_values(["score", "sig_flow", "fwd_growth"], ascending=False).reset_index(drop=True)
-    kept, pushed, n_in = [], [], {}
-    for i, r in df.iterrows():                      # theme cap: fill the board in score order, defer names over the cap
-        b = r["bucket"]
-        if len(kept) < cfg.top_n and (b == "Other" or n_in.get(b, 0) < cfg.max_per_bucket):
-            kept.append(i); n_in[b] = n_in.get(b, 0) + 1
-        else:
-            pushed.append(i)
+    df["score_rank"] = np.arange(1, len(df) + 1)   # rank by score alone, before the buffer and theme cap
+    kept, n_in = [], {}
+    fits = lambda b: b == "Other" or n_in.get(b, 0) < cfg.max_per_bucket
+    # 1) incumbents keep their seat while they rank exit_rank or better (enter at top_n, leave below exit_rank: less churn)
+    for i, r in df.iterrows():
+        if r["ticker"] in set(cfg.prev_board) and r["score_rank"] <= cfg.exit_rank and len(kept) < cfg.top_n and fits(r["bucket"]):
+            kept.append(i); n_in[r["bucket"]] = n_in.get(r["bucket"], 0) + 1
+    # 2) fill the remaining seats in score order, theme cap applied
+    for i, r in df.iterrows():
+        if i in kept: continue
+        if len(kept) < cfg.top_n and fits(r["bucket"]):
+            kept.append(i); n_in[r["bucket"]] = n_in.get(r["bucket"], 0) + 1
+    kept = sorted(kept, key=lambda i: -df.loc[i, "score"])
+    pushed = [i for i in df.index if i not in set(kept)]
+    df["held_by_buffer"] = False
+    df.loc[[i for i in kept if df.loc[i, "score_rank"] > cfg.top_n], "held_by_buffer"] = True
     df["bucket_capped"] = False
-    df.loc[[i for i in pushed if df.loc[i, "score"] >= df.loc[kept[-1], "score"]] if kept else [], "bucket_capped"] = True
+    df.loc[[i for i in pushed if df.loc[i, "score"] >= df.loc[kept[-1], "score"] and not df.loc[i, "score_rank"] > cfg.top_n] if kept else [], "bucket_capped"] = True
     df = df.loc[kept + pushed].reset_index(drop=True)
     df["rank"] = np.arange(1, len(df) + 1)
     df["drivers"] = df.apply(lambda r: _drivers(r, cfg), axis=1)

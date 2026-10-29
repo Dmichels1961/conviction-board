@@ -25,6 +25,7 @@ import backtest as BT
 ROOT = Path(__file__).resolve().parent
 CURRENT = {"earnings": 20, "overlap": 16, "flow": 5, "momentum": 5}   # earnings: only the 20 of its 60 pts that have history (surprise, consistency, reaction)
 BEST_N = 15
+EXIT = 35          # matches weekly.Config.exit_rank
 
 
 def best_ideas_at(hist, T, managers):
@@ -87,11 +88,17 @@ def panel(hist, px, ev, start=None, managers=None):
     return out
 
 
-def evaluate(pan, w, top_n=25):
+def evaluate(pan, w, top_n=25, exit_rank=None):
+    """exit_rank: sell discipline. Names already held stay while they rank exit_rank or better; new names enter only in the top_n."""
     rows, prev = [], set()
     for T, d in pan:
         s = sum(d[k] * v for k, v in w.items())
-        pick = list(s.sort_values(ascending=False).index[:top_n])
+        order = list(s.sort_values(ascending=False).index)
+        if exit_rank and prev:
+            keep = [t for t in order[:exit_rank] if t in prev][:top_n]
+            pick = keep + [t for t in order if t not in set(keep)][:top_n - len(keep)]
+        else:
+            pick = order[:top_n]
         top, pool = d.loc[pick, "fwd"].mean(), d["fwd"].mean()
         ic = s.rank().corr(d["fwd"].rank())
         rows.append(dict(date=T, top=top, pool=pool, spy=d["fwd_spy"].iloc[0], ex_pool=top - pool, ex_spy=top - d["fwd_spy"].iloc[0], ic=ic,
@@ -135,11 +142,11 @@ def run(hist, px, ev, managers=None):
         method=__doc__.split("\n\n")[1].replace("\n", " "), months_total=len(pan), split=str(oos[0][0].date()) if oos else None,
         missing="Not in this test (no point-in-time history): consensus growth and estimate revisions, guidance, SEC fundamentals, short interest, insider buying.",
         current_weights=cur, tuned_weights=best, grid_size=len(tried),
-        full=dict(current=stats(evaluate(pan, cur))),
-        in_sample=dict(current=stats(evaluate(ins, cur)), tuned=stats(evaluate(ins, best))),
-        out_of_sample=dict(current=stats(evaluate(oos, cur)), tuned=stats(evaluate(oos, best))),
+        full=dict(current=stats(evaluate(pan, cur, exit_rank=EXIT)), no_buffer=stats(evaluate(pan, cur))),
+        in_sample=dict(current=stats(evaluate(ins, cur, exit_rank=EXIT)), tuned=stats(evaluate(ins, best, exit_rank=EXIT))),
+        out_of_sample=dict(current=stats(evaluate(oos, cur, exit_rank=EXIT)), tuned=stats(evaluate(oos, best, exit_rank=EXIT)), no_buffer=stats(evaluate(oos, cur))),
         single=dict((k, dict(in_sample=stats(evaluate(ins, {k: 1})), out_of_sample=stats(evaluate(oos, {k: 1})))) for k in ["earnings", "overlap", "flow", "momentum"]),
-        monthly=[[str(r.date.date()), round(r.top, 4), round(r.pool, 4), round(r.spy, 4)] for r in evaluate(pan, cur).itertuples()])
+        monthly=[[str(r.date.date()), round(r.top, 4), round(r.pool, 4), round(r.spy, 4)] for r in evaluate(pan, cur, exit_rank=EXIT).itertuples()])
     return res, pan
 
 

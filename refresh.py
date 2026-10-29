@@ -336,6 +336,9 @@ def rebuild(today, weekly):
     import weekly as W, diagnostics as D
     from web_snapshot import WebSnapshotProvider
     prov, cfg = WebSnapshotProvider(), W.Config()
+    prev = sorted(f for f in (ROOT / "data/daily").glob("20??-??-??.csv") if f.stem < str(today))   # sell discipline: yesterday's board
+    if prev:
+        pb = pd.read_csv(prev[-1]); cfg.prev_board = tuple(pb[pb["rank"] <= cfg.top_n].ticker) if "rank" in pb.columns else ()
     ddir = ROOT / "data" if weekly else Path(tempfile.mkdtemp())
     res = W.generate(prov, pd.read_csv(ROOT / "etf_universe.csv"), cfg, W.load_themes(), today, force=weekly, ddir=ddir, log=lambda *a: None)
     rk = res["all"].copy()
@@ -389,12 +392,13 @@ def probe():
     (ROOT / "data/probe.txt").write_text("\n".join(out)); log("\n".join(out))
 
 
-def fetch_earnings_events(tickers, log=log, limit=16, cap=600):
+def fetch_earnings_events(tickers, log=log, limit=32, cap=700):
     """Past report dates with estimate, actual and surprise % from Yahoo, saved to data/earnings_events.csv (kept, never overwritten)."""
     import yfinance as yf
     p = ROOT / "data/earnings_events.csv"
     old = pd.read_csv(p) if p.exists() else pd.DataFrame(columns=["ticker", "date", "eps_est", "eps_act", "surprise_pct"])
-    done = set(old.ticker); rows = []
+    first = pd.to_datetime(old.date, errors="coerce").groupby(old.ticker).min() if len(old) else pd.Series(dtype="datetime64[ns]")
+    done = set(first[first <= pd.Timestamp("2019-06-30")].index); rows = []      # names without history back to mid-2019 are fetched again
     for t in [x for x in tickers if x not in done][:cap]:
         try:
             e = yf.Ticker(t).get_earnings_dates(limit=limit)
@@ -406,7 +410,10 @@ def fetch_earnings_events(tickers, log=log, limit=16, cap=600):
         except Exception as ex:
             log(f"events {t}: {str(ex)[:80]}")
         time.sleep(0.5)
-    if rows: old = pd.concat([old, pd.DataFrame(rows)], ignore_index=True)
+    if rows:
+        old = pd.concat([old, pd.DataFrame(rows)], ignore_index=True)
+        old["date"] = pd.to_datetime(old.date, errors="coerce", utc=True).dt.tz_convert(None).dt.normalize().astype(str)
+        old = old.drop_duplicates(["ticker", "date"], keep="last")
     old.to_csv(p, index=False); log(f"earnings events: {len(old)} rows for {old.ticker.nunique()} names")
 
 
@@ -423,12 +430,17 @@ def history_mode(today):
         if p.name != "filed.csv": names |= set(pd.read_csv(p).ticker.astype(str))
     pdir = ROOT / "data/prices"; pdir.mkdir(parents=True, exist_ok=True)
     names.add("SPY")
-    todo = [t for t in sorted(names) if not ((pdir / f"{t}.csv").exists() and time.time() - (pdir / f"{t}.csv").stat().st_mtime < 7 * 86400)]
+    def fresh_enough(t):            # re-download a file that is a week old or does not reach back to the start of 2019
+        f = pdir / f"{t}.csv"
+        if not f.exists() or time.time() - f.stat().st_mtime >= 7 * 86400: return False
+        try: return pd.read_csv(f, nrows=1, parse_dates=["Date"]).Date.iloc[0] <= pd.Timestamp("2019-01-31")
+        except Exception: return False
+    todo = [t for t in sorted(names) if not fresh_enough(t)]
     try:    # Yahoo via yfinance (Stooq times out from GitHub's servers)
         import yfinance as yf
         for k in range(0, len(todo), 100):
             b = todo[k:k + 100]
-            d = yf.download(b, period="6y", interval="1d", auto_adjust=True, progress=False, threads=True)["Close"]
+            d = yf.download(b, period="8y", interval="1d", auto_adjust=True, progress=False, threads=True)["Close"]
             if len(b) == 1: d = d.to_frame(b[0]) if hasattr(d, "to_frame") else d
             for t in b:
                 if t in d.columns and d[t].notna().sum() > 100:

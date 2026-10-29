@@ -36,4 +36,5 @@ jobs:
         run: |
           git config user.name "conviction-bot"; git config user.email "bot@users.noreply.github.com"
           git add -A data data_web docs holdings_raw etf_universe.csv || true
-          git diff --cached --quiet || git commit -m "refresh $(date -u +%F)" && git push
+          git diff --cached --quiet || git commit -m "refresh $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase -X theirs origin main && git push && break; sleep 5; done
