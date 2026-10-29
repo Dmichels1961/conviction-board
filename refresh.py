@@ -112,43 +112,50 @@ def price_stats(csv_text):
     return dict(r52w=last / y1 - 1, r1m=last / m1 - 1, mom_12_1=(last / y1) / (last / m1) - 1, off_high=last / hi - 1)
 
 
-def refresh_prices(tickers):
-    """12-1 month momentum and distance from the 52-week high. Yahoo via yfinance (Stooq now requires a browser check)."""
-    base = pd.read_csv(ROOT / "data_web/earnings_base.csv").set_index("ticker"); n = 0
+def refresh_prices(tickers, a):
+    """12-1 month momentum and distance from the 52-week high for the whole pool. Yahoo via yfinance. Returns the closes (for reactions)."""
+    import autodata as AD
+    n = 0; frames = []
     try:
         import yfinance as yf
+        tickers = list(tickers) + ["SPY"]
         for k in range(0, len(tickers), 100):
             b = list(tickers[k:k + 100])
             d = yf.download(b, period="14mo", interval="1d", auto_adjust=True, progress=False, threads=True)["Close"]
             if hasattr(d, "to_frame") and getattr(d, "ndim", 2) == 1: d = d.to_frame(b[0])
+            frames.append(d)
             for t in b:
-                if t not in d.columns or t not in base.index: continue
+                if t not in d.columns or t not in a.index: continue
                 c = d[t].dropna()
                 if len(c) < 240: continue
                 st = price_stats("Date,Close\n" + "\n".join(f"{i.date()},{v}" for i, v in c.items()))
                 if st:
-                    base.loc[t, "mom_12_1"] = round(st["mom_12_1"], 4)
-                    if "off_high" in base.columns: base.loc[t, "off_high"] = round(st["off_high"], 4)
-                    n += 1
+                    AD.setv(a, t, "mom_12_1", round(st["mom_12_1"], 4)); AD.setv(a, t, "off_high", round(st["off_high"], 4)); n += 1
     except Exception as e:
         log(f"prices FAILED ({e})")
-    base.reset_index().to_csv(ROOT / "data_web/earnings_base.csv", index=False); log(f"prices: updated {n} names")
+    log(f"prices: updated {n} names")
+    return pd.concat(frames, axis=1).loc[:, lambda x: ~x.columns.duplicated()] if frames else pd.DataFrame()
 
 
-# ---------------------------------------------------------------- estimate revisions (own daily consensus snapshots)
-def refresh_revisions(pool, today):
+# ---------------------------------------------------------------- estimate revisions + consensus growth (own daily snapshots)
+def refresh_revisions(pool, today, a):
+    import autodata as AD
     try:
         import revisions as RV
         snaps = RV.snapshot(pool, today, log=log)
         r = RV.rev_30d(snaps, today)
-        base = pd.read_csv(ROOT / "data_web/earnings_base.csv").set_index("ticker")
-        base["rev_breadth"] = pd.to_numeric(base["rev_breadth"], errors="coerce") if "rev_breadth" in base.columns else np.nan
-        base["rev_source"] = base["rev_source"].astype(object) if "rev_source" in base.columns else pd.Series(None, index=base.index, dtype=object)
         for t, row in r.iterrows():
-            if t in base.index:
-                base.loc[t, "rev_30d"] = round(row.rev_30d, 4); base.loc[t, "rev_breadth"] = row.rev_breadth; base.loc[t, "rev_source"] = row.rev_source
-        base.reset_index().to_csv(ROOT / "data_web/earnings_base.csv", index=False)
-        log(f"revisions: {len(r)} names ({(r.rev_source == 'own').sum()} from our own history)")
+            if t in a.index:
+                AD.setv(a, t, "rev_30d", round(float(row.rev_30d), 4)); AD.setv(a, t, "rev_source", str(row.rev_source))
+                if pd.notna(row.rev_breadth): AD.setv(a, t, "rev_breadth", round(float(row.rev_breadth), 4))
+        g = RV.growth_latest(snaps); ng = 0
+        for t, row in g.iterrows():
+            if t not in a.index: continue
+            for c in ("fwd_growth", "cur_growth", "rev_growth"):
+                if pd.notna(row[c]): AD.setv(a, t, c, round(float(row[c]), 4))
+            ng += 1
+        for t in set(r.index) & set(a.index): AD.setv(a, t, "consensus_asof", str(today))
+        log(f"revisions: {len(r)} names ({(r.rev_source == 'own').sum()} from our own history); consensus growth: {ng} names")
     except Exception as e:
         log(f"revisions FAILED ({e}); keeping previous values")
 
@@ -183,34 +190,44 @@ def due_for_earnings(pool, base, seen, today, stale_days=7):
     return sorted(out, key=lambda t: seen.get(t, ""))
 
 
-def refresh_earnings(pool, today, cap=500, fetch=None, sleep=0.5):
-    """Surprise history (last 4 quarters), next report date and the event log, all from Yahoo. Replaces Alpha Vantage (daily cap too low)."""
+def refresh_earnings(pool, today, a, cap=500, fetch=None, sleep=0.4):
+    """Surprise history (last 4 quarters), next report date and the event log for the whole pool, all from Yahoo."""
+    import autodata as AD
     if fetch is None:
         import yfinance as yf
         fetch = lambda t: yf.Ticker(t).get_earnings_dates(limit=12)
-    base = pd.read_csv(ROOT / "data_web/earnings_base.csv").set_index("ticker")
-    base["next_earnings"] = base["next_earnings"].astype(object) if "next_earnings" in base.columns else pd.Series(None, index=base.index, dtype=object)
     state = ROOT / "data/yahoo_earnings_state.json"; seen = json.loads(state.read_text()) if state.exists() else {}
-    todo = due_for_earnings(pool, base, seen, today)[:cap]; ok = fail = 0; events = []
+    todo = due_for_earnings(pool, a, seen, today)[:cap]; ok = fail = 0; events = []
     for t in todo:
         try:
             s, nxt, rows = parse_earnings_dates(fetch(t), today)
             if len(s) >= 2:
                 s = ([np.nan] * 4 + s)[-4:]
-                for i, v in enumerate(s): base.loc[t, f"s{i+1}"] = v
-            if nxt: base.loc[t, "next_earnings"] = nxt
+                for i, v in enumerate(s): AD.setv(a, t, f"s{i+1}", v)
+            if nxt: AD.setv(a, t, "next_earnings", nxt)
+            AD.setv(a, t, "earnings_asof", str(today))
             events += [dict(ticker=t, **r) for r in rows]
             seen[t] = str(today); ok += 1
         except Exception as e:
             fail += 1; log(f"earnings {t}: {str(e)[:100]}")
         if sleep: time.sleep(sleep)
-    state.write_text(json.dumps(seen)); base.reset_index().to_csv(ROOT / "data_web/earnings_base.csv", index=False)
-    if events:   # keep the event log current for the factor backtest (one row per ticker and report date)
+    state.write_text(json.dumps(seen))
+    if events:   # keep the event log current for the factor backtest and the reaction signal (one row per ticker and report date)
         p = ROOT / "data/earnings_events.csv"
         old = pd.read_csv(p) if p.exists() else pd.DataFrame(columns=["ticker", "date", "eps_est", "eps_act", "surprise_pct"])
         new = pd.DataFrame(events); old["date"] = pd.to_datetime(old.date, errors="coerce").dt.normalize().astype(str); new["date"] = pd.to_datetime(new.date).dt.normalize().astype(str)
         pd.concat([old, new]).drop_duplicates(["ticker", "date"], keep="last").sort_values(["ticker", "date"]).to_csv(p, index=False)
     log(f"earnings (Yahoo): {ok} names refreshed, {fail} failed, {len(todo)} due of {len(pool)}")
+
+
+def refresh_reactions(closes, today, a):
+    import autodata as AD
+    p = ROOT / "data/earnings_events.csv"
+    if closes.empty or not p.exists(): log("reactions: no prices or events, skipped"); return
+    r = AD.reactions(closes, pd.read_csv(p), today)
+    for t, v in r.items():
+        if t in a.index: AD.setv(a, t, "reaction", round(v, 4))
+    log(f"market reaction to reports: {len(r)} names")
 
 
 # ---------------------------------------------------------------- rebuild + snapshot
@@ -233,6 +250,21 @@ def rebuild(today, weekly):
     rk.to_csv(out / f"{today}.csv", index=False); rk.to_csv(ROOT / "data_web" / "ranking_latest.csv", index=False)
     log(f"ranked {len(rk)} names; top 10: {', '.join(rk.sort_values('rank').ticker.head(10))}")
     return rk
+
+
+def freshness_report(a, pool, today):
+    """One line per input: how many candidates have it, and how many were updated in the last 7 days."""
+    cols = {"momentum": ("mom_12_1", None), "EPS growth": ("fwd_growth", "consensus_asof"), "revisions": ("rev_30d", "consensus_asof"),
+            "sales growth": ("rev_growth", "consensus_asof"), "surprises": ("s4", "earnings_asof"), "reaction": ("reaction", None),
+            "short interest": ("short_pct", "info_asof"), "beta": ("beta", "info_asof"), "gross profitability": ("gross_prof", "sec_asof"),
+            "accruals": ("accruals", "sec_asof"), "asset growth": ("asset_growth", "sec_asof"), "net issuance": ("net_issuance", "sec_asof"),
+            "insider buying": ("insider_buyers", None)}
+    a = a.reindex(pool); out = [f"coverage of {len(pool)} candidates (has value / updated within 7 days):"]
+    for lab, (c, asof) in cols.items():
+        has = int(a[c].notna().sum()) if c in a.columns else 0
+        fresh = int((pd.to_datetime(a[asof], errors="coerce") >= pd.Timestamp(today) - pd.Timedelta(days=7)).sum()) if asof and asof in a.columns else has
+        out.append(f"  {lab}: {has} / {fresh}")
+    return "\n".join(out)
 
 
 def probe():
@@ -320,9 +352,19 @@ def history_mode(today):
 def main():
     today = date.today(); weekly = "--weekly" in sys.argv
     if "--history" in sys.argv: return history_mode(today)
+    import autodata as AD
     ok = refresh_holdings(today)
     pool = pd.read_csv(ROOT / "data_web/holdings.csv").groupby("ticker").etf.nunique().loc[lambda s: s >= 2].index.tolist()
-    refresh_prices(pool); refresh_revisions(pool, today); refresh_earnings(pool, today)
+    a = AD.load_auto(pool)
+    steps = [lambda: refresh_revisions(pool, today, a), lambda: refresh_earnings(pool, today, a),
+             lambda: refresh_reactions(closes, today, a), lambda: AD.refresh_info(a, pool, today, log=log),
+             lambda: AD.refresh_sec(a, pool, today, log=log), lambda: AD.refresh_insiders(a, pool, today, log=log)]
+    closes = refresh_prices(pool, a); AD.save_auto(a)
+    for step in steps:                        # each source is independent: one failing never stops the rest, progress is saved after each
+        try: step()
+        except Exception as e: log(f"step FAILED ({type(e).__name__}: {e})")
+        AD.save_auto(a)
+    log(freshness_report(a, pool, today))
     rebuild(today, weekly)
     try:
         import build_site; build_site.main()
@@ -345,7 +387,7 @@ def earnings_selftest():
 
 
 def selftest():
-    earnings_selftest()
+    earnings_selftest(); import autodata; autodata.selftest()
     import edgar, revisions, backtest, form4; edgar.selftest(); revisions.selftest(); backtest.selftest(); form4.selftest(); import factor_backtest; factor_backtest.selftest()
     s = 'iShares\nFund Holdings as of,"Oct 21, 2026"\nTicker,Name,Sector,Asset Class,Market Value,Weight (%),Notional\nMU,MICRON,IT,Equity,1,6.05,1\nNVDA,NVIDIA,IT,Equity,1,5.66,1\nUSD,USD CASH,Cash,Cash,1,-0.03,1\nBRK.B,BERKSHIRE,F,Equity,1,2.0,1\nGOOG,ALPHABET,C,Equity,1,1.0,1\n'
     d = parse_holdings_csv(s); assert list(d.ticker) == ["BRK-B", "GOOGL", "MU", "NVDA"], d

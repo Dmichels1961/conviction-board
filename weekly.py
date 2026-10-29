@@ -35,31 +35,35 @@ HERE = Path(__file__).parent
 
 # key, label, group, default weight (points out of 100), description
 SIGNALS = [
-    ("flow", "Manager flow", "Manager flow", 15,
+    ("flow", "Manager flow", "Manager flow", 10,
      "Net adds/initiations minus trims/exits by skilled active ETFs since last week (drift-adjusted, skill-weighted)"),
-    ("earn_growth", "Fwd EPS growth", "Earnings", 10, "Consensus EPS growth, next fiscal year (stockanalysis and Yahoo averaged when they agree)"),
-    ("earn_surprise", "Beat size", "Earnings", 7,
+    ("earn_growth", "Fwd EPS growth", "Earnings", 10, "Consensus EPS growth, next fiscal year (Yahoo, daily)"),
+    ("earn_surprise", "Beat size", "Earnings", 8,
      "Average EPS surprise over last 4 quarters (capped at 50%), blended with a standardized surprise (average beat / its variability)"),
     ("earn_consistency", "Beat consistency", "Earnings", 5, "Share of last 4 quarters that beat consensus"),
-    ("earn_revisions", "Estimate revisions", "Earnings", 11, "30-day change in consensus EPS (current and next fiscal year, Yahoo)"),
+    ("earn_revisions", "Estimate revisions", "Earnings", 12, "30-day change in consensus EPS (current and next fiscal year, Yahoo)"),
     ("earn_accel", "Growth acceleration", "Earnings", 4, "Next-year EPS growth minus this year's: is growth speeding up?"),
     ("earn_sales", "Sales strength", "Earnings", 4, "Consensus revenue growth next year, blended with the average revenue beat over 4 quarters"),
-    ("earn_reaction", "Market reaction", "Earnings", 3, "Average stock move after the last 4 reports: did the market believe the beat?"),
+    ("earn_reaction", "Market reaction", "Earnings", 3, "Average 2-day move vs SPY after the last 4 reports: did the market believe the beat?"),
     ("earn_guidance", "Guidance", "Earnings", 4, "Raised / maintained / lowered guidance at the last report, adjusted for guide vs consensus"),
-    ("breadth", "Manager overlap", "Overlap", 19,
+    ("breadth", "Manager overlap", "Overlap", 24,
      "Distinct active-fund managers holding it. Scales with the count (most overlap = 100); funds that have not beaten their benchmark count at half"),
-    ("active_weight", "Active weight", "Overlap", 5, "Average weight above the benchmark (an active bet, not index beta)"),
-    ("momentum", "Momentum 12-1", "Other", 3, "12-month price return excluding the latest month"),
-    ("quality", "Quality", "Other", 2, "Gross margin, return on equity, free-cash-flow margin, net buybacks (share count change)"),
-    ("valuation", "Valuation", "Other", 1, "Forward P/E relative to growth (PEG) and free-cash-flow yield; deliberately light"),
-    ("theme", "Structural theme", "Other", 1, "Tailwind score (0-3) from themes.csv, e.g. the AI build-out chain"),
-    ("crowding", "Short interest", "Other", 1, "Lower short interest and falling short interest score higher"),
-    ("beta", "Beta", "Other", 1, "Beta 1.0 or below scores 100, falling to 0 at beta 2.0"),
-    ("analyst_drift", "Analyst drift", "Other", 1, "Change in mean price target over 3 months"),
-    ("insider", "Insider buying", "Other", 3, "Distinct insiders making open-market purchases in the last 90 days (SEC Form 4, code P); 3 or more = full score"),
+    ("active_weight", "Active weight", "Overlap", 6, "Average weight above the benchmark (an active bet, not index beta)"),
+    ("profitability", "Gross profitability", "Fundamentals", 2, "Trailing-12-month gross profit / total assets (Novy-Marx 2013; SEC filings)"),
+    ("accruals", "Earnings quality", "Fundamentals", 2, "Low accruals: net income backed by operating cash flow, scaled by assets (Sloan 1996; SEC filings)"),
+    ("asset_growth", "Asset growth", "Fundamentals", 1, "Slower year-over-year balance-sheet growth scores higher (Cooper, Gulen & Schill 2008; SEC filings)"),
+    ("issuance", "Net share issuance", "Fundamentals", 1, "Share count shrinking (buybacks) scores higher, dilution lower (Pontiff & Woodgate 2008; SEC filings)"),
+    ("crowding", "Short interest", "Fundamentals", 1, "Lower short interest and falling short interest score higher"),
+    ("momentum", "Momentum 12-1", "Other", 1, "12-month price return excluding the latest month"),
+    ("insider", "Insider buying", "Other", 1, "Distinct insiders making open-market purchases in the last 90 days (SEC Form 4, code P); 3 or more = full score"),
+    ("valuation", "Valuation", "Other", 0.5, "Forward P/E relative to growth (PEG) and free-cash-flow yield; deliberately light"),
+    ("theme", "Structural theme", "Other", 0.5, "Tailwind score (0-3) from themes.csv, e.g. the AI build-out chain"),
+    ("quality", "Quality", "Other", 0, "Retired: replaced by gross profitability, accruals and issuance"),
+    ("beta", "Beta", "Other", 0, "Beta 1.0 or below scores 100, falling to 0 at beta 2.0 (off)"),
+    ("analyst_drift", "Analyst drift", "Other", 0, "Change in mean price target over 3 months (off: targets follow prices)"),
 ]
 SIG_KEYS = [s[0] for s in SIGNALS]
-EARN_COLS = ["fwd_growth", "cur_growth", "rev_growth", "rev_surprise", "reaction", "guidance", "pt_drift", "short_chg", "share_chg", "implied_move", "rev_30d", "gross_margin", "roe", "fcf_margin", "fcf_yield", "fwd_pe", "short_pct", "beta", "insider_buyers"]
+EARN_COLS = ["fwd_growth", "cur_growth", "rev_growth", "rev_surprise", "reaction", "guidance", "pt_drift", "short_chg", "share_chg", "implied_move", "rev_30d", "gross_margin", "roe", "fcf_margin", "fcf_yield", "fwd_pe", "short_pct", "beta", "insider_buyers", "gross_prof", "accruals", "asset_growth", "net_issuance"]
 
 
 @dataclass
@@ -242,6 +246,10 @@ def score_signals(df: pd.DataFrame, cfg: Config, flow_available: bool) -> pd.Dat
     sig["crowding"] = pd.concat([_pr(df["short_pct"], higher=False), _pr(df["short_chg"], higher=False)], axis=1).mean(axis=1)
     sig["insider"] = (50 + 50 * np.minimum(pd.to_numeric(df["insider_buyers"], errors="coerce"), 3) / 3).fillna(50.0)
     sig["beta"] = (np.clip((2 - df["beta"]) / 1.0, 0, 1) * 100).fillna(50)
+    sig["profitability"] = _pr(df["gross_prof"])
+    sig["accruals"] = _pr(df["accruals"], higher=False)
+    sig["asset_growth"] = _pr(df["asset_growth"], higher=False)
+    sig["issuance"] = _pr(df["net_issuance"], higher=False)
     inactive = set()
     if not flow_available:
         inactive.add("flow")
@@ -250,7 +258,8 @@ def score_signals(df: pd.DataFrame, cfg: Config, flow_available: bool) -> pd.Dat
     if (df["fwd_growth"] - df["cur_growth"]).notna().sum() == 0:
         inactive.add("earn_accel")
     for k, cols in {"earn_sales": ["rev_growth", "rev_surprise"], "earn_reaction": ["reaction"], "earn_guidance": ["guidance"],
-                    "analyst_drift": ["pt_drift"], "insider": ["insider_buyers"]}.items():
+                    "analyst_drift": ["pt_drift"], "insider": ["insider_buyers"], "profitability": ["gross_prof"], "accruals": ["accruals"],
+                    "asset_growth": ["asset_growth"], "issuance": ["net_issuance"], "crowding": ["short_pct", "short_chg"]}.items():
         if df[cols].notna().sum().sum() == 0:
             inactive.add(k)
     live = sum(w for k, w in cfg.weights.items() if k not in inactive)

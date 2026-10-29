@@ -27,6 +27,10 @@ class WebSnapshotProvider:
         self.returns = pd.read_csv(self.folder / "returns.csv")
         e = self.folder / "earnings.csv"
         self.e = pd.read_csv(e).set_index("ticker") if e.exists() else pd.DataFrame()
+        a = self.folder / "auto.csv"                  # daily machine-pulled values win over the hand-collected ones
+        if a.exists():
+            au = pd.read_csv(a).set_index("ticker")
+            self.e = au.combine_first(self.e) if not self.e.empty else au
 
     # ----- interface used by weekly.run_week -----
     def holdings(self, fund: str) -> pd.DataFrame:
@@ -81,6 +85,7 @@ class WebSnapshotProvider:
                     reaction=g("reaction"), guidance=g("guidance"), pt_drift=g("pt_drift"), short_chg=g("short_chg"),
                     share_chg=g("share_chg"), implied_move=g("implied_move"), fwd_pe=g("fwd_pe"), gross_margin=g("gross_margin"),
                     roe=g("roe"), fcf_margin=g("fcf_margin"), fcf_yield=g("fcf_yield"), short_pct=g("short_pct"), insider_buyers=g("insider_buyers"),
+                    gross_prof=g("gross_prof"), accruals=g("accruals"), asset_growth=g("asset_growth"), net_issuance=g("net_issuance"),
                     name=(r["name"] if "name" in r.index and pd.notna(r["name"]) else None), sector=None)
 
     # ----- helpers -----

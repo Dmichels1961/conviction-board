@@ -14,7 +14,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent
 FILE = ROOT / "data/consensus/snapshots.csv"
-COLS = ["date", "ticker", "period", "eps", "eps_30d_yahoo", "n_analysts", "up30", "down30"]
+COLS = ["date", "ticker", "period", "eps", "eps_30d_yahoo", "n_analysts", "up30", "down30", "eps_growth", "rev_growth"]
 
 
 def fetch_one(t):
@@ -27,10 +27,13 @@ def fetch_one(t):
         if per not in tr.index: continue
         up = rv.loc[per].get("upLast30days", np.nan) if rv is not None and per in rv.index else np.nan     # missing for some foreign listings
         dn = rv.loc[per].get("downLast30days", np.nan) if rv is not None and per in rv.index else np.nan
-        na = np.nan
-        try: na = tk.earnings_estimate.loc[per, "numberOfAnalysts"]
+        na = eg = rg = np.nan
+        try: ee = tk.earnings_estimate; na = ee.loc[per, "numberOfAnalysts"]; eg = ee.loc[per].get("growth", np.nan)
         except Exception: pass
-        rows.append(dict(ticker=t, period=per, eps=tr.loc[per, "current"], eps_30d_yahoo=tr.loc[per, "30daysAgo"], n_analysts=na, up30=up, down30=dn))
+        try: rg = tk.revenue_estimate.loc[per].get("growth", np.nan)       # same Yahoo response, no extra request
+        except Exception: pass
+        rows.append(dict(ticker=t, period=per, eps=tr.loc[per, "current"], eps_30d_yahoo=tr.loc[per, "30daysAgo"], n_analysts=na, up30=up, down30=dn,
+                         eps_growth=eg, rev_growth=rg))
     return rows
 
 
@@ -66,6 +69,15 @@ def rev_30d(snaps, today):
         br = (up - dn) / (up + dn) if pd.notna(up) and pd.notna(dn) and up + dn > 0 else np.nan
         if chg: out[t] = dict(rev_30d=float(np.mean(chg)), rev_breadth=br, rev_source=src)
     return pd.DataFrame(out).T
+
+
+def growth_latest(snaps):
+    """Latest consensus growth per ticker: this year's and next year's EPS growth, next year's revenue growth."""
+    s = snaps[snaps.date == snaps.date.max()]
+    if "eps_growth" not in s.columns: return pd.DataFrame()
+    p = s.pivot_table(index="ticker", columns="period", values=["eps_growth", "rev_growth"], aggfunc="last")
+    g = lambda a, b: p[(a, b)] if (a, b) in p.columns else pd.Series(np.nan, index=p.index)
+    return pd.DataFrame({"fwd_growth": g("eps_growth", "+1y"), "cur_growth": g("eps_growth", "0y"), "rev_growth": g("rev_growth", "+1y")})
 
 
 def selftest():

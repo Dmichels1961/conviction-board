@@ -105,7 +105,7 @@ var fmt=function(v,d,p){v=N(v);return v==null?'–':(p?(v*100).toFixed(d||0)+'%'
 var sgn=function(v){v=N(v);return v==null?'–':(v>=0?'+':'')+(v*100).toFixed(1)+'%'};
 var D={},sortK='rank',sortD=1,open={};
 var COL={earnings:'var(--c1)',overlap:'var(--c2)',flow:'var(--c3)',other:'var(--c4)'};
-var NAMES={earnings:'Earnings',overlap:'Manager overlap',flow:'Manager flow',other:'Other signals'};
+var NAMES={earnings:'Earnings',overlap:'Manager overlap',flow:'Manager flow',other:'Fundamentals & other'};
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
 
 Array.prototype.forEach.call(document.querySelectorAll('.tabs button'),function(b){b.onclick=function(){
