@@ -195,7 +195,12 @@ def refresh_regime(today):
         out.update(spy=round(float(spy.iloc[-1]), 2), spy_200d=round(float(spy.iloc[-200:].mean()), 2), spy_below_200d=bool(spy.iloc[-1] < spy.iloc[-200:].mean()))
     except Exception as e: log(f"regime: SPY FAILED ({e})")
     try:
-        txt = get("https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2")
+        txt = None
+        for wait in (0, 20, 60):                    # FRED is often slow: three tries with a longer timeout
+            time.sleep(wait)
+            try: txt = get("https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2", timeout=120); break
+            except Exception as e: log(f"regime: credit spreads try failed ({e})")
+        if txt is None: raise RuntimeError("FRED did not answer after 3 tries")
         o = pd.read_csv(io.StringIO(txt)); o.columns = ["date", "oas"]; o["oas"] = pd.to_numeric(o.oas, errors="coerce"); o = o.dropna()
         (ROOT / "data/macro").mkdir(parents=True, exist_ok=True); o.to_csv(ROOT / "data/macro/hy_oas.csv", index=False)
         out.update(hy_spread=round(float(o.oas.iloc[-1]), 2), hy_spread_3m_change=round(float(o.oas.iloc[-1] - o.oas.iloc[-64]), 2),
