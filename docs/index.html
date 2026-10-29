@@ -170,6 +170,13 @@ dl.kv dt{color:var(--mut)}dl.kv dd{margin:0;text-align:right;font-weight:650}
       <div class="tw"><table id="emt"><thead><tr><th>#</th><th>Ticker</th><th>Score</th><th class="hide-s">Sector</th><th>Why it is here</th><th>R&amp;D / sales</th><th>Revenue acceleration</th><th class="hide-s">Theme</th><th class="hide-s">Signals</th></tr></thead><tbody></tbody></table></div>
       <p class="mut" id="emnote"></p>
     </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Earnings side door</h2>
+      <p class="mut" style="margin:0 0 8px">Small and mid caps that just beat earnings by 10% or more but that 0 or 1 of the tracked funds own, so the main board cannot see them yet. Ranked by the size of the beat, estimate revisions, beat consistency and the market's reaction. No manager has confirmed these: they are a watchlist with their own live record, and they do not change the boards or the paper portfolio.</p>
+      <div class="tiles" id="sdtiles"></div>
+      <div class="tw"><table id="sdt"><thead><tr><th>#</th><th>Ticker</th><th>Score</th><th>Why it is here</th><th>Beat</th><th class="hide-s">Beats (last 4)</th><th>30d revisions</th><th class="hide-s">Reaction vs SPY</th><th class="hide-s">Funds holding</th><th>Since listed</th></tr></thead><tbody></tbody></table></div>
+      <p class="mut" id="sdnote"></p>
+    </div>
   </section>
 
   <section id="track" hidden>
@@ -256,14 +263,14 @@ Array.prototype.forEach.call(document.querySelectorAll('.tabs button'),function(
 var h=location.hash.slice(1);if(['board','signals','emerging','track','risk','bt'].indexOf(h)>=0)document.querySelector('[data-t='+h+']').click();
 
 function load(f){return fetch('data/'+f+'.json?'+Date.now()).then(function(r){if(!r.ok)throw new Error(f);return r.json()})}
-Promise.all([load('board'),load('signals'),load('backtest'),load('factors').catch(function(){return null}),load('track').catch(function(){return null}),load('risk').catch(function(){return null}),load('pit').catch(function(){return null}),load('regime').catch(function(){return null}),load('emerging').catch(function(){return null}),load('capex').catch(function(){return null}),load('paper').catch(function(){return null})]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];D.f=a[3];D.tr=a[4];D.rk=a[5];D.pit=a[6];D.rg=a[7];D.em=a[8];D.cx=a[9];D.pp=a[10];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
+Promise.all([load('board'),load('signals'),load('backtest'),load('factors').catch(function(){return null}),load('track').catch(function(){return null}),load('risk').catch(function(){return null}),load('pit').catch(function(){return null}),load('regime').catch(function(){return null}),load('emerging').catch(function(){return null}),load('capex').catch(function(){return null}),load('paper').catch(function(){return null}),load('sidedoor').catch(function(){return null})]).then(function(a){D.sd=a[11];D.b=a[0];D.s=a[1];D.t=a[2];D.f=a[3];D.tr=a[4];D.rk=a[5];D.pit=a[6];D.rg=a[7];D.em=a[8];D.cx=a[9];D.pp=a[10];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
 
 function draw(){
   var m=D.b.meta;
   $('#sub').textContent='Updated '+m.asof+', after the US close';
   var tl=$('#tiles');tl.textContent='';
   [['Top conviction',D.b.rows[0].ticker],['Names scored',m.n_scored],['Funds tracked',m.funds],['Avg data coverage (top 25)',fmt(m.avg_cov,0)+'%'],['Top 25 in AI-linked themes',fmt(m.ai_share,0,true)]].forEach(function(t){var d=el('div','tile');d.appendChild(el('span','mut',t[0]));d.appendChild(el('b',null,t[1]));tl.appendChild(d)});
-  drawMoves();drawExpo();drawTable();drawSignals();drawBt();drawTrack();drawRisk();drawPit();drawRegime();drawAlpha();drawEmerging();drawCapex();drawPaper();
+  drawMoves();drawExpo();drawTable();drawSignals();drawBt();drawTrack();drawRisk();drawPit();drawRegime();drawAlpha();drawEmerging();drawSideDoor();drawCapex();drawPaper();
 }
 function drawMoves(){
   var b=$('#moves');b.textContent='';var mv=D.b.moves;
@@ -415,6 +422,14 @@ function drawEmerging(){
   var tb=$('#emt tbody');tb.textContent='';
   E.slice(0,40).forEach(function(r){var tr=el('tr');[r.rank,r.ticker,fmt(r.score,1),r.sector||'–',r.why||'–',r.rd_intensity==null?'–':Math.round(r.rd_intensity*100)+'%',r.rev_accel==null?'–':(r.rev_accel>=0?'+':'')+Math.round(r.rev_accel*100)+' pts',r.top_theme||'–',r.signals+' of 8'].forEach(function(c,i){var td=el('td',i===1?'tk':(i===3||i>6?'hide-s':null),c);if(i===4)td.style.whiteSpace='normal';tr.appendChild(td)});tb.appendChild(tr)});
   $('#emnote').textContent='Not yet included: patents (needs a free USPTO key) and federal contract awards. R&D, revenue acceleration and margins can be backtested once their filing-date history builds; filing themes and new positions can only be judged live.';
+}
+function drawSideDoor(){
+  var S=D.sd;if(!S||!S.rows||!S.rows.length){$('#sdnote').textContent=S&&S.rule?S.rule:'The list appears after the next daily run.';return}
+  var T=S.track||{};
+  tiles('#sdtiles',[['Strong reporters, 0-1 funds',S.n],['Top name',S.rows[0].ticker],['Tracking since',T.first||'today'],['Avg since listed',T.measured?pct(T.avg):'–',T.measured?(T.avg>=0?'up':'dn'):null],['S&P / QQQ same days',T.measured?pct(T.avg_spy)+' / '+pct(T.avg_qqq):'–'],['Beat the S&P',T.measured?Math.round(T.beat_spy*100)+'% of '+T.measured:'–']]);
+  var tb=$('#sdt tbody');tb.textContent='';
+  S.rows.forEach(function(r){var tr=el('tr');[r.rank,r.ticker,fmt(r.score,1),r.why||'–',pct(r.surprise,0),r.quarters?(r.beats+' of '+r.quarters):'–',r.rev_30d==null?'–':pct(r.rev_30d),r.reaction==null?'–':pct(r.reaction),r.holders,r.since==null?'new':pct(r.since)].forEach(function(c,i){var td=el('td',i===1?'tk':(i===5||i===7||i===8?'hide-s':(i===9&&r.since!=null?(r.since>=0?'up':'dn'):null)),c);if(i===3)td.style.whiteSpace='normal';tr.appendChild(td)});tb.appendChild(tr)});
+  $('#sdnote').textContent=S.rule+' Updated '+S.asof+'.';
 }
 function drawCapex(){
   var C=D.cx;if(!C||!C.companies||!C.companies.length)return;$('#capexcard').hidden=false;

@@ -547,6 +547,10 @@ def main():
     except Exception as e:
         log(f"emerging winners FAILED ({type(e).__name__}: {e})")
     try:
+        import sidedoor; sidedoor.run(today, log=log)       # watchlist only: never touches the boards or the paper portfolio
+    except Exception as e:
+        log(f"earnings side door FAILED ({type(e).__name__}: {e})")
+    try:
         import portfolio; log(portfolio.write(rk, closes, AD.load_auto(), today))
     except Exception as e:
         log(f"track record / concentration FAILED ({type(e).__name__}: {e})")
@@ -593,7 +597,7 @@ def holdings_selftest():
 
 
 def selftest():
-    import paper; paper.selftest(); import emerging; emerging.selftest(); import signals2; signals2.selftest(); import pit_backtest; pit_backtest.selftest(); import portfolio; portfolio.selftest(); holdings_selftest(); earnings_selftest(); import autodata; autodata.selftest()
+    import paper; paper.selftest(); import emerging; emerging.selftest(); import sidedoor; sidedoor.selftest(); import signals2; signals2.selftest(); import pit_backtest; pit_backtest.selftest(); import portfolio; portfolio.selftest(); holdings_selftest(); earnings_selftest(); import autodata; autodata.selftest()
     import edgar, revisions, backtest, form4; edgar.selftest(); revisions.selftest(); backtest.selftest(); form4.selftest(); import factor_backtest; factor_backtest.selftest()
     s = 'iShares\nFund Holdings as of,"Oct 21, 2026"\nTicker,Name,Sector,Asset Class,Market Value,Weight (%),Notional\nMU,MICRON,IT,Equity,1,6.05,1\nNVDA,NVIDIA,IT,Equity,1,5.66,1\nUSD,USD CASH,Cash,Cash,1,-0.03,1\nBRK.B,BERKSHIRE,F,Equity,1,2.0,1\nGOOG,ALPHABET,C,Equity,1,1.0,1\n'
     d = parse_holdings_csv(s); assert list(d.ticker) == ["BRK-B", "GOOGL", "MU", "NVDA"], d

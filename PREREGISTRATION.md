@@ -46,3 +46,10 @@ About 25 model variants were tried on this data before freezing, so these number
 
 Survivorship (prices exist only for stocks still listed; funds were chosen in 2026), today's sector labels applied to the past,
 no trading costs, estimate revisions and guidance have no history and are untested.
+
+## Change log
+
+- **29 October 2026: earnings side door added (watchlist only).** `sidedoor.py` lists small and mid caps that beat EPS estimates by
+  10%+ in the last 30 days but are held by 0 or 1 tracked fund. It feeds nothing in the two frozen boards or the paper portfolio, so the
+  clock does not restart. It keeps its own live record (`data/sidedoor/entries.csv`). Promotion rule, written now: it may join the main
+  board's scoring only if its entries beat the S&P 500 by 2+ points on average over 90 trading days, across 40+ entries spanning 6+ months.
