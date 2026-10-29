@@ -82,7 +82,7 @@ def figi_map(ids, cache_path=ROOT / "data/cusip_map.csv"):
 def fetch_fund(fund_ticker):
     xml_url = latest_nport_xml_url(fund_ticker)
     d, asof, series = parse_nport(_get(xml_url))
-    key = d.isin.where(d.isin != "", d.cusip)
+    key = d["isin"].where(d["isin"] != "", d["cusip"])
     mp = figi_map([k for k, t in zip(key, d.ticker) if not t])
     d["ticker"] = [t if t else mp.get(k, "") for t, k in zip(d.ticker, key)]
     d = d[d.ticker != ""]
@@ -129,7 +129,7 @@ def history(fund_ticker, n=12, out_dir=None, log=print):
         try:
             d, period, _ = parse_nport(_get(href.group(1).rsplit("/", 1)[0] + "/primary_doc.xml"))
             if not period or period in set(idx.period.astype(str)) : continue
-            key = d.isin.where(d.isin != "", d.cusip)
+            key = d["isin"].where(d["isin"] != "", d["cusip"])
             mp = figi_map([k for k, t in zip(key, d.ticker) if not t])
             d["ticker"] = [t if t else mp.get(k, "") for t, k in zip(d.ticker, key)]
             d = d[d.ticker != ""]

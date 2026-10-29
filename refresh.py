@@ -113,16 +113,25 @@ def price_stats(csv_text):
 
 
 def refresh_prices(tickers):
+    """12-1 month momentum and distance from the 52-week high. Yahoo via yfinance (Stooq now requires a browser check)."""
     base = pd.read_csv(ROOT / "data_web/earnings_base.csv").set_index("ticker"); n = 0
-    for t in tickers:
-        try:
-            st = price_stats(get(f"https://stooq.com/q/d/l/?s={t.lower()}.us&i=d"))
-            if st and t in base.index:
-                base.loc[t, "mom_12_1"] = round(st["mom_12_1"], 4); n += 1
-                base.loc[t, "off_high"] = round(st["off_high"], 4) if "off_high" in base.columns else np.nan
-        except Exception as e:
-            log(f"prices {t}: {e}")
-        time.sleep(0.3)
+    try:
+        import yfinance as yf
+        for k in range(0, len(tickers), 100):
+            b = list(tickers[k:k + 100])
+            d = yf.download(b, period="14mo", interval="1d", auto_adjust=True, progress=False, threads=True)["Close"]
+            if hasattr(d, "to_frame") and getattr(d, "ndim", 2) == 1: d = d.to_frame(b[0])
+            for t in b:
+                if t not in d.columns or t not in base.index: continue
+                c = d[t].dropna()
+                if len(c) < 240: continue
+                st = price_stats("Date,Close\n" + "\n".join(f"{i.date()},{v}" for i, v in c.items()))
+                if st:
+                    base.loc[t, "mom_12_1"] = round(st["mom_12_1"], 4)
+                    if "off_high" in base.columns: base.loc[t, "off_high"] = round(st["off_high"], 4)
+                    n += 1
+    except Exception as e:
+        log(f"prices FAILED ({e})")
     base.reset_index().to_csv(ROOT / "data_web/earnings_base.csv", index=False); log(f"prices: updated {n} names")
 
 
