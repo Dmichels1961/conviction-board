@@ -9,6 +9,8 @@ Tests (all out of the stocks funds hold, all vs SPY):
   high52     price / 52-week high at each month-end
 Each is sorted into quintiles per period; we report the top-minus-bottom quintile spread over 21 and 63 trading days, a t-statistic across
 periods (calendar quarters for earnings, months for the rest; 63-day windows sampled so they do not overlap) and the rank correlation.
+Robustness (added after seeing heavy-tailed returns in the first run): returns are winsorised at the 2nd/98th percentile, surprises
+are capped at +/-50% and events with an estimate under $0.10 are dropped; the median spread is reported next to the mean.
 Biases: only stocks that still trade (survivorship), today's fund holdings define the universe, and Yahoo only keeps ~3 years of report dates.
 """
 import json, sys
@@ -37,12 +39,13 @@ def fwd(px, bench, i, h, tick):
 
 
 def quintile_stats(df, score, ret, period):
+    df = df.copy(); lo, hi = df[ret].quantile([0.02, 0.98]); df[ret] = df[ret].clip(lo, hi)   # a handful of 5x rebounders must not decide the answer
     """df has score, ret, period. -> spread (Q5-Q1 mean excess), t across periods, IC, n periods."""
     rows = []
     for per, g in df.dropna(subset=[score, ret]).groupby(period):
         if len(g) < 25: continue
         q = pd.qcut(g[score].rank(method="first"), 5, labels=False)
-        rows.append(dict(period=per, spread=g.loc[q == 4, ret].mean() - g.loc[q == 0, ret].mean(), top=g.loc[q == 4, ret].mean(), ic=g[score].rank().corr(g[ret].rank()), n=len(g)))
+        rows.append(dict(period=per, spread=g.loc[q == 4, ret].mean() - g.loc[q == 0, ret].mean(), mspread=g.loc[q == 4, ret].median() - g.loc[q == 0, ret].median(), top=g.loc[q == 4, ret].mean(), ic=g[score].rank().corr(g[ret].rank()), n=len(g)))
     if len(rows) < 3: return None
     r = pd.DataFrame(rows).sort_values("period")
     return r
@@ -51,7 +54,7 @@ def quintile_stats(df, score, ret, period):
 def summarize(r, step):
     r = r.iloc[::step]
     t = r.spread.mean() / (r.spread.std(ddof=1) / np.sqrt(len(r))) if len(r) > 2 and r.spread.std(ddof=1) > 0 else np.nan
-    return dict(spread_pct=round(100 * r.spread.mean(), 2), top_pct=round(100 * r.top.mean(), 2), t=round(float(t), 2), ic=round(r.ic.mean(), 3), periods=int(len(r)), hit=round(float((r.spread > 0).mean()), 2))
+    return dict(spread_pct=round(100 * r.spread.mean(), 2), median_spread_pct=round(100 * r.mspread.mean(), 2), top_pct=round(100 * r.top.mean(), 2), t=round(float(t), 2), ic=round(r.ic.mean(), 3), periods=int(len(r)), hit=round(float((r.spread > 0).mean()), 2))
 
 
 def run(px, events, bench="SPY"):
@@ -60,7 +63,9 @@ def run(px, events, bench="SPY"):
     b = px[bench].ffill(); dates = px.index
     # ---- earnings surprise
     if events is not None and len(events):
-        ev = events.dropna(subset=["surprise_pct"]).copy(); ev["date"] = pd.to_datetime(ev["date"]).dt.tz_localize(None).dt.normalize()
+        ev = events.dropna(subset=["surprise_pct"]).copy()
+        if "eps_est" in ev.columns: ev = ev[ev.eps_est.abs() >= 0.10]      # surprise % is meaningless when the estimate is near zero
+        ev["surprise_pct"] = ev.surprise_pct.clip(-50, 50); ev["date"] = pd.to_datetime(ev["date"]).dt.tz_localize(None).dt.normalize()
         for h in HORIZONS:
             rows = []
             for e in ev.itertuples():
