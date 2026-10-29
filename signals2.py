@@ -135,7 +135,7 @@ def filing_pair(sub):
     return (new.accessionNumber, new.primaryDocument, str(new.filingDate)), (o.accessionNumber, o.primaryDocument)
 
 
-def refresh_filings(a, pool, today, log=print, cap=120, budget_s=600):
+def refresh_filings(a, pool, today, log=print, cap=200, budget_s=1200):
     import edgar as EG
     try: cmap = AD.cik_map()
     except Exception as e: log(f"filing text: SEC ticker map FAILED ({e})"); return
@@ -150,7 +150,14 @@ def refresh_filings(a, pool, today, log=print, cap=120, budget_s=600):
             if not pair: continue
             (acc, doc, filed), (acc0, doc0) = pair
             if seen.get(t) == acc: continue                          # unchanged since last check: keep the stored value
-            sim = cosine(text_of(EG._get(url(cik, acc, doc))), text_of(EG._get(url(cik, acc0, doc0))))
+            h1, h0 = EG._get(url(cik, acc, doc)), EG._get(url(cik, acc0, doc0))
+            sim = cosine(text_of(h1), text_of(h0))
+            try:                                    # emerging-technology talk in the same two filings (for the Emerging winners list)
+                import emerging as EM
+                n1, p1 = EM.theme_hits(EM.strip_html(h1)); n0, p0 = EM.theme_hits(EM.strip_html(h0))
+                rise = {k: p1[k] - p0.get(k, 0) for k in p1}; top = max(rise, key=rise.get) if max(rise.values()) > 0 else max(p1, key=p1.get)
+                AD.setv(a, t, "theme_level", round(n1, 2)); AD.setv(a, t, "theme_change", round(n1 - n0, 2)); AD.setv(a, t, "top_theme", top)
+            except Exception as e: log(f"themes {t}: {str(e)[:60]}")
             if pd.notna(sim):
                 AD.setv(a, t, "filing_sim", round(sim, 4)); AD.setv(a, t, "filing_date", filed); seen[t] = acc; ok += 1
             time.sleep(0.3)

@@ -153,7 +153,7 @@ def panel(hist, px, ev, start=None, managers=None):
         d["fwd"] = fwd[pool]; d["fwd_spy"] = float(px["SPY"].iloc[i + 21] / px["SPY"].iloc[i] - 1)
         d["fwd_res"] = d["fwd"] - d["beta"] * d["fwd_spy"]                                 # return left after the market's move x beta
         f = lambda t: float(px[t].iloc[i + 21] / px[t].iloc[i] - 1) if t in px.columns and pd.notna(px[t].iloc[i]) else np.nan
-        mq = mom.rank(pct=True)
+        mq = mom.rank(pct=True); d["fwd_qqq"] = f("QQQ")
         d.attrs["factors"] = dict(mkt=f("SPY"), growth=f("IWF") - f("SPY") if "IWD" not in px.columns else f("IWF") - f("IWD"),
                                   tech=f("QQQ") - f("SPY"), mom=float(fwd.reindex(mq.index)[mq >= 2 / 3].mean() - fwd.reindex(mq.index)[mq <= 1 / 3].mean()))
         d.attrs["risk_off"] = regime_at(px, i, T)
@@ -182,7 +182,7 @@ def evaluate(pan, w, top_n=25, exit_rank=None, regime=None, score_fn=None):
         res = d.loc[pick, "fwd_res"].mean() - d["fwd_res"].mean() if "fwd_res" in d.columns else np.nan
         ic_res = s.rank().corr(d["fwd_res"].rank()) if "fwd_res" in d.columns else np.nan
         beta_top = d.loc[pick, "beta"].mean() if "beta" in d.columns else np.nan
-        rows.append(dict(date=T, top=top, pool=pool, spy=d["fwd_spy"].iloc[0], ex_pool=top - pool, ex_spy=top - d["fwd_spy"].iloc[0], ic=ic, ex_adj=res, ic_res=ic_res, beta_top=beta_top,
+        rows.append(dict(date=T, top=top, pool=pool, spy=d["fwd_spy"].iloc[0], ex_pool=top - pool, ex_spy=top - d["fwd_spy"].iloc[0], ex_qqq=(top - d["fwd_qqq"].iloc[0]) if "fwd_qqq" in d.columns else np.nan, ic=ic, ex_adj=res, ic_res=ic_res, beta_top=beta_top,
                          risk_off=d.attrs.get("risk_off", False), **d.attrs.get("factors", {}),
                          turnover=(len(set(pick) - prev) / top_n) if prev else np.nan))
         prev = set(pick)
@@ -203,7 +203,12 @@ def stats(r):
                 ir_adj=round(float(r.ex_adj.mean() / r.ex_adj.std() * np.sqrt(12)), 2) if "ex_adj" in r and r.ex_adj.notna().sum() > 2 else None,
                 t_ic=round(t(r.ic.dropna()), 2), ic_res=round(float(r.ic_res.mean()), 3) if "ic_res" in r else None,
                 t_ic_res=round(t(r.ic_res.dropna()), 2) if "ic_res" in r and r.ic_res.notna().sum() > 2 else None,
-                beta=round(float(r.beta_top.mean()), 2) if "beta_top" in r and r.beta_top.notna().any() else None)
+                beta=round(float(r.beta_top.mean()), 2) if "beta_top" in r and r.beta_top.notna().any() else None,
+                ex_qqq_month=round(float(r.ex_qqq.mean()), 4) if "ex_qqq" in r and r.ex_qqq.notna().any() else None,
+                t_qqq=round(t(r.ex_qqq.dropna()), 2) if "ex_qqq" in r and r.ex_qqq.notna().sum() > 2 else None,
+                hit_qqq=round(float((r.ex_qqq.dropna() > 0).mean()), 2) if "ex_qqq" in r and r.ex_qqq.notna().any() else None,
+                ir_spy=round(float(r.ex_spy.mean() / r.ex_spy.std() * np.sqrt(12)), 2) if r.ex_spy.notna().sum() > 2 else None,
+                ir_qqq=round(float(r.ex_qqq.mean() / r.ex_qqq.std() * np.sqrt(12)), 2) if "ex_qqq" in r and r.ex_qqq.notna().sum() > 2 else None)
 
 
 def alpha(r):

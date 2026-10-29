@@ -92,6 +92,8 @@ CONCEPTS = {
     "cfo": [("us-gaap", "NetCashProvidedByUsedInOperatingActivities"),
             ("us-gaap", "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"), ("ifrs-full", "CashFlowsFromUsedInOperatingActivities")],
     "shares": [("dei", "EntityCommonStockSharesOutstanding")],
+    "rd": [("us-gaap", "ResearchAndDevelopmentExpense"), ("us-gaap", "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost"),
+           ("ifrs-full", "ResearchAndDevelopmentExpense")],
     "capex": [("us-gaap", "PaymentsToAcquirePropertyPlantAndEquipment"), ("us-gaap", "PaymentsToAcquireProductiveAssets"),
               ("ifrs-full", "PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities")],
 }
@@ -171,7 +173,7 @@ def cik_map():
     return {v["ticker"].upper().replace(".", "-"): int(v["cik_str"]) for v in j.values()}
 
 
-def refresh_sec(a, pool, today, log=print, cap=200, budget_s=900, fetch=None):
+def refresh_sec(a, pool, today, log=print, cap=300, budget_s=1500, fetch=None):
     import edgar as EG
     try: cmap = cik_map()
     except Exception as e: log(f"SEC ticker map FAILED ({e}); fundamentals skipped"); return
@@ -182,7 +184,10 @@ def refresh_sec(a, pool, today, log=print, cap=200, budget_s=900, fetch=None):
         cik = cmap.get(t.upper())
         if not cik: done[t] = str(today); miss += 1; continue          # no SEC filer (e.g. a foreign ordinary share)
         try:
-            f = fundamentals(fetch(cik))
+            cf = fetch(cik); f = fundamentals(cf)
+            try:
+                import emerging; f.update(emerging.growth_features(cf))         # R&D, revenue acceleration, margin change
+            except Exception as e: log(f"sec {t} growth features: {str(e)[:60]}")
             for k, v in f.items():
                 if isinstance(v, str): setv(a, t, k, v)
                 elif not np.isnan(v): setv(a, t, k, round(float(v), 5))

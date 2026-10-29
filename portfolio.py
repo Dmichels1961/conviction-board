@@ -34,6 +34,20 @@ def betas(closes, i0, names, days=252):
     m = r["SPY"]; return (r.drop(columns="SPY").apply(lambda c: c.cov(m)) / m.var()).clip(0, 3)
 
 
+def emerging_track(closes):
+    """Each day's Emerging winners top 25 since that day, against the S&P 500 and QQQ."""
+    out = []; last = len(closes) - 1
+    for f in sorted((ROOT / "data/emerging").glob("20??-??-??.csv")):
+        i0 = _entry_idx(closes, f.stem)
+        if i0 is None or i0 >= last: continue
+        r = pd.read_csv(f); names = [t for t in r[r["rank"] <= 25].ticker if t in closes.columns]
+        if not names: continue
+        g = lambda t: float(closes[t].iloc[last] / closes[t].iloc[i0] - 1) if t in closes.columns and pd.notna(closes[t].iloc[i0]) else None
+        out.append(dict(date=f.stem, days=int(last - i0), n=len(names), top25=round(float((closes[names].iloc[last] / closes[names].iloc[i0] - 1).mean()), 4),
+                        spy=g("SPY"), qqq=g("QQQ")))
+    return out[::-1]
+
+
 def cohorts():
     """[(date, label, ranking frame with every name scored that day)], oldest first."""
     out = []
@@ -66,6 +80,7 @@ def drivers(row):
 def track(closes, latest_rank, today):
     if closes.empty or "SPY" not in closes.columns: return dict(cohorts=[], note="No prices yet.")
     closes = closes.sort_index().ffill(); last = len(closes) - 1; spy = closes["SPY"]
+    qqq = closes["QQQ"] if "QQQ" in closes.columns else None
     cur_rank = latest_rank.set_index("ticker")["rank"] if len(latest_rank) else pd.Series(dtype=float)
     res, post = [], []
     for d, lab, r in cohorts():
@@ -76,6 +91,7 @@ def track(closes, latest_rank, today):
         if not names: continue
         ret = lambda ts: (closes[ts].iloc[last] / closes[ts].iloc[i0] - 1)
         tr = ret(names); pr = ret(pool); sr = float(spy.iloc[last] / spy.iloc[i0] - 1)
+        qr = float(qqq.iloc[last] / qqq.iloc[i0] - 1) if qqq is not None and pd.notna(qqq.iloc[i0]) else None
         beta = betas(closes, i0, pool)
         adj = lambda ts: float((ret(ts) - beta.reindex(ts).fillna(1.0) * sr).mean())     # return left after the market's move x beta
         rc_names = [t for t in r[r["rc_rank"] <= RC_N].ticker if t in closes.columns] if "rc_rank" in r.columns else []
@@ -86,7 +102,7 @@ def track(closes, latest_rank, today):
                 pk = [t for t in r.sort_values(col, ascending=False).ticker if t in closes.columns][:25]
                 if pk: sig[name] = round(float(ret(pk).mean() - pr.mean()), 4)
         res.append(dict(date=d, label=lab, days=int(last - i0), n=len(names), top25=round(float(tr.mean()), 4), pool=round(float(pr.mean()), 4), spy=round(sr, 4), by_signal=sig,
-                        top25_adj=round(adj(names) - adj(pool), 4), **rc,
+                        top25_adj=round(adj(names) - adj(pool), 4), qqq=round(qr, 4) if qr is not None else None, **rc,
                         beat_spy=int((tr > sr).sum()), best=[[t, round(float(v), 4)] for t, v in tr.sort_values().tail(3)[::-1].items()],
                         worst=[[t, round(float(v), 4)] for t, v in tr.sort_values().head(3).items()]))
         for t, v in tr.items():
@@ -99,7 +115,7 @@ def track(closes, latest_rank, today):
     if cs:
         start = _entry_idx(closes, cs[0][0])
         if start is not None:
-            v = s = p = q = 1.0; held = pool = rcb = None; ci = 0
+            v = s = p = q = qq = 1.0; held = pool = rcb = None; ci = 0
             for i in range(start, len(closes)):
                 dt = closes.index[i]
                 while ci < len(cs) and pd.Timestamp(cs[ci][0]) <= dt:
@@ -110,13 +126,15 @@ def track(closes, latest_rank, today):
                     g = closes.iloc[i] / closes.iloc[i - 1] - 1
                     v *= 1 + float(g[held].mean()); p *= 1 + float(g[pool].mean()); s *= 1 + float(g["SPY"])
                     if rcb: q *= 1 + float(g[rcb].mean())
-                nav.append([str(dt.date()), round(v, 4), round(s, 4), round(p, 4), round(q, 4) if rcb else None])
+                    if qqq is not None and pd.notna(g.get("QQQ")): qq *= 1 + float(g["QQQ"])
+                nav.append([str(dt.date()), round(v, 4), round(s, 4), round(p, 4), round(q, 4) if rcb else None, round(qq, 4) if qqq is not None else None])
     post.sort(key=lambda x: x["vs_spy"])
     card = []
     for name in SHADOW:
         v = [c["by_signal"][name] for c in res if name in c.get("by_signal", {})]
         if v: card.append(dict(signal=name, boards=len(v), avg_vs_pool=round(float(np.mean(v)), 4), beat_pool=int(sum(x > 0 for x in v))))
-    return dict(cohorts=res[::-1], nav=nav, postmortems=post[:30], scorecard=card, flow_rule=FLOW_RULE, asof=str(today),
+    em = emerging_track(closes)
+    return dict(cohorts=res[::-1], nav=nav, postmortems=post[:30], scorecard=card, flow_rule=FLOW_RULE, asof=str(today), emerging=em,
                 note="Equal weight, no costs, prices to the latest close. Beta-adjusted = return left after the S&P 500's move times each stock's beta, against the same for the pool. Early boards were made while the model was still being built.")
 
 

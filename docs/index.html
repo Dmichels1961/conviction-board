@@ -53,6 +53,7 @@ input[type=search]{background:var(--bg);color:var(--fg);border:1px solid var(--l
   <div class="tabs" role="tablist">
     <button role="tab" aria-selected="true" data-t="board">Board</button>
     <button role="tab" aria-selected="false" data-t="signals">What predicts returns</button>
+    <button role="tab" aria-selected="false" data-t="emerging">Emerging winners</button>
     <button role="tab" aria-selected="false" data-t="track">Track record</button>
     <button role="tab" aria-selected="false" data-t="risk">Concentration</button>
     <button role="tab" aria-selected="false" data-t="bt">Backtest</button>
@@ -92,14 +93,24 @@ input[type=search]{background:var(--bg);color:var(--fg);border:1px solid var(--l
     </div>
   </section>
 
+  <section id="emerging" hidden>
+    <div class="card">
+      <h2>Emerging winners</h2>
+      <p class="mut" style="margin:0 0 8px">Forward-looking signals that tend to lead future growth rather than describe past returns: R&amp;D intensity and growth, revenue acceleration, gross-margin expansion, rising emerging-technology talk in SEC filings, new positions opened by managers, and analysts' revenue outlook. Missing data counts as neutral, so young companies are not penalized. This list is a watchlist and is tracked separately from the two frozen boards.</p>
+      <div class="tiles" id="emtiles"></div>
+      <div class="tw"><table id="emt"><thead><tr><th>#</th><th>Ticker</th><th>Score</th><th class="hide-s">Sector</th><th>Why it is here</th><th>R&amp;D / sales</th><th>Revenue acceleration</th><th class="hide-s">Theme</th><th class="hide-s">Signals</th></tr></thead><tbody></tbody></table></div>
+      <p class="mut" id="emnote"></p>
+    </div>
+  </section>
+
   <section id="track" hidden>
     <div class="card">
       <h2>How the boards have done since they were made</h2>
       <p class="mut" style="margin:0 0 10px">Each board's top 25 is bought equal-weight at that day's close and compared with the S&amp;P 500 (SPY) and with the average of every stock the model scored that day. Nothing here is recalculated with hindsight.</p>
       <div class="tiles" id="trtiles"></div>
       <div id="trchart"></div>
-      <div class="leg"><span style="--c:var(--acc)">Live portfolio (latest top 25)</span><span style="--c:var(--mut)">S&amp;P 500</span><span style="--c:var(--c2)">All scored stocks</span><span style="--c:var(--c3)">Risk-controlled board</span></div>
-      <div class="tw" style="max-height:none;margin-top:12px"><table id="trt"><thead><tr><th>Board date</th><th>Trading days</th><th>Top 25</th><th>S&amp;P 500</th><th>All scored</th><th>Beat the S&amp;P</th><th>Top 25 beta-adj vs pool</th><th>Risk-controlled 40</th><th>RC beta-adj vs pool</th><th class="hide-s">Best</th><th class="hide-s">Worst</th></tr></thead><tbody></tbody></table></div>
+      <div class="leg"><span style="--c:var(--acc)">Live portfolio (latest top 25)</span><span style="--c:var(--mut)">S&amp;P 500</span><span style="--c:var(--c2)">All scored stocks</span><span style="--c:var(--c3)">Risk-controlled board</span><span style="--c:var(--c4)">QQQ</span></div>
+      <div class="tw" style="max-height:none;margin-top:12px"><table id="trt"><thead><tr><th>Board date</th><th>Trading days</th><th>Top 25</th><th>S&amp;P 500</th><th>QQQ</th><th>All scored</th><th>Beat the S&amp;P</th><th>Top 25 beta-adj vs pool</th><th>Risk-controlled 40</th><th>RC beta-adj vs pool</th><th class="hide-s">Best</th><th class="hide-s">Worst</th></tr></thead><tbody></tbody></table></div>
       <p class="mut" id="trnote"></p>
     </div>
     <div class="card">
@@ -143,7 +154,7 @@ input[type=search]{background:var(--bg);color:var(--fg);border:1px solid var(--l
       <h2 style="margin-top:16px">Skill or exposure?</h2>
       <p class="mut" style="margin:0 0 8px">The board's monthly returns explained by the market, growth, tech and momentum. What is left over (alpha) is the part those tilts do not explain.</p>
       <div class="tiles" id="alphatiles"></div>
-      <div class="tw" style="max-height:none"><table id="vert"><thead><tr><th>Version</th><th>vs pool, per month</th><th>t-stat</th><th>Beta-adjusted, per month</th><th>t-stat</th><th>Information ratio</th><th>Avg beta</th><th class="hide-s">Alpha per year (t)</th></tr></thead><tbody></tbody></table></div>
+      <div class="tw" style="max-height:none"><table id="vert"><thead><tr><th>Version</th><th>vs pool, per month</th><th>t-stat</th><th>Beta-adjusted, per month</th><th>t-stat</th><th>Information ratio</th><th>Avg beta</th><th>vs S&amp;P 500, per month (t)</th><th>vs QQQ, per month (t)</th><th class="hide-s">Alpha per year (t)</th></tr></thead><tbody></tbody></table></div>
       <p class="mut" id="alphanote"></p>
       <p class="mut" id="pitmethod"></p>
     </div>
@@ -171,19 +182,19 @@ function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null
 
 Array.prototype.forEach.call(document.querySelectorAll('.tabs button'),function(b){b.onclick=function(){
   document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
-  ['board','signals','track','risk','bt'].forEach(function(id){$('#'+id).hidden=(id!==b.dataset.t)});
+  ['board','signals','emerging','track','risk','bt'].forEach(function(id){$('#'+id).hidden=(id!==b.dataset.t)});
   if(location.hash!=='#'+b.dataset.t)history.replaceState(null,'','#'+b.dataset.t)}});
-var h=location.hash.slice(1);if(['signals','track','risk','bt'].indexOf(h)>=0)document.querySelector('[data-t='+h+']').click();
+var h=location.hash.slice(1);if(['signals','emerging','track','risk','bt'].indexOf(h)>=0)document.querySelector('[data-t='+h+']').click();
 
 function load(f){return fetch('data/'+f+'.json?'+Date.now()).then(function(r){if(!r.ok)throw new Error(f);return r.json()})}
-Promise.all([load('board'),load('signals'),load('backtest'),load('factors').catch(function(){return null}),load('track').catch(function(){return null}),load('risk').catch(function(){return null}),load('pit').catch(function(){return null}),load('regime').catch(function(){return null})]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];D.f=a[3];D.tr=a[4];D.rk=a[5];D.pit=a[6];D.rg=a[7];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
+Promise.all([load('board'),load('signals'),load('backtest'),load('factors').catch(function(){return null}),load('track').catch(function(){return null}),load('risk').catch(function(){return null}),load('pit').catch(function(){return null}),load('regime').catch(function(){return null}),load('emerging').catch(function(){return null})]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];D.f=a[3];D.tr=a[4];D.rk=a[5];D.pit=a[6];D.rg=a[7];D.em=a[8];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
 
 function draw(){
   var m=D.b.meta;
   $('#sub').textContent='Ranking as of '+m.asof+' · rebuilt automatically every weekday after the US close · page data generated '+m.generated;
   var tl=$('#tiles');tl.textContent='';
   [['Top conviction',D.b.rows[0].ticker],['Names scored',m.n_scored],['Funds tracked',m.funds],['Avg data coverage (top 25)',fmt(m.avg_cov,0)+'%'],['Top 25 in AI-linked themes',fmt(m.ai_share,0,true)]].forEach(function(t){var d=el('div','tile');d.appendChild(el('span','mut',t[0]));d.appendChild(el('b',null,t[1]));tl.appendChild(d)});
-  drawMoves();drawExpo();drawTable();drawSignals();drawBt();drawTrack();drawRisk();drawPit();drawRegime();drawAlpha();
+  drawMoves();drawExpo();drawTable();drawSignals();drawBt();drawTrack();drawRisk();drawPit();drawRegime();drawAlpha();drawEmerging();
 }
 function drawMoves(){
   var b=$('#moves');b.textContent='';var mv=D.b.moves;
@@ -283,18 +294,18 @@ function tiles(id,arr){var tl=$(id);tl.textContent='';arr.forEach(function(t){va
 function drawTrack(){
   var T=D.tr;if(!T||!T.cohorts||!T.cohorts.length){$('#trnote').textContent='The track record starts after the first daily run with this feature.';return}
   var nav=T.nav||[],L=nav.length?nav[nav.length-1]:null;
-  if(L)tiles('#trtiles',[['Live portfolio',pct(L[1]-1),L[1]>=L[2]?'up':'dn'],['S&P 500 same period',pct(L[2]-1)],['All scored stocks',pct(L[3]-1)],['Ahead of the S&P by',pct(L[1]-L[2]),L[1]>=L[2]?'up':'dn'],['Tracking since',nav[0][0]]]);
+  if(L)tiles('#trtiles',[['Live portfolio',pct(L[1]-1),L[1]>=L[2]?'up':'dn'],['S&P 500 same period',pct(L[2]-1)],['QQQ same period',L[5]==null?'–':pct(L[5]-1)],['All scored stocks',pct(L[3]-1)],['Ahead of the S&P by',pct(L[1]-L[2]),L[1]>=L[2]?'up':'dn'],['Tracking since',nav[0][0]]]);
   var c=$('#trchart');c.textContent='';
-  if(nav.length>1){var W=720,H=220,P=36,lo=Infinity,hi=-Infinity;nav.forEach(function(r){[r[1],r[2],r[3],r[4]].forEach(function(v){if(v==null)return;lo=Math.min(lo,v);hi=Math.max(hi,v)})});var pad=(hi-lo)*0.1||0.01;lo-=pad;hi+=pad;
+  if(nav.length>1){var W=720,H=220,P=36,lo=Infinity,hi=-Infinity;nav.forEach(function(r){[r[1],r[2],r[3],r[4],r[5]].forEach(function(v){if(v==null)return;lo=Math.min(lo,v);hi=Math.max(hi,v)})});var pad=(hi-lo)*0.1||0.01;lo-=pad;hi+=pad;
     var x=function(i){return P+i*(W-P-8)/(nav.length-1)},y=function(v){return 8+(hi-v)/(hi-lo)*(H-30)};
     var ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.style.width='100%';svg.style.maxWidth=W+'px';svg.setAttribute('role','img');svg.setAttribute('aria-label','Growth of 1 dollar: live portfolio vs S&P 500 vs all scored stocks');
     [lo+pad,1,hi-pad].forEach(function(v){var g=document.createElementNS(ns,'line');g.setAttribute('x1',P);g.setAttribute('x2',W-8);g.setAttribute('y1',y(v));g.setAttribute('y2',y(v));g.setAttribute('stroke','var(--line)');svg.appendChild(g);var t=document.createElementNS(ns,'text');t.setAttribute('x',P-4);t.setAttribute('y',y(v)+4);t.setAttribute('text-anchor','end');t.setAttribute('font-size','11');t.setAttribute('fill','var(--mut)');t.textContent=pct(v-1,0);svg.appendChild(t)});
-    [[3,'var(--c2)',1.5],[2,'var(--mut)',1.5],[4,'var(--c3)',2],[1,'var(--acc)',2.5]].forEach(function(s){var pts=nav.map(function(r,i){return[i,r[s[0]]]}).filter(function(p){return p[1]!=null});if(!pts.length)return;var pth=document.createElementNS(ns,'path');pth.setAttribute('d',pts.map(function(p,j){return(j?'L':'M')+x(p[0]).toFixed(1)+','+y(p[1]).toFixed(1)}).join(''));pth.setAttribute('fill','none');pth.setAttribute('stroke',s[1]);pth.setAttribute('stroke-width',s[2]);svg.appendChild(pth)});
+    [[3,'var(--c2)',1.5],[2,'var(--mut)',1.5],[5,'var(--c4)',1.5],[4,'var(--c3)',2],[1,'var(--acc)',2.5]].forEach(function(s){var pts=nav.map(function(r,i){return[i,r[s[0]]]}).filter(function(p){return p[1]!=null});if(!pts.length)return;var pth=document.createElementNS(ns,'path');pth.setAttribute('d',pts.map(function(p,j){return(j?'L':'M')+x(p[0]).toFixed(1)+','+y(p[1]).toFixed(1)}).join(''));pth.setAttribute('fill','none');pth.setAttribute('stroke',s[1]);pth.setAttribute('stroke-width',s[2]);svg.appendChild(pth)});
     [0,nav.length-1].forEach(function(i){var t=document.createElementNS(ns,'text');t.setAttribute('x',x(i));t.setAttribute('y',H-6);t.setAttribute('text-anchor',i?'end':'start');t.setAttribute('font-size','11');t.setAttribute('fill','var(--mut)');t.textContent=nav[i][0];svg.appendChild(t)});
     c.appendChild(svg)}
   var tb=$('#trt tbody');tb.textContent='';
-  T.cohorts.forEach(function(r){var tr=el('tr');var cells=[r.date+(r.label==='early board'?' (early)':''),r.days,pct(r.top25),pct(r.spy),pct(r.pool),r.beat_spy+' of '+r.n,pct(r.top25_adj),r.rc40==null?'starts today':pct(r.rc40),pct(r.rc40_adj),r.best.map(function(b){return b[0]+' '+pct(b[1],0)}).join(', '),r.worst.map(function(b){return b[0]+' '+pct(b[1],0)}).join(', ')];
-    cells.forEach(function(v,i){var td=el('td',i===2?(r.top25>=r.spy?'up':'dn'):(i>8?'hide-s':null),v);tr.appendChild(td)});tb.appendChild(tr)});
+  T.cohorts.forEach(function(r){var tr=el('tr');var cells=[r.date+(r.label==='early board'?' (early)':''),r.days,pct(r.top25),pct(r.spy),pct(r.qqq),pct(r.pool),r.beat_spy+' of '+r.n,pct(r.top25_adj),r.rc40==null?'starts today':pct(r.rc40),pct(r.rc40_adj),r.best.map(function(b){return b[0]+' '+pct(b[1],0)}).join(', '),r.worst.map(function(b){return b[0]+' '+pct(b[1],0)}).join(', ')];
+    cells.forEach(function(v,i){var td=el('td',i===2?(r.top25>=r.spy?'up':'dn'):(i>9?'hide-s':null),v);tr.appendChild(td)});tb.appendChild(tr)});
   var sb=$('#sct tbody');sb.textContent='';(T.scorecard||[]).forEach(function(r){var tr=el('tr');[r.signal,r.boards,pct(r.avg_vs_pool),r.beat_pool+' of '+r.boards].forEach(function(v,i){var td=el('td',i===2?(r.avg_vs_pool>=0?'up':'dn'):null,v);if(i===0)td.style.fontWeight=600;tr.appendChild(td)});sb.appendChild(tr)});
   if(!(T.scorecard||[]).length){var tr0=el('tr'),td0=el('td','mut','Appears once boards carry signal scores.');td0.colSpan=4;tr0.appendChild(td0);sb.appendChild(tr0)}
   $('#flowrule').textContent=T.flow_rule||'';
@@ -325,8 +336,16 @@ function drawRegime(){
 function drawAlpha(){
   var R=D.pit;if(!R||!R.versions)return;var v=R.versions['Risk-controlled board (40)']||R.versions['Main board (25)']||{},a=v.alpha||{};
   tiles('#alphatiles',[['Alpha per year',pct(a.alpha_ann),a.alpha_ann>=0?'up':'dn'],['Alpha t-statistic',a.t_alpha==null?'–':a.t_alpha.toFixed(1)],['Explained by the tilts',a.r2==null?'–':Math.round(a.r2*100)+'%'],['Market beta',a.beta_mkt==null?'–':a.beta_mkt.toFixed(2)],['Tech tilt',a.beta_tech==null?'–':a.beta_tech.toFixed(2)],['Momentum tilt',a.beta_mom==null?'–':a.beta_mom.toFixed(2)]]);
-  var tb=$('#vert tbody');tb.textContent='';Object.keys(R.versions).forEach(function(k){var x=R.versions[k],f=x.full||{},al=x.alpha||{};var tr=el('tr');var tf=function(v){return v==null?'–':v.toFixed(1)};[k,pct(f.ex_pool_month),tf(f.t_pool),pct(f.ex_adj_month),tf(f.t_adj),f.ir_adj==null?'–':f.ir_adj.toFixed(2),f.beta==null?'–':f.beta.toFixed(2),pct(al.alpha_ann)+' ('+tf(al.t_alpha)+')'].forEach(function(c,i){var td=el('td',i===1||i===3?((i===1?f.ex_pool_month:f.ex_adj_month)>=0?'up':'dn'):(i===7?'hide-s':null),c);if(i===0)td.style.fontWeight=600;tr.appendChild(td)});tb.appendChild(tr)});
+  var tb=$('#vert tbody');tb.textContent='';Object.keys(R.versions).forEach(function(k){var x=R.versions[k],f=x.full||{},al=x.alpha||{};var tr=el('tr');var tf=function(v){return v==null?'–':v.toFixed(1)};[k,pct(f.ex_pool_month),tf(f.t_pool),pct(f.ex_adj_month),tf(f.t_adj),f.ir_adj==null?'–':f.ir_adj.toFixed(2),f.beta==null?'–':f.beta.toFixed(2),pct(f.ex_spy_month)+' ('+tf(f.t_spy)+')',pct(f.ex_qqq_month)+' ('+tf(f.t_qqq)+')',pct(al.alpha_ann)+' ('+tf(al.t_alpha)+')'].forEach(function(c,i){var td=el('td',i===1||i===3?((i===1?f.ex_pool_month:f.ex_adj_month)>=0?'up':'dn'):(i===7?(f.ex_spy_month>=0?'up':'dn'):i===8?(f.ex_qqq_month>=0?'up':'dn'):(i===9?'hide-s':null)),c);if(i===0)td.style.fontWeight=600;tr.appendChild(td)});tb.appendChild(tr)});
   $('#alphanote').textContent='Most of the board’s return so far comes from owning more market, tech and momentum exposure than the pool. The alpha left over is positive but not yet statistically reliable. The live board uses fresh earnings; the regime switch is shown as a warning only. Stress months in the test: '+(R.risk_off_months||0)+'.';
+}
+function drawEmerging(){
+  var E=D.em;if(!E||!E.length){$('#emnote').textContent='The list appears after the next daily run; its SEC and filing-text signals fill in over the following days.';return}
+  var T=(D.tr&&D.tr.emerging)||[],L=T.length?T[0]:null;
+  tiles('#emtiles',[['Names with 3+ signals',E.length+(E.length>=60?'+':'')],['Top name',E[0].ticker],['Tracking since',T.length?T[T.length-1].date:'today'],['Top 25 since then',L?pct(L.top25):'–'],['S&P / QQQ same period',L?pct(L.spy)+' / '+pct(L.qqq):'–']]);
+  var tb=$('#emt tbody');tb.textContent='';
+  E.slice(0,40).forEach(function(r){var tr=el('tr');[r.rank,r.ticker,fmt(r.score,1),r.sector||'–',r.why||'–',r.rd_intensity==null?'–':Math.round(r.rd_intensity*100)+'%',r.rev_accel==null?'–':(r.rev_accel>=0?'+':'')+Math.round(r.rev_accel*100)+' pts',r.top_theme||'–',r.signals+' of 8'].forEach(function(c,i){var td=el('td',i===1?'tk':(i===3||i>6?'hide-s':null),c);if(i===4)td.style.whiteSpace='normal';tr.appendChild(td)});tb.appendChild(tr)});
+  $('#emnote').textContent='Not yet included: patents (needs a free USPTO key) and federal contract awards. R&D, revenue acceleration and margins can be backtested once their filing-date history builds; filing themes and new positions can only be judged live.';
 }
 function bars(id,rows){var b=$(id);b.textContent='';rows.forEach(function(r){var x=el('div','xrow');x.appendChild(el('span',null,r[0]));var t=el('div','track'),i=el('i');i.style.cssText='left:0;width:'+(r[2]*100)+'%;background:var(--acc)';t.appendChild(i);x.appendChild(t);x.appendChild(el('span','mut',r[1]+' · '+Math.round(r[2]*100)+'%'));b.appendChild(x)})}
 function drawRisk(){
