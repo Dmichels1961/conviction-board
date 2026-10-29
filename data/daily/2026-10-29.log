@@ -38,24 +38,22 @@ holdings ARKF: 38 rows, 97.0% of weight, as of 2026-07-31
 holdings ARKX: 34 rows, 99.8% of weight, as of 2026-07-31
 holdings GTEK: 60 rows, 99.5% of weight, as of 2026-08-31
 prices: updated 98 names
-consensus ADTTF: 'upLast30days'
-consensus ASMXF: 'upLast30days'
-consensus BESVF: 'upLast30days'
-consensus BN: 'upLast30days'
-consensus BTAFF: 'upLast30days'
-consensus EADSF: 'upLast30days'
-consensus GDERF: 'upLast30days'
-consensus IDRSF: 'upLast30days'
-consensus KXHCF: 'upLast30days'
-consensus MHVYF: 'upLast30days'
-consensus RYCEF: 'upLast30days'
-consensus SLMT: 'upLast30days'
-consensus SSNLF: 'upLast30days'
-consensus UCBJF: 'upLast30days'
-consensus ZLDPF: 'upLast30days'
+consensus ADTTF: 'current'
+consensus ASMXF: 'current'
+consensus BESVF: 'current'
+consensus BN: 'current'
+consensus BTAFF: 'current'
+consensus EADSF: 'current'
+consensus GDERF: 'current'
+consensus IDRSF: 'current'
+consensus KXHCF: 'current'
+consensus MHVYF: 'current'
+consensus RYCEF: 'current'
+consensus SLMT: 'current'
+consensus SSNLF: 'current'
+consensus UCBJF: 'current'
+consensus ZLDPF: 'current'
 consensus: 1274 rows for 699 names; history spans 1 days
-revisions FAILED (Invalid value 'yahoo' for dtype 'float64'); keeping previous values
-earnings calendar: 4077 rows
-earnings AAPL: Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per se
-earnings surprises refreshed for 22 names
-ranked 78 names; top 10: MRVL, MU, WDC, INTC, AMD, LLY, LRCX, ANET, ORCL, NET
+revisions: 635 names (0 from our own history)
+earnings (Yahoo): 100 names refreshed, 0 failed, 100 due of 699
+ranked 83 names; top 10: MRVL, MU, WDC, INTC, AMZN, AMD, LLY, SNOW, STX, NET
