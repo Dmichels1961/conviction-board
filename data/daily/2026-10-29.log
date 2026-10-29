@@ -1,0 +1,61 @@
+holdings BAI: 38 rows, 82.8% of weight, as of 2026-10-29
+holdings ILDR: FAILED (no holdings table found); keeping previous list
+holdings CGGR: 95 rows, 99.9% of weight, as of 2026-08-31
+holdings CGUS: 67 rows, 100.0% of weight, as of 2026-08-31
+holdings CGDV: 53 rows, 99.9% of weight, as of 2026-08-31
+holdings AGTHX: FAILED (newest public N-PORT is 2026-05-31, too old); keeping previous list
+holdings TCHP: 65 rows, 99.7% of weight, as of 2026-06-30
+holdings TGRW: 80 rows, 99.8% of weight, as of 2026-06-30
+holdings TCAF: 86 rows, 96.9% of weight, as of 2026-06-30
+holdings FBCG: 229 rows, 99.9% of weight, as of 2026-07-31
+holdings FCNTX: 353 rows, 89.4% of weight, as of 2026-06-30
+holdings FDGRX: 380 rows, 94.3% of weight, as of 2026-08-31
+holdings FFLG: 94 rows, 97.5% of weight, as of 2026-07-31
+holdings JGRO: 128 rows, 97.9% of weight, as of 2026-06-30
+holdings HFGO: 46 rows, 98.9% of weight, as of 2026-07-31
+holdings FDG: FAILED (newest public N-PORT is 2026-05-31, too old); keeping previous list
+holdings POGRX: 174 rows, 97.9% of weight, as of 2026-07-31
+holdings PGRO: FAILED (no NPORT-P filings found for PGRO); keeping previous list
+holdings ATFV: 32 rows, 96.2% of weight, as of 2026-06-30
+holdings ANCFX: 229 rows, 96.5% of weight, as of 2026-06-30
+holdings MFSV: 61 rows, 99.0% of weight, as of 2026-08-31
+holdings TDVG: 97 rows, 99.1% of weight, as of 2026-06-30
+holdings OAKM: 38 rows, 99.3% of weight, as of 2026-06-30
+holdings RFNGX: 229 rows, 96.5% of weight, as of 2026-06-30
+holdings RICGX: 157 rows, 97.8% of weight, as of 2026-06-30
+holdings FCLKX: 170 rows, 95.4% of weight, as of 2026-07-31
+holdings NESNX: 72 rows, 98.0% of weight, as of 2026-06-30
+holdings FDTX: 42 rows, 99.8% of weight, as of 2026-08-31
+holdings FSPTX: 56 rows, 94.5% of weight, as of 2026-08-31
+holdings FSELX: 36 rows, 97.3% of weight, as of 2026-08-31
+holdings PRSCX: 108 rows, 90.5% of weight, as of 2026-06-30
+holdings SLMCX: 62 rows, 94.0% of weight, as of 2026-08-31
+holdings FBIOX: 171 rows, 97.6% of weight, as of 2026-08-31
+holdings FIDSX: 63 rows, 99.6% of weight, as of 2026-08-31
+holdings ARKW: 40 rows, 97.2% of weight, as of 2026-07-31
+holdings ARKQ: 39 rows, 99.6% of weight, as of 2026-07-31
+holdings ARKF: 38 rows, 97.0% of weight, as of 2026-07-31
+holdings ARKX: 34 rows, 99.8% of weight, as of 2026-07-31
+holdings GTEK: 60 rows, 99.5% of weight, as of 2026-08-31
+prices: updated 98 names
+consensus ADTTF: 'upLast30days'
+consensus ASMXF: 'upLast30days'
+consensus BESVF: 'upLast30days'
+consensus BN: 'upLast30days'
+consensus BTAFF: 'upLast30days'
+consensus EADSF: 'upLast30days'
+consensus GDERF: 'upLast30days'
+consensus IDRSF: 'upLast30days'
+consensus KXHCF: 'upLast30days'
+consensus MHVYF: 'upLast30days'
+consensus RYCEF: 'upLast30days'
+consensus SLMT: 'upLast30days'
+consensus SSNLF: 'upLast30days'
+consensus UCBJF: 'upLast30days'
+consensus ZLDPF: 'upLast30days'
+consensus: 1274 rows for 699 names; history spans 1 days
+revisions FAILED (Invalid value 'yahoo' for dtype 'float64'); keeping previous values
+earnings calendar: 4077 rows
+earnings AAPL: Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per se
+earnings surprises refreshed for 22 names
+ranked 78 names; top 10: MRVL, MU, WDC, INTC, AMD, LLY, LRCX, ANET, ORCL, NET
