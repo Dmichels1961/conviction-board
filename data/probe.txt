@@ -1,0 +1,8 @@
+sec browse by ticker: OK 3460 bytes :: '\n<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">\n<html lang="ENG">\n\n<head>\n<title>Company Information: </title>\n<!-- BEGIN HEADER -->\n<script lan'
+sec browse by ticker (MF): OK 15556 bytes :: '<?xml version="1.0" encoding="ISO-8859-1" ?>\n  <feed xmlns="http://www.w3.org/2005/Atom">\n    <author>\n      <email>webmaster@sec.gov</email>\n      <name>Webmas'
+sec mf ticker map: OK 1236323 bytes :: '{"fields":["cik","seriesId","classId","symbol"],"data":[[2110,"S000009184","C000024954","LACAX"],[2110,"S000009184","C000024956","LIACX"],[2110,"S000009184","C0'
+sec submissions: OK 137638 bytes :: '{"cik":"0000024238","entityType":"investment","sic":"","sicDescription":"","ownerOrg":"","insiderTransactionForOwnerExists":0,"insiderTransactionForIssuerExists'
+stooq: URLError <urlopen error timed out>
+openfigi: HTTP 405 Method Not Allowed
+ishares csv: OK 9756 bytes :: 'iShares A.I. Innovation and Tech Active ETF\nFund Holdings as of,"Oct 27, 2026"\nInception Date,"Oct 21, 2024"\nShares Outstanding,"310,440,000.00"\nStock,"-"\nBond,'
+SEC_UA set: True
