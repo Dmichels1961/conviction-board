@@ -59,6 +59,7 @@ input[type=search]{background:var(--bg);color:var(--fg);border:1px solid var(--l
   </div>
 
   <section id="board">
+    <div class="note" id="regime" hidden></div>
     <div class="tiles" id="tiles"></div>
     <div class="grid2">
       <div class="card"><h2>What moved</h2><div id="moves"></div></div>
@@ -135,6 +136,11 @@ input[type=search]{background:var(--bg);color:var(--fg);border:1px solid var(--l
       <div class="tiles" id="pittiles"></div>
       <div class="tw" style="max-height:none"><table id="pitt"><thead><tr><th>Version</th><th>Period</th><th>Months</th><th>Excess vs pool, per month</th><th>vs S&amp;P, per month</th><th>Beat the pool</th><th>t-statistic</th><th class="hide-s">Worst run vs pool</th><th class="hide-s">Turnover</th></tr></thead><tbody></tbody></table></div>
       <div class="note" id="pitmissing"></div>
+      <h2 style="margin-top:16px">Skill or exposure?</h2>
+      <p class="mut" style="margin:0 0 8px">The board's monthly returns explained by the market, growth, tech and momentum. What is left over (alpha) is the part those tilts do not explain.</p>
+      <div class="tiles" id="alphatiles"></div>
+      <div class="tw" style="max-height:none"><table id="vert"><thead><tr><th>Version</th><th>vs pool, per month</th><th>t-statistic</th><th>Alpha per year</th><th>Alpha t-statistic</th><th class="hide-s">Worst run vs pool</th></tr></thead><tbody></tbody></table></div>
+      <p class="mut" id="alphanote"></p>
       <p class="mut" id="pitmethod"></p>
     </div>
     <div class="card">
@@ -166,14 +172,14 @@ Array.prototype.forEach.call(document.querySelectorAll('.tabs button'),function(
 var h=location.hash.slice(1);if(['signals','track','risk','bt'].indexOf(h)>=0)document.querySelector('[data-t='+h+']').click();
 
 function load(f){return fetch('data/'+f+'.json?'+Date.now()).then(function(r){if(!r.ok)throw new Error(f);return r.json()})}
-Promise.all([load('board'),load('signals'),load('backtest'),load('factors').catch(function(){return null}),load('track').catch(function(){return null}),load('risk').catch(function(){return null}),load('pit').catch(function(){return null})]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];D.f=a[3];D.tr=a[4];D.rk=a[5];D.pit=a[6];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
+Promise.all([load('board'),load('signals'),load('backtest'),load('factors').catch(function(){return null}),load('track').catch(function(){return null}),load('risk').catch(function(){return null}),load('pit').catch(function(){return null}),load('regime').catch(function(){return null})]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];D.f=a[3];D.tr=a[4];D.rk=a[5];D.pit=a[6];D.rg=a[7];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
 
 function draw(){
   var m=D.b.meta;
   $('#sub').textContent='Ranking as of '+m.asof+' · rebuilt automatically every weekday after the US close · page data generated '+m.generated;
   var tl=$('#tiles');tl.textContent='';
   [['Top conviction',D.b.rows[0].ticker],['Names scored',m.n_scored],['Funds tracked',m.funds],['Avg data coverage (top 25)',fmt(m.avg_cov,0)+'%'],['Top 25 in AI-linked themes',fmt(m.ai_share,0,true)]].forEach(function(t){var d=el('div','tile');d.appendChild(el('span','mut',t[0]));d.appendChild(el('b',null,t[1]));tl.appendChild(d)});
-  drawMoves();drawExpo();drawTable();drawSignals();drawBt();drawTrack();drawRisk();drawPit();
+  drawMoves();drawExpo();drawTable();drawSignals();drawBt();drawTrack();drawRisk();drawPit();drawRegime();drawAlpha();
 }
 function drawMoves(){
   var b=$('#moves');b.textContent='';var mv=D.b.moves;
@@ -300,6 +306,19 @@ function drawPit(){
   rows.forEach(function(r){var s=r[2]||{};var tr=el('tr');[r[0],r[1],s.months,pct(s.ex_pool_month),pct(s.ex_spy_month),s.hit_pool==null?'–':Math.round(s.hit_pool*100)+'% of months',s.t_pool==null?'–':s.t_pool.toFixed(1),pct(s.max_dd_vs_pool),s.turnover==null?'–':Math.round(s.turnover*100)+'% a month'].forEach(function(v,i){var td=el('td',i===3?(s.ex_pool_month>=0?'up':'dn'):(i>6?'hide-s':null),v);if(i===0)td.style.fontWeight=600;tr.appendChild(td)});tb.appendChild(tr)});
   $('#pitmissing').textContent=R.missing+' Tuned weights were picked from '+R.grid_size+' combinations, so their in-sample result is flattered; only the out-of-sample rows count.';
   $('#pitmethod').textContent=R.method;
+}
+function drawRegime(){
+  var R=D.rg,b=$('#regime');if(!R)return;b.hidden=false;
+  var parts=[];if(R.spy!=null)parts.push('S&P 500 '+(R.spy_below_200d?'below':'above')+' its 200-day average');
+  if(R.hy_spread!=null)parts.push('high-yield spreads '+R.hy_spread.toFixed(2)+'% ('+(R.hy_spread_3m_change>=0?'+':'')+R.hy_spread_3m_change.toFixed(2)+' over 3 months)');
+  b.textContent=(R.risk_off?'Market stress warning: ':'Market conditions normal: ')+parts.join('; ')+'.'+(R.risk_off?' The board is high beta and moves about twice as much as the market. Weights are not changed automatically: in the backtest, turning defensive in stress months cost returns because those months were often rebounds.':'');
+  b.style.borderColor=R.risk_off?'var(--dn)':'var(--up)';
+}
+function drawAlpha(){
+  var R=D.pit;if(!R||!R.versions)return;var v=R.versions['Fresh earnings']||{},a=v.alpha||{};
+  tiles('#alphatiles',[['Alpha per year',pct(a.alpha_ann),a.alpha_ann>=0?'up':'dn'],['Alpha t-statistic',a.t_alpha==null?'–':a.t_alpha.toFixed(1)],['Explained by the tilts',a.r2==null?'–':Math.round(a.r2*100)+'%'],['Market beta',a.beta_mkt==null?'–':a.beta_mkt.toFixed(2)],['Tech tilt',a.beta_tech==null?'–':a.beta_tech.toFixed(2)],['Momentum tilt',a.beta_mom==null?'–':a.beta_mom.toFixed(2)]]);
+  var tb=$('#vert tbody');tb.textContent='';Object.keys(R.versions).forEach(function(k){var x=R.versions[k],f=x.full||{},al=x.alpha||{};var tr=el('tr');[k,pct(f.ex_pool_month),f.t_pool==null?'–':f.t_pool.toFixed(1),pct(al.alpha_ann),al.t_alpha==null?'–':al.t_alpha.toFixed(1),pct(f.max_dd_vs_pool)].forEach(function(c,i){var td=el('td',i===1?(f.ex_pool_month>=0?'up':'dn'):(i===5?'hide-s':null),c);if(i===0)td.style.fontWeight=600;tr.appendChild(td)});tb.appendChild(tr)});
+  $('#alphanote').textContent='Most of the board’s return so far comes from owning more market, tech and momentum exposure than the pool. The alpha left over is positive but not yet statistically reliable. The live board uses fresh earnings; the regime switch is shown as a warning only. Stress months in the test: '+(R.risk_off_months||0)+'.';
 }
 function bars(id,rows){var b=$(id);b.textContent='';rows.forEach(function(r){var x=el('div','xrow');x.appendChild(el('span',null,r[0]));var t=el('div','track'),i=el('i');i.style.cssText='left:0;width:'+(r[2]*100)+'%;background:var(--acc)';t.appendChild(i);x.appendChild(t);x.appendChild(el('span','mut',r[1]+' · '+Math.round(r[2]*100)+'%'));b.appendChild(x)})}
 function drawRisk(){

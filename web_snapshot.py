@@ -80,13 +80,18 @@ class WebSnapshotProvider:
         r = self.e.loc[t]
         g = lambda k: (None if k not in r.index or pd.isna(r[k]) else float(r[k]))  # noqa: E731
         sur = [g(k) for k in ("s1", "s2", "s3", "s4")]
+        fresh = None                                   # latest surprise, scaled down as the report ages (full for 60 days, a quarter after 180)
+        lr = r["last_report"] if "last_report" in r.index and isinstance(r["last_report"], str) else None
+        if lr and sur[-1] is not None:
+            age = (pd.Timestamp.today().normalize() - pd.Timestamp(lr)).days
+            fresh = max(-0.5, min(0.5, sur[-1])) * (1.0 if age <= 60 else max(0.25, 1 - 0.75 * (age - 60) / 120))
         return dict(fwd_growth=g("fwd_growth"), cur_growth=g("cur_growth"), surprises=[s for s in sur if s is not None],
                     rev_30d=g("rev_30d"), beta=g("beta"), rev_growth=g("rev_growth"), rev_surprise=g("rev_surprise"),
                     reaction=g("reaction"), guidance=g("guidance"), pt_drift=g("pt_drift"), short_chg=g("short_chg"),
                     share_chg=g("share_chg"), implied_move=g("implied_move"), fwd_pe=g("fwd_pe"), gross_margin=g("gross_margin"),
                     roe=g("roe"), fcf_margin=g("fcf_margin"), fcf_yield=g("fcf_yield"), short_pct=g("short_pct"), insider_buyers=g("insider_buyers"),
                     gross_prof=g("gross_prof"), accruals=g("accruals"), asset_growth=g("asset_growth"), net_issuance=g("net_issuance"),
-                    dispersion=g("dispersion"), filing_sim=g("filing_sim"), put_skew=g("put_skew"), customer_mom=g("customer_mom"), ivol=g("ivol"),
+                    dispersion=g("dispersion"), fresh_surprise=fresh, filing_sim=g("filing_sim"), put_skew=g("put_skew"), customer_mom=g("customer_mom"), ivol=g("ivol"),
                     name=(r["name"] if "name" in r.index and pd.notna(r["name"]) else None), sector=None)
 
     # ----- helpers -----

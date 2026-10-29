@@ -40,7 +40,7 @@ SIGNALS = [
     ("earn_growth", "Fwd EPS growth", "Earnings", 11, "Consensus EPS growth, next fiscal year (Yahoo, daily)"),
     ("earn_dispersion", "Analyst agreement", "Earnings", 1, "Narrow range of analysts' next-year EPS estimates scores higher (Diether, Malloy & Scherbina 2002)"),
     ("earn_surprise", "Beat size", "Earnings", 10,
-     "Average EPS surprise over last 4 quarters (capped at 50%), blended with a standardized surprise (average beat / its variability)"),
+     "Average EPS surprise over last 4 quarters, a standardized surprise, and the latest report counted double while it is fresh (full weight for 60 days, a quarter after 180)"),
     ("earn_consistency", "Beat consistency", "Earnings", 6, "Share of last 4 quarters that beat consensus"),
     ("earn_revisions", "Estimate revisions", "Earnings", 14, "30-day change in consensus EPS (current and next fiscal year, Yahoo)"),
     ("earn_accel", "Growth acceleration", "Earnings", 5, "Next-year EPS growth minus this year's: is growth speeding up?"),
@@ -68,7 +68,7 @@ SIGNALS = [
     ("analyst_drift", "Analyst drift", "Other", 0, "Change in mean price target over 3 months (off: targets follow prices)"),
 ]
 SIG_KEYS = [s[0] for s in SIGNALS]
-EARN_COLS = ["fwd_growth", "cur_growth", "rev_growth", "rev_surprise", "reaction", "guidance", "pt_drift", "short_chg", "share_chg", "implied_move", "rev_30d", "gross_margin", "roe", "fcf_margin", "fcf_yield", "fwd_pe", "short_pct", "beta", "insider_buyers", "gross_prof", "accruals", "asset_growth", "net_issuance", "dispersion", "filing_sim", "put_skew", "customer_mom", "ivol"]
+EARN_COLS = ["fwd_growth", "cur_growth", "rev_growth", "rev_surprise", "reaction", "guidance", "pt_drift", "short_chg", "share_chg", "implied_move", "rev_30d", "gross_margin", "roe", "fcf_margin", "fcf_yield", "fwd_pe", "short_pct", "beta", "insider_buyers", "gross_prof", "accruals", "asset_growth", "net_issuance", "dispersion", "fresh_surprise", "filing_sim", "put_skew", "customer_mom", "ivol"]
 
 
 @dataclass
@@ -251,7 +251,7 @@ def score_signals(df: pd.DataFrame, cfg: Config, flow_available: bool) -> pd.Dat
     sig = pd.DataFrame(index=df.index)
     sig["flow"] = 50 + 50 * np.tanh(df["flow_raw"].fillna(0)) if flow_available else 50.0
     sig["earn_growth"] = _pr(df["fwd_growth"])
-    sig["earn_surprise"] = pd.concat([_pr(df["avg_surprise"]), _pr(df["sue"])], axis=1).mean(axis=1)
+    sig["earn_surprise"] = pd.concat([_pr(df["avg_surprise"]), _pr(df["sue"]), _pr(df["fresh_surprise"]), _pr(df["fresh_surprise"])], axis=1).mean(axis=1)
     sig["earn_accel"] = _pr(df["fwd_growth"] - df["cur_growth"])
     sig["earn_consistency"] = _pr(df["beats"] / df["n_q"].clip(lower=1))
     sig["earn_revisions"] = _pr(df["rev_30d"])

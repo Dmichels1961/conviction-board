@@ -52,9 +52,33 @@ def earnings_at(ev, px, T):
                 if 1 <= i < len(idx) - 1 and idx[i + 1] <= T:
                     p0, p1, s0, s1 = px[t].iloc[i - 1], px[t].iloc[i + 1], px["SPY"].iloc[i - 1], px["SPY"].iloc[i + 1]
                     if pd.notna(p0) and pd.notna(p1) and p0 > 0: reac.append((p1 / p0 - 1) - (s1 / s0 - 1))
+        last = g.sort_values("date").iloc[-1]; age = (T - last.date).days
+        fresh_w = 1.0 if age <= 60 else max(0.25, 1 - 0.75 * (age - 60) / 120)       # drift is strongest in the first 60 days
+        ls = float(np.clip(last.surprise_pct / 100, -0.5, 0.5)) if pd.notna(last.surprise_pct) else np.nan
         out[t] = dict(surprise=s.mean() if len(s) else np.nan, beats=(s > 0).mean() if len(s) else np.nan,
-                      sue=s.mean() / max(s.std(), 0.02) if len(s) >= 3 else np.nan, reaction=np.mean(reac) if reac else np.nan)
+                      sue=s.mean() / max(s.std(), 0.02) if len(s) >= 3 else np.nan, reaction=np.mean(reac) if reac else np.nan,
+                      fresh=ls * fresh_w if pd.notna(ls) else np.nan)
     return pd.DataFrame(out).T
+
+
+MACRO = Path(__file__).resolve().parent / "data/macro/hy_oas.csv"
+_OAS = None
+
+
+def regime_at(px, i, T):
+    """Risk-off when the S&P 500 is below its 200-day average, or high-yield credit spreads (FRED BAMLH0A0HYM2) have widened by more
+    than 0.75 points over three months. Both are standard, free stress gauges; only data up to T is used."""
+    global _OAS
+    spy = px["SPY"].iloc[: i + 1].dropna()
+    below = len(spy) >= 200 and spy.iloc[-1] < spy.iloc[-200:].mean()
+    wide = False
+    if _OAS is None and MACRO.exists():
+        o = pd.read_csv(MACRO); o.columns = ["date", "oas"]; o["date"] = pd.to_datetime(o.date)
+        _OAS = pd.to_numeric(o.oas, errors="coerce").set_axis(o.date).dropna()
+    if _OAS is not None:
+        o = _OAS[_OAS.index <= T]
+        if len(o) > 70: wide = (o.iloc[-1] - o.iloc[-64]) > 0.75
+    return bool(below or wide)
 
 
 def pr(s):
@@ -80,19 +104,33 @@ def panel(hist, px, ev, start=None, managers=None):
         e = earnings_at(ev, px, T).reindex(pool)
         mom = px.iloc[i - 21][pool] / px.iloc[i - 252][pool] - 1
         d = pd.DataFrame(index=pool)
-        d["earnings"] = pd.concat([pr(e.surprise), pr(e.sue), pr(e.beats), pr(e.reaction)], axis=1).mean(axis=1) if len(e.columns) else 0.5
+        d["earnings_old"] = pd.concat([pr(e.surprise), pr(e.sue), pr(e.beats), pr(e.reaction)], axis=1).mean(axis=1) if len(e.columns) else 0.5
+        # fresh earnings: the latest report counts double, scaled down as it ages (full weight for 60 days, a quarter after 180)
+        d["earnings"] = pd.concat([pr(e.surprise), pr(e.sue), pr(e.beats), pr(e.reaction), pr(e.fresh), pr(e.fresh)], axis=1).mean(axis=1) if len(e.columns) else 0.5
+        r1 = px.iloc[i - 252:i + 1][pool + ["SPY"]].pct_change().iloc[1:]
+        beta_ = r1[pool].apply(lambda c: c.cov(r1["SPY"])) / r1["SPY"].var()
+        d["lowvol"] = pr(-(r1[pool] - np.outer(r1["SPY"], beta_)).std())               # low idiosyncratic volatility, past year
         d["overlap"] = pr(best_ideas_at(hist, T, managers or {}).reindex(pool).fillna(0)); d["flow"] = pr(fl.reindex(pool).fillna(0)); d["momentum"] = pr(mom)
         d["fwd"] = fwd[pool]; d["fwd_spy"] = float(px["SPY"].iloc[i + 21] / px["SPY"].iloc[i] - 1)
+        f = lambda t: float(px[t].iloc[i + 21] / px[t].iloc[i] - 1) if t in px.columns and pd.notna(px[t].iloc[i]) else np.nan
+        mq = mom.rank(pct=True)
+        d.attrs["factors"] = dict(mkt=f("SPY"), growth=f("IWF") - f("SPY") if "IWD" not in px.columns else f("IWF") - f("IWD"),
+                                  tech=f("QQQ") - f("SPY"), mom=float(fwd.reindex(mq.index)[mq >= 2 / 3].mean() - fwd.reindex(mq.index)[mq <= 1 / 3].mean()))
+        d.attrs["risk_off"] = regime_at(px, i, T)
         d["has_earn"] = e.surprise.notna().values if len(e.columns) else False
         out.append((T, d))
     return out
 
 
-def evaluate(pan, w, top_n=25, exit_rank=None):
+RISK_OFF = {"earnings": 0.4, "overlap": 0.3, "flow": 0.05, "momentum": 0.0, "lowvol": 0.25}
+
+
+def evaluate(pan, w, top_n=25, exit_rank=None, regime=None):
     """exit_rank: sell discipline. Names already held stay while they rank exit_rank or better; new names enter only in the top_n."""
     rows, prev = [], set()
     for T, d in pan:
-        s = sum(d[k] * v for k, v in w.items())
+        ww = regime if (regime and d.attrs.get("risk_off")) else w
+        s = sum(d[k] * v for k, v in ww.items())
         order = list(s.sort_values(ascending=False).index)
         if exit_rank and prev:
             keep = [t for t in order[:exit_rank] if t in prev][:top_n]
@@ -102,6 +140,7 @@ def evaluate(pan, w, top_n=25, exit_rank=None):
         top, pool = d.loc[pick, "fwd"].mean(), d["fwd"].mean()
         ic = s.rank().corr(d["fwd"].rank())
         rows.append(dict(date=T, top=top, pool=pool, spy=d["fwd_spy"].iloc[0], ex_pool=top - pool, ex_spy=top - d["fwd_spy"].iloc[0], ic=ic,
+                         risk_off=d.attrs.get("risk_off", False), **d.attrs.get("factors", {}),
                          turnover=(len(set(pick) - prev) / top_n) if prev else np.nan))
         prev = set(pick)
     return pd.DataFrame(rows)
@@ -118,6 +157,23 @@ def stats(r):
                 ic=round(float(r.ic.mean()), 3), max_dd_vs_pool=round(dd, 4), turnover=round(float(r.turnover.mean()), 2) if r.turnover.notna().any() else None)
 
 
+def alpha(r):
+    """Monthly return of the top 25 regressed on the market (SPY), growth (IWF minus IWD, or IWF minus SPY), tech (QQQ minus SPY) and
+    momentum (top minus bottom third of the pool on 12-1 momentum). The intercept is the return not explained by those tilts."""
+    cols = [c for c in ("mkt", "growth", "tech", "mom") if c in r.columns]
+    d = r[["top"] + cols].dropna()
+    if len(d) < 18: return {}
+    X = np.column_stack([np.ones(len(d))] + [d[c].values for c in cols]); y = d["top"].values
+    b, *_ = np.linalg.lstsq(X, y, rcond=None); e = y - X @ b
+    se = np.sqrt(np.diag((e @ e / (len(d) - X.shape[1])) * np.linalg.inv(X.T @ X)))
+    r2 = 1 - (e @ e) / ((y - y.mean()) @ (y - y.mean()))
+    out = dict(alpha_month=round(float(b[0]), 4), alpha_ann=round(float((1 + b[0]) ** 12 - 1), 4), t_alpha=round(float(b[0] / se[0]), 2),
+               r2=round(float(r2), 2), months=len(d))
+    out.update({f"beta_{c}": round(float(v), 2) for c, v in zip(cols, b[1:])})
+    out.update({f"t_{c}": round(float(v), 1) for c, v in zip(cols, b[1:] / se[1:])})
+    return out
+
+
 def grid():
     seen = set()
     for e, o, f, m in itertools.product([0.3, 0.5, 0.7], [0.1, 0.3, 0.5], [0, 0.1, 0.2], [0, 0.1, 0.2]):
@@ -127,6 +183,21 @@ def grid():
 
 def norm(w):
     t = sum(w.values()); return {k: round(v / t, 3) for k, v in w.items()}
+
+
+def compare(pan, ins, oos, cur):
+    """The model before today's changes, with fresh earnings, and with fresh earnings plus the regime switch: return, alpha, risk."""
+    old = {**cur}; old["earnings_old"] = old.pop("earnings")
+    v = {"Before (earnings without freshness)": (old, None), "Fresh earnings": (cur, None), "Fresh earnings + regime switch": (cur, {**RISK_OFF})}
+    out = {}
+    for name, (w, reg) in v.items():
+        rf = evaluate(pan, w, exit_rank=EXIT, regime=reg); ro = evaluate(oos, w, exit_rank=EXIT, regime=reg)
+        ri = evaluate(ins, w, exit_rank=EXIT, regime=reg)
+        off = rf[rf.risk_off] if "risk_off" in rf.columns else rf.iloc[:0]
+        out[name] = dict(full=stats(rf), in_sample=stats(ri), out_of_sample=stats(ro), alpha=alpha(rf),
+                         risk_off=dict(months=len(off), top=round(float(off.top.mean()), 4) if len(off) else None,
+                                       spy=round(float(off.spy.mean()), 4) if len(off) else None, ex_pool=round(float(off.ex_pool.mean()), 4) if len(off) else None))
+    return out
 
 
 def run(hist, px, ev, managers=None):
@@ -145,6 +216,8 @@ def run(hist, px, ev, managers=None):
         full=dict(current=stats(evaluate(pan, cur, exit_rank=EXIT)), no_buffer=stats(evaluate(pan, cur))),
         in_sample=dict(current=stats(evaluate(ins, cur, exit_rank=EXIT)), tuned=stats(evaluate(ins, best, exit_rank=EXIT))),
         out_of_sample=dict(current=stats(evaluate(oos, cur, exit_rank=EXIT)), tuned=stats(evaluate(oos, best, exit_rank=EXIT)), no_buffer=stats(evaluate(oos, cur))),
+        versions=compare(pan, ins, oos, cur),
+        risk_off_months=int(sum(bool(d.attrs.get("risk_off")) for _, d in pan)),
         single=dict((k, dict(in_sample=stats(evaluate(ins, {k: 1})), out_of_sample=stats(evaluate(oos, {k: 1})))) for k in ["earnings", "overlap", "flow", "momentum"]),
         monthly=[[str(r.date.date()), round(r.top, 4), round(r.pool, 4), round(r.spy, 4)] for r in evaluate(pan, cur, exit_rank=EXIT).itertuples()])
     return res, pan

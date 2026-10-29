@@ -185,6 +185,27 @@ def price_stats(csv_text):
     return dict(r52w=last / y1 - 1, r1m=last / m1 - 1, mom_12_1=(last / y1) / (last / m1) - 1, off_high=last / hi - 1)
 
 
+def refresh_regime(today):
+    """Market stress gauges (shown as a warning, not used to change weights: the backtest found switching defensive cost returns,
+    because stress months are often rebounds). S&P 500 vs its 200-day average from Yahoo; high-yield credit spreads from FRED."""
+    out = dict(asof=str(today))
+    try:
+        import yfinance as yf
+        spy = yf.download("SPY", period="2y", interval="1d", auto_adjust=True, progress=False)["Close"].squeeze().dropna()
+        out.update(spy=round(float(spy.iloc[-1]), 2), spy_200d=round(float(spy.iloc[-200:].mean()), 2), spy_below_200d=bool(spy.iloc[-1] < spy.iloc[-200:].mean()))
+    except Exception as e: log(f"regime: SPY FAILED ({e})")
+    try:
+        txt = get("https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2")
+        o = pd.read_csv(io.StringIO(txt)); o.columns = ["date", "oas"]; o["oas"] = pd.to_numeric(o.oas, errors="coerce"); o = o.dropna()
+        (ROOT / "data/macro").mkdir(parents=True, exist_ok=True); o.to_csv(ROOT / "data/macro/hy_oas.csv", index=False)
+        out.update(hy_spread=round(float(o.oas.iloc[-1]), 2), hy_spread_3m_change=round(float(o.oas.iloc[-1] - o.oas.iloc[-64]), 2),
+                   spreads_widening=bool(o.oas.iloc[-1] - o.oas.iloc[-64] > 0.75))
+    except Exception as e: log(f"regime: credit spreads FAILED ({e})")
+    out["risk_off"] = bool(out.get("spy_below_200d") or out.get("spreads_widening"))
+    (ROOT / "docs/data").mkdir(parents=True, exist_ok=True); (ROOT / "docs/data/regime.json").write_text(json.dumps(out))
+    log(f"market regime: {'STRESS' if out['risk_off'] else 'normal'} ({out})")
+
+
 def refresh_fund_returns(today):
     """1- and 3-year total returns for every fund and benchmark from Yahoo adjusted prices, so 'skilled manager' is judged on live numbers."""
     try:
@@ -304,6 +325,7 @@ def refresh_earnings(pool, today, a, cap=500, fetch=None, sleep=0.4):
                 for i, v in enumerate(s): AD.setv(a, t, f"s{i+1}", v)
             if nxt: AD.setv(a, t, "next_earnings", nxt)
             AD.setv(a, t, "earnings_asof", str(today))
+            if rows: AD.setv(a, t, "last_report", str(pd.Timestamp(rows[-1]["date"]).date()))
             events += [dict(ticker=t, **r) for r in rows]
             seen[t] = str(today); ok += 1
         except Exception as e:
@@ -322,7 +344,11 @@ def refresh_reactions(closes, today, a):
     import autodata as AD
     p = ROOT / "data/earnings_events.csv"
     if closes.empty or not p.exists(): log("reactions: no prices or events, skipped"); return
-    r = AD.reactions(closes, pd.read_csv(p), today)
+    ev = pd.read_csv(p); r = AD.reactions(closes, ev, today)
+    lr = pd.to_datetime(ev.date, errors="coerce").dt.normalize()
+    lr = lr[lr <= pd.Timestamp(today)].groupby(ev.ticker).max()          # last report date, for the fresh-earnings weighting
+    for t, d in lr.items():
+        if t in a.index and pd.notna(d): AD.setv(a, t, "last_report", str(d.date()))
     for t, v in r.items():
         if t in a.index: AD.setv(a, t, "reaction", round(v, 4))
     log(f"market reaction to reports: {len(r)} names")
@@ -423,13 +449,13 @@ def history_mode(today):
     import edgar as EG, subprocess
     reg = pd.read_csv(ROOT / "fund_registry.csv")
     for _, f in reg.iterrows():
-        try: EG.history(f.url if f.format == "nport" and isinstance(f.url, str) and f.url else f.etf, n=32, out_dir=ROOT / "data/holdings_history" / f.etf, log=log)
+        try: EG.history(f.url if f.format == "nport" and isinstance(f.url, str) and f.url else f.etf, n=100, out_dir=ROOT / "data/holdings_history" / f.etf, log=log)
         except Exception as e: log(f"history {f.etf}: {e}")
     names = set()
     for p in (ROOT / "data/holdings_history").glob("*/*.csv"):
         if p.name != "filed.csv": names |= set(pd.read_csv(p).ticker.astype(str))
     pdir = ROOT / "data/prices"; pdir.mkdir(parents=True, exist_ok=True)
-    names.add("SPY")
+    names |= {"SPY", "IWF", "IWD", "MTUM", "QQQ"}          # index and factor ETFs for the alpha test
     def fresh_enough(t):            # re-download a file that is a week old or does not reach back to the start of 2019
         f = pdir / f"{t}.csv"
         if not f.exists() or time.time() - f.stat().st_mtime >= 7 * 86400: return False
@@ -465,7 +491,7 @@ def main():
     if "--history" in sys.argv: return history_mode(today)
     import autodata as AD
     ok = refresh_holdings(today)
-    refresh_fund_returns(today)
+    refresh_fund_returns(today); refresh_regime(today)
     pool = pd.read_csv(ROOT / "data_web/holdings.csv").groupby("ticker").etf.nunique().loc[lambda s: s >= 2].index.tolist()
     a = AD.load_auto(pool)
     steps = [lambda: refresh_revisions(pool, today, a), lambda: refresh_earnings(pool, today, a),
