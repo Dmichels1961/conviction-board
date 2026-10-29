@@ -1,0 +1,139 @@
+{
+  "week": "2026-10-19",
+  "created": "2026-10-22T13:20:29",
+  "spy_price": null,
+  "flow_available": false,
+  "benchmarks_partial": [],
+  "n_ranked": 25,
+  "top_n": 25,
+  "weights": {
+    "flow": 15,
+    "earn_growth": 10,
+    "earn_surprise": 7,
+    "earn_consistency": 5,
+    "earn_revisions": 11,
+    "earn_accel": 4,
+    "earn_sales": 4,
+    "earn_reaction": 3,
+    "earn_guidance": 4,
+    "breadth": 19,
+    "active_weight": 5,
+    "momentum": 4,
+    "quality": 3,
+    "valuation": 2,
+    "theme": 1,
+    "crowding": 1,
+    "beta": 1,
+    "analyst_drift": 1
+  },
+  "signals": [
+    {
+      "key": "flow",
+      "label": "Manager flow",
+      "group": "Manager flow",
+      "desc": "Net adds/initiations minus trims/exits by skilled active ETFs since last week (drift-adjusted, skill-weighted)"
+    },
+    {
+      "key": "earn_growth",
+      "label": "Fwd EPS growth",
+      "group": "Earnings",
+      "desc": "Consensus EPS growth, next fiscal year (stockanalysis and Yahoo averaged when they agree)"
+    },
+    {
+      "key": "earn_surprise",
+      "label": "Beat size",
+      "group": "Earnings",
+      "desc": "Average EPS surprise over last 4 quarters (capped at 50%), blended with a standardized surprise (average beat / its variability)"
+    },
+    {
+      "key": "earn_consistency",
+      "label": "Beat consistency",
+      "group": "Earnings",
+      "desc": "Share of last 4 quarters that beat consensus"
+    },
+    {
+      "key": "earn_revisions",
+      "label": "Estimate revisions",
+      "group": "Earnings",
+      "desc": "30-day change in consensus EPS (current and next fiscal year, Yahoo)"
+    },
+    {
+      "key": "earn_accel",
+      "label": "Growth acceleration",
+      "group": "Earnings",
+      "desc": "Next-year EPS growth minus this year's: is growth speeding up?"
+    },
+    {
+      "key": "earn_sales",
+      "label": "Sales strength",
+      "group": "Earnings",
+      "desc": "Consensus revenue growth next year, blended with the average revenue beat over 4 quarters"
+    },
+    {
+      "key": "earn_reaction",
+      "label": "Market reaction",
+      "group": "Earnings",
+      "desc": "Average stock move after the last 4 reports: did the market believe the beat?"
+    },
+    {
+      "key": "earn_guidance",
+      "label": "Guidance",
+      "group": "Earnings",
+      "desc": "Raised / maintained / lowered guidance at the last report, adjusted for guide vs consensus"
+    },
+    {
+      "key": "breadth",
+      "label": "Manager overlap",
+      "group": "Overlap",
+      "desc": "Distinct active-fund managers holding it. Scales with the count (most overlap = 100); funds that have not beaten their benchmark count at half"
+    },
+    {
+      "key": "active_weight",
+      "label": "Active weight",
+      "group": "Overlap",
+      "desc": "Average weight above the benchmark (an active bet, not index beta)"
+    },
+    {
+      "key": "momentum",
+      "label": "Momentum 12-1",
+      "group": "Other",
+      "desc": "12-month price return excluding the latest month"
+    },
+    {
+      "key": "quality",
+      "label": "Quality",
+      "group": "Other",
+      "desc": "Gross margin, return on equity, free-cash-flow margin, net buybacks (share count change)"
+    },
+    {
+      "key": "valuation",
+      "label": "Valuation",
+      "group": "Other",
+      "desc": "Forward P/E relative to growth (PEG) and free-cash-flow yield; deliberately light"
+    },
+    {
+      "key": "theme",
+      "label": "Structural theme",
+      "group": "Other",
+      "desc": "Tailwind score (0-3) from themes.csv, e.g. the AI build-out chain"
+    },
+    {
+      "key": "crowding",
+      "label": "Short interest",
+      "group": "Other",
+      "desc": "Lower short interest and falling short interest score higher"
+    },
+    {
+      "key": "beta",
+      "label": "Beta",
+      "group": "Other",
+      "desc": "Beta 1.0 or below scores 100, falling to 0 at beta 2.0"
+    },
+    {
+      "key": "analyst_drift",
+      "label": "Analyst drift",
+      "group": "Other",
+      "desc": "Change in mean price target over 3 months"
+    }
+  ]
+}

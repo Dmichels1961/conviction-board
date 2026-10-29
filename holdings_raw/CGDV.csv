@@ -1,0 +1,53 @@
+ticker,weight,name
+CSCO,3.015358,Cisco Systems Inc
+CRM,0.921768,Salesforce Inc
+VRTX,0.802887,Vertex Pharmaceuticals Inc
+MDLZ,0.784960,Mondelez International Inc
+UNP,2.116609,Union Pacific Corp
+MCD,0.931522,McDonald's Corp
+UNH,2.024747,UnitedHealth Group Inc
+PM,1.542927,Philip Morris International Inc
+,2.659073,British American Tobacco PLC
+WFC,1.988038,Wells Fargo & Co
+NEE,1.016010,NextEra Energy Inc
+ABBV,1.349521,AbbVie Inc
+STX,1.420595,Seagate Technology Holdings PLC
+APD,0.741055,Air Products and Chemicals Inc
+UBER,0.672775,Uber Technologies Inc
+GD,0.834946,General Dynamics Corp
+CMCSA,1.754267,Comcast Corp
+MDT,1.072450,Medtronic PLC
+TXN,1.210147,Texas Instruments Inc
+GOOGL,3.593830,Alphabet Inc
+PLD,1.033181,Prologis Inc
+RCL,2.828733,Royal Caribbean Cruises Ltd
+MSFT,5.807629,Microsoft Corp
+AMAT,3.119830,Applied Materials Inc
+NVDA,5.659085,NVIDIA Corp
+LIN,1.952324,Linde PLC
+XOM,1.344272,Exxon Mobil Corp
+GLW,0.836136,Corning Inc
+MA,1.304183,Mastercard Inc
+AVGO,5.156471,Broadcom Inc
+AMGN,0.789565,Amgen Inc
+INTC,1.086193,Intel Corp
+CNQ,0.818018,Canadian Natural Resources Ltd
+ABT,0.754122,Abbott Laboratories
+APO,1.083406,Apollo Global Management Inc
+IP,1.742275,International Paper Co
+GE,3.082128,General Electric Co
+ITW,0.815872,Illinois Tool Works Inc
+META,3.327284,Meta Platforms Inc
+ORCL,1.600311,Oracle Corp
+RTX,2.816087,RTX Corp
+CARR,2.640697,Carrier Global Corp
+MO,1.003530,Altria Group Inc
+SBUX,2.257398,Starbucks Corp
+TRP,1.332059,TC Energy Corp
+FANG,0.808728,Diamondback Energy Inc
+AAPL,2.358530,Apple Inc
+SW,1.026693,Smurfit Westrock PLC
+TSM,2.163529,Taiwan Semiconductor Manufacturing Co Ltd
+LLY,3.151239,Eli Lilly & Co
+JPM,1.894499,JPMorgan Chase & Co
+AMZN,1.878299,Amazon.com Inc

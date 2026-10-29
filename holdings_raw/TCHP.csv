@@ -1,0 +1,65 @@
+ticker,weight,name
+AMD,3.734,Advanced Micro Devices
+GOOGL,5.484,Alphabet Class A
+GOOG,5.933,Alphabet Class C
+AMZN,3.377,Amazon.com
+APH,0.458,Amphenol
+AAPL,5.051,Apple
+AMAT,1.719,Applied Materials
+ASML,1.431,ASML Holding
+BKNG,0.821,Booking Holdings
+AVGO,5.404,Broadcom
+CVNA,2.998,Carvana
+CAT,0.619,Caterpillar
+CBRS,0.048,Cerebras Systems
+SCHW,0.293,Charles Schwab
+CB,0.886,Chubb
+CTAS,0.223,Cintas
+CEG,0.364,Constellation Energy
+CRWD,0.832,Crowdstrike Holdings
+DHR,0.485,Danaher
+DDOG,0.305,Datadog
+DASH,0.338,DoorDash
+LLY,3.004,Eli Lilly
+GE,1.601,GE
+GEV,0.88,GE Vernova
+GS,0.319,Goldman Sachs
+HEI,0.217,HEICO
+HWM,0.317,Howmet Aerospace
+ISRG,0.909,Intuitive Surgical
+LRCX,1.851,Lam Research
+LIN,0.315,Linde
+MMC,0.364,Marsh & McLennan
+MRVL,0.89,Marvell Technology
+MA,1.835,MasterCard
+MDLN,0.084,Medline
+META,4.403,Meta Platforms
+MU,1.461,Micron Technology
+MSFT,5.859,Microsoft
+MPWR,0.688,Monolithic Power Systems
+MCO,0.121,Moody's
+MS,0.461,Morgan Stanley
+NFLX,1.391,Netflix
+NVDA,17.653,NVIDIA
+ODFL,0.209,Old Dominion Freight Line
+ORCL,0.713,Oracle
+PLTR,0.318,Palantir Technologies
+ROP,0.271,Roper Technologies
+ROST,0.553,Ross Stores
+SE,0.393,"Sea, ADR"
+NOW,0.671,ServiceNow
+SHOP,0.854,Shopify
+,0.97,"SK hynix, ADR"
+,0.355,Space Exploration Technologies
+SYK,0.18,Stryker
+SNPS,0.22,Synopsys
+TSM,0.983,"Taiwan Semiconductor Manufacturing, ADR"
+TEL,0.02,TE Connectivity
+TSLA,2.146,Tesla
+TXN,0.782,Texas Instruments
+TMO,0.617,Thermo Fisher Scientific
+TJX,0.373,TJX
+TMUS,0.521,T-Mobile US
+TDG,0.219,Transdigm Group
+UNH,0.498,UnitedHealth Group
+V,2.505,Visa

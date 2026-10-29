@@ -1,0 +1,81 @@
+ticker,weight,name
+IONS,0.361193,Ionis Pharmaceuticals Inc
+ALB,0.401084,Albemarle Corp
+CRM,0.894217,Salesforce Inc
+ALNY,0.760230,Alnylam Pharmaceuticals Inc
+WELL,0.504775,Welltower Inc
+,0.631506,Grupo Mexico SAB de CV
+CMG,0.762020,Chipotle Mexican Grill Inc
+VRTX,1.555753,Vertex Pharmaceuticals Inc
+UNH,0.563635,UnitedHealth Group Inc
+PM,0.616574,Philip Morris International Inc
+APH,0.846313,Amphenol Corp
+,0.173767,Cerebras Systems Inc
+DHI,0.785877,DR Horton Inc
+TMO,0.529808,Thermo Fisher Scientific Inc
+COST,0.602687,Costco Wholesale Corp
+NET,1.647959,Cloudflare Inc
+,0.452615,Constellation Software Inc/Canada
+UBER,0.547176,Uber Technologies Inc
+EOG,0.769361,EOG Resources Inc
+NKE,0.413502,NIKE Inc
+,0.305621,Airbus SE
+ARMK,0.458860,Aramark
+MU,4.860079,Micron Technology Inc
+BURL,0.381302,Burlington Stores Inc
+CVNA,0.432532,Carvana Co
+W,0.238607,Wayfair Inc
+GOOGL,3.057231,Alphabet Inc (Class A)
+COHR,0.165701,Coherent Corp
+V,2.344223,Visa Inc
+ASML,0.830793,ASML Holding NV
+BKR,0.593689,Baker Hughes Co
+XYZ,0.502144,Block Inc
+AKAM,0.462636,Akamai Technologies Inc
+RCL,0.758991,Royal Caribbean Cruises Ltd
+MSFT,4.374932,Microsoft Corp
+MRNA,0.391057,Moderna Inc
+CEG,0.351170,Constellation Energy Corp
+NVDA,5.162121,NVIDIA Corp
+GOOG,3.362155,Alphabet Inc (Class C)
+PWR,0.992252,Quanta Services Inc
+GH,0.251670,Guardant Health Inc
+CSGP,0.233422,CoStar Group Inc
+DASH,0.500027,DoorDash Inc
+TDG,2.021715,TransDigm Group Inc
+NFLX,1.854565,Netflix Inc
+ISRG,1.678437,Intuitive Surgical Inc
+RKLB,0.263604,Rocket Lab Corp
+MA,0.354753,Mastercard Inc
+RSG,0.473357,Republic Services Inc
+AVGO,5.395248,Broadcom Inc
+AMGN,0.533242,Amgen Inc
+BAC,1.050296,Bank of America Corp
+NCLH,0.256082,Norwegian Cruise Line Holdings Ltd
+TSLA,5.853732,Tesla Inc
+INTC,1.192820,Intel Corp
+APO,0.378418,Apollo Global Management Inc
+AFRM,0.557013,Affirm Holdings Inc
+CNQ,0.330661,Canadian Natural Resources Ltd
+GE,1.108968,General Electric Co
+META,7.093404,Meta Platforms Inc
+KKR,0.716397,KKR & Co Inc
+GEV,0.441338,GE Vernova Inc
+RKT,0.262644,Rocket Cos Inc
+MSTR,1.034102,Strategy Inc
+,0.325036,Hermes International SCA
+LYV,0.574004,Live Nation Entertainment Inc
+CAT,0.547309,Caterpillar Inc
+SHOP,1.627329,Shopify Inc
+WPM,0.826922,Wheaton Precious Metals Corp
+,1.625162,SK hynix Inc
+HCA,0.451015,HCA Healthcare Inc
+KLAC,1.166239,KLA Corp
+,0.412868,Glencore PLC
+NOC,0.354534,Northrop Grumman Corp
+FANG,0.396823,Diamondback Energy Inc
+UAL,0.339715,United Airlines Holdings Inc
+RBLX,0.249915,ROBLOX Corp
+AAPL,1.787199,Apple Inc
+TSM,1.481065,Taiwan Semiconductor Manufacturing Co Ltd
+APP,0.573445,AppLovin Corp

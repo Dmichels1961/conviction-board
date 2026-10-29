@@ -1,0 +1,66 @@
+ticker,weight,name
+HON,0.700978,Honeywell International Inc
+CSCO,1.952412,Cisco Systems Inc
+CRM,0.609833,Salesforce Inc
+BLK,1.555281,Blackrock Inc
+ACN,0.493659,Accenture PLC
+WELL,0.600408,Welltower Inc
+PGR,0.716590,Progressive Corp/The
+VRTX,1.577111,Vertex Pharmaceuticals Inc
+D,0.818238,Dominion Energy Inc
+MDLZ,0.587831,Mondelez International Inc
+UNH,1.288568,UnitedHealth Group Inc
+PM,0.883930,Philip Morris International Inc
+,1.869761,British American Tobacco PLC
+APH,1.351381,Amphenol Corp
+WFC,1.131169,Wells Fargo & Co
+ABBV,0.598579,AbbVie Inc
+STX,2.114177,Seagate Technology Holdings PLC
+APD,0.903515,Air Products and Chemicals Inc
+UBER,0.687330,Uber Technologies Inc
+CTSH,0.530082,Cognizant Technology Solutions Corp
+,0.508299,Airbus SE
+VIK,0.580875,Viking Holdings Ltd
+GOOGL,3.219901,Alphabet Inc (Class A)
+V,0.667611,Visa Inc
+BKR,1.060836,Baker Hughes Co
+RCL,1.023901,Royal Caribbean Cruises Ltd
+MSFT,5.753302,Microsoft Corp
+AMAT,2.565195,Applied Materials Inc
+NVDA,6.847720,NVIDIA Corp
+GOOG,1.929851,Alphabet Inc (Class C)
+CVS,0.507921,CVS Health Corp
+LIN,1.339761,Linde PLC
+MMC,0.501029,Marsh & McLennan Cos Inc
+XOM,0.444691,Exxon Mobil Corp
+GLW,0.691877,Corning Inc
+TRP,0.520517,TC Energy Corp
+NFLX,1.304537,Netflix Inc
+MA,1.822591,Mastercard Inc
+AVGO,6.325232,Broadcom Inc
+ENTG,1.068639,Entegris Inc
+HD,0.816233,Home Depot Inc/The
+INTC,0.490218,Intel Corp
+ABT,0.613651,Abbott Laboratories
+ANET,0.494092,Arista Networks Inc
+GFL,0.777844,GFL Environmental Inc
+GS,0.703530,Goldman Sachs Group Inc/The
+CNP,0.895084,CenterPoint Energy Inc
+CNQ,1.333363,Canadian Natural Resources Ltd
+FIS,0.560737,Fidelity National Information Services Inc
+IP,0.550861,International Paper Co
+GE,1.412601,General Electric Co
+META,3.789759,Meta Platforms Inc
+RTX,1.953692,RTX Corp
+CARR,1.255227,Carrier Global Corp
+SBUX,1.708175,Starbucks Corp
+IR,0.587135,Ingersoll Rand Inc
+XPO,0.972055,XPO Inc
+KLAC,0.601506,KLA Corp
+AAPL,2.755022,Apple Inc
+TSM,2.436357,Taiwan Semiconductor Manufacturing Co Ltd
+ADP,1.215871,Automatic Data Processing Inc
+EQIX,0.731607,Equinix Inc
+LLY,3.922419,Eli Lilly & Co
+JPM,1.786101,JPMorgan Chase & Co
+AMZN,5.038066,Amazon.com Inc

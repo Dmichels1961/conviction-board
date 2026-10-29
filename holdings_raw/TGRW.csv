@@ -1,0 +1,71 @@
+ticker,weight,name
+AMD,4.158,Advanced Micro Devices
+GOOGL,10.804,Alphabet Class A
+AMZN,1.445,Amazon.com
+APH,0.985,Amphenol
+AAPL,6.623,Apple
+AMAT,1.405,Applied Materials
+ARGX,0.404,"Argenx, ADR"
+ANET,0.29,Arista Networks
+ASML,0.846,ASML Holding
+BA,0.397,Boeing
+BKNG,0.577,Booking Holdings
+AVGO,5.216,Broadcom
+CVNA,0.706,Carvana
+CAT,0.709,Caterpillar
+CBRS,0.149,Cerebras Systems
+SCHW,0.097,Charles Schwab
+CMG,0.174,Chipotle Mexican Grill
+CB,0.331,Chubb
+CIEN,0.253,Ciena
+CTAS,0.573,Cintas
+COST,0.087,Costco Wholesale
+CRWD,1.267,Crowdstrike Holdings
+DHR,0.182,Danaher
+DASH,0.481,DoorDash
+LLY,3.095,Eli Lilly
+FN,0.21,Fabrinet
+RACE,0.265,Ferrari
+GE,1.574,GE
+GEV,0.603,GE Vernova
+HEI,0.326,HEICO
+HLT,0.568,Hilton Worldwide Holdings
+HWM,0.747,Howmet Aerospace
+INTC,0.595,Intel
+ISRG,0.784,Intuitive Surgical
+KYMR,0.155,Kymera therapeutics
+LRCX,1.593,Lam Research
+LIN,0.4,Linde
+LYV,0.342,Live Nation Entertainment
+MMC,0.028,Marsh & McLennan
+MA,1.779,MasterCard
+MELI,0.327,MercadoLibre
+META,4.016,Meta Platforms
+MU,3.231,Micron Technology
+MSFT,5.563,Microsoft
+MS,0.397,Morgan Stanley
+NTRA,0.096,Natera
+NFLX,1.094,Netflix
+NVDA,16.235,NVIDIA
+ODFL,0.227,Old Dominion Freight Line
+ORCL,0.393,Oracle
+PLTR,0.693,Palantir Technologies
+IOT,0.246,Samsara
+SE,0.293,"Sea, ADR"
+NOW,0.827,ServiceNow
+SHW,0.099,Sherwin-Williams
+SHOP,0.675,Shopify
+SNOW,1.298,Snowflake Computing
+,0.674,Space Exploration Technologies
+SPOT,0.662,Spotify Technology
+SYK,0.282,Stryker
+TSM,1.17,"Taiwan Semiconductor Manufacturing, ADR"
+TDY,0.387,Teledyne Technologies
+TSLA,2.288,Tesla
+TMO,0.245,Thermo Fisher Scientific
+TMUS,0.019,T-Mobile US
+UNH,0.237,UnitedHealth Group
+VRT,0.624,Vertiv Holdings
+V,2.201,Visa
+WAB,0.225,Wabtec
+WELL,0.627,"Welltower, REIT"

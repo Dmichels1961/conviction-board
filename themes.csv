@@ -1,0 +1,44 @@
+ticker,theme,tailwind
+NVDA,AI compute,3
+AVGO,AI custom silicon & networking,3
+TSM,AI foundry & packaging,3
+MU,AI memory (HBM),3
+ASML,Semicap equipment,3
+AMAT,Semicap equipment,2
+LRCX,Semicap equipment,2
+KLAC,Semicap equipment,2
+ANET,AI networking,3
+CLS,AI networking & hardware,2
+COHR,AI optics,2
+VRT,AI power & cooling,3
+GEV,Power equipment,3
+ETN,Electrical & power,3
+PWR,Grid & data center build-out,3
+FIX,Data center build-out,2
+EME,Data center build-out,2
+CEG,Power for data centers,2
+VST,Power for data centers,2
+EQIX,Data center REIT,2
+DLR,Data center REIT,2
+MSFT,AI platform / hyperscaler,2
+AMZN,AI platform / hyperscaler,2
+GOOGL,AI platform / hyperscaler,2
+META,AI platform / hyperscaler,2
+ORCL,AI cloud infrastructure,2
+PLTR,AI software,2
+NOW,AI software,1
+CRWD,Cybersecurity,2
+PANW,Cybersecurity,2
+LLY,Obesity / metabolic,2
+NVO,Obesity / metabolic,2
+ISRG,Healthcare innovation,1
+CAT,Power gen & infrastructure,1
+KLAC,Semicap equipment,3
+ANET,AI networking,3
+MRVL,AI custom silicon & networking,3
+VRT,AI data-center power & cooling,3
+GLW,AI optical connectivity,2
+PWR,Grid & data-center power build-out,2
+NET,AI edge & security,1
+INTC,US foundry / onshoring,1
+NOW,Enterprise AI software,1

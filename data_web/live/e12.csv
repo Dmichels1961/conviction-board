@@ -1,0 +1,8 @@
+ticker,y_asof,y_cur_label,y_cur_eps,y_next_eps,y_cur_eps_30d_ago,y_cur_eps_90d_ago,y_next_eps_30d_ago,y_next_eps_90d_ago,y_cur_up30,y_cur_down30,y_next_up30,y_next_down30,y_n_analysts,y_cur_rev_b,y_next_rev_b,mb_rev_q1_est_b,mb_rev_q1_act_b,mb_rev_q2_est_b,mb_rev_q2_act_b,mb_rev_q3_est_b,mb_rev_q3_act_b,mb_rev_q4_est_b,mb_rev_q4_act_b,tr_move1_pct,tr_move2_pct,tr_move3_pct,tr_move4_pct,next_report_date,os_implied_move_pct,mb_pt_now,mb_pt_1m,mb_pt_3m,mb_upgrades_30d,mb_downgrades_30d,sa_short_now_m,sa_short_prev_m,sa_share_chg_yoy_pct,sa_buyback_yield_pct,sa_rev_cur_b,sa_rev_next_b,sa_rev_growth_next_pct,notes
+CB,,,,,,,,,,,,,,,,12.72,11.31,12.87,11.72,13.58,12.77,14.15,,,,,,,,,,,,,3.14,3.27,-2.78,2.78,49.58,51.60,4.08,"Yahoo/MarketBeat/TipRanks/OptionSlam blocked (URL not on allowlist). mb_rev columns are Benzinga (Q4'25,Q1'26,Q2'26,Q3'26); Q3'26 est 14.15 is pre-report, actual revenue not found. Benzinga revenue shows consistent apparent misses (est/actual basis mismatch likely). sa_rev = stockanalysis FY2026/FY2027 revenue consensus (49.58B well below TTM 61.96B, definition mismatch). sa short from stockanalysis statistics."
+PGR,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"All live sources blocked for PGR; nothing reliable to fill. MarketBeat PT 235.95 (page dated 2026-09-19, stale) not entered."
+ASND,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"All live sources blocked; reports in EUR (Q2'26 revenue EUR 339M, Yorvipath EUR 252M)."
+TWLO,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,All live sources blocked.
+CLS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,All live sources blocked.
+APP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,All live sources blocked.
+HOOD,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,All live sources blocked.

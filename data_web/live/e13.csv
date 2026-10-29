@@ -1,0 +1,8 @@
+ticker,y_asof,y_cur_label,y_cur_eps,y_next_eps,y_cur_eps_30d_ago,y_cur_eps_90d_ago,y_next_eps_30d_ago,y_next_eps_90d_ago,y_cur_up30,y_cur_down30,y_next_up30,y_next_down30,y_n_analysts,y_cur_rev_b,y_next_rev_b,mb_rev_q1_est_b,mb_rev_q1_act_b,mb_rev_q2_est_b,mb_rev_q2_act_b,mb_rev_q3_est_b,mb_rev_q3_act_b,mb_rev_q4_est_b,mb_rev_q4_act_b,tr_move1_pct,tr_move2_pct,tr_move3_pct,tr_move4_pct,next_report_date,os_implied_move_pct,mb_pt_now,mb_pt_1m,mb_pt_3m,mb_upgrades_30d,mb_downgrades_30d,sa_short_now_m,sa_short_prev_m,sa_share_chg_yoy_pct,sa_buyback_yield_pct,sa_rev_cur_b,sa_rev_next_b,sa_rev_growth_next_pct,notes
+SNPS,,,,,,,,,,,,,,,,,,,,,,2.44,2.477,,,,,,,,,,,,,,,,,,,"Yahoo/MarketBeat/StockAnalysis/TipRanks/OptionsLam blocked by allowlist. Latest quarter revenue est/act from earningswhispers (FQ3 FY26)."
+CMG,,,,,,,,,,,,,,,,,,,,,,,3.349,,,,,2026-10-28,,,,,,,,,,,,,,"Q2 2026 revenue actual 3.349B from company release; estimate not retrieved. All Yahoo/MarketBeat fields blocked."
+CEG,,,,,,,,,,,,,,,,,,,,,,7.47,7.50,,,,,,,,,,,,,,,,,,,"Q2 2026 revenue est 7.47 / act 7.50 (Zacks). Other fields blocked."
+NTRA,,,,,,,,,,,,,,,,0.5135,0.5922,0.6247,0.6655,0.6167,0.6966,0.6609,0.7528,,,,,,,,,,,,,,,,,,"Revenue quarters Q3'25-Q2'26 from Benzinga (est/act). Other fields blocked."
+LYV,,,,,,,,,,,,,,,,,,,,,,7.53,7.667,,,,,,,,,,,,,,,,,,,"Q2 2026 revenue est 7.53 / act 7.667 (Zacks, SEC release). Other fields blocked."
+SCHW,,,,,,,,,,,,,,,,,,,,,,7.18,7.171,,,,,,,,,,,,,,,,,,,"Q3 2026 revenue est 7.18 / act 7.171 (earningswhispers, SEC 8-K). Other fields blocked."
+RDDT,,,,,,,,,,,,,,,,,,,,,,0.74494,0.80491,,,,,,,,,,,,,,,,,,,"Q2 2026 revenue est 0.745 / act 0.805 (earningswhispers). Other fields blocked."

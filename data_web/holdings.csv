@@ -1,0 +1,877 @@
+etf,ticker,weight,source,asof,fresh
+TCHP,AAPL,5.051,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,AMAT,1.719,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,AMD,3.734,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,AMZN,3.377,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,APH,0.458,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,ASML,1.431,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,AVGO,5.404,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,BKNG,0.821,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,CAT,0.619,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,CB,0.886,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,CBRS,0.048,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,CEG,0.364,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,CRWD,0.832,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,CTAS,0.223,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,CVNA,2.998,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,DASH,0.338,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,DDOG,0.305,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,DHR,0.485,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,GE,1.601,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,GEV,0.88,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,GOOGL,11.417,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,GS,0.319,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,HEI,0.217,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,HWM,0.317,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,ISRG,0.909,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,LIN,0.315,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,LLY,3.004,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,LRCX,1.851,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,MA,1.835,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,MCO,0.121,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,MDLN,0.084,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,META,4.403,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,MMC,0.364,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,MPWR,0.688,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,MRVL,0.89,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,MS,0.461,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,MSFT,5.859,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,MU,1.461,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,NFLX,1.391,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,NOW,0.671,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,NVDA,17.653,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,ODFL,0.209,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,ORCL,0.713,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,PLTR,0.318,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,ROP,0.271,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,ROST,0.553,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,SCHW,0.293,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,SE,0.393,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,SHOP,0.854,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,SNPS,0.22,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,SYK,0.18,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,TDG,0.219,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,TEL,0.02,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,TJX,0.373,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,TMO,0.617,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,TMUS,0.521,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,TSLA,2.146,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,TSM,0.983,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,TXN,0.782,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,UNH,0.498,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCHP,V,2.505,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,AAPL,6.623,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,AMAT,1.405,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,AMD,4.158,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,AMZN,1.445,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,ANET,0.29,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,APH,0.985,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,ARGX,0.404,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,ASML,0.846,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,AVGO,5.216,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,BA,0.397,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,BKNG,0.577,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,CAT,0.709,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,CB,0.331,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,CBRS,0.149,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,CIEN,0.253,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,CMG,0.174,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,COST,0.087,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,CRWD,1.267,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,CTAS,0.573,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,CVNA,0.706,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,DASH,0.481,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,DHR,0.182,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,FN,0.21,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,GE,1.574,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,GEV,0.603,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,GOOGL,10.804,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,HEI,0.326,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,HLT,0.568,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,HWM,0.747,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,INTC,0.595,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,IOT,0.246,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,ISRG,0.784,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,KYMR,0.155,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,LIN,0.4,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,LLY,3.095,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,LRCX,1.593,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,LYV,0.342,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,MA,1.779,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,MELI,0.327,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,META,4.016,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,MMC,0.028,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,MS,0.397,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,MSFT,5.563,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,MU,3.231,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,NFLX,1.094,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,NOW,0.827,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,NTRA,0.096,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,NVDA,16.235,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,ODFL,0.227,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,ORCL,0.393,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,PLTR,0.693,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,RACE,0.265,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,SCHW,0.097,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,SE,0.293,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,SHOP,0.675,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,SHW,0.099,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,SNOW,1.298,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,SPOT,0.662,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,SYK,0.282,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,TDY,0.387,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,TMO,0.245,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,TMUS,0.019,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,TSLA,2.288,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,TSM,1.17,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,UNH,0.237,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,V,2.201,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,VRT,0.624,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,WAB,0.225,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TGRW,WELL,0.627,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,AAPL,4.685,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,ABIO,0.175,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,ABT,0.534,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,AEE,1.683,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,AJG,1.235,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,ALNY,2.134,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,AMD,3.209,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,AMZN,5.421,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,ANET,1.562,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,ARES,0.982,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,ASML,0.986,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,ASND,1.86,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,AUR,0.826,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,AVGO,3.05,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,BDX,0.631,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,BIIB,0.048,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,BSY,0.295,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,CBRS,0.22,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,CDNS,0.375,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,CGON,0.22,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,CIEN,0.405,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,CNP,2.534,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,CNQ,1.329,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,COP,0.289,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,COR,2.241,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,CYTK,0.927,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,DASH,0.985,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,DHR,1.484,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,DNLI,0.302,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,DNTH,0.152,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,DYN,0.094,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,EQT,0.186,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,ERAS,0.177,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,ETR,0.615,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,EXE,0.075,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,GE,0.126,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,GM,0.13,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,GOOGL,4.293,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,HCA,0.242,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,HLT,0.11,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,IBM,0.296,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,IDXX,0.173,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,IEX,0.254,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,IR,0.273,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,ISRG,0.279,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,ITT,0.224,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,JPM,1.295,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,KDP,1.914,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,KKR,0.887,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,KYMR,0.37,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,LITE,0.489,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,LMT,0.766,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,MA,1.886,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,MAR,0.086,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,MAZE,0.04,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,MLTX,0.03,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,MSCI,1.237,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,MSGS,0.491,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,NFLX,0.413,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,NI,1.454,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,NOC,0.863,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,NVDA,5.646,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,PCVX,0.715,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,PM,1.013,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,PPL,1.515,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,PTC,0.784,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,QCOM,0.557,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,RLAY,0.195,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,RSG,0.18,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,RVTY,1.614,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,RYAN,0.075,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,SBUX,0.371,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,SLB,0.301,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,SNPS,0.602,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,SPGI,0.238,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,SPXC,0.377,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,STOK,0.063,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,TDG,0.332,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,TRU,0.392,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,TSM,2.273,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,TXN,0.464,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,USFD,0.306,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,V,1.167,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,VLTO,1.152,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,VMC,0.143,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,WAT,1.342,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,WCN,0.404,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,WST,0.43,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,WTW,0.529,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,XENE,0.224,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+TCAF,YUM,1.091,T. Rowe Price quarterly portfolio PDF,2026-09-30,True
+FBCG,AAPL,9.224,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ABBV,0.412,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,AEM,0.079,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,AFRM,0.215,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ALAB,0.562,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ALNY,0.128,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,AMAT,0.293,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,AMD,1.264,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,AMZN,4.967,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ANET,0.159,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,APH,0.315,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,APP,0.747,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ARGX,0.128,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ARXS,0.037,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,AS,0.208,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ASML,0.304,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ASND,0.006,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ATI,0.085,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,AUR,0.028,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,AVGO,4.107,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,AXON,0.234,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,BA,0.542,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,BAC,0.102,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,BBWI,0.068,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,BCS,0.07,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,BE,0.112,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,BROS,0.098,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,BTI,0.107,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,C,0.06,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CAT,0.28,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CAVA,0.075,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CBRS,0.292,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CCL,0.055,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CELH,0.059,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CIEN,0.095,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CLS,0.598,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CMG,0.345,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CMI,0.158,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,COAG,0.003,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,COHR,0.274,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,COIN,0.06,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,COMP,0.077,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,COST,0.115,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CRM,0.125,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CRS,0.213,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CRWD,0.813,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,CVNA,0.399,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,DAL,0.382,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,DASH,0.359,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,DDOG,0.099,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,DELL,0.297,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,DFTX,0.058,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,DHR,0.076,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,DPC,0.019,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,EAT,0.362,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ELAN,0.056,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ELVN,0.052,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,FERG,0.066,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,FIG,0.074,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,FIGR,0.095,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,FIX,0.471,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,FLEX,0.144,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,FND,0.095,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,FOXA,0.059,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,FPS,0.063,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,FTAI,0.152,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,GE,0.403,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,GEV,0.676,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,GFS,0.049,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,GH,0.116,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,GILD,0.315,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,GLW,0.208,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,GOOGL,8.909,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,GS,0.239,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,HD,0.124,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,HLT,0.21,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,HOOD,0.389,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,HTFL,0.078,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,HWM,0.343,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,IAG,0.096,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,IESC,0.099,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ILMN,0.079,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,INIO,0.043,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,INSM,0.061,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,INTC,0.198,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,JANX,0.031,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,JAZZ,0.081,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,JBL,0.137,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,JHX,0.093,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,JNJ,0.248,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,JPM,0.058,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,KLAC,0.107,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,KLRA,0.009,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,KMB,0.098,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,KMTS,0.042,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,KO,0.098,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,KVYO,0.073,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,KYMR,0.054,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,LEGN,0.019,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,LIME,0.115,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,LITE,0.58,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,LLY,2.646,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,LOW,0.355,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,LRCX,0.525,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MA,0.852,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MAIR,0.096,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MAR,0.171,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MDB,0.057,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MDLN,0.093,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MET,0.055,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,META,2.416,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MMM,0.09,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MPWR,0.817,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MRNA,0.172,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MRVL,1.059,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MS,0.147,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MSFT,5.556,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MTSI,0.141,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,MU,2.367,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,NET,0.396,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,NFLX,0.543,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,NOW,0.152,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,NTAP,0.061,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,NTRA,0.109,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,NVDA,15.679,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,NXT,0.095,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ODFL,0.071,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ON,0.11,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ORCL,0.426,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,PANW,0.726,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,PBLS,0.037,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,PCAR,0.109,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,PCVX,0.027,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,PLTR,0.553,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,PRAX,0.046,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,PRU,0.056,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,PVH,0.106,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,RBC,0.08,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,RBLX,0.166,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,RDDT,0.184,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,RELY,0.032,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,RH,0.194,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,RIVN,0.074,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,RKT,0.066,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,RL,0.061,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ROIV,0.076,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,ROST,0.253,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,RVMD,0.072,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SBUX,0.523,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SFM,0.083,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SIMO,0.056,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SKHY,0.463,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SN,0.804,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SNAP,0.034,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SNDK,1.843,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SNOW,0.153,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SNX,0.107,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SPCX,0.577,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SPHR,0.055,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,SRRK,0.064,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,STRL,0.079,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,STX,0.602,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TER,0.1,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TEX,0.062,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TGT,0.558,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TJX,0.257,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TPR,0.047,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TSLA,1.47,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TSM,1.133,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TTAN,0.075,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TTMI,0.134,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TVTX,0.1,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TWLO,0.53,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TWST,0.101,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,TXRH,0.095,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,UAL,0.37,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,UBER,0.131,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,UNH,0.619,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,URBN,0.079,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,URI,0.071,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,V,0.256,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,VIA,0.058,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,VIK,0.05,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,VRT,0.092,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,VSXY,0.339,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,VTRS,0.102,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,W,0.012,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,WAT,0.061,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,WDC,1.376,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,WELL,0.603,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,WING,0.096,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,WRBY,0.084,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,WWD,0.054,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,WYNN,0.112,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,XOM,0.143,Fidelity portfolio holdings listing PDF,2026-08-31,True
+FBCG,XPO,0.08,Fidelity portfolio holdings listing PDF,2026-08-31,True
+JGRO,AAPL,8.422,SEC N-PORT,2026-03-31,True
+JGRO,ABBV,0.434,SEC N-PORT,2026-03-31,True
+JGRO,ABT,0.414,SEC N-PORT,2026-03-31,True
+JGRO,ADI,0.256,SEC N-PORT,2026-03-31,True
+JGRO,ALNY,0.682,SEC N-PORT,2026-03-31,True
+JGRO,AMD,0.43,SEC N-PORT,2026-03-31,True
+JGRO,AME,0.463,SEC N-PORT,2026-03-31,True
+JGRO,AMGN,0.427,SEC N-PORT,2026-03-31,True
+JGRO,AMZN,3.225,SEC N-PORT,2026-03-31,True
+JGRO,APH,0.42,SEC N-PORT,2026-03-31,True
+JGRO,APP,0.275,SEC N-PORT,2026-03-31,True
+JGRO,AVGO,3.827,SEC N-PORT,2026-03-31,True
+JGRO,AZO,0.45,SEC N-PORT,2026-03-31,True
+JGRO,BABA,0.436,SEC N-PORT,2026-03-31,True
+JGRO,BKNG,0.685,SEC N-PORT,2026-03-31,True
+JGRO,BMY,0.247,SEC N-PORT,2026-03-31,True
+JGRO,BRK-B,0.58,SEC N-PORT,2026-03-31,True
+JGRO,BWXT,0.419,SEC N-PORT,2026-03-31,True
+JGRO,CASY,0.391,SEC N-PORT,2026-03-31,True
+JGRO,CBRE,0.292,SEC N-PORT,2026-03-31,True
+JGRO,CIEN,1.107,SEC N-PORT,2026-03-31,True
+JGRO,CLS,0.221,SEC N-PORT,2026-03-31,True
+JGRO,COR,0.395,SEC N-PORT,2026-03-31,True
+JGRO,CRWD,0.256,SEC N-PORT,2026-03-31,True
+JGRO,CVNA,0.256,SEC N-PORT,2026-03-31,True
+JGRO,DASH,0.357,SEC N-PORT,2026-03-31,True
+JGRO,DE,0.675,SEC N-PORT,2026-03-31,True
+JGRO,DG,0.166,SEC N-PORT,2026-03-31,True
+JGRO,DHI,0.142,SEC N-PORT,2026-03-31,True
+JGRO,EOG,0.368,SEC N-PORT,2026-03-31,True
+JGRO,FCX,0.183,SEC N-PORT,2026-03-31,True
+JGRO,FIG,0.021,SEC N-PORT,2026-03-31,True
+JGRO,FIX,0.512,SEC N-PORT,2026-03-31,True
+JGRO,FTI,0.477,SEC N-PORT,2026-03-31,True
+JGRO,GE,0.682,SEC N-PORT,2026-03-31,True
+JGRO,GEV,1.11,SEC N-PORT,2026-03-31,True
+JGRO,GILD,1.186,SEC N-PORT,2026-03-31,True
+JGRO,GOOGL,6.771,SEC N-PORT,2026-03-31,True
+JGRO,GRMN,0.255,SEC N-PORT,2026-03-31,True
+JGRO,GS,1.514,SEC N-PORT,2026-03-31,True
+JGRO,HIMS,0.019,SEC N-PORT,2026-03-31,True
+JGRO,HLT,0.379,SEC N-PORT,2026-03-31,True
+JGRO,HOOD,0.256,SEC N-PORT,2026-03-31,True
+JGRO,HUBS,0.154,SEC N-PORT,2026-03-31,True
+JGRO,HWM,0.407,SEC N-PORT,2026-03-31,True
+JGRO,IBKR,0.306,SEC N-PORT,2026-03-31,True
+JGRO,IBM,0.865,SEC N-PORT,2026-03-31,True
+JGRO,ICE,0.271,SEC N-PORT,2026-03-31,True
+JGRO,INSM,1.42,SEC N-PORT,2026-03-31,True
+JGRO,INTU,0.515,SEC N-PORT,2026-03-31,True
+JGRO,IQV,0.211,SEC N-PORT,2026-03-31,True
+JGRO,ISRG,0.448,SEC N-PORT,2026-03-31,True
+JGRO,ITT,0.52,SEC N-PORT,2026-03-31,True
+JGRO,JNJ,1.559,SEC N-PORT,2026-03-31,True
+JGRO,KO,0.68,SEC N-PORT,2026-03-31,True
+JGRO,LITE,0.277,SEC N-PORT,2026-03-31,True
+JGRO,LLY,1.831,SEC N-PORT,2026-03-31,True
+JGRO,LNG,0.051,SEC N-PORT,2026-03-31,True
+JGRO,LRCX,0.373,SEC N-PORT,2026-03-31,True
+JGRO,LYV,0.201,SEC N-PORT,2026-03-31,True
+JGRO,MA,2.056,SEC N-PORT,2026-03-31,True
+JGRO,MCD,0.531,SEC N-PORT,2026-03-31,True
+JGRO,MCK,0.471,SEC N-PORT,2026-03-31,True
+JGRO,MELI,0.046,SEC N-PORT,2026-03-31,True
+JGRO,META,3.445,SEC N-PORT,2026-03-31,True
+JGRO,MMM,1.054,SEC N-PORT,2026-03-31,True
+JGRO,MNST,0.401,SEC N-PORT,2026-03-31,True
+JGRO,MRK,0.884,SEC N-PORT,2026-03-31,True
+JGRO,MSFT,4.847,SEC N-PORT,2026-03-31,True
+JGRO,MTD,0.154,SEC N-PORT,2026-03-31,True
+JGRO,NBIX,0.434,SEC N-PORT,2026-03-31,True
+JGRO,NET,0.164,SEC N-PORT,2026-03-31,True
+JGRO,NFLX,0.926,SEC N-PORT,2026-03-31,True
+JGRO,NOW,0.087,SEC N-PORT,2026-03-31,True
+JGRO,NTRA,0.915,SEC N-PORT,2026-03-31,True
+JGRO,NUVL,0.181,SEC N-PORT,2026-03-31,True
+JGRO,NVDA,10.5,SEC N-PORT,2026-03-31,True
+JGRO,ON,0.37,SEC N-PORT,2026-03-31,True
+JGRO,ORCL,0.39,SEC N-PORT,2026-03-31,True
+JGRO,PANW,0.397,SEC N-PORT,2026-03-31,True
+JGRO,PFGC,0.266,SEC N-PORT,2026-03-31,True
+JGRO,PG,0.343,SEC N-PORT,2026-03-31,True
+JGRO,PGR,0.23,SEC N-PORT,2026-03-31,True
+JGRO,PLTR,0.056,SEC N-PORT,2026-03-31,True
+JGRO,PM,1.084,SEC N-PORT,2026-03-31,True
+JGRO,PWR,1.031,SEC N-PORT,2026-03-31,True
+JGRO,QURE,0.023,SEC N-PORT,2026-03-31,True
+JGRO,RBLX,0.087,SEC N-PORT,2026-03-31,True
+JGRO,RDDT,0.137,SEC N-PORT,2026-03-31,True
+JGRO,RKLB,0.129,SEC N-PORT,2026-03-31,True
+JGRO,RKT,0.121,SEC N-PORT,2026-03-31,True
+JGRO,RTX,1.036,SEC N-PORT,2026-03-31,True
+JGRO,SCHW,0.56,SEC N-PORT,2026-03-31,True
+JGRO,SE,0.004,SEC N-PORT,2026-03-31,True
+JGRO,SGI,0.131,SEC N-PORT,2026-03-31,True
+JGRO,SHOP,0.167,SEC N-PORT,2026-03-31,True
+JGRO,SNOW,0.383,SEC N-PORT,2026-03-31,True
+JGRO,SPOT,0.3,SEC N-PORT,2026-03-31,True
+JGRO,TDG,0.066,SEC N-PORT,2026-03-31,True
+JGRO,TDY,0.314,SEC N-PORT,2026-03-31,True
+JGRO,TER,0.463,SEC N-PORT,2026-03-31,True
+JGRO,TJX,0.612,SEC N-PORT,2026-03-31,True
+JGRO,TMO,0.319,SEC N-PORT,2026-03-31,True
+JGRO,TSLA,3.467,SEC N-PORT,2026-03-31,True
+JGRO,TSM,1.262,SEC N-PORT,2026-03-31,True
+JGRO,TT,0.601,SEC N-PORT,2026-03-31,True
+JGRO,TTWO,0.394,SEC N-PORT,2026-03-31,True
+JGRO,TWLO,0.324,SEC N-PORT,2026-03-31,True
+JGRO,TXN,0.507,SEC N-PORT,2026-03-31,True
+JGRO,UBER,0.03,SEC N-PORT,2026-03-31,True
+JGRO,ULTA,0.361,SEC N-PORT,2026-03-31,True
+JGRO,UNP,0.338,SEC N-PORT,2026-03-31,True
+JGRO,V,0.03,SEC N-PORT,2026-03-31,True
+JGRO,VST,0.142,SEC N-PORT,2026-03-31,True
+JGRO,W,0.057,SEC N-PORT,2026-03-31,True
+JGRO,WDC,0.463,SEC N-PORT,2026-03-31,True
+JGRO,WMB,0.447,SEC N-PORT,2026-03-31,True
+JGRO,WMT,1.422,SEC N-PORT,2026-03-31,True
+JGRO,XOM,0.742,SEC N-PORT,2026-03-31,True
+CGUS,AAPL,2.5,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,ABBV,0.598579,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,ABT,0.613651,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,ACN,0.493659,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,ADP,1.215871,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,AMAT,2.0,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,AMZN,4.7,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,ANET,0.494092,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,APD,0.903515,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,APH,1.351381,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,AVGO,5.2,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,BKR,1.060836,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,BLK,1.555281,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,CARR,1.255227,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,CNP,0.895084,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,CNQ,1.333363,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,CRM,0.609833,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,CSCO,1.952412,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,CTSH,0.530082,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,CVS,0.507921,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,D,0.818238,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,ENTG,1.068639,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,EQIX,0.731607,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,FIS,0.560737,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,GE,1.412601,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,GFL,0.777844,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,GLW,0.691877,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,GOOGL,5.1,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,GS,0.70353,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,HD,0.816233,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,HON,0.700978,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,INTC,0.490218,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,IP,0.550861,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,IR,0.587135,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,JPM,1.786101,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,KLAC,0.601506,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,LIN,1.339761,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,LLY,3.8,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,MA,1.822591,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,MDLZ,0.587831,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,META,4.6,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,MMC,0.501029,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,MSFT,7.0,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,NFLX,1.304537,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,NVDA,7.8,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,PGR,0.71659,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,PM,0.88393,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,RCL,1.023901,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,RTX,1.953692,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,SBUX,1.708175,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,STX,2.114177,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,TRP,0.520517,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,TSM,2.8,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,UBER,0.68733,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,UNH,1.288568,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,V,0.667611,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,VIK,0.580875,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,VRTX,1.577111,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,WELL,0.600408,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,WFC,1.131169,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,XOM,0.444691,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGUS,XPO,0.972055,SEC N-PORT + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGDV,AAPL,2.35853,SEC N-PORT,2026-05-31,True
+CGDV,ABBV,1.349521,SEC N-PORT,2026-05-31,True
+CGDV,ABT,0.754122,SEC N-PORT,2026-05-31,True
+CGDV,AMAT,3.11983,SEC N-PORT,2026-05-31,True
+CGDV,AMGN,0.789565,SEC N-PORT,2026-05-31,True
+CGDV,AMZN,1.878299,SEC N-PORT,2026-05-31,True
+CGDV,APD,0.741055,SEC N-PORT,2026-05-31,True
+CGDV,APO,1.083406,SEC N-PORT,2026-05-31,True
+CGDV,AVGO,5.156471,SEC N-PORT,2026-05-31,True
+CGDV,CARR,2.640697,SEC N-PORT,2026-05-31,True
+CGDV,CMCSA,1.754267,SEC N-PORT,2026-05-31,True
+CGDV,CNQ,0.818018,SEC N-PORT,2026-05-31,True
+CGDV,CRM,0.921768,SEC N-PORT,2026-05-31,True
+CGDV,CSCO,3.015358,SEC N-PORT,2026-05-31,True
+CGDV,FANG,0.808728,SEC N-PORT,2026-05-31,True
+CGDV,GD,0.834946,SEC N-PORT,2026-05-31,True
+CGDV,GE,3.082128,SEC N-PORT,2026-05-31,True
+CGDV,GLW,0.836136,SEC N-PORT,2026-05-31,True
+CGDV,GOOGL,3.59383,SEC N-PORT,2026-05-31,True
+CGDV,INTC,1.086193,SEC N-PORT,2026-05-31,True
+CGDV,IP,1.742275,SEC N-PORT,2026-05-31,True
+CGDV,ITW,0.815872,SEC N-PORT,2026-05-31,True
+CGDV,JPM,1.894499,SEC N-PORT,2026-05-31,True
+CGDV,LIN,1.952324,SEC N-PORT,2026-05-31,True
+CGDV,LLY,3.151239,SEC N-PORT,2026-05-31,True
+CGDV,MA,1.304183,SEC N-PORT,2026-05-31,True
+CGDV,MCD,0.931522,SEC N-PORT,2026-05-31,True
+CGDV,MDLZ,0.78496,SEC N-PORT,2026-05-31,True
+CGDV,MDT,1.07245,SEC N-PORT,2026-05-31,True
+CGDV,META,3.327284,SEC N-PORT,2026-05-31,True
+CGDV,MO,1.00353,SEC N-PORT,2026-05-31,True
+CGDV,MSFT,5.807629,SEC N-PORT,2026-05-31,True
+CGDV,NEE,1.01601,SEC N-PORT,2026-05-31,True
+CGDV,NVDA,5.659085,SEC N-PORT,2026-05-31,True
+CGDV,ORCL,1.600311,SEC N-PORT,2026-05-31,True
+CGDV,PLD,1.033181,SEC N-PORT,2026-05-31,True
+CGDV,PM,1.542927,SEC N-PORT,2026-05-31,True
+CGDV,RCL,2.828733,SEC N-PORT,2026-05-31,True
+CGDV,RTX,2.816087,SEC N-PORT,2026-05-31,True
+CGDV,SBUX,2.257398,SEC N-PORT,2026-05-31,True
+CGDV,STX,1.420595,SEC N-PORT,2026-05-31,True
+CGDV,SW,1.026693,SEC N-PORT,2026-05-31,True
+CGDV,TRP,1.332059,SEC N-PORT,2026-05-31,True
+CGDV,TSM,2.163529,SEC N-PORT,2026-05-31,True
+CGDV,TXN,1.210147,SEC N-PORT,2026-05-31,True
+CGDV,UBER,0.672775,SEC N-PORT,2026-05-31,True
+CGDV,UNH,2.024747,SEC N-PORT,2026-05-31,True
+CGDV,UNP,2.116609,SEC N-PORT,2026-05-31,True
+CGDV,VRTX,0.802887,SEC N-PORT,2026-05-31,True
+CGDV,WFC,1.988038,SEC N-PORT,2026-05-31,True
+CGDV,XOM,1.344272,SEC N-PORT,2026-05-31,True
+CGGR,AAPL,2.5,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,AFRM,0.557013,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,AKAM,0.462636,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,ALB,0.401084,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,ALNY,0.76023,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,AMGN,0.533242,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,APH,0.846313,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,APO,0.378418,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,APP,0.573445,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,ARMK,0.45886,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,ASML,0.830793,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,AVGO,4.4,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,BAC,1.050296,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,BKR,0.593689,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,BURL,0.381302,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,CAT,0.547309,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,CEG,0.35117,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,CMG,0.76202,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,CNQ,0.330661,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,COHR,0.165701,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,COST,0.602687,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,CRM,0.894217,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,CSGP,0.233422,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,CVNA,0.432532,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,DASH,0.500027,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,DHI,0.785877,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,EOG,0.769361,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,FANG,0.396823,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,GE,1.108968,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,GEV,0.441338,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,GH,0.25167,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,GOOGL,6.4,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,HCA,0.451015,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,INTC,1.19282,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,IONS,0.361193,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,ISRG,1.678437,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,KKR,0.716397,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,KLAC,1.166239,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,LYV,0.574004,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,MA,0.354753,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,META,6.6,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,MRNA,0.391057,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,MSFT,4.6,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,MSTR,1.034102,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,MU,3.9,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,NCLH,0.256082,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,NET,2.5,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,NFLX,1.854565,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,NKE,0.413502,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,NOC,0.354534,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,NVDA,5.0,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,PM,0.616574,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,PWR,0.992252,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,RBLX,0.249915,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,RCL,0.758991,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,RKLB,0.263604,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,RKT,0.262644,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,RSG,0.473357,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,SHOP,1.627329,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,TDG,2.021715,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,TMO,0.529808,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,TSLA,4.0,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,TSM,1.481065,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,UAL,0.339715,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,UBER,0.547176,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,UNH,0.563635,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,V,3.1,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,VRTX,1.555753,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,W,0.238607,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,WELL,0.504775,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,WPM,0.826922,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+CGGR,XYZ,0.502144,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30),2026-05-31,True
+BAI,AAOI,0.91,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,AKAM,0.86,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,AMD,5.41,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,AMZN,2.18,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,ANET,2.22,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,ANTHC,1.28,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,AVGO,4.4,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,BE,1.11,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,CLS,0.91,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,CRDO,1.65,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,CRWD,2.2,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,CRWV,1.32,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,ENTG,0.25,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,ESTC,0.97,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,FLEX,1.04,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,GOOGL,2.22,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,INTC,2.72,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,LITE,2.68,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,LRCX,3.68,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,LSCC,1.05,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,MRVL,2.78,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,MSFT,2.38,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,MTSI,1.44,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,MU,6.05,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,NVDA,5.66,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,OKTA,1.22,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,ONTO,0.86,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,OPNAI,0.53,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,PANW,1.61,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,SMCI,1.0,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,SNDK,2.07,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,SNOW,3.04,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,SPCX,3.61,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,TSEM,1.8,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,TSLA,1.11,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,TSM,4.9,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,TWLO,0.93,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,WDC,2.24,ishares.com latest-holdings.csv,2026-10-21,True
+BAI,XTSLA,0.8,ishares.com latest-holdings.csv,2026-10-21,True
+ILDR,ABNB,0.59,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ADYEN-NA,0.99,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ALKS,0.56,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ALNY,0.55,ftportfolios.com holdings page,2026-10-21,True
+ILDR,AMD,5.83,ftportfolios.com holdings page,2026-10-21,True
+ILDR,AMZN,6.11,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ANET,2.32,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ARGX-BB,0.82,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ASND,0.96,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ASTS,0.16,ftportfolios.com holdings page,2026-10-21,True
+ILDR,AVAV,0.52,ftportfolios.com holdings page,2026-10-21,True
+ILDR,AVGO,3.44,ftportfolios.com holdings page,2026-10-21,True
+ILDR,BBIO,0.86,ftportfolios.com holdings page,2026-10-21,True
+ILDR,BWXT,0.32,ftportfolios.com holdings page,2026-10-21,True
+ILDR,CEG,0.54,ftportfolios.com holdings page,2026-10-21,True
+ILDR,CLBT,0.42,ftportfolios.com holdings page,2026-10-21,True
+ILDR,COIN,0.77,ftportfolios.com holdings page,2026-10-21,True
+ILDR,CRS,0.44,ftportfolios.com holdings page,2026-10-21,True
+ILDR,CRWD,0.64,ftportfolios.com holdings page,2026-10-21,True
+ILDR,DELL,1.24,ftportfolios.com holdings page,2026-10-21,True
+ILDR,DRS,0.45,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ENR-GR,1.61,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ETN,1.96,ftportfolios.com holdings page,2026-10-21,True
+ILDR,FIGR,0.82,ftportfolios.com holdings page,2026-10-21,True
+ILDR,FPS,0.64,ftportfolios.com holdings page,2026-10-21,True
+ILDR,GEV,0.86,ftportfolios.com holdings page,2026-10-21,True
+ILDR,GOOGL,4.7,ftportfolios.com holdings page,2026-10-21,True
+ILDR,HALO,0.81,ftportfolios.com holdings page,2026-10-21,True
+ILDR,HOOD,0.95,ftportfolios.com holdings page,2026-10-21,True
+ILDR,HPQ,0.63,ftportfolios.com holdings page,2026-10-21,True
+ILDR,IDYA,0.55,ftportfolios.com holdings page,2026-10-21,True
+ILDR,INDI,0.18,ftportfolios.com holdings page,2026-10-21,True
+ILDR,INTC,0.58,ftportfolios.com holdings page,2026-10-21,True
+ILDR,IONQ,0.22,ftportfolios.com holdings page,2026-10-21,True
+ILDR,KRMN,0.28,ftportfolios.com holdings page,2026-10-21,True
+ILDR,KYMR,0.49,ftportfolios.com holdings page,2026-10-21,True
+ILDR,LLY,3.39,ftportfolios.com holdings page,2026-10-21,True
+ILDR,MDA-CT,0.34,ftportfolios.com holdings page,2026-10-21,True
+ILDR,MDB,0.71,ftportfolios.com holdings page,2026-10-21,True
+ILDR,MDGL,0.85,ftportfolios.com holdings page,2026-10-21,True
+ILDR,META,1.19,ftportfolios.com holdings page,2026-10-21,True
+ILDR,MIRM,0.84,ftportfolios.com holdings page,2026-10-21,True
+ILDR,MOD,0.49,ftportfolios.com holdings page,2026-10-21,True
+ILDR,MRVL,3.2,ftportfolios.com holdings page,2026-10-21,True
+ILDR,MSFT,2.98,ftportfolios.com holdings page,2026-10-21,True
+ILDR,MU,2.57,ftportfolios.com holdings page,2026-10-21,True
+ILDR,NBIX,1.19,ftportfolios.com holdings page,2026-10-21,True
+ILDR,NEE,1.09,ftportfolios.com holdings page,2026-10-21,True
+ILDR,NET,0.61,ftportfolios.com holdings page,2026-10-21,True
+ILDR,NOW,1.43,ftportfolios.com holdings page,2026-10-21,True
+ILDR,NRIX,0.51,ftportfolios.com holdings page,2026-10-21,True
+ILDR,NVDA,9.97,ftportfolios.com holdings page,2026-10-21,True
+ILDR,OKLO,0.18,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ORCL,2.38,ftportfolios.com holdings page,2026-10-21,True
+ILDR,OUST,0.44,ftportfolios.com holdings page,2026-10-21,True
+ILDR,P,0.81,ftportfolios.com holdings page,2026-10-21,True
+ILDR,PANW,0.97,ftportfolios.com holdings page,2026-10-21,True
+ILDR,PL,0.2,ftportfolios.com holdings page,2026-10-21,True
+ILDR,PLTR,1.13,ftportfolios.com holdings page,2026-10-21,True
+ILDR,QNT,0.35,ftportfolios.com holdings page,2026-10-21,True
+ILDR,RBRK,1.49,ftportfolios.com holdings page,2026-10-21,True
+ILDR,RDDT,0.62,ftportfolios.com holdings page,2026-10-21,True
+ILDR,RHM-GY,0.49,ftportfolios.com holdings page,2026-10-21,True
+ILDR,RMBS,0.37,ftportfolios.com holdings page,2026-10-21,True
+ILDR,SEI,0.97,ftportfolios.com holdings page,2026-10-21,True
+ILDR,SHOP,2.51,ftportfolios.com holdings page,2026-10-21,True
+ILDR,SMR,0.14,ftportfolios.com holdings page,2026-10-21,True
+ILDR,SMTC,0.62,ftportfolios.com holdings page,2026-10-21,True
+ILDR,SNPS,0.49,ftportfolios.com holdings page,2026-10-21,True
+ILDR,SPCX,0.53,ftportfolios.com holdings page,2026-10-21,True
+ILDR,SPOT,0.72,ftportfolios.com holdings page,2026-10-21,True
+ILDR,SU-FP,1.56,ftportfolios.com holdings page,2026-10-21,True
+ILDR,TOST,0.91,ftportfolios.com holdings page,2026-10-21,True
+ILDR,TSLA,1.97,ftportfolios.com holdings page,2026-10-21,True
+ILDR,VRDN,0.5,ftportfolios.com holdings page,2026-10-21,True
+ILDR,VRT,0.48,ftportfolios.com holdings page,2026-10-21,True
+ILDR,VST,0.47,ftportfolios.com holdings page,2026-10-21,True
+ILDR,XMTR,0.97,ftportfolios.com holdings page,2026-10-21,True
+ILDR,XYZ,0.72,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ZBRA,0.85,ftportfolios.com holdings page,2026-10-21,True
+ILDR,ZS,0.72,ftportfolios.com holdings page,2026-10-21,True
+MFSV,AAPL,3.22,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,ABT,1.91,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,ADI,2.14,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,AMZN,5.48,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,BA,1.66,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,BAC,2.24,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,CI,2.72,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,COP,2.07,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,CVX,2.26,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,D,1.62,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,DUK,1.96,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,ETN,1.64,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,HLT,1.67,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,JPM,4.1,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,KLAC,1.62,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,MCK,1.94,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,MS,1.99,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,MSFT,5.71,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,NDAQ,1.74,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,PGR,1.93,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,RTX,2.11,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,TRV,1.75,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,UNP,1.79,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,WFC,1.81,marketbeat top 25 of 64 (partial),2026-10-10,True
+MFSV,XOM,3.07,marketbeat top 25 of 64 (partial),2026-10-10,True
+TDVG,AAPL,6.2,tipranks top 10 of 94 (partial),2026-10-20,True
+TDVG,AVGO,2.64,tipranks top 10 of 94 (partial),2026-10-20,True
+TDVG,CB,2.07,tipranks top 10 of 94 (partial),2026-10-20,True
+TDVG,GE,1.84,tipranks top 10 of 94 (partial),2026-10-20,True
+TDVG,JPM,3.14,tipranks top 10 of 94 (partial),2026-10-20,True
+TDVG,LLY,2.02,tipranks top 10 of 94 (partial),2026-10-20,True
+TDVG,MSFT,5.56,tipranks top 10 of 94 (partial),2026-10-20,True
+TDVG,UNH,1.72,tipranks top 10 of 94 (partial),2026-10-20,True
+TDVG,V,3.26,tipranks top 10 of 94 (partial),2026-10-20,True
+TDVG,XOM,2.08,tipranks top 10 of 94 (partial),2026-10-20,True

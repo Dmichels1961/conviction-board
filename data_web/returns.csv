@@ -1,0 +1,17 @@
+fund,source,ret_1y,ret_3y,ytd
+IWF,etfdb,7.2,22.77,5.23
+SPY,etfdb,17.47,22.75,13.74
+CGGR,etfdb,8.19,24.61,6.53
+CGUS,etfdb,15.1,22.07,12.04
+CGDV,etfdb,19.19,24.59,13.59
+TCHP,etfdb,5.1,22.3,2.17
+TGRW,etfdb,6.19,21.57,5.54
+FBCG,etfdb,18.69,28.64,15.63
+JGRO,etfdb,6.58,20.64,5.14
+DFAC,etfdb,19.92,21.27,15.36
+DFUS,etfdb,16.15,23.05,14.45
+TCAF,stockanalysis,14.29,,
+SPY,stockanalysis,17.8,,
+IWF,stockanalysis,7.25,,
+ILDR,stockanalysis,14.12,,
+TDVG,stockanalysis,14.67,,

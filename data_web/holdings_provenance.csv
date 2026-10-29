@@ -1,0 +1,15 @@
+etf,rows,weight_sum,full_asof,source
+TCHP,61,98.5,2026-09-30,T. Rowe Price quarterly portfolio PDF
+TGRW,69,95.9,2026-09-30,T. Rowe Price quarterly portfolio PDF
+TCAF,91,85.0,2026-09-30,T. Rowe Price quarterly portfolio PDF
+FBCG,196,99.2,2026-08-31,Fidelity portfolio holdings listing PDF
+JGRO,119,96.9,2026-03-31,SEC N-PORT
+CGUS,62,95.6,2026-05-31,SEC N-PORT + capitalgroup.com top 10 (2026-09-30)
+CGDV,51,95.3,2026-05-31,SEC N-PORT
+CGGR,72,84.6,2026-05-31,SEC N-PORT (80 of ~90 rows) + capitalgroup.com top 10 (2026-09-30)
+BAI,39,83.1,2026-10-21,ishares.com latest-holdings.csv
+ILDR,81,99.7,2026-10-21,ftportfolios.com holdings page
+MFSV,25,60.2,2026-10-10,marketbeat top 25 of 64 (partial)
+TDVG,10,30.5,2026-10-20,tipranks top 10 of 94 (partial)
+IWF,371,99.8,2026-10-14,ishares.com holdings CSV
+SPY,442,99.0,2026-10-13,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows)

@@ -1,0 +1,8 @@
+ticker,report_date,period_reported,guide_metric,guide_period,prior_low,prior_high,new_low,new_high,verdict,vs_consensus,source_url,notes
+MMC,2026-10-15,Q3 2026,none,,,,,,none,unknown,https://www.sec.gov/Archives/edgar/data/0000062709/000006270926000256/mmc3q2026ex991newsrelease.htm,"8-K Ex 99.1 states no full-year guidance or outlook. Adj EPS 2.03 (+10%) vs 1.96 consensus; revenue 6,863M."
+COST,2026-09-24,Q4 FY2026,none,,,,,,none,unknown,,Costco does not issue earnings guidance (not verified from a release this session).
+SE,,,,,,,,,none,unknown,,Release not retrieved; Sea historically gives little formal guidance. Unverified; report date blank.
+ODFL,2026-07-29,Q2 2026,none,,,,,,none,unknown,,"ODFL gives no formal EPS/revenue guidance, only quarter-to-date commentary; release not retrieved so unverified."
+RBLX,2026-07-30,Q2 2026,,,,,,,,unknown,,Verdict blank: Roblox normally guides bookings but release not retrieved (no search budget).
+RKT,,Q2 2026,adjusted revenue ($M),Q3 2026,2700,2900,2500,2700,new,in-line,,"Per Benzinga: Q3 guide 2.5-2.7B 'lowered from 2.7-2.9B' (the prior quarter's range, so recorded as new quarterly guide, sequentially lower). Midpoint 2.60B vs consensus 2.62B. Report date blank; not verified against release."
+W,2026-08-04,Q2 2026,none,,,,,,none,unknown,,Wayfair gives no formal guidance (only QTD revenue growth commentary); release not retrieved so unverified.

@@ -1,0 +1,814 @@
+etf,ticker,weight,source,asof,fresh
+IWF,AAL,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,AAOI,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,AAON,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,AAPL,7.96,ishares.com holdings CSV,2026-10-14,True
+IWF,ABBV,0.12,ishares.com holdings CSV,2026-10-14,True
+IWF,ABNB,0.2,ishares.com holdings CSV,2026-10-14,True
+IWF,ADBE,0.2,ishares.com holdings CSV,2026-10-14,True
+IWF,ADI,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,ADP,0.12,ishares.com holdings CSV,2026-10-14,True
+IWF,ADSK,0.14,ishares.com holdings CSV,2026-10-14,True
+IWF,AEIS,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,AFRM,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,ALAB,0.14,ishares.com holdings CSV,2026-10-14,True
+IWF,ALGM,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,ALK,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,ALLY,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,ALM,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,ALNY,0.09,ishares.com holdings CSV,2026-10-14,True
+IWF,ALSN,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,AMAT,1.05,ishares.com holdings CSV,2026-10-14,True
+IWF,AMD,2.75,ishares.com holdings CSV,2026-10-14,True
+IWF,AMGN,0.48,ishares.com holdings CSV,2026-10-14,True
+IWF,AMP,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,AMT,0.16,ishares.com holdings CSV,2026-10-14,True
+IWF,AMZN,0.61,ishares.com holdings CSV,2026-10-14,True
+IWF,ANET,0.6,ishares.com holdings CSV,2026-10-14,True
+IWF,APH,0.6,ishares.com holdings CSV,2026-10-14,True
+IWF,APP,0.19,ishares.com holdings CSV,2026-10-14,True
+IWF,APPF,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,ARES,0.07,ishares.com holdings CSV,2026-10-14,True
+IWF,ARWR,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,AS,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,ASND,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,ASTS,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,ATI,0.08,ishares.com holdings CSV,2026-10-14,True
+IWF,AU,0.12,ishares.com holdings CSV,2026-10-14,True
+IWF,AUGO,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,AVGO,4.77,ishares.com holdings CSV,2026-10-14,True
+IWF,AWI,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,AXON,0.09,ishares.com holdings CSV,2026-10-14,True
+IWF,AXP,0.14,ishares.com holdings CSV,2026-10-14,True
+IWF,AXSM,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,AZO,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,BA,0.27,ishares.com holdings CSV,2026-10-14,True
+IWF,BAC,0.07,ishares.com holdings CSV,2026-10-14,True
+IWF,BAH,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,BAM,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,BBIO,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,BE,0.2,ishares.com holdings CSV,2026-10-14,True
+IWF,BKNG,0.37,ishares.com holdings CSV,2026-10-14,True
+IWF,BLSH,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,BNY,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,BPOP,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,BROS,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,BSY,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,BURL,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,BWXT,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,BX,0.19,ishares.com holdings CSV,2026-10-14,True
+IWF,C,0.09,ishares.com holdings CSV,2026-10-14,True
+IWF,CACC,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,CAH,0.08,ishares.com holdings CSV,2026-10-14,True
+IWF,CAI,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,CAR,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,CART,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,CASY,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,CAT,1.01,ishares.com holdings CSV,2026-10-14,True
+IWF,CAVA,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,CBRE,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,CDNS,0.27,ishares.com holdings CSV,2026-10-14,True
+IWF,CEG,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,CELH,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,CHDN,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,CHH,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,CHRW,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,CHWY,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,CHYM,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,CIEN,0.15,ishares.com holdings CSV,2026-10-14,True
+IWF,CL,0.09,ishares.com holdings CSV,2026-10-14,True
+IWF,CLH,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,CMG,0.11,ishares.com holdings CSV,2026-10-14,True
+IWF,CMI,0.1,ishares.com holdings CSV,2026-10-14,True
+IWF,CNC,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,COHR,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,COKE,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,COR,0.19,ishares.com holdings CSV,2026-10-14,True
+IWF,CORT,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,COST,0.56,ishares.com holdings CSV,2026-10-14,True
+IWF,CPAY,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,CPNG,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,CRDO,0.09,ishares.com holdings CSV,2026-10-14,True
+IWF,CRS,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,CRWD,0.74,ishares.com holdings CSV,2026-10-14,True
+IWF,CRWV,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,CSGP,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,CSL,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,CTAS,0.21,ishares.com holdings CSV,2026-10-14,True
+IWF,CVNA,0.12,ishares.com holdings CSV,2026-10-14,True
+IWF,CW,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,DAL,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,DASH,0.2,ishares.com holdings CSV,2026-10-14,True
+IWF,DDOG,0.26,ishares.com holdings CSV,2026-10-14,True
+IWF,DECK,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,DELL,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,DKNG,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,DOCN,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,DOCU,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,DPC,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,DPZ,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,DRI,0.07,ishares.com holdings CSV,2026-10-14,True
+IWF,DT,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,DVA,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,DXCM,0.09,ishares.com holdings CSV,2026-10-14,True
+IWF,DY,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,EBAY,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,ECG,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,ECHO,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,EL,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,EME,0.1,ishares.com holdings CSV,2026-10-14,True
+IWF,ENTG,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,EQH,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,ESTC,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,ETN,0.07,ishares.com holdings CSV,2026-10-14,True
+IWF,ETSY,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,EXEL,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,EXLS,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,EXPE,0.09,ishares.com holdings CSV,2026-10-14,True
+IWF,FAST,0.14,ishares.com holdings CSV,2026-10-14,True
+IWF,FERG,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,FICO,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,FIGR,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,FIVE,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,FIX,0.16,ishares.com holdings CSV,2026-10-14,True
+IWF,FN,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,FORM,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,FOUR,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,FPS,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,FRHC,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,FRVO,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,FSLR,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,FTAI,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,FTI,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,FTNT,0.33,ishares.com holdings CSV,2026-10-14,True
+IWF,GDDY,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,GE,0.94,ishares.com holdings CSV,2026-10-14,True
+IWF,GEN,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,GEV,0.75,ishares.com holdings CSV,2026-10-14,True
+IWF,GH,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,GLW,0.33,ishares.com holdings CSV,2026-10-14,True
+IWF,GOOGL,10.84,ishares.com holdings CSV,2026-10-14,True
+IWF,GSAT,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,GWRE,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,GWW,0.15,ishares.com holdings CSV,2026-10-14,True
+IWF,H,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,HALO,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,HAS,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,HD,0.65,ishares.com holdings CSV,2026-10-14,True
+IWF,HEI,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,HEI-A,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,HL,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,HLT,0.21,ishares.com holdings CSV,2026-10-14,True
+IWF,HOOD,0.19,ishares.com holdings CSV,2026-10-14,True
+IWF,HRB,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,HSY,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,HUBS,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,HWM,0.26,ishares.com holdings CSV,2026-10-14,True
+IWF,HXL,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,IBKR,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,IDXX,0.1,ishares.com holdings CSV,2026-10-14,True
+IWF,IESC,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,INIO,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,INSM,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,INTU,0.08,ishares.com holdings CSV,2026-10-14,True
+IWF,IONS,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,IOT,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,IRDM,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,IREN,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,ISRG,0.44,ishares.com holdings CSV,2026-10-14,True
+IWF,IT,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,ITW,0.07,ishares.com holdings CSV,2026-10-14,True
+IWF,JBL,0.09,ishares.com holdings CSV,2026-10-14,True
+IWF,JCI,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,JLL,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,JMKE,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,KD,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,KEYS,0.1,ishares.com holdings CSV,2026-10-14,True
+IWF,KKR,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,KLAC,0.69,ishares.com holdings CSV,2026-10-14,True
+IWF,KMB,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,KO,0.12,ishares.com holdings CSV,2026-10-14,True
+IWF,KRMN,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,KTOS,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,KVYO,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,LAMR,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,LAZ,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,LECO,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,LII,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,LITE,0.21,ishares.com holdings CSV,2026-10-14,True
+IWF,LLY,2.86,ishares.com holdings CSV,2026-10-14,True
+IWF,LMT,0.31,ishares.com holdings CSV,2026-10-14,True
+IWF,LNG,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,LOPE,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,LPLA,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,LRCX,1.06,ishares.com holdings CSV,2026-10-14,True
+IWF,LSCC,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,LSTR,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,LUV,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,LVS,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,LYFT,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,LYV,0.08,ishares.com holdings CSV,2026-10-14,True
+IWF,MA,1.44,ishares.com holdings CSV,2026-10-14,True
+IWF,MANH,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,MAR,0.18,ishares.com holdings CSV,2026-10-14,True
+IWF,MCHP,0.11,ishares.com holdings CSV,2026-10-14,True
+IWF,MCK,0.32,ishares.com holdings CSV,2026-10-14,True
+IWF,MCO,0.1,ishares.com holdings CSV,2026-10-14,True
+IWF,MDB,0.07,ishares.com holdings CSV,2026-10-14,True
+IWF,MDGL,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,MEDP,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,META,3.93,ishares.com holdings CSV,2026-10-14,True
+IWF,MKSI,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,MMM,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,MNST,0.08,ishares.com holdings CSV,2026-10-14,True
+IWF,MOD,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,MORN,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,MPC,0.22,ishares.com holdings CSV,2026-10-14,True
+IWF,MPWR,0.17,ishares.com holdings CSV,2026-10-14,True
+IWF,MRVL,0.63,ishares.com holdings CSV,2026-10-14,True
+IWF,MSCI,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,MSFT,5.87,ishares.com holdings CSV,2026-10-14,True
+IWF,MSGS,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,MSI,0.08,ishares.com holdings CSV,2026-10-14,True
+IWF,MTDR,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,MTN,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,MTSI,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,MTZ,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,MU,3.05,ishares.com holdings CSV,2026-10-14,True
+IWF,MUSA,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,MWH,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,NBIX,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,NET,0.31,ishares.com holdings CSV,2026-10-14,True
+IWF,NFLX,0.87,ishares.com holdings CSV,2026-10-14,True
+IWF,NIQ,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,NOW,0.43,ishares.com holdings CSV,2026-10-14,True
+IWF,NRG,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,NTAP,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,NTRA,0.16,ishares.com holdings CSV,2026-10-14,True
+IWF,NTRS,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,NU,0.15,ishares.com holdings CSV,2026-10-14,True
+IWF,NVDA,15.3,ishares.com holdings CSV,2026-10-14,True
+IWF,NVR,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,NVT,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,ODFL,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,ON,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,ONON,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,ONTO,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,ORCL,0.66,ishares.com holdings CSV,2026-10-14,True
+IWF,P,0.11,ishares.com holdings CSV,2026-10-14,True
+IWF,PANW,0.9,ishares.com holdings CSV,2026-10-14,True
+IWF,PCOR,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,PCTY,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,PEGA,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,PEN,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,PEP,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,PL,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,PLNT,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,PLTR,1.32,ishares.com holdings CSV,2026-10-14,True
+IWF,PNFP,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,PODD,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,POWL,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,PR,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,PRIM,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,PSA,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,PSX,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,PWR,0.29,ishares.com holdings CSV,2026-10-14,True
+IWF,QNT,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,QSR,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,RBC,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,RBLX,0.09,ishares.com holdings CSV,2026-10-14,True
+IWF,RBRK,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,RCL,0.12,ishares.com holdings CSV,2026-10-14,True
+IWF,RDDT,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,RIVN,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,RKLB,0.1,ishares.com holdings CSV,2026-10-14,True
+IWF,RL,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,RMBS,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,RNG,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,ROK,0.12,ishares.com holdings CSV,2026-10-14,True
+IWF,ROKU,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,ROL,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,ROST,0.19,ishares.com holdings CSV,2026-10-14,True
+IWF,RVMD,0.11,ishares.com holdings CSV,2026-10-14,True
+IWF,RYAN,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,S,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,SANM,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,SBUX,0.17,ishares.com holdings CSV,2026-10-14,True
+IWF,SCCO,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,SCHW,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,SGI,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,SHW,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,SITM,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,SMCI,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,SMMT,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,SMTC,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,SN,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,SNDK,0.61,ishares.com holdings CSV,2026-10-14,True
+IWF,SNOW,0.33,ishares.com holdings CSV,2026-10-14,True
+IWF,SOFI,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,SOLS,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,SPCX,0.25,ishares.com holdings CSV,2026-10-14,True
+IWF,SPG,0.19,ishares.com holdings CSV,2026-10-14,True
+IWF,SPOT,0.25,ishares.com holdings CSV,2026-10-14,True
+IWF,STLD,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,STRL,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,SYY,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,TDG,0.09,ishares.com holdings CSV,2026-10-14,True
+IWF,TEAM,0.1,ishares.com holdings CSV,2026-10-14,True
+IWF,TEM,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,TER,0.17,ishares.com holdings CSV,2026-10-14,True
+IWF,TJX,0.21,ishares.com holdings CSV,2026-10-14,True
+IWF,TKO,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,TLN,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,TNL,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,TOST,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,TPL,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,TPR,0.07,ishares.com holdings CSV,2026-10-14,True
+IWF,TRGP,0.18,ishares.com holdings CSV,2026-10-14,True
+IWF,TSLA,3.18,ishares.com holdings CSV,2026-10-14,True
+IWF,TT,0.31,ishares.com holdings CSV,2026-10-14,True
+IWF,TTD,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,TTMI,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,TTWO,0.11,ishares.com holdings CSV,2026-10-14,True
+IWF,TW,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,TWLO,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,TXN,0.76,ishares.com holdings CSV,2026-10-14,True
+IWF,TXRH,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,UAL,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,UBER,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,UHAL,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,UHAL-B,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,UI,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,ULS,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,ULTA,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,UNP,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,URI,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,UWMC,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,UWMC-R-W,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,V,1.97,ishares.com holdings CSV,2026-10-14,True
+IWF,VIAV,0.03,ishares.com holdings CSV,2026-10-14,True
+IWF,VICR,0.02,ishares.com holdings CSV,2026-10-14,True
+IWF,VIK,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,VKTX,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,VLO,0.05,ishares.com holdings CSV,2026-10-14,True
+IWF,VRT,0.25,ishares.com holdings CSV,2026-10-14,True
+IWF,VST,0.15,ishares.com holdings CSV,2026-10-14,True
+IWF,VVV,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,WAL,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,WDAY,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,WDC,0.37,ishares.com holdings CSV,2026-10-14,True
+IWF,WEX,0.0,ishares.com holdings CSV,2026-10-14,True
+IWF,WH,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,WING,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,WM,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,WMT,0.13,ishares.com holdings CSV,2026-10-14,True
+IWF,WSM,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,WULF,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,WWD,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,WYNN,0.01,ishares.com holdings CSV,2026-10-14,True
+IWF,XPO,0.06,ishares.com holdings CSV,2026-10-14,True
+IWF,YUM,0.04,ishares.com holdings CSV,2026-10-14,True
+IWF,ZS,0.07,ishares.com holdings CSV,2026-10-14,True
+IWF,ZTS,0.07,ishares.com holdings CSV,2026-10-14,True
+SPY,A,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AAPL,7.39,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ABBV,0.72,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ABNB,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ABT,0.26,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ACGL,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ACN,0.19,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ADBE,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ADI,0.3,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ADM,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ADP,0.16,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ADSK,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AEE,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AEP,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AFL,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AIG,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AJG,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AKAM,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ALL,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AMAT,0.55,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AMCR,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AMD,1.47,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AME,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AMGN,0.33,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AMP,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AMT,0.12,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AMZN,3.77,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ANET,0.32,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AON,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,APA,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,APD,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,APH,0.31,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,APO,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,APP,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ARES,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ATO,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AVGO,2.52,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AWK,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AXON,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AXP,0.24,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,AZO,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BA,0.22,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BAC,0.52,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BALL,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BBY,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BDX,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BE,0.12,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BG,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BIIB,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BKNG,0.18,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BKR,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BLK,0.23,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BMY,0.17,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BNY,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BR,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BRK-B,1.44,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BRO,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BSX,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,BX,0.12,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,C,0.31,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CAH,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CARR,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CASY,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CAT,0.53,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CB,0.18,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CBOE,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CBRE,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CCI,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CCL,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CDNS,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CDW,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CEG,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CF,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CFG,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CHD,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CHRW,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CI,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CIEN,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CINF,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CL,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CMCSA,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CME,0.15,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CMG,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CMI,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CMS,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CNC,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CNP,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,COF,0.18,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,COHR,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,COIN,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,COP,0.25,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,COR,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,COST,0.63,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CPAY,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CPRT,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CRH,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CRL,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CRM,0.29,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CRWD,0.39,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CSCO,0.67,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CSX,0.13,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CTAS,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CTSH,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CVNA,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CVS,0.17,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,CVX,0.64,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,D,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DAL,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DASH,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DD,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DDOG,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DE,0.24,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DELL,0.26,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DG,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DGX,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DHI,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DHR,0.21,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DIS,0.28,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DLR,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DLTR,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DOC,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DOV,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DOW,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DRI,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DTE,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DUK,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DVN,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,DXCM,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EBAY,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ECL,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ED,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EFX,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EG,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EIX,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EL,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ELV,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EME,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EMR,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EOG,0.12,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EQIX,0.15,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EQT,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ES,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ESS,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ETN,0.25,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ETR,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EVRG,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EW,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EXC,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EXE,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EXPD,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EXPE,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,EXR,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,F,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FANG,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FAST,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FCX,0.15,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FDX,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FDXF,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FE,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FERG,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FFIV,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FICO,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FIS,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FISV,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FITB,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FIX,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FLEX,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FSLR,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FTNT,0.17,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,FTV,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GD,0.13,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GE,0.47,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GEHC,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GEV,0.4,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GILD,0.27,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GIS,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GLW,0.17,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GM,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GOOGL,5.550000000000001,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GPC,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GPN,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GRMN,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GS,0.39,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,GWW,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HAL,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HAS,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HBAN,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HCA,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HD,0.43,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HIG,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HLT,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HON,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HONA,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HOOD,0.13,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HPE,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HPQ,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HST,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HSY,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HUBB,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HUM,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,HWM,0.13,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,IBKR,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,IBM,0.32,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ICE,0.13,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,IDXX,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,IEX,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,IFF,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ILMN,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,INCY,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,INTC,0.76,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,INTU,0.12,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,INVH,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,IP,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,IQV,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,IR,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,IRM,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ISRG,0.22,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ITW,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,J,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,JBHT,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,JBL,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,JCI,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,JNJ,0.89,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,JPM,1.31,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KDP,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KEY,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KEYS,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KHC,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KIM,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KKR,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KLAC,0.36,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KMB,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KMI,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KO,0.52,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KR,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,KVUE,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,L,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LDOS,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LEN,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LH,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LHX,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LIN,0.34,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LITE,0.13,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LLY,1.39,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LMT,0.15,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LNT,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LOW,0.16,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LRCX,0.56,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LUV,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LYB,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,LYV,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MA,0.73,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MAA,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MAR,0.12,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MAS,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MCD,0.25,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MCHP,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MCK,0.17,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MCO,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MDLZ,0.12,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MDT,0.17,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MET,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,META,2.5,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MLM,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MMM,0.12,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MNST,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MO,0.18,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MPC,0.2,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MPWR,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MRK,0.52,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MRNA,0.12,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MRSH,0.13,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MRVL,0.35,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MS,0.33,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MSCI,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MSFT,5.99,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MSI,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MTB,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MTD,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,MU,1.6,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NDAQ,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NDSN,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NEE,0.24,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NEM,0.18,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NFLX,0.44,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NI,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NKE,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NOC,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NOW,0.21,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NRG,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NSC,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NTAP,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NTRS,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NUE,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NVDA,8.21,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NVR,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,NXPI,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,O,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ODFL,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,OKE,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,OMC,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ON,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ORCL,0.37,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ORLY,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,OTIS,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,OXY,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,P,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PANW,0.48,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PAYX,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PCAR,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PCG,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PEG,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PEP,0.26,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PFE,0.24,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PFG,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PG,0.53,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PGR,0.19,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PH,0.18,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PHM,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PKG,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PLD,0.19,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PLTR,0.71,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PM,0.46,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PNC,0.13,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PPG,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PPL,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PRU,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PSA,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PSX,0.17,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PTC,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PWR,0.15,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,PYPL,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,Q,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,QCOM,0.28,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,RCL,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,RDDT,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,REGN,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,RF,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,RJF,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,RL,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,RMD,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ROK,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ROP,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ROST,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,RSG,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,RTX,0.37,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,RVTY,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SBAC,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SBUX,0.16,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SCHW,0.23,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SHW,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SLB,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SMCI,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SNA,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SNDK,0.32,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SNPS,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SO,0.15,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SPG,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SPGI,0.18,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SRE,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,STE,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,STLD,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,STT,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,STX,0.25,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,STZ,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SW,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SWK,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SWKS,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SYF,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SYK,0.15,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,SYY,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,T,0.23,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TDG,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TDY,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TEL,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TER,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TFC,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TGT,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TJX,0.23,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TMO,0.36,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TMUS,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TPL,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TPR,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TRGP,0.09,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TRMB,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TROW,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TRV,0.12,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TSCO,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TSLA,1.57,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TSN,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TT,0.16,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TTWO,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TWLO,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TXN,0.39,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,TYL,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,UAL,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,UBER,0.22,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ULTA,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,UNH,0.5,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,UNP,0.25,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,UPS,0.11,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,URI,0.1,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,USB,0.13,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,V,1.0,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VEEV,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VICI,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VLO,0.2,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VLTO,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VMC,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VMRK,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VRSK,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VRSN,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VRT,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VRTX,0.18,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VST,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VTR,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VTRS,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VYLR,0.08,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,VZ,0.27,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WAB,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WAT,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WDAY,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WDC,0.2,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WEC,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WELL,0.25,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WFC,0.36,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WM,0.12,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WMB,0.14,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WMT,0.74,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WRB,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WSM,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WST,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WTW,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,WY,0.02,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,XEL,0.07,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,XOM,1.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,XYL,0.04,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,XYZ,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,YUM,0.06,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ZBH,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ZBRA,0.03,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True
+SPY,ZTS,0.05,ishares IVV holdings CSV (S&P 500 proxy for SPY; 443 of ~503 rows),2026-10-13,True

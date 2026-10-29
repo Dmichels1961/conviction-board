@@ -1,0 +1,120 @@
+ticker,weight,name
+NVDA,10.5,NVIDIA Corp.
+AAPL,8.422,"Apple, Inc."
+GOOG,6.771,"Alphabet, Inc., Class C"
+MSFT,4.847,Microsoft Corp.
+AVGO,3.827,"Broadcom, Inc."
+TSLA,3.467,"Tesla, Inc."
+META,3.445,"Meta Platforms, Inc., Class A"
+AMZN,3.225,"Amazon.com, Inc."
+MA,2.056,"Mastercard, Inc., Class A"
+LLY,1.831,Eli Lilly & Co.
+JNJ,1.559,Johnson & Johnson
+GS,1.514,"Goldman Sachs Group, Inc. (The)"
+WMT,1.422,"Walmart, Inc."
+INSM,1.42,"Insmed, Inc."
+TSM,1.262,"Taiwan Semiconductor Manufacturing Co. Ltd., ADR"
+GILD,1.186,"Gilead Sciences, Inc."
+GEV,1.11,"GE Vernova, Inc."
+CIEN,1.107,Ciena Corp.
+PM,1.084,"Philip Morris International, Inc."
+MMM,1.054,3M Co.
+RTX,1.036,RTX Corp.
+PWR,1.031,"Quanta Services, Inc."
+NFLX,0.926,"Netflix, Inc."
+NTRA,0.915,"Natera, Inc."
+MRK,0.884,"Merck & Co., Inc."
+IBM,0.865,International Business Machines Corp.
+XOM,0.742,Exxon Mobil Corp.
+BKNG,0.685,"Booking Holdings, Inc."
+GE,0.682,GE Aerospace
+ALNY,0.682,"Alnylam Pharmaceuticals, Inc."
+KO,0.68,Coca-Cola Co. (The)
+DE,0.675,Deere & Co.
+TJX,0.612,"TJX Cos., Inc. (The)"
+TT,0.601,Trane Technologies plc
+BRK.B,0.58,"Berkshire Hathaway, Inc., Class B"
+SCHW,0.56,Charles Schwab Corp. (The)
+MCD,0.531,McDonald's Corp.
+ITT,0.52,"ITT, Inc."
+INTU,0.515,"Intuit, Inc."
+FIX,0.512,"Comfort Systems USA, Inc."
+TXN,0.507,"Texas Instruments, Inc."
+FTI,0.477,TechnipFMC plc
+MCK,0.471,McKesson Corp.
+AME,0.463,"AMETEK, Inc."
+TER,0.463,"Teradyne, Inc."
+WDC,0.463,Western Digital Corp.
+AZO,0.45,"AutoZone, Inc."
+ISRG,0.448,"Intuitive Surgical, Inc."
+WMB,0.447,"Williams Cos., Inc. (The)"
+BABA,0.436,"Alibaba Group Holding Ltd., ADR"
+ABBV,0.434,"AbbVie, Inc."
+NBIX,0.434,"Neurocrine Biosciences, Inc."
+AMD,0.43,"Advanced Micro Devices, Inc."
+AMGN,0.427,"Amgen, Inc."
+APH,0.42,"Amphenol Corp., Class A"
+BWXT,0.419,"BWX Technologies, Inc."
+ABT,0.414,Abbott Laboratories
+HWM,0.407,"Howmet Aerospace, Inc."
+MNST,0.401,Monster Beverage Corp.
+PANW,0.397,"Palo Alto Networks, Inc."
+COR,0.395,"Cencora, Inc."
+TTWO,0.394,"Take-Two Interactive Software, Inc."
+CASY,0.391,"Casey's General Stores, Inc."
+ORCL,0.39,Oracle Corp.
+SNOW,0.383,"Snowflake, Inc., Class A"
+HLT,0.379,"Hilton Worldwide Holdings, Inc."
+LRCX,0.373,Lam Research Corp.
+ON,0.37,ON Semiconductor Corp.
+EOG,0.368,"EOG Resources, Inc."
+ULTA,0.361,"Ulta Beauty, Inc."
+DASH,0.357,"DoorDash, Inc., Class A"
+PG,0.343,Procter & Gamble Co. (The)
+UNP,0.338,Union Pacific Corp.
+TWLO,0.324,"Twilio, Inc., Class A"
+TMO,0.319,"Thermo Fisher Scientific, Inc."
+TDY,0.314,"Teledyne Technologies, Inc."
+IBKR,0.306,"Interactive Brokers Group, Inc., Class A"
+SPOT,0.3,Spotify Technology SA
+CBRE,0.292,"CBRE Group, Inc., Class A"
+LITE,0.277,"Lumentum Holdings, Inc."
+APP,0.275,"AppLovin Corp., Class A"
+ICE,0.271,"Intercontinental Exchange, Inc."
+PFGC,0.266,Performance Food Group Co.
+HOOD,0.256,"Robinhood Markets, Inc., Class A"
+ADI,0.256,"Analog Devices, Inc."
+CRWD,0.256,"Crowdstrike Holdings, Inc., Class A"
+CVNA,0.256,"Carvana Co., Class A"
+GRMN,0.255,Garmin Ltd.
+BMY,0.247,Bristol-Myers Squibb Co.
+PGR,0.23,Progressive Corp. (The)
+CLS,0.221,"Celestica, Inc."
+IQV,0.211,"IQVIA Holdings, Inc."
+LYV,0.201,"Live Nation Entertainment, Inc."
+FCX,0.183,"Freeport-McMoRan, Inc."
+NUVL,0.181,"Nuvalent, Inc., Class A"
+SHOP,0.167,"Shopify, Inc., Class A"
+DG,0.166,Dollar General Corp.
+NET,0.164,"Cloudflare, Inc., Class A"
+MTD,0.154,"Mettler-Toledo International, Inc."
+HUBS,0.154,"HubSpot, Inc."
+DHI,0.142,"DR Horton, Inc."
+VST,0.142,Vistra Corp.
+RDDT,0.137,"Reddit, Inc., Class A"
+SGI,0.131,"Somnigroup International, Inc."
+RKLB,0.129,Rocket Lab Corp.
+RKT,0.121,"Rocket Cos., Inc., Class A"
+RBLX,0.087,"ROBLOX Corp., Class A"
+NOW,0.087,"ServiceNow, Inc."
+TDG,0.066,"TransDigm Group, Inc."
+W,0.057,"Wayfair, Inc., Class A"
+PLTR,0.056,"Palantir Technologies, Inc., Class A"
+LNG,0.051,"Cheniere Energy, Inc."
+MELI,0.046,"MercadoLibre, Inc."
+V,0.03,"Visa, Inc., Class A"
+UBER,0.03,"Uber Technologies, Inc."
+QURE,0.023,uniQure NV
+FIG,0.021,"Figma, Inc., Class A"
+HIMS,0.019,"Hims & Hers Health, Inc."
+SE,0.004,"Sea Ltd., ADR"

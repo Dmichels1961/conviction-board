@@ -1,0 +1,91 @@
+ticker,weight,name
+NVDA,5.213204,NVIDIA Corp.
+AVGO,4.324987,"Broadcom, Inc."
+MSFT,3.911231,Microsoft Corp.
+MU,3.087120,"Micron Technology, Inc."
+AAPL,1.964525,"Apple, Inc."
+SHOP,1.839466,"Shopify, Inc., Class A, subordinate voting shares"
+NET,1.481491,"Cloudflare, Inc., Class A"
+TSM,1.404777,"Taiwan Semiconductor Manufacturing Co., Ltd. (ADR)"
+,1.400600,"SK hynix, Inc."
+CRM,0.998332,"Salesforce, Inc."
+APH,0.888915,"Amphenol Corp., Class A"
+MSTR,0.878124,"Strategy, Inc., Class A"
+FICO,0.604891,Fair Isaac Corp.
+KLAC,0.491925,KLA Corp.
+,0.425675,"Constellation Software, Inc."
+ADBE,0.373974,"Adobe, Inc."
+INTC,0.345339,Intel Corp.
+APP,0.271076,"AppLovin Corp., Class A"
+META,7.920677,"Meta Platforms, Inc., Class A"
+GOOG,3.250951,"Alphabet, Inc., Class C"
+GOOGL,3.025731,"Alphabet, Inc., Class A"
+NFLX,2.261043,"Netflix, Inc."
+LYV,0.575751,"Live Nation Entertainment, Inc."
+RBLX,0.328905,"ROBLOX Corp., Class A"
+SNAP,0.227809,"Snap, Inc., Class A, nonvoting shares"
+TSLA,5.844810,"Tesla, Inc."
+AMZN,2.221756,"Amazon.com, Inc."
+CMG,0.919708,"Chipotle Mexican Grill, Inc."
+RCL,0.874486,"Royal Caribbean Cruises, Ltd."
+DHI,0.869848,"D.R. Horton, Inc."
+DASH,0.582408,"DoorDash, Inc., Class A"
+NKE,0.525366,"NIKE, Inc., Class B"
+TSCO,0.495840,Tractor Supply Co.
+,0.456731,Hermes International
+HD,0.414815,"Home Depot, Inc."
+BURL,0.396471,"Burlington Stores, Inc."
+ARMK,0.387591,Aramark
+FLUT,0.316030,Flutter Entertainment PLC
+NCLH,0.312150,"Norwegian Cruise Line Holdings, Ltd."
+W,0.247727,"Wayfair, Inc., Class A"
+CAVA,0.247088,"CAVA Group, Inc."
+RIVN,0.164826,"Rivian Automotive, Inc., Class A"
+ISRG,2.140231,"Intuitive Surgical, Inc."
+LLY,1.971109,Eli Lilly and Co.
+VRTX,1.887891,"Vertex Pharmaceuticals, Inc."
+ALNY,0.920124,"Alnylam Pharmaceuticals, Inc."
+UNH,0.681287,"UnitedHealth Group, Inc."
+HCA,0.651494,"HCA Healthcare, Inc."
+TMO,0.624106,"Thermo Fisher Scientific, Inc."
+MRNA,0.467096,"Moderna, Inc."
+IONS,0.423908,"Ionis Pharmaceuticals, Inc."
+MTD,0.262715,"Mettler-Toledo International, Inc."
+DHR,0.252657,Danaher Corp.
+GH,0.192956,"Guardant Health, Inc."
+TDG,2.226968,"TransDigm Group, Inc."
+GE,1.358194,General Electric Co.
+PWR,1.309933,"Quanta Services, Inc."
+ATI,0.724985,"ATI, Inc."
+FTAI,0.675961,"FTAI Aviation, Ltd."
+UBER,0.616988,"Uber Technologies, Inc."
+RSG,0.598555,"Republic Services, Inc."
+CAT,0.513214,"Caterpillar, Inc."
+URI,0.398634,"United Rentals, Inc."
+UAL,0.331162,"United Airlines Holdings, Inc."
+,0.323619,"Airbus SE, non-registered shares"
+RKLB,0.317916,Rocket Lab Corp.
+RYAAY,0.243287,Ryanair Holdings PLC (ADR)
+V,2.253544,"Visa, Inc., Class A"
+BAC,1.112754,Bank of America Corp.
+COF,0.501032,Capital One Financial Corp.
+TOST,0.471694,"Toast, Inc., Class A"
+XYZ,0.436129,"Block, Inc., Class A"
+MA,0.410113,"Mastercard, Inc., Class A"
+KKR,0.395085,"KKR & Co., Inc."
+,0.379730,"Apollo Asset Management, Inc."
+AFRM,0.379572,"Affirm Holdings, Inc., Class A"
+PGR,0.241906,Progressive Corp.
+LPLA,0.235520,"LPL Financial Holdings, Inc."
+WPM,1.169876,Wheaton Precious Metals Corp.
+,0.701864,"Grupo Mexico, SAB de CV, Series B"
+ALB,0.454518,Albemarle Corp.
+PFGC,0.810440,Performance Food Group Co.
+COST,0.689460,Costco Wholesale Corp.
+PM,0.683015,"Philip Morris International, Inc."
+EOG,0.801084,"EOG Resources, Inc."
+BKR,0.657226,"Baker Hughes Co., Class A"
+CNQ,0.461938,"Canadian Natural Resources, Ltd."
+WELL,0.556011,"Welltower, Inc. REIT"
+Z,0.282614,"Zillow Group, Inc., Class C, nonvoting shares"
+CSGP,0.276535,"CoStar Group, Inc."

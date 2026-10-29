@@ -1,0 +1,39 @@
+name: refresh-conviction-board
+on:
+  schedule:
+    - cron: "0 23 * * 1-5"      # weekdays 23:00 UTC (after the US close): daily re-rank
+    - cron: "30 14 * * 1"       # Mondays 14:30 UTC: freeze the weekly board (drives manager flow)
+  workflow_dispatch:
+    inputs:
+      history:
+        description: "Pull past filings + prices and run the backtest (run once, then monthly)"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r requirements-refresh.txt
+      - run: python refresh.py --selftest
+      - name: Backtest history
+        if: inputs.history
+        env: { SEC_USER_AGENT: "${{ secrets.SEC_USER_AGENT }}" }
+        run: python refresh.py --history
+      - name: Daily refresh
+        if: github.event.schedule != '30 14 * * 1' && !inputs.history
+        env: { ALPHAVANTAGE_API_KEY: "${{ secrets.ALPHAVANTAGE_API_KEY }}", SEC_USER_AGENT: "${{ secrets.SEC_USER_AGENT }}" }
+        run: python refresh.py
+      - name: Weekly freeze
+        if: github.event.schedule == '30 14 * * 1'
+        env: { ALPHAVANTAGE_API_KEY: "${{ secrets.ALPHAVANTAGE_API_KEY }}", SEC_USER_AGENT: "${{ secrets.SEC_USER_AGENT }}" }
+        run: python refresh.py --weekly
+      - name: Commit results
+        run: |
+          git config user.name "conviction-bot"; git config user.email "bot@users.noreply.github.com"
+          git add -A data data_web holdings_raw etf_universe.csv || true
+          git diff --cached --quiet || git commit -m "refresh $(date -u +%F)" && git push

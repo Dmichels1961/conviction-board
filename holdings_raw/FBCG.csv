@@ -1,0 +1,202 @@
+ticker,weight,name
+NVDA,15.679,NVIDIA Corp
+AAPL,9.224,Apple Inc
+GOOGL,8.644,Alphabet Inc Class A
+MSFT,5.556,Microsoft Corp
+AMZN,4.967,Amazon.com Inc
+AVGO,4.107,Broadcom Inc
+LLY,2.646,Eli Lilly & Co
+META,2.416,Meta Platforms Inc Class A
+MU,2.367,Micron Technology Inc
+SNDK,1.843,Sandisk Corp
+TSLA,1.470,Tesla Inc
+WDC,1.376,Western Digital Corp
+AMD,1.264,Advanced Micro Devices Inc
+MRVL,1.059,Marvell Technology Inc
+MA,0.852,Mastercard Inc Class A
+MPWR,0.817,Monolithic Power Systems Inc
+CRWD,0.813,Crowdstrike Holdings Inc Class A
+SN,0.804,SharkNinja Inc
+APP,0.747,AppLovin Corp Class A
+PANW,0.726,Palo Alto Networks Inc
+GEV,0.676,GE Vernova Inc
+UNH,0.619,UnitedHealth Group Inc
+WELL,0.603,Welltower Inc
+STX,0.602,Seagate Technology Holdings PLC
+LITE,0.580,Lumentum Holdings Inc
+SPCX,0.577,Space Exploration Technologies Corp Class A
+ALAB,0.562,Astera Labs Inc
+TGT,0.558,Target Corp
+PLTR,0.553,Palantir Technologies Inc Class A
+NFLX,0.543,Netflix Inc
+BA,0.542,Boeing Co
+TWLO,0.530,Twilio Inc Class A
+LRCX,0.525,Lam Research Corp
+SBUX,0.523,Starbucks Corp
+FIX,0.471,Comfort Systems USA Inc
+ORCL,0.426,Oracle Corp
+ABBV,0.412,AbbVie Inc
+GE,0.403,GE Aerospace
+CVNA,0.399,Carvana Co Class A
+NET,0.396,Cloudflare Inc Class A
+HOOD,0.389,Robinhood Markets Inc Class A
+DAL,0.382,Delta Air Lines Inc
+UAL,0.370,United Airlines Holdings Inc
+EAT,0.362,Brinker International Inc
+DASH,0.359,DoorDash Inc Class A
+LOW,0.355,Lowe's Cos Inc
+CMG,0.345,Chipotle Mexican Grill Inc
+HWM,0.343,Howmet Aerospace Inc
+VSXY,0.339,Victoria's Secret & Co
+APH,0.315,Amphenol Corp Class A
+GILD,0.315,Gilead Sciences Inc
+DELL,0.297,Dell Technologies Inc Class C
+AMAT,0.293,Applied Materials Inc
+CBRS,0.292,Cerebras Systems Inc Class A
+CAT,0.280,Caterpillar Inc
+COHR,0.274,Coherent Corp
+GOOG,0.265,Alphabet Inc Class C
+TJX,0.257,TJX Cos Inc/The
+V,0.256,Visa Inc Class A
+ROST,0.253,Ross Stores Inc
+JNJ,0.248,Johnson & Johnson
+GS,0.239,Goldman Sachs Group Inc/The
+AXON,0.234,Axon Enterprise Inc
+AFRM,0.215,Affirm Holdings Inc Class A
+CRS,0.213,Carpenter Technology Corp
+HLT,0.210,Hilton Worldwide Holdings Inc
+GLW,0.208,Corning Inc
+INTC,0.198,Intel Corp
+RH,0.194,RH
+RDDT,0.184,Reddit Inc Class A
+MRNA,0.172,Moderna Inc
+MAR,0.171,Marriott International Inc/MD Class A
+RBLX,0.166,ROBLOX Corp Class A
+ANET,0.159,Arista Networks Inc
+CMI,0.158,Cummins Inc
+SNOW,0.153,Snowflake Inc
+FTAI,0.152,FTAI Aviation Ltd
+NOW,0.152,ServiceNow Inc
+MS,0.147,Morgan Stanley
+FLEX,0.144,Flex Ltd
+XOM,0.143,ExxonMobil Holdings Corp
+MTSI,0.141,MACOM Technology Solutions Holdings Inc
+JBL,0.137,Jabil Inc
+TTMI,0.134,TTM Technologies Inc
+UBER,0.131,Uber Technologies Inc
+ALNY,0.128,Alnylam Pharmaceuticals Inc
+CRM,0.125,Salesforce Inc
+HD,0.124,Home Depot Inc/The
+GH,0.116,Guardant Health Inc
+COST,0.115,Costco Wholesale Corp
+LIME,0.115,Neutron Holdings Inc
+WYNN,0.112,Wynn Resorts Ltd
+BE,0.112,Bloom Energy Corp Class A
+ON,0.110,ON Semiconductor Corp
+NTRA,0.109,Natera Inc
+PCAR,0.109,PACCAR Inc
+SNX,0.107,TD SYNNEX Corp
+KLAC,0.107,KLA Corp
+PVH,0.106,PVH Corp
+BAC,0.102,Bank of America Corp
+VTRS,0.102,Viatris Inc
+TWST,0.101,Twist Bioscience Corp
+TER,0.100,Teradyne Inc
+TVTX,0.100,Travere Therapeutics Inc
+DDOG,0.099,Datadog Inc Class A
+IESC,0.099,IES Holdings Inc
+KMB,0.098,Kimberly-Clark Corp
+BROS,0.098,Dutch Bros Inc Class A
+KO,0.098,Coca-Cola Co/The
+WING,0.096,Wingstop Inc
+MAIR,0.096,Madison Air Solutions Corp Class A
+NXT,0.095,Nextpower Inc
+FIGR,0.095,Figure Technology Solutions Inc Class A
+CIEN,0.095,Ciena Corp
+TXRH,0.095,Texas Roadhouse Inc
+FND,0.095,Floor & Decor Holdings Inc Class A
+JHX,0.093,James Hardie Industries PLC
+MDLN,0.093,Medline Inc Class A
+VRT,0.092,Vertiv Holdings Co Class A
+MMM,0.090,3M Co
+ATI,0.085,ATI Inc
+WRBY,0.084,Warby Parker Inc Class A
+SFM,0.083,Sprouts Farmers Market Inc
+JAZZ,0.081,Jazz Pharmaceuticals PLC
+RBC,0.080,RBC Bearings Inc
+XPO,0.080,XPO Inc
+ILMN,0.079,Illumina Inc
+URBN,0.079,Urban Outfitters Inc
+STRL,0.079,Sterling Infrastructure Inc
+HTFL,0.078,HeartFlow Inc
+COMP,0.077,Compass Inc Class A
+ROIV,0.076,Roivant Sciences Ltd
+DHR,0.076,Danaher Corp
+TTAN,0.075,ServiceTitan Inc Class A
+CAVA,0.075,Cava Group Inc
+FIG,0.074,Figma Inc Class A
+RIVN,0.074,Rivian Automotive Inc Class A
+KVYO,0.073,Klaviyo Inc Class A
+RVMD,0.072,Revolution Medicines Inc
+ODFL,0.071,Old Dominion Freight Line Inc
+URI,0.071,United Rentals Inc
+BBWI,0.068,Bath & Body Works Inc
+RKT,0.066,Rocket Cos Inc Class A
+FERG,0.066,Ferguson Enterprises Inc
+SRRK,0.064,Scholar Rock Holding Corp
+FPS,0.063,Forgent Power Solutions Inc Class A
+TEX,0.062,Terex Corp
+WAT,0.061,Waters Corp
+NTAP,0.061,NetApp Inc
+RL,0.061,Ralph Lauren Corp Class A
+INSM,0.061,Insmed Inc
+COIN,0.060,Coinbase Global Inc Class A
+C,0.060,Citigroup Inc
+CELH,0.059,Celsius Holdings Inc
+FOXA,0.059,Fox Corp Class A
+DFTX,0.058,Definium Therapeutics Inc
+JPM,0.058,JPMorgan Chase & Co
+VIA,0.058,Via Transportation Inc Class A
+MDB,0.057,MongoDB Inc Class A
+ELAN,0.056,Elanco Animal Health Inc
+PRU,0.056,Prudential Financial Inc
+CCL,0.055,Carnival Corp Ltd
+SPHR,0.055,Sphere Entertainment Co Class A
+MET,0.055,MetLife Inc
+WWD,0.054,Woodward Inc
+KYMR,0.054,Kymera Therapeutics Inc
+ELVN,0.052,Enliven Therapeutics Inc
+VIK,0.050,Viking Holdings Ltd
+GFS,0.049,GlobalFoundries Inc
+TPR,0.047,Tapestry Inc
+PRAX,0.046,Praxis Precision Medicines Inc
+KMTS,0.042,Kestra Medical Technologies Ltd
+PBLS,0.037,Parabilis Medicines Inc
+ARXS,0.037,Arxis Inc Class A
+SNAP,0.034,Snap Inc Class A
+RELY,0.032,Remitly Global Inc
+JANX,0.031,Janux Therapeutics Inc
+AUR,0.028,Aurora Innovation Inc Class A
+PCVX,0.027,Vaxcyte Inc
+W,0.012,Wayfair Inc Class A
+KLRA,0.009,Kailera Therapeutics Inc
+COAG,0.003,Hemab Therapeutics Holdings Inc
+CLS,0.598,Celestica Inc (United States)
+ATZ.TO,0.346,Aritzia Inc Subordinate Voting Shares
+ASML,0.304,ASML Holding NV depository receipt
+SHOP.TO,0.264,Shopify Inc Class A
+AS,0.208,Amer Sports Inc
+ARGX,0.128,Argenx SE ADR
+BTI,0.107,British American Tobacco PLC ADR
+FM.TO,0.104,First Quantum Minerals Ltd
+IAG,0.096,IAMGOLD Corp (United States)
+AEM,0.079,Agnico Eagle Mines Ltd/CA (United States)
+BCS,0.070,Barclays PLC ADR
+INIO,0.043,Innio Group Holding GmbH
+APTX.TO,0.027,Apotex Health Corp
+DPC,0.019,DPC Holdings PLC
+ASND,0.006,Ascendis Pharma A/S
+TSM,1.133,Taiwan Semiconductor Manufacturing Co Ltd ADR
+SKHY,0.463,SK Hynix Inc ADR
+SIMO,0.056,Silicon Motion Technology Corp ADR
+LEGN,0.019,Legend Biotech Corp ADR

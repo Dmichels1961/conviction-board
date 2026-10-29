@@ -1,0 +1,26 @@
+ticker,weight,name
+NVDA,5.73,NVIDIA Corporation
+AAPL,5.53,Apple Inc.
+MSFT,4.68,Microsoft Corporation
+AMZN,2.89,"Amazon.com, Inc."
+META,2.40,"Meta Platforms, Inc."
+GOOGL,1.60,Alphabet Inc.
+MU,1.42,"Micron Technology, Inc."
+AVGO,1.30,Broadcom Inc.
+LLY,1.07,Eli Lilly and Company
+JPM,1.04,JPMorgan Chase & Co.
+GOOG,1.01,Alphabet Inc.
+JNJ,0.87,Johnson & Johnson
+XOM,0.85,ExxonMobil Holdings Corporation
+BRK.B,0.74,Berkshire Hathaway Inc.
+V,0.70,Visa Inc.
+CVX,0.53,Chevron Corporation
+MA,0.52,Mastercard Incorporated
+MRK,0.51,"Merck & Co., Inc."
+WDC,0.50,Western Digital Corporation
+CSCO,0.49,"Cisco Systems, Inc."
+PG,0.47,The Procter & Gamble Company
+ABBV,0.45,AbbVie Inc.
+CAT,0.42,Caterpillar Inc.
+KO,0.39,The Coca-Cola Company
+INTC,0.39,Intel Corporation

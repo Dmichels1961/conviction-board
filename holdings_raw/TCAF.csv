@@ -1,0 +1,97 @@
+ticker,weight,name
+ABT,0.534,Abbott Laboratories
+AMD,3.209,Advanced Micro Devices
+ALNY,2.134,Alnylam Pharmaceuticals
+GOOGL,3.051,Alphabet Class A
+GOOG,1.242,Alphabet Class C
+AMZN,5.421,Amazon.com
+AEE,1.683,Ameren
+AAPL,4.685,Apple
+ABIO,0.175,ARCA Biopharma
+ARES,0.982,Ares Management
+ANET,1.562,Arista Networks
+AJG,1.235,Arthur J. Gallagher
+,0.206,Arxis
+ASND,1.86,Ascendis Pharma
+ASML,0.986,ASML Holding
+AUR,0.826,Aurora Innovation
+BDX,0.631,"Becton, Dickinson & Company"
+,0.669,Bending Spoons
+BSY,0.295,Bentley Systems
+BIIB,0.048,Biogen
+AVGO,3.05,Broadcom
+CDNS,0.375,Cadence Design Systems
+CNQ,1.329,Canadian Natural Resources
+COR,2.241,Cencora
+CNP,2.534,CenterPoint Energy
+CBRS,0.22,Cerebras Systems
+CGON,0.22,CG oncology
+CIEN,0.405,Ciena
+COP,0.289,ConocoPhillips
+CYTK,0.927,Cytokinetics
+DHR,1.484,Danaher
+DNLI,0.302,Denali therapeutics
+DNTH,0.152,Dianthus Therapeutics
+DASH,0.985,DoorDash
+DYN,0.094,Dyne therapeutics
+ETR,0.615,Entergy
+EQT,0.186,EQT
+ERAS,0.177,Erasca
+EXE,0.075,Expand Energy
+GE,0.126,GE
+GM,0.13,General Motors
+HCA,0.242,HCA Healthcare
+HLT,0.11,Hilton Worldwide Holdings
+IBM,0.296,IBM
+IEX,0.254,IDEX
+IDXX,0.173,IDEXX Laboratories
+IR,0.273,Ingersoll Rand
+ISRG,0.279,Intuitive Surgical
+ITT,0.224,ITT
+JPM,1.295,JPMorgan Chase
+KDP,1.914,Keurig Dr Pepper
+KKR,0.887,KKR
+KYMR,0.37,Kymera therapeutics
+LMT,0.766,Lockheed Martin
+LITE,0.489,Lumentum Holdings
+MSGS,0.491,Madison Square Garden Sports
+MAR,0.086,Marriott
+MA,1.886,MasterCard
+MAZE,0.04,Maze therapeutics
+MLTX,0.03,MoonLake Immunotherapeutics
+MSCI,1.237,MSCI
+NFLX,0.413,Netflix
+NI,1.454,NiSource
+NOC,0.863,Northrop Grumman
+NVDA,5.646,NVIDIA
+PM,1.013,Philip Morris International
+PPL,1.515,PPL
+PTC,0.784,PTC
+QCOM,0.557,Qualcomm
+,0.042,Quantinuum
+RLAY,0.195,Relay therapeutics
+RSG,0.18,Republic Services
+RVTY,1.614,Revvity
+RYAN,0.075,Ryan Specialty Holdings
+SLB,0.301,Schlumberger
+,0.352,"SK hynix, ADR"
+SPGI,0.238,S&P Global
+SPXC,0.377,SPX Technologies
+SBUX,0.371,Starbucks
+STOK,0.063,Stoke therapeutics
+SNPS,0.602,Synopsys
+TSM,2.273,"Taiwan Semiconductor Manufacturing, ADR"
+TXN,0.464,Texas Instruments
+TDG,0.332,Transdigm Group
+TRU,0.392,TransUnion
+USFD,0.306,US Foods Holding
+PCVX,0.715,Vaxcyte
+VLTO,1.152,Veralto
+V,1.167,Visa
+VMC,0.143,Vulcan Materials
+WCN,0.404,Waste Connections
+WAT,1.342,Waters
+WST,0.43,West Pharmaceutical Services
+WTW,0.529,Willis Towers Watson
+XENE,0.224,Xenon Pharmaceuticals
+YUM,1.091,Yum! Brands
