@@ -53,6 +53,8 @@ input[type=search]{background:var(--bg);color:var(--fg);border:1px solid var(--l
   <div class="tabs" role="tablist">
     <button role="tab" aria-selected="true" data-t="board">Board</button>
     <button role="tab" aria-selected="false" data-t="signals">What predicts returns</button>
+    <button role="tab" aria-selected="false" data-t="track">Track record</button>
+    <button role="tab" aria-selected="false" data-t="risk">Concentration</button>
     <button role="tab" aria-selected="false" data-t="bt">Backtest</button>
   </div>
 
@@ -85,7 +87,50 @@ input[type=search]{background:var(--bg);color:var(--fg);border:1px solid var(--l
     </div>
   </section>
 
+  <section id="track" hidden>
+    <div class="card">
+      <h2>How the boards have done since they were made</h2>
+      <p class="mut" style="margin:0 0 10px">Each board's top 25 is bought equal-weight at that day's close and compared with the S&amp;P 500 (SPY) and with the average of every stock the model scored that day. Nothing here is recalculated with hindsight.</p>
+      <div class="tiles" id="trtiles"></div>
+      <div id="trchart"></div>
+      <div class="leg"><span style="--c:var(--acc)">Live portfolio (latest top 25)</span><span style="--c:var(--mut)">S&amp;P 500</span><span style="--c:var(--c2)">All scored stocks</span></div>
+      <div class="tw" style="max-height:none;margin-top:12px"><table id="trt"><thead><tr><th>Board date</th><th>Trading days</th><th>Top 25</th><th>S&amp;P 500</th><th>All scored</th><th>Beat the S&amp;P</th><th class="hide-s">Best</th><th class="hide-s">Worst</th></tr></thead><tbody></tbody></table></div>
+      <p class="mut" id="trnote"></p>
+    </div>
+    <div class="card">
+      <h2>Post-mortems</h2>
+      <p class="mut" style="margin:0 0 8px">Picks running more than 5 points behind the S&amp;P 500, what put them on the board, and where they rank now.</p>
+      <div class="tw" style="max-height:none"><table id="pmt"><thead><tr><th>Ticker</th><th>Board</th><th>Return</th><th>vs S&amp;P</th><th>Picked mainly on</th><th>Rank then</th><th>Rank now</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="risk" hidden>
+    <div class="card">
+      <h2>How concentrated is the top 25?</h2>
+      <p class="mut" style="margin:0 0 10px">Based on the past year of daily returns, with each stock held at an equal weight.</p>
+      <div class="tiles" id="rktiles"></div>
+      <div class="note" id="rkread"></div>
+      <div class="grid2">
+        <div><b>By theme</b><div id="rkthemes"></div></div>
+        <div><b>By sector</b><div id="rksectors"></div></div>
+      </div>
+      <h2 style="margin-top:16px">Stocks that move together</h2>
+      <p class="mut" style="margin:0 0 6px">Groups where each stock's daily returns are correlated 0.6 or more with another in the group. A group behaves like one larger position.</p>
+      <div id="rkgroups"></div>
+      <p class="mut" style="margin:10px 0 4px">Most correlated pairs</p>
+      <div id="rkpairs"></div>
+    </div>
+  </section>
+
   <section id="bt" hidden>
+    <div class="card">
+      <h2>Would the board have beaten the market?</h2>
+      <p id="pitread" style="margin:4px 0 10px"></p>
+      <div class="tiles" id="pittiles"></div>
+      <div class="tw" style="max-height:none"><table id="pitt"><thead><tr><th>Version</th><th>Period</th><th>Months</th><th>Excess vs pool, per month</th><th>vs S&amp;P, per month</th><th>Beat the pool</th><th>t-statistic</th><th class="hide-s">Worst run vs pool</th><th class="hide-s">Turnover</th></tr></thead><tbody></tbody></table></div>
+      <div class="note" id="pitmissing"></div>
+      <p class="mut" id="pitmethod"></p>
+    </div>
     <div class="card">
       <h2>Does manager overlap predict returns?</h2>
       <p id="btread" style="margin:4px 0 10px"></p>
@@ -110,19 +155,19 @@ function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null
 
 Array.prototype.forEach.call(document.querySelectorAll('.tabs button'),function(b){b.onclick=function(){
   document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
-  ['board','signals','bt'].forEach(function(id){$('#'+id).hidden=(id!==b.dataset.t)});
+  ['board','signals','track','risk','bt'].forEach(function(id){$('#'+id).hidden=(id!==b.dataset.t)});
   if(location.hash!=='#'+b.dataset.t)history.replaceState(null,'','#'+b.dataset.t)}});
-var h=location.hash.slice(1);if(['signals','bt'].indexOf(h)>=0)document.querySelector('[data-t='+h+']').click();
+var h=location.hash.slice(1);if(['signals','track','risk','bt'].indexOf(h)>=0)document.querySelector('[data-t='+h+']').click();
 
 function load(f){return fetch('data/'+f+'.json?'+Date.now()).then(function(r){if(!r.ok)throw new Error(f);return r.json()})}
-Promise.all([load('board'),load('signals'),load('backtest'),load('factors').catch(function(){return null})]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];D.f=a[3];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
+Promise.all([load('board'),load('signals'),load('backtest'),load('factors').catch(function(){return null}),load('track').catch(function(){return null}),load('risk').catch(function(){return null}),load('pit').catch(function(){return null})]).then(function(a){D.b=a[0];D.s=a[1];D.t=a[2];D.f=a[3];D.tr=a[4];D.rk=a[5];D.pit=a[6];draw()}).catch(function(e){$('#sub').textContent='Could not load data ('+e.message+'). The first daily run may not have finished yet.'});
 
 function draw(){
   var m=D.b.meta;
   $('#sub').textContent='Ranking as of '+m.asof+' · rebuilt automatically every weekday after the US close · page data generated '+m.generated;
   var tl=$('#tiles');tl.textContent='';
   [['Top conviction',D.b.rows[0].ticker],['Names scored',m.n_scored],['Funds tracked',m.funds],['Avg data coverage (top 25)',fmt(m.avg_cov,0)+'%'],['Top 25 in AI-linked themes',fmt(m.ai_share,0,true)]].forEach(function(t){var d=el('div','tile');d.appendChild(el('span','mut',t[0]));d.appendChild(el('b',null,t[1]));tl.appendChild(d)});
-  drawMoves();drawExpo();drawTable();drawSignals();drawBt();
+  drawMoves();drawExpo();drawTable();drawSignals();drawBt();drawTrack();drawRisk();drawPit();
 }
 function drawMoves(){
   var b=$('#moves');b.textContent='';var mv=D.b.moves;
@@ -211,6 +256,52 @@ function drawBt(){
     var mx=Math.max.apply(null,rows.map(function(r){return Math.abs(r['mean_excess_%'])}).concat([1]));
     rows.forEach(function(r){var x=el('div','xrow');x.appendChild(el('span',null,LB[r.signal]||r.signal));var t=el('div','track'),i=el('i');i.style.cssText='left:0;width:'+Math.abs(r['mean_excess_%'])/mx*100+'%;background:'+(r['mean_excess_%']>0?'var(--up)':'var(--dn)');t.appendChild(i);x.appendChild(t);x.appendChild(el('span','mut',r['mean_excess_%']+'%'));c.appendChild(x)})}
   $('#btmeta').textContent=(D.t.filings?D.t.filings+' fund filings · ':'')+(D.t.updated?'last run '+D.t.updated:'');
+}
+
+function pct(v,d){v=N(v);return v==null?'–':(v>=0?'+':'')+(v*100).toFixed(d==null?1:d)+'%'}
+function tiles(id,arr){var tl=$(id);tl.textContent='';arr.forEach(function(t){var d=el('div','tile');d.appendChild(el('span','mut',t[0]));var b=el('b',t[2]||null,t[1]);d.appendChild(b);tl.appendChild(d)})}
+function drawTrack(){
+  var T=D.tr;if(!T||!T.cohorts||!T.cohorts.length){$('#trnote').textContent='The track record starts after the first daily run with this feature.';return}
+  var nav=T.nav||[],L=nav.length?nav[nav.length-1]:null;
+  if(L)tiles('#trtiles',[['Live portfolio',pct(L[1]-1),L[1]>=L[2]?'up':'dn'],['S&P 500 same period',pct(L[2]-1)],['All scored stocks',pct(L[3]-1)],['Ahead of the S&P by',pct(L[1]-L[2]),L[1]>=L[2]?'up':'dn'],['Tracking since',nav[0][0]]]);
+  var c=$('#trchart');c.textContent='';
+  if(nav.length>1){var W=720,H=220,P=36,lo=Infinity,hi=-Infinity;nav.forEach(function(r){[r[1],r[2],r[3]].forEach(function(v){lo=Math.min(lo,v);hi=Math.max(hi,v)})});var pad=(hi-lo)*0.1||0.01;lo-=pad;hi+=pad;
+    var x=function(i){return P+i*(W-P-8)/(nav.length-1)},y=function(v){return 8+(hi-v)/(hi-lo)*(H-30)};
+    var ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.style.width='100%';svg.style.maxWidth=W+'px';svg.setAttribute('role','img');svg.setAttribute('aria-label','Growth of 1 dollar: live portfolio vs S&P 500 vs all scored stocks');
+    [lo+pad,1,hi-pad].forEach(function(v){var g=document.createElementNS(ns,'line');g.setAttribute('x1',P);g.setAttribute('x2',W-8);g.setAttribute('y1',y(v));g.setAttribute('y2',y(v));g.setAttribute('stroke','var(--line)');svg.appendChild(g);var t=document.createElementNS(ns,'text');t.setAttribute('x',P-4);t.setAttribute('y',y(v)+4);t.setAttribute('text-anchor','end');t.setAttribute('font-size','11');t.setAttribute('fill','var(--mut)');t.textContent=pct(v-1,0);svg.appendChild(t)});
+    [[3,'var(--c2)',1.5],[2,'var(--mut)',1.5],[1,'var(--acc)',2.5]].forEach(function(s){var pth=document.createElementNS(ns,'path');pth.setAttribute('d',nav.map(function(r,i){return(i?'L':'M')+x(i).toFixed(1)+','+y(r[s[0]]).toFixed(1)}).join(''));pth.setAttribute('fill','none');pth.setAttribute('stroke',s[1]);pth.setAttribute('stroke-width',s[2]);svg.appendChild(pth)});
+    [0,nav.length-1].forEach(function(i){var t=document.createElementNS(ns,'text');t.setAttribute('x',x(i));t.setAttribute('y',H-6);t.setAttribute('text-anchor',i?'end':'start');t.setAttribute('font-size','11');t.setAttribute('fill','var(--mut)');t.textContent=nav[i][0];svg.appendChild(t)});
+    c.appendChild(svg)}
+  var tb=$('#trt tbody');tb.textContent='';
+  T.cohorts.forEach(function(r){var tr=el('tr');var cells=[r.date+(r.label==='early board'?' (early)':''),r.days,pct(r.top25),pct(r.spy),pct(r.pool),r.beat_spy+' of '+r.n,r.best.map(function(b){return b[0]+' '+pct(b[1],0)}).join(', '),r.worst.map(function(b){return b[0]+' '+pct(b[1],0)}).join(', ')];
+    cells.forEach(function(v,i){var td=el('td',i===2?(r.top25>=r.spy?'up':'dn'):(i>5?'hide-s':null),v);tr.appendChild(td)});tb.appendChild(tr)});
+  $('#trnote').textContent=T.note+' A few weeks of results say very little; judge this after six months or more.';
+  var pb=$('#pmt tbody');pb.textContent='';
+  if(!(T.postmortems||[]).length){var tr=el('tr'),td=el('td','mut','No pick is more than 5 points behind the S&P 500 yet.');td.colSpan=7;tr.appendChild(td);pb.appendChild(tr)}
+  (T.postmortems||[]).forEach(function(r){var tr=el('tr');[r.ticker,r.cohort,pct(r.ret),pct(r.vs_spy),r.picked_on||'–',r.rank_then,r.rank_now==null?'not scored':(r.rank_now>25?r.rank_now+' (off the board)':r.rank_now)].forEach(function(v,i){var td=el('td',i===0?'tk':(i===3?'dn':null),v);tr.appendChild(td)});pb.appendChild(tr)});
+}
+function drawPit(){
+  var R=D.pit;if(!R||R.error||!R.full){$('#pitread').textContent=R&&R.error?'Not enough history yet: '+R.error+'.':'The point-in-time backtest appears after the next run.';return}
+  var o=R.out_of_sample.current,f=R.full.current,w=R.tuned_weights,wd=function(w){return Object.keys(w).filter(function(k){return w[k]>0}).map(function(k){return k+' '+Math.round(w[k]*100)}).join(', ')};
+  tiles('#pittiles',[['Months tested',R.months_total],['Current weights, out of sample',pct(o.ex_pool_month)+' / mo',o.ex_pool_month>=0?'up':'dn'],['t-statistic (2 is the usual bar)',o.t_pool==null?'–':o.t_pool.toFixed(1)],['Best weights found in the first 60%',wd(w)]]);
+  $('#pitread').textContent='Each month-end since '+f.first+', the board was rebuilt using only information public at the time, and its top 25 was held for a month. Weights were chosen on the months before '+R.split+' and judged only on the months after.';
+  var tb=$('#pitt tbody');tb.textContent='';
+  var rows=[['Current weights','All months',R.full.current],['Current weights','Before '+R.split+' (in sample)',R.in_sample.current],['Current weights','After (out of sample)',R.out_of_sample.current],['Tuned weights','Before (where they were chosen)',R.in_sample.tuned],['Tuned weights','After (out of sample)',R.out_of_sample.tuned]];
+  ['earnings','overlap','flow','momentum'].forEach(function(k){if(R.single&&R.single[k])rows.push([k.charAt(0).toUpperCase()+k.slice(1)+' alone','After (out of sample)',R.single[k].out_of_sample])});
+  rows.forEach(function(r){var s=r[2]||{};var tr=el('tr');[r[0],r[1],s.months,pct(s.ex_pool_month),pct(s.ex_spy_month),s.hit_pool==null?'–':Math.round(s.hit_pool*100)+'% of months',s.t_pool==null?'–':s.t_pool.toFixed(1),pct(s.max_dd_vs_pool),s.turnover==null?'–':Math.round(s.turnover*100)+'% a month'].forEach(function(v,i){var td=el('td',i===3?(s.ex_pool_month>=0?'up':'dn'):(i>6?'hide-s':null),v);if(i===0)td.style.fontWeight=600;tr.appendChild(td)});tb.appendChild(tr)});
+  $('#pitmissing').textContent=R.missing+' Tuned weights were picked from '+R.grid_size+' combinations, so their in-sample result is flattered; only the out-of-sample rows count.';
+  $('#pitmethod').textContent=R.method;
+}
+function bars(id,rows){var b=$(id);b.textContent='';rows.forEach(function(r){var x=el('div','xrow');x.appendChild(el('span',null,r[0]));var t=el('div','track'),i=el('i');i.style.cssText='left:0;width:'+(r[2]*100)+'%;background:var(--acc)';t.appendChild(i);x.appendChild(t);x.appendChild(el('span','mut',r[1]+' · '+Math.round(r[2]*100)+'%'));b.appendChild(x)})}
+function drawRisk(){
+  var R=D.rk;if(!R||!R.n){$('#rkread').textContent='The concentration check appears after the first daily run with this feature.';return}
+  tiles('#rktiles',[['Effective independent bets',R.effective_bets==null?'–':R.effective_bets+' of '+R.n],['Average correlation',R.avg_corr==null?'–':R.avg_corr.toFixed(2)],['Beta to the S&P 500',R.beta==null?'–':R.beta.toFixed(2),R.beta>1.3?'dn':null],['Volatility (yearly)',R.vol_ann==null?'–':Math.round(R.vol_ann*100)+'% vs '+Math.round(R.spy_vol_ann*100)+'%'],['Worst 20-day drop, past year',pct(R.worst_20d,0),'dn']]);
+  var big=(R.groups||[])[0];
+  $('#rkread').textContent='The 25 stocks behave like about '+R.effective_bets+' independent positions. '+(big?'The largest group that moves together has '+big.length+' stocks ('+Math.round(R.largest_group_share*100)+'% of the board): '+big.join(', ')+'. ':'')+(R.beta>1.3?'A beta of '+R.beta.toFixed(1)+' means the board has tended to move about '+R.beta.toFixed(1)+' times as much as the S&P 500, in both directions.':'');
+  bars('#rkthemes',R.themes||[]);bars('#rksectors',R.sectors||[]);
+  var g=$('#rkgroups');g.textContent='';(R.groups||[]).forEach(function(gr,i){var p=el('p');p.style.margin='4px 0';p.appendChild(el('b',null,'Group '+(i+1)+' ('+gr.length+'): '));p.appendChild(document.createTextNode(gr.join(', ')));g.appendChild(p)});
+  if(!(R.groups||[]).length)g.appendChild(el('p','mut','No two stocks are correlated 0.6 or more.'));
+  var pr=$('#rkpairs');pr.textContent='';(R.top_pairs||[]).forEach(function(q){pr.appendChild(el('span','chip',q[0]+' / '+q[1]+' '+q[2].toFixed(2)))});
 }
 })();
 </script>

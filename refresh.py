@@ -249,8 +249,8 @@ def refresh_revisions(pool, today, a):
         g = RV.growth_latest(snaps); ng = 0
         for t, row in g.iterrows():
             if t not in a.index: continue
-            for c in ("fwd_growth", "cur_growth", "rev_growth"):
-                if pd.notna(row[c]): AD.setv(a, t, c, round(float(row[c]), 4))
+            for c in ("fwd_growth", "cur_growth", "rev_growth", "dispersion"):
+                if c in row.index and pd.notna(row[c]): AD.setv(a, t, c, round(float(row[c]), 4))
             ng += 1
         for t in set(r.index) & set(a.index): AD.setv(a, t, "consensus_asof", str(today))
         log(f"revisions: {len(r)} names ({(r.rev_source == 'own').sum()} from our own history); consensus growth: {ng} names")
@@ -416,7 +416,7 @@ def history_mode(today):
     import edgar as EG, subprocess
     reg = pd.read_csv(ROOT / "fund_registry.csv")
     for _, f in reg.iterrows():
-        try: EG.history(f.url if f.format == "nport" and isinstance(f.url, str) and f.url else f.etf, n=16, out_dir=ROOT / "data/holdings_history" / f.etf, log=log)
+        try: EG.history(f.url if f.format == "nport" and isinstance(f.url, str) and f.url else f.etf, n=32, out_dir=ROOT / "data/holdings_history" / f.etf, log=log)
         except Exception as e: log(f"history {f.etf}: {e}")
     names = set()
     for p in (ROOT / "data/holdings_history").glob("*/*.csv"):
@@ -441,6 +441,7 @@ def history_mode(today):
         fetch_earnings_events(pool)
     except Exception as e: log(f"earnings events FAILED ({e})")
     subprocess.run([sys.executable, str(ROOT / "factor_backtest.py")], cwd=ROOT)
+    subprocess.run([sys.executable, str(ROOT / "pit_backtest.py")], cwd=ROOT)
     try:
         import build_site; build_site.main()
     except Exception as e: log(f"site data FAILED ({e})")
@@ -457,14 +458,25 @@ def main():
     a = AD.load_auto(pool)
     steps = [lambda: refresh_revisions(pool, today, a), lambda: refresh_earnings(pool, today, a),
              lambda: refresh_reactions(closes, today, a), lambda: AD.refresh_info(a, pool, today, log=log),
-             lambda: AD.refresh_sec(a, pool, today, log=log), lambda: AD.refresh_insiders(a, pool, today, log=log)]
+             lambda: AD.refresh_sec(a, pool, today, log=log), lambda: AD.refresh_insiders(a, pool, today, log=log),
+             lambda: __import__("signals2").refresh(a, pool, today, closes, log=log)]
     closes = refresh_prices(pool, a); AD.save_auto(a)
     for step in steps:                        # each source is independent: one failing never stops the rest, progress is saved after each
         try: step()
         except Exception as e: log(f"step FAILED ({type(e).__name__}: {e})")
         AD.save_auto(a)
     log(freshness_report(a, pool, today))
-    rebuild(today, weekly)
+    rk = rebuild(today, weekly)
+    try:
+        import pit_backtest; r = pit_backtest.main()
+        oos = r.get("out_of_sample", {}).get("current", {})
+        log(f"point-in-time backtest: {r.get('months_total', 0)} months; out of sample {oos.get('ex_pool_month')} per month vs pool, t = {oos.get('t_pool')}")
+    except Exception as e:
+        log(f"point-in-time backtest FAILED ({type(e).__name__}: {e})")
+    try:
+        import portfolio; log(portfolio.write(rk, closes, AD.load_auto(), today))
+    except Exception as e:
+        log(f"track record / concentration FAILED ({type(e).__name__}: {e})")
     try:
         import build_site; build_site.main()
     except Exception as e:
@@ -508,7 +520,7 @@ def holdings_selftest():
 
 
 def selftest():
-    holdings_selftest(); earnings_selftest(); import autodata; autodata.selftest()
+    import signals2; signals2.selftest(); import pit_backtest; pit_backtest.selftest(); import portfolio; portfolio.selftest(); holdings_selftest(); earnings_selftest(); import autodata; autodata.selftest()
     import edgar, revisions, backtest, form4; edgar.selftest(); revisions.selftest(); backtest.selftest(); form4.selftest(); import factor_backtest; factor_backtest.selftest()
     s = 'iShares\nFund Holdings as of,"Oct 21, 2026"\nTicker,Name,Sector,Asset Class,Market Value,Weight (%),Notional\nMU,MICRON,IT,Equity,1,6.05,1\nNVDA,NVIDIA,IT,Equity,1,5.66,1\nUSD,USD CASH,Cash,Cash,1,-0.03,1\nBRK.B,BERKSHIRE,F,Equity,1,2.0,1\nGOOG,ALPHABET,C,Equity,1,1.0,1\n'
     d = parse_holdings_csv(s); assert list(d.ticker) == ["BRK-B", "GOOGL", "MU", "NVDA"], d

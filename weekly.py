@@ -35,9 +35,10 @@ HERE = Path(__file__).parent
 
 # key, label, group, default weight (points out of 100), description
 SIGNALS = [
-    ("flow", "Manager flow", "Manager flow", 10,
+    ("flow", "Manager flow", "Manager flow", 5,
      "Net adds/initiations minus trims/exits by skilled active ETFs since last week (drift-adjusted, skill-weighted)"),
-    ("earn_growth", "Fwd EPS growth", "Earnings", 10, "Consensus EPS growth, next fiscal year (Yahoo, daily)"),
+    ("earn_growth", "Fwd EPS growth", "Earnings", 9, "Consensus EPS growth, next fiscal year (Yahoo, daily)"),
+    ("earn_dispersion", "Analyst agreement", "Earnings", 1, "Narrow range of analysts' next-year EPS estimates scores higher (Diether, Malloy & Scherbina 2002)"),
     ("earn_surprise", "Beat size", "Earnings", 8,
      "Average EPS surprise over last 4 quarters (capped at 50%), blended with a standardized surprise (average beat / its variability)"),
     ("earn_consistency", "Beat consistency", "Earnings", 5, "Share of last 4 quarters that beat consensus"),
@@ -54,6 +55,10 @@ SIGNALS = [
     ("asset_growth", "Asset growth", "Fundamentals", 1, "Slower year-over-year balance-sheet growth scores higher (Cooper, Gulen & Schill 2008; SEC filings)"),
     ("issuance", "Net share issuance", "Fundamentals", 1, "Share count shrinking (buybacks) scores higher, dilution lower (Pontiff & Woodgate 2008; SEC filings)"),
     ("crowding", "Short interest", "Fundamentals", 1, "Lower short interest and falling short interest score higher"),
+    ("filing_sim", "Filing changes", "Market signals", 2, "Latest 10-K/10-Q worded much like a year earlier scores higher; big rewrites score lower (Cohen, Malloy & Nguyen 2020)"),
+    ("put_skew", "Options skew", "Market signals", 1, "Cheap downside protection (low put skew) scores higher (Xing, Zhang & Zhao 2010)"),
+    ("customer_mom", "Customer momentum", "Market signals", 1, "Main customers' last-month return and capital-spending growth, for suppliers (Cohen & Frazzini 2008)"),
+    ("ivol", "Low volatility", "Market signals", 1, "Lower idiosyncratic volatility scores higher (Ang, Hodrick, Xing & Zhang 2006)"),
     ("momentum", "Momentum 12-1", "Other", 1, "12-month price return excluding the latest month"),
     ("insider", "Insider buying", "Other", 1, "Distinct insiders making open-market purchases in the last 90 days (SEC Form 4, code P); 3 or more = full score"),
     ("valuation", "Valuation", "Other", 0.5, "Forward P/E relative to growth (PEG) and free-cash-flow yield; deliberately light"),
@@ -63,7 +68,7 @@ SIGNALS = [
     ("analyst_drift", "Analyst drift", "Other", 0, "Change in mean price target over 3 months (off: targets follow prices)"),
 ]
 SIG_KEYS = [s[0] for s in SIGNALS]
-EARN_COLS = ["fwd_growth", "cur_growth", "rev_growth", "rev_surprise", "reaction", "guidance", "pt_drift", "short_chg", "share_chg", "implied_move", "rev_30d", "gross_margin", "roe", "fcf_margin", "fcf_yield", "fwd_pe", "short_pct", "beta", "insider_buyers", "gross_prof", "accruals", "asset_growth", "net_issuance"]
+EARN_COLS = ["fwd_growth", "cur_growth", "rev_growth", "rev_surprise", "reaction", "guidance", "pt_drift", "short_chg", "share_chg", "implied_move", "rev_30d", "gross_margin", "roe", "fcf_margin", "fcf_yield", "fwd_pe", "short_pct", "beta", "insider_buyers", "gross_prof", "accruals", "asset_growth", "net_issuance", "dispersion", "filing_sim", "put_skew", "customer_mom", "ivol"]
 
 
 @dataclass
@@ -246,6 +251,11 @@ def score_signals(df: pd.DataFrame, cfg: Config, flow_available: bool) -> pd.Dat
     sig["crowding"] = pd.concat([_pr(df["short_pct"], higher=False), _pr(df["short_chg"], higher=False)], axis=1).mean(axis=1)
     sig["insider"] = (50 + 50 * np.minimum(pd.to_numeric(df["insider_buyers"], errors="coerce"), 3) / 3).fillna(50.0)
     sig["beta"] = (np.clip((2 - df["beta"]) / 1.0, 0, 1) * 100).fillna(50)
+    sig["earn_dispersion"] = _pr(df["dispersion"], higher=False)
+    sig["filing_sim"] = _pr(df["filing_sim"])
+    sig["put_skew"] = _pr(df["put_skew"], higher=False)
+    sig["customer_mom"] = _pr(df["customer_mom"])
+    sig["ivol"] = _pr(df["ivol"], higher=False)
     sig["profitability"] = _pr(df["gross_prof"])
     sig["accruals"] = _pr(df["accruals"], higher=False)
     sig["asset_growth"] = _pr(df["asset_growth"], higher=False)
@@ -259,7 +269,8 @@ def score_signals(df: pd.DataFrame, cfg: Config, flow_available: bool) -> pd.Dat
         inactive.add("earn_accel")
     for k, cols in {"earn_sales": ["rev_growth", "rev_surprise"], "earn_reaction": ["reaction"], "earn_guidance": ["guidance"],
                     "analyst_drift": ["pt_drift"], "insider": ["insider_buyers"], "profitability": ["gross_prof"], "accruals": ["accruals"],
-                    "asset_growth": ["asset_growth"], "issuance": ["net_issuance"], "crowding": ["short_pct", "short_chg"]}.items():
+                    "asset_growth": ["asset_growth"], "issuance": ["net_issuance"], "crowding": ["short_pct", "short_chg"],
+                    "earn_dispersion": ["dispersion"], "filing_sim": ["filing_sim"], "put_skew": ["put_skew"], "customer_mom": ["customer_mom"], "ivol": ["ivol"]}.items():
         if df[cols].notna().sum().sum() == 0:
             inactive.add(k)
     live = sum(w for k, w in cfg.weights.items() if k not in inactive)

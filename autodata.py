@@ -61,7 +61,7 @@ def info_fields(info):
     sp, s_now, s_prev = g("shortPercentOfFloat"), g("sharesShort"), g("sharesShortPriorMonth")
     return dict(short_pct=sp, short_chg=(s_now / s_prev - 1) if s_now > 0 and s_prev > 0 else np.nan,
                 beta=g("beta"), fwd_pe=g("forwardPE"), pt_mean=g("targetMeanPrice"),
-                name=info.get("shortName") or info.get("longName"))
+                name=info.get("shortName") or info.get("longName"), sector=info.get("sector"), industry=info.get("industry"))
 
 
 def refresh_info(a, pool, today, log=print, cap=260, fetch=None, sleep=0.35):
@@ -92,6 +92,8 @@ CONCEPTS = {
     "cfo": [("us-gaap", "NetCashProvidedByUsedInOperatingActivities"),
             ("us-gaap", "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"), ("ifrs-full", "CashFlowsFromUsedInOperatingActivities")],
     "shares": [("dei", "EntityCommonStockSharesOutstanding")],
+    "capex": [("us-gaap", "PaymentsToAcquirePropertyPlantAndEquipment"), ("us-gaap", "PaymentsToAcquireProductiveAssets"),
+              ("ifrs-full", "PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities")],
 }
 FORMS = {"10-K", "10-Q", "20-F", "40-F", "10-K/A", "10-Q/A", "20-F/A"}
 
@@ -112,9 +114,11 @@ def _facts(cf, concept):
     return pd.DataFrame(columns=["start", "end", "val", "filed"])
 
 
-def ttm(d):
-    """Trailing 12 months from annual + year-to-date figures: last fiscal year + latest YTD - same YTD a year earlier."""
+def ttm(d, asof=None):
+    """Trailing 12 months from annual + year-to-date figures: last fiscal year + latest YTD - same YTD a year earlier.
+    With asof, only periods ending on or before that date count (used for the year-earlier comparison)."""
     d = d.dropna(subset=["start"])
+    if asof is not None: d = d[d.end <= asof]
     if d.empty: return np.nan, None
     d = d.assign(days=(d.end - d.start).dt.days)
     ann = d[d.days.between(350, 380)].sort_values("end")
@@ -145,6 +149,8 @@ def fundamentals(cf):
         if not np.isnan(rev) and not np.isnan(cogs) and r_end == c_end: gp, gp_end = rev - cogs, r_end
     ni, _ = ttm(_facts(cf, "net_income")); cfo, _ = ttm(_facts(cf, "cfo"))
     sh_now, sh_old, _ = instant_now_and_year_ago(_facts(cf, "shares"), sum_same_end=True)
+    cx = _facts(cf, "capex"); cx_now, cx_end = ttm(cx)
+    cx_old = ttm(cx, cx_end - pd.Timedelta(days=330))[0] if cx_end is not None else np.nan
     avg_assets = np.nanmean([a_now, a_old]) if not np.isnan(a_now) else np.nan
     ok = lambda x: x is not None and not (isinstance(x, float) and np.isnan(x))
     return dict(
@@ -152,6 +158,7 @@ def fundamentals(cf):
         accruals=(ni - cfo) / avg_assets if ok(ni) and ok(cfo) and ok(avg_assets) and avg_assets > 0 else np.nan,
         asset_growth=a_now / a_old - 1 if ok(a_now) and ok(a_old) and a_old > 0 else np.nan,
         net_issuance=sh_now / sh_old - 1 if ok(sh_now) and ok(sh_old) and sh_old > 0 else np.nan,
+        capex_growth=abs(cx_now) / abs(cx_old) - 1 if ok(cx_now) and ok(cx_old) and cx_old != 0 else np.nan,
         fin_period=str(a_end.date()) if a_end is not None else "")
 
 

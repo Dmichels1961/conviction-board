@@ -14,7 +14,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent
 FILE = ROOT / "data/consensus/snapshots.csv"
-COLS = ["date", "ticker", "period", "eps", "eps_30d_yahoo", "n_analysts", "up30", "down30", "eps_growth", "rev_growth"]
+COLS = ["date", "ticker", "period", "eps", "eps_30d_yahoo", "n_analysts", "up30", "down30", "eps_growth", "rev_growth", "eps_low", "eps_high"]
 
 
 def fetch_one(t):
@@ -27,13 +27,13 @@ def fetch_one(t):
         if per not in tr.index: continue
         up = rv.loc[per].get("upLast30days", np.nan) if rv is not None and per in rv.index else np.nan     # missing for some foreign listings
         dn = rv.loc[per].get("downLast30days", np.nan) if rv is not None and per in rv.index else np.nan
-        na = eg = rg = np.nan
-        try: ee = tk.earnings_estimate; na = ee.loc[per, "numberOfAnalysts"]; eg = ee.loc[per].get("growth", np.nan)
+        na = eg = rg = lo = hi = np.nan
+        try: ee = tk.earnings_estimate; na = ee.loc[per, "numberOfAnalysts"]; eg = ee.loc[per].get("growth", np.nan); lo = ee.loc[per].get("low", np.nan); hi = ee.loc[per].get("high", np.nan)
         except Exception: pass
         try: rg = tk.revenue_estimate.loc[per].get("growth", np.nan)       # same Yahoo response, no extra request
         except Exception: pass
         rows.append(dict(ticker=t, period=per, eps=tr.loc[per, "current"], eps_30d_yahoo=tr.loc[per, "30daysAgo"], n_analysts=na, up30=up, down30=dn,
-                         eps_growth=eg, rev_growth=rg))
+                         eps_growth=eg, rev_growth=rg, eps_low=lo, eps_high=hi))
     return rows
 
 
@@ -77,7 +77,11 @@ def growth_latest(snaps):
     if "eps_growth" not in s.columns: return pd.DataFrame()
     p = s.pivot_table(index="ticker", columns="period", values=["eps_growth", "rev_growth"], aggfunc="last")
     g = lambda a, b: p[(a, b)] if (a, b) in p.columns else pd.Series(np.nan, index=p.index)
-    return pd.DataFrame({"fwd_growth": g("eps_growth", "+1y"), "cur_growth": g("eps_growth", "0y"), "rev_growth": g("rev_growth", "+1y")})
+    out = pd.DataFrame({"fwd_growth": g("eps_growth", "+1y"), "cur_growth": g("eps_growth", "0y"), "rev_growth": g("rev_growth", "+1y")})
+    if "eps_low" in s.columns:                       # analyst disagreement: (high - low) / |average| for next year's EPS
+        q = s[s.period == "+1y"].set_index("ticker")
+        out["dispersion"] = ((q.eps_high - q.eps_low) / q.eps.abs().where(q.eps.abs() > 0.05)).reindex(out.index)
+    return out
 
 
 def selftest():

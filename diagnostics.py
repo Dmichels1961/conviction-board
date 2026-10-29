@@ -10,7 +10,8 @@ _INPUT = {"flow": None, "earn_accel": "cur_growth", "earn_sales": "rev_growth", 
           "earn_guidance": "guidance", "analyst_drift": "pt_drift", "earn_growth": "fwd_growth", "earn_surprise": "avg_surprise", "earn_revisions": "rev_30d",
           "breadth": "overlap_raw", "active_weight": "avg_active_weight", "momentum": "mom_12_1",
           "crowding": "short_pct", "theme": "tailwind", "beta": "beta", "insider": "insider_buyers",
-          "profitability": "gross_prof", "accruals": "accruals", "asset_growth": "asset_growth", "issuance": "net_issuance"}
+          "profitability": "gross_prof", "accruals": "accruals", "asset_growth": "asset_growth", "issuance": "net_issuance",
+          "earn_dispersion": "dispersion", "filing_sim": "filing_sim", "put_skew": "put_skew", "customer_mom": "customer_mom", "ivol": "ivol"}
 
 BUCKET = {**dict.fromkeys(["AVGO", "AMD", "ASML", "AMAT", "LRCX", "TSM", "WDC", "STX", "APH", "MU", "NVDA", "KLAC", "MRVL", "INTC", "TXN"], "AI hardware / semis"),
           **dict.fromkeys(["META", "GOOGL", "ORCL", "SNOW", "CRWD", "AMZN", "MSFT", "NET", "NOW"], "AI platforms / software"),

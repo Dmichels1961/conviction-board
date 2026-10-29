@@ -86,6 +86,7 @@ class WebSnapshotProvider:
                     share_chg=g("share_chg"), implied_move=g("implied_move"), fwd_pe=g("fwd_pe"), gross_margin=g("gross_margin"),
                     roe=g("roe"), fcf_margin=g("fcf_margin"), fcf_yield=g("fcf_yield"), short_pct=g("short_pct"), insider_buyers=g("insider_buyers"),
                     gross_prof=g("gross_prof"), accruals=g("accruals"), asset_growth=g("asset_growth"), net_issuance=g("net_issuance"),
+                    dispersion=g("dispersion"), filing_sim=g("filing_sim"), put_skew=g("put_skew"), customer_mom=g("customer_mom"), ivol=g("ivol"),
                     name=(r["name"] if "name" in r.index and pd.notna(r["name"]) else None), sector=None)
 
     # ----- helpers -----
