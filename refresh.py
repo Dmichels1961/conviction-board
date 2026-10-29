@@ -226,6 +226,10 @@ def probe():
             out.append(f"{name}: OK {len(r)} bytes :: {r[:160]!r}")
         except urllib.error.HTTPError as e: out.append(f"{name}: HTTP {e.code} {e.reason}")
         except Exception as e: out.append(f"{name}: {type(e).__name__} {e}")
+    try:
+        ids = EG.mf_ids("CGGR"); out.append(f"CGGR ids: {ids}")
+        ent, used = EG.nport_entries("CGGR", 3); out.append(f"CGGR nport via {used!r}: {len(ent)} entries")
+    except Exception as e: out.append(f"CGGR resolve: {type(e).__name__} {e}")
     out.append(f"SEC_UA set: {bool(os.environ.get('SEC_USER_AGENT'))}")
     (ROOT / "data/probe.txt").write_text("\n".join(out)); log("\n".join(out))
 
@@ -242,11 +246,18 @@ def history_mode(today):
     for p in (ROOT / "data/holdings_history").glob("*/*.csv"):
         if p.name != "filed.csv": names |= set(pd.read_csv(p).ticker.astype(str))
     pdir = ROOT / "data/prices"; pdir.mkdir(parents=True, exist_ok=True)
-    for t in sorted(names):
-        if (pdir / f"{t}.csv").exists() and time.time() - (pdir / f"{t}.csv").stat().st_mtime < 7 * 86400: continue
-        try: (pdir / f"{t}.csv").write_text(get(f"https://stooq.com/q/d/l/?s={t.lower().replace('-', '-')}.us&i=d"))
-        except Exception as e: log(f"prices {t}: {e}")
-        time.sleep(0.3)
+    todo = [t for t in sorted(names) if not ((pdir / f"{t}.csv").exists() and time.time() - (pdir / f"{t}.csv").stat().st_mtime < 7 * 86400)]
+    try:    # Yahoo via yfinance (Stooq times out from GitHub's servers)
+        import yfinance as yf
+        for k in range(0, len(todo), 100):
+            b = todo[k:k + 100]
+            d = yf.download(b, period="6y", interval="1d", auto_adjust=True, progress=False, threads=True)["Close"]
+            if len(b) == 1: d = d.to_frame(b[0]) if hasattr(d, "to_frame") else d
+            for t in b:
+                if t in d.columns and d[t].notna().sum() > 100:
+                    d[[t]].dropna().rename(columns={t: "Close"}).rename_axis("Date").reset_index().to_csv(pdir / f"{t}.csv", index=False)
+        log(f"prices: {len(list(pdir.glob('*.csv')))} files")
+    except Exception as e: log(f"prices FAILED ({e})")
     subprocess.run([sys.executable, str(ROOT / "backtest.py")], cwd=ROOT)
     (ROOT / "data/history_run.log").write_text("\n".join(LOG))
 

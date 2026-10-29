@@ -24,9 +24,8 @@ def _get(url, ua=None, data=None, headers=None, timeout=60):
 
 
 def latest_nport_xml_url(fund_ticker):
-    q = urllib.parse.urlencode({"action": "getcompany", "CIK": fund_ticker, "type": "NPORT-P", "dateb": "", "owner": "include", "count": "5", "output": "atom"})
-    atom = _get("https://www.sec.gov/cgi-bin/browse-edgar?" + q)
-    hrefs = re.findall(r"<filing-href>(.*?)</filing-href>", atom)
+    entries, _ = nport_entries(fund_ticker, 5)
+    hrefs = [h for e in entries for h in re.findall(r"<filing-href>(.*?)</filing-href>", e)]
     if not hrefs: raise ValueError(f"no NPORT-P filings found for {fund_ticker}")
     return hrefs[0].rsplit("/", 1)[0] + "/primary_doc.xml"
 
@@ -91,6 +90,30 @@ def fetch_fund(fund_ticker):
     return d.groupby("ticker", as_index=False).agg(weight=("weight", "sum"), name=("name", "first")), asof, series, xml_url
 
 
+_MF = None
+
+
+def mf_ids(ticker):
+    """Ticker -> (cik, seriesId, classId) from the SEC's fund ticker file (covers mutual funds and ETFs)."""
+    global _MF
+    if _MF is None:
+        j = json.loads(_get("https://www.sec.gov/files/company_tickers_mf.json"))
+        _MF = {r[3].upper(): (r[0], r[1], r[2]) for r in j["data"]}
+    return _MF.get(ticker.upper())
+
+
+def nport_entries(fund_ticker, n):
+    """Atom entries of NPORT-P filings. EDGAR resolves some fund tickers directly; otherwise try the fund's series id, then class id."""
+    ids = None
+    try: ids = mf_ids(fund_ticker)
+    except Exception: pass
+    for key in [fund_ticker] + ([ids[1], ids[2]] if ids else []):
+        q = urllib.parse.urlencode({"action": "getcompany", "CIK": key, "type": "NPORT-P", "dateb": "", "owner": "include", "count": str(n), "output": "atom"})
+        entries = re.findall(r"<entry>(.*?)</entry>", _get("https://www.sec.gov/cgi-bin/browse-edgar?" + q), flags=re.S)
+        if entries: return entries, key
+    return [], None
+
+
 def history(fund_ticker, n=12, out_dir=None, log=print):
     """Pull the last n public N-PORT filings for one fund and save each as data/holdings_history/<fund>/<period>.csv.
     The filing date (when the holdings became public) is recorded in filed.csv: the backtest only uses a snapshot after that date,
@@ -98,9 +121,8 @@ def history(fund_ticker, n=12, out_dir=None, log=print):
     out = Path(out_dir) if out_dir else ROOT / "data/holdings_history" / fund_ticker; out.mkdir(parents=True, exist_ok=True)
     idx_path = out / "filed.csv"
     idx = pd.read_csv(idx_path) if idx_path.exists() else pd.DataFrame(columns=["period", "filed"])
-    q = urllib.parse.urlencode({"action": "getcompany", "CIK": fund_ticker, "type": "NPORT-P", "dateb": "", "owner": "include", "count": str(n), "output": "atom"})
-    atom = _get("https://www.sec.gov/cgi-bin/browse-edgar?" + q)
-    entries = re.findall(r"<entry>(.*?)</entry>", atom, flags=re.S)
+    entries, used = nport_entries(fund_ticker, n)
+    if not entries: log(f"history {fund_ticker}: no NPORT-P filings found by ticker, series or class id")
     for e in entries:
         href = re.search(r"<filing-href>(.*?)</filing-href>", e); fdate = re.search(r"<filing-date>(.*?)</filing-date>", e)
         if not href or not fdate: continue
