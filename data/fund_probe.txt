@@ -1,0 +1,27 @@
+TMSL https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/small-mid-cap-etf.html -> 353240 bytes, parsed: None
+TMSL https://www.troweprice.com/personal-investing/tools/fund-research/TMSL -> 7857 bytes, parsed: None
+TMSL https://www.troweprice.com/content/fai/us/en/investments/etfs/small-mid-cap-etf.html -> 144751 bytes, parsed: None
+TMSL https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/small-mid-cap-etf.html#holdings -> 353240 bytes, parsed: None
+TMSL https://www.troweprice.com/etc.clientlibs/trp-core/components/content/download/clientlibs.ea8c5c34f3dd737a1ad344eea9e38fa3.css -> 38349 bytes, parsed: None
+TMSL https://www.troweprice.com/content/fai/us/en/investments/etfs/small-mid-cap-etf.html#primary-holdings -> 144751 bytes, parsed: None
+TMSL https://www.troweprice.com/content/fai/us/en/investments/etfs/small-mid-cap-etf.html#no-description-provided-full-holdings -> 144751 bytes, parsed: None
+TMSL https://support.apple.com/downloads/safari -> 113903 bytes, parsed: None
+FFSM https://fundresearch.fidelity.com/mutual-funds/composition/316092600 -> 31523 bytes, parsed: None
+FFSM https://www.fidelity.com/etfs/fidelity-fundamental-small-mid-cap-etf -> HTTPError HTTP Error 400: Bad Request
+FFSM https://institutional.fidelity.com/app/funds-and-products/ETF/FFSM.html -> HTTPError HTTP Error 404: Not Found
+TSME https://www.thrivent.com/investing/etfs/small-mid-cap-equity-etf -> HTTPError HTTP Error 404: Not Found
+TSME https://www.thrivent.com/etfs/tsme -> HTTPError HTTP Error 404: Not Found
+TSCV https://www.thrivent.com/investing/etfs/small-cap-value-etf -> HTTPError HTTP Error 404: Not Found
+TSCV https://www.thrivent.com/etfs/tscv -> HTTPError HTTP Error 404: Not Found
+TMVE https://www.thrivent.com/investing/etfs/mid-cap-value-etf -> HTTPError HTTP Error 404: Not Found
+TMVE https://www.thrivent.com/etfs/tmve -> HTTPError HTTP Error 404: Not Found
+BSMC https://www.brandes.com/etfs/brandes-u-s-small-mid-cap-value-etf -> HTTPError HTTP Error 404: Not Found
+BSMC https://www.brandes.com/etfs/bsmc -> HTTPError HTTP Error 404: Not Found
+BSMC https://www.brandes.com/funds/fund/brandes-u-s-small-mid-cap-value-etf -> 40493 bytes, parsed: None
+JPSV https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46654Q708&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false -> 24897 bytes, parsed: ('xlsx', 117, 99.1, None)
+JPSV https://am.jpmorgan.com/us/en/asset-management/adv/products/jpmorgan-active-small-cap-value-etf-etf-shares-46654q708 -> 230716 bytes, parsed: None
+FRTY https://www.alger.com/pages/Products.aspx?productCode=2490 -> 194409 bytes, parsed: None
+FRTY https://www.alger.com/Pages/ETFs.aspx -> 97292 bytes, parsed: None
+FRTY https://www.alger.com/pages/Products.aspx?productCode=2490#top-10-holdings -> 194409 bytes, parsed: None
+FRTY https://www.alger.com/pages/Products.aspx?productCode=2490#top-active-holdings -> 194409 bytes, parsed: None
+FRTY https://www.alger.com/pages/Products.aspx?productCode=2490#all-holdings -> 194409 bytes, parsed: None
