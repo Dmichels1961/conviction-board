@@ -12,20 +12,35 @@
    "IVV": {
     "url": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf/latest-holdings.csv",
     "bytes": 91562,
-    "parsed": null,
+    "parsed": [
+     "csv",
+     503,
+     100.0,
+     "2026-10-28"
+    ],
     "head": "iShares Core S&P 500 ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"May 15, 2000\"\nShares Outstanding,\"1,146,600,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,Asset Cla"
    },
    "IWF": {
     "url": "https://www.ishares.com/us/products/239706/ishares-russell-1000-growth-etf/latest-holdings.csv",
     "bytes": 66858,
-    "parsed": null,
+    "parsed": [
+     "csv",
+     308,
+     99.8,
+     "2026-10-27"
+    ],
     "head": "iShares Russell 1000 Growth ETF\nFund Holdings as of,\"Oct 27, 2026\"\nInception Date,\"May 22, 2000\"\nShares Outstanding,\"1,019,650,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,As"
    },
    "IWD": {
     "url": "https://www.ishares.com/us/products/239708/ishares-russell-1000-value-etf/latest-holdings.csv",
     "bytes": 152810,
-    "parsed": null,
-    "head": "iShares Russell 1000 Value ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"May 22, 2000\"\nShares Outstanding,\"320,700,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,Asset"
+    "parsed": [
+     "csv",
+     810,
+     99.9,
+     "2026-10-27"
+    ],
+    "head": "iShares Russell 1000 Value ETF\nFund Holdings as of,\"Oct 27, 2026\"\nInception Date,\"May 22, 2000\"\nShares Outstanding,\"321,100,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,Asset"
    },
    "IWN": {
     "url": "https://www.ishares.com/us/products/239714/ishares-russell-2000-value-etf/latest-holdings.csv",
@@ -62,9 +77,14 @@
    },
    "IWR": {
     "url": "https://www.ishares.com/us/products/239718/ishares-russell-midcap-etf/latest-holdings.csv",
-    "bytes": 146489,
-    "parsed": null,
-    "head": "iShares Russell Mid-Cap ETF\nFund Holdings as of,\"Oct 27, 2026\"\nInception Date,\"Jul 17, 2001\"\nShares Outstanding,\"523,450,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,Asset Cl"
+    "bytes": 146496,
+    "parsed": [
+     "csv",
+     817,
+     99.8,
+     "2026-10-28"
+    ],
+    "head": "iShares Russell Mid-Cap ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"Jul 17, 2001\"\nShares Outstanding,\"523,450,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,Asset Cl"
    },
    "SOXX": {
     "url": "https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf/latest-holdings.csv",
@@ -101,14 +121,14 @@
    },
    "IBB": {
     "url": "https://www.ishares.com/us/products/239699/ishares-biotechnology-etf/latest-holdings.csv",
-    "bytes": 39582,
+    "bytes": 39569,
     "parsed": [
      "csv",
      226,
-     100.0,
-     "2026-10-28"
+     99.9,
+     "2026-10-27"
     ],
-    "head": "iShares Biotechnology ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"Feb 05, 2001\"\nShares Outstanding,\"52,100,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Sector,Asset Class,Mark"
+    "head": "iShares Biotechnology ETF\nFund Holdings as of,\"Oct 27, 2026\"\nInception Date,\"Feb 05, 2001\"\nShares Outstanding,\"52,000,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Sector,Asset Class,Mark"
    },
    "ITA": {
     "url": "https://www.ishares.com/us/products/239502/ishares-us-aerospace-defense-etf/latest-holdings.csv",
@@ -124,13 +144,23 @@
    "IJR": {
     "url": "https://www.ishares.com/us/products/239774/ishares-core-sp-smallcap-etf/latest-holdings.csv",
     "bytes": 116047,
-    "parsed": null,
+    "parsed": [
+     "csv",
+     608,
+     98.4,
+     "2026-10-28"
+    ],
     "head": "iShares Core S&P Small-Cap ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"May 22, 2000\"\nShares Outstanding,\"749,400,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,Asset"
    },
    "ILDR": {
     "url": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ILDR",
     "bytes": 281415,
-    "parsed": null,
+    "parsed": [
+     "html",
+     79,
+     98.1,
+     null
+    ],
     "head": "\r\n\r\n<!DOCTYPE html>\r\n\r\n<!--[if lt IE 7 ]> <html class=\"ie6\"> <![endif]-->\r\n<!--[if IE 7 ]> <html class=\"ie7\"> <![endif]-->\r\n<!--[if IE 8 ]> <html class=\"ie8\"> <![endif]-->\r\n<!--[if IE 9 ]> <html class"
    },
    "NASDAQ_CAL": {
