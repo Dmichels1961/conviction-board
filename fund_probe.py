@@ -102,6 +102,7 @@ def main():
                 import sidedoor; raw = sidedoor._get(u).encode()
             else:
                 raw = R.get_bytes(u, timeout=60)
+            (ROOT / "probe_pages").mkdir(exist_ok=True); (ROOT / "probe_pages" / f"SRC_{name}.txt").write_bytes(raw)
             res = try_parse(raw, today); src_res[name] = dict(url=u, bytes=len(raw), parsed=res, head=raw[:200].decode("utf-8", "replace"))
             lines.append(f"SOURCE {name} -> {len(raw)} bytes, parsed: {res} :: {raw[:120]!r}")
         except Exception as e:
