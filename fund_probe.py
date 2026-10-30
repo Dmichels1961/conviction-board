@@ -26,6 +26,20 @@ CANDIDATES = {
              "https://am.jpmorgan.com/us/en/asset-management/adv/products/jpmorgan-active-small-cap-value-etf-etf-shares-46654q708"],
     "FRTY": ["https://www.alger.com/pages/Products.aspx?productCode=2490", "https://www.alger.com/Pages/ETFs.aspx"],
 }
+SOURCES = {'IVV': 'https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf/1467271812596.ajax?fileType=csv&fileName=IVV_holdings&dataType=fund',
+    'IWF': 'https://www.ishares.com/us/products/239706/ishares-russell-1000-growth-etf/1467271812596.ajax?fileType=csv&fileName=IWF_holdings&dataType=fund',
+    'IWD': 'https://www.ishares.com/us/products/239708/ishares-russell-1000-value-etf/1467271812596.ajax?fileType=csv&fileName=IWD_holdings&dataType=fund',
+    'IWN': 'https://www.ishares.com/us/products/239714/ishares-russell-2000-value-etf/1467271812596.ajax?fileType=csv&fileName=IWN_holdings&dataType=fund',
+    'IWO': 'https://www.ishares.com/us/products/239709/ishares-russell-2000-growth-etf/1467271812596.ajax?fileType=csv&fileName=IWO_holdings&dataType=fund',
+    'IWM': 'https://www.ishares.com/us/products/239710/ishares-russell-2000-etf/1467271812596.ajax?fileType=csv&fileName=IWM_holdings&dataType=fund',
+    'IWR': 'https://www.ishares.com/us/products/239718/ishares-russell-midcap-etf/1467271812596.ajax?fileType=csv&fileName=IWR_holdings&dataType=fund',
+    'SOXX': 'https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf/1467271812596.ajax?fileType=csv&fileName=SOXX_holdings&dataType=fund',
+    'IYW': 'https://www.ishares.com/us/products/239522/ishares-us-technology-etf/1467271812596.ajax?fileType=csv&fileName=IYW_holdings&dataType=fund',
+    'IYF': 'https://www.ishares.com/us/products/239511/ishares-us-financials-etf/1467271812596.ajax?fileType=csv&fileName=IYF_holdings&dataType=fund',
+    'IBB': 'https://www.ishares.com/us/products/239699/ishares-nasdaq-biotechnology-etf/1467271812596.ajax?fileType=csv&fileName=IBB_holdings&dataType=fund',
+    'ITA': 'https://www.ishares.com/us/products/239502/ishares-us-aerospace-defense-etf/1467271812596.ajax?fileType=csv&fileName=ITA_holdings&dataType=fund',
+    'ILDR': 'https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ILDR',
+    'NASDAQ_CAL': 'https://api.nasdaq.com/api/calendar/earnings?date=2026-10-28'}
 LINK = re.compile(r"""["'(]((?:https?://|/)[^"'()\s<>]*(?:holding|Holding|HOLDING|download|Download|excel|Excel|\.csv|\.xlsx|/api/)[^"'()\s<>]*)["')]""")
 SKIP = re.compile(r"\.(css|js|png|jpg|svg|gif|woff2?|ico)(\?|$)|#|apple\.com|google|facebook|linkedin|twitter")
 
@@ -79,6 +93,19 @@ def main():
                     if link.startswith("http") and not SKIP.search(link) and link not in seen and link not in links: links.append(link)
                 if links: lines.append(f"{etf}   links on page: {links[:25]}")
                 queue += links[:10]
+    src_res = {}
+    for name, u in SOURCES.items():                        # direct sources: benchmarks, the side door's feeds
+        try:
+            hdr = None
+            if "nasdaq" in u:
+                import sidedoor; raw = sidedoor._get(u).encode()
+            else:
+                raw = R.get_bytes(u, timeout=60)
+            res = try_parse(raw, today); src_res[name] = dict(url=u, bytes=len(raw), parsed=res, head=raw[:200].decode("utf-8", "replace"))
+            lines.append(f"SOURCE {name} -> {len(raw)} bytes, parsed: {res} :: {raw[:120]!r}")
+        except Exception as e:
+            src_res[name] = dict(url=u, error=f"{type(e).__name__} {str(e)[:100]}"); lines.append(f"SOURCE {name} -> {type(e).__name__} {str(e)[:100]}")
+    found["_sources"] = src_res
     (ROOT / "data").mkdir(exist_ok=True)
     (ROOT / "data/fund_probe.json").write_text(json.dumps(dict(date=str(today), found=found), indent=1))
     (ROOT / "data/fund_probe.txt").write_text("\n".join(lines))
