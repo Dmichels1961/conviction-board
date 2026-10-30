@@ -27,9 +27,9 @@ ROOT = Path(__file__).resolve().parent
 DIR = ROOT / "data/sidedoor"
 LOOKBACK_DAYS, MIN_SURPRISE, MAX_HOLDERS, N_SHOW = 30, 0.10, 1, 40
 WEIGHTS = {"surprise": 0.30, "rev_30d": 0.30, "consistency": 0.20, "reaction": 0.20}
-UNIVERSE_URLS = {
-    "IWM": "https://www.ishares.com/us/products/239710/ishares-russell-2000-etf/1467271812596.ajax?fileType=csv&fileName=IWM_holdings&dataType=fund",
-    "IWR": "https://www.ishares.com/us/products/239718/ishares-russell-midcap-etf/1467271812596.ajax?fileType=csv&fileName=IWR_holdings&dataType=fund",
+UNIVERSE_URLS = {   # confirmed from the GitHub runner on 29 Oct 2026 (1,745 and 816 names)
+    "IWM": "https://www.ishares.com/us/products/239710/ishares-russell-2000-etf/latest-holdings.csv",
+    "IWR": "https://www.ishares.com/us/products/239718/ishares-russell-midcap-etf/latest-holdings.csv",
 }
 NASDAQ = "https://api.nasdaq.com/api/calendar/earnings?date={d}"
 BROWSER = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
@@ -75,6 +75,13 @@ def load_universe(today, fetch=_get, log=print, max_age_days=7):
             log(f"side door universe {etf}: FAILED ({str(e)[:90]})")
     for f in ("data_web/holdings.csv", "data_web/benchmarks.csv"):
         if (ROOT / f).exists(): names |= set(pd.read_csv(ROOT / f).ticker.dropna().astype(str))
+    hist = ROOT / "data/holdings_history"            # anything a tracked fund held in the past year (catches recent listings, e.g. EQPT)
+    if hist.exists():
+        cut = str(today - timedelta(days=365))
+        for f in hist.glob("*/20??-??-??.csv"):
+            if f.stem >= cut:
+                try: names |= set(pd.read_csv(f, usecols=["ticker"]).ticker.dropna().astype(str))
+                except Exception: pass
     if len(names) < 500 and p.exists(): return set(pd.read_csv(p).ticker)      # index files failed: keep last week's list
     DIR.mkdir(parents=True, exist_ok=True)
     pd.DataFrame({"ticker": sorted(names), "asof": str(today)}).to_csv(p, index=False)
@@ -86,7 +93,8 @@ def parse_nasdaq(text, d):
     j = json.loads(text); rows = ((j.get("data") or {}).get("rows")) or []
     out = []
     for r in rows:
-        t = str(r.get("symbol", "")).strip().upper().replace(".", "-").replace("/", "-")
+        from refresh import norm_ticker
+        t = norm_ticker(r.get("symbol", "")) if r.get("symbol") else ""
         if not t: continue
         act, est = money(r.get("eps")), money(r.get("epsForecast"))
         sur = money(r.get("surprise"))

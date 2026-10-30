@@ -65,8 +65,10 @@ class WebSnapshotProvider:
             rows.append(row)
         return pd.DataFrame(rows)
 
+    px: dict = {}                                       # set by the caller from the day's closes
+
     def last_prices(self, tickers) -> dict:
-        return {}
+        return {k: self.px[k] for k in tickers if k in self.px}
 
     def stock_history(self, tickers) -> pd.DataFrame:
         return pd.DataFrame()

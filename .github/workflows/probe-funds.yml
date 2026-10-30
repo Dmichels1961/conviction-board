@@ -1,6 +1,9 @@
 name: probe-fund-holdings
 on:
   workflow_dispatch:
+concurrency:
+  group: conviction-board-writes   # one run at a time: overlapping runs were merging half of one run's data into another's
+  cancel-in-progress: false
 permissions:
   contents: write
 jobs:

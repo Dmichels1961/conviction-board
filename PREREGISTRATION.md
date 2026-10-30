@@ -64,3 +64,15 @@ no trading costs, estimate revisions and guidance have no history and are untest
   (daily issuer files); funds read from quarterly SEC filings no longer feed it, because a new filing would report months-old trades
   as this week's buying. A fund whose list changes by more than half in one week is skipped that week (a data-source switch, not
   trading). In overlap, holdings count fully up to 45 days old and fade linearly to half weight at 120 days.
+- **29 October 2026: audit fixes (part of v2).**
+  - Sector and thematic funds (9 sector, 6 ARK) count at half weight in overlap and flow, and each fund's skill is now judged against
+    its own index: semiconductors vs SOXX, tech vs IYW, biotech vs IBB, financials vs IYF, ARK vs QQQ (ARKG vs IBB, ARKX vs ITA);
+    value funds CGDV, MFSV and OAKM vs IWD. A sector fund's top holdings are its sector by mandate, not a stock-picking vote.
+  - Flow strips out price moves (prices are now stored with each weekly snapshot), so a rally is no longer read as buying.
+  - One ticker convention for all sources (BRK/B = BRK.B = BRK-B); bonds, preferreds and local foreign codes dropped from holdings.
+  - SEC-filing holdings accepted up to 185 days old (age-discounted), so AGTHX and FDG load again; lists older than that expire.
+    PGRO removed (no holdings published). ILDR's daily page parses again.
+  - Benchmark holdings refresh daily from iShares files. Credit-stress gauge falls back to high-yield vs Treasury bond prices when
+    FRED does not answer. Paper portfolio trades only on the evening run, at the close.
+  - Data refreshes no longer trust a "done" mark when the data is missing, and workflow runs no longer overlap (overlapping runs
+    had mixed two runs' files, losing earnings surprises for about 100 names including MU, AAPL and AVGO).

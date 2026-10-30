@@ -93,6 +93,7 @@ class Config(S.Config):
                                      # quarterly SEC filings would report months-old trades as this week's buying
     stale_full_days: int = 45        # overlap: holdings up to this age count fully...
     stale_half_days: int = 120       # ...fading linearly to half weight at this age (older still: half)
+    sector_mult: float = 0.5         # sector and thematic funds hold their sector by mandate: their votes count half in overlap and flow
     flow_min_kept: float = 0.5       # a fund whose list changed by more than half in a week is treated as a data-source switch, not trades
     weights: dict = field(default_factory=lambda: {k: w for k, _, _, w, _ in SIGNALS})
 
@@ -162,8 +163,14 @@ def compute_flow(skilled: pd.DataFrame, cur: pd.DataFrame, prev: pd.DataFrame, c
             continue                                   # most of the list changed at once: a source switch, not trading
         partial = (c["source"].iloc[0] not in FULL_SOURCES) or (p["source"].iloc[0] not in FULL_SOURCES)
         pe, ce = p["etf_price"].iloc[0], c["etf_price"].iloc[0]
-        r_f = (ce / pe - 1) if pd.notna(pe) and pd.notna(ce) and pe else 0.0
         cm, pm = c.set_index("ticker"), p.set_index("ticker")
+        if pd.notna(pe) and pd.notna(ce) and pe:
+            r_f = ce / pe - 1
+        else:                                          # no fund price: the fund's return is last week's weights times each stock's move
+            both = pm.index.intersection(cm.index)
+            rr = (cm["price"].reindex(both) / pm["price"].reindex(both) - 1).replace([np.inf, -np.inf], np.nan)
+            ww = pm["weight"].reindex(both)[rr.notna()]
+            r_f = float((ww * rr.dropna()).sum() / ww.sum()) if ww.sum() > 0 else 0.0
         for t in sorted(set(cm.index) | set(pm.index)):
             w1 = float(cm["weight"].get(t, 0.0))
             w0 = float(pm["weight"].get(t, 0.0))
@@ -418,8 +425,13 @@ def run_week(provider, universe, cfg: Config, themes: pd.DataFrame, prev_hold, l
 
     ages = {e: provider.holdings_age(e) for e in skilled["etf"]} if hasattr(provider, "holdings_age") else {}
     flow_funds = skilled[[ages.get(e) is None or ages[e] <= cfg.flow_max_age for e in skilled["etf"]]] if ages else skilled
+    kind = dict(zip(universe["etf"], universe["kind"])) if "kind" in universe.columns else {}
     skilled_ov = skilled.copy()
-    if ages: skilled_ov["ir"] = [float(r) * age_factor(ages.get(e), cfg) for e, r in zip(skilled_ov["etf"], skilled_ov["ir"])]
+    skilled_ov["ir"] = [float(r) * age_factor(ages.get(e), cfg) * (cfg.sector_mult if kind.get(e) in ("sector", "thematic") else 1.0)
+                        for e, r in zip(skilled_ov["etf"], skilled_ov["ir"])]
+    flow_funds = skilled_ov[skilled_ov["etf"].isin(flow_funds["etf"])]
+    n_sec = sum(1 for e in skilled["etf"] if kind.get(e) in ("sector", "thematic"))
+    if n_sec: log(f"      {n_sec} sector/thematic funds count at {cfg.sector_mult:g}x in overlap and flow")
     if ages:
         old_n = sum(1 for e in skilled["etf"] if (ages.get(e) or 0) > cfg.stale_full_days)
         log(f"      flow uses {len(flow_funds)} funds with daily holdings; {old_n} funds older than {cfg.stale_full_days} days count less in overlap")
@@ -578,3 +590,16 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def flow_selftest():
+    """A rally with no trading must not count as buying; a real trim must."""
+    cfg = Config(); sk = pd.DataFrame({"etf": ["F"], "manager": ["M"], "ir": [1.0]})
+    prev = pd.DataFrame({"etf": "F", "ticker": ["A", "B", "C"], "weight": [40.0, 30, 30], "source": "url", "price": [100.0, 100, 100], "etf_price": np.nan})
+    a = 40 * 1.2 / (40 * 1.2 + 60) * 100; r = (100 - a) / 2
+    cur = pd.DataFrame({"etf": "F", "ticker": ["A", "B", "C"], "weight": [a, r, r], "source": "url", "price": [120.0, 100, 100], "etf_price": np.nan})
+    ev, _ = compute_flow(sk, cur, prev, cfg); assert len(ev) == 0, ev
+    cur.loc[1, "weight"] -= 3; cur.loc[0, "weight"] += 3
+    ev, _ = compute_flow(sk, cur, prev, cfg); assert ("B", "trim") in set(zip(ev.ticker, ev.event)), ev
+    assert age_factor(30, cfg) == 1.0 and age_factor(120, cfg) == 0.5 and 0.5 < age_factor(80, cfg) < 1.0
+    print("weekly flow selftest ok")

@@ -406,6 +406,7 @@ function drawRegime(){
   var R=D.rg,b=$('#regime');if(!R)return;b.hidden=false;
   var parts=[];if(R.spy!=null)parts.push('S&P 500 '+(R.spy_below_200d?'below':'above')+' its 200-day average');
   if(R.hy_spread!=null)parts.push('high-yield spreads '+R.hy_spread.toFixed(2)+'% ('+(R.hy_spread_3m_change>=0?'+':'')+R.hy_spread_3m_change.toFixed(2)+' over 3 months)');
+  else if(R.hy_vs_tsy_3m!=null)parts.push('high-yield bonds '+(R.hy_vs_tsy_3m>=0?'ahead of':'behind')+' Treasuries by '+Math.abs(R.hy_vs_tsy_3m*100).toFixed(1)+'% over 3 months');
   b.textContent=(R.risk_off?'Market stress warning: ':'Market conditions normal: ')+parts.join('; ')+'.'+(R.risk_off?' The board is high beta and moves about twice as much as the market. Weights are not changed automatically: in the backtest, turning defensive in stress months cost returns because those months were often rebounds.':'');
   b.style.borderColor=R.risk_off?'var(--dn)':'var(--up)';
 }

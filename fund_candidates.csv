@@ -1,8 +1,8 @@
-etf,manager,benchmark,style,format,url
-ARKK,ARK Invest,IWF,Disruptive innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv
-ARKG,ARK Invest,IWF,Genomics,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv
-CGGO,Capital Group,IWF,Global growth,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cggo/download/daily-holdings?audience=advisor
-CGCV,Capital Group,SPY,US conservative equity,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgcv/download/daily-holdings?audience=advisor
-CGDG,Capital Group,SPY,Dividend growers,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgdg/download/daily-holdings?audience=advisor
-CGMM,Capital Group,SPY,US mid cap,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgmm/download/daily-holdings?audience=advisor
-CGBL,Capital Group,SPY,Balanced (equity sleeve),xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgbl/download/daily-holdings?audience=advisor
+etf,manager,benchmark,style,format,url,kind
+ARKK,ARK Invest,QQQ,Disruptive innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv,thematic
+ARKG,ARK Invest,IBB,Genomics,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv,thematic
+CGGO,Capital Group,IWF,Global growth,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cggo/download/daily-holdings?audience=advisor,diversified
+CGCV,Capital Group,SPY,US conservative equity,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgcv/download/daily-holdings?audience=advisor,diversified
+CGDG,Capital Group,SPY,Dividend growers,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgdg/download/daily-holdings?audience=advisor,diversified
+CGMM,Capital Group,SPY,US mid cap,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgmm/download/daily-holdings?audience=advisor,diversified
+CGBL,Capital Group,SPY,Balanced (equity sleeve),xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgbl/download/daily-holdings?audience=advisor,diversified

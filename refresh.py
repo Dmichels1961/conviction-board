@@ -13,6 +13,7 @@ from pathlib import Path
 import numpy as np, pandas as pd
 
 ROOT = Path(__file__).resolve().parent
+MAX_HOLDINGS_AGE = 185      # days; quarterly SEC filings arrive ~60 days after month end, so the newest can be ~5 months old
 UA = {"User-Agent": "Mozilla/5.0 (research script; contact: owner)"}
 LOG = []
 
@@ -28,7 +29,8 @@ def get(url, timeout=40):
 
 
 def norm_ticker(t):
-    t = str(t).strip().upper().replace(" ", "-").replace(".", "-")
+    """One ticker convention for every source: BRK.B, BRK/B and BRK B all become BRK-B; GOOG folds into GOOGL."""
+    t = str(t).strip().upper().replace(" ", "-").replace(".", "-").replace("/", "-").strip("-")
     return {"GOOG": "GOOGL"}.get(t, t)
 
 
@@ -38,8 +40,9 @@ def parse_holdings_csv(text):
     rows = list(csv.reader(io.StringIO(text)))
     for i, r in enumerate(rows):
         low = [c.strip().lower() for c in r]
-        if "ticker" in low and any(c.startswith("weight") or c.startswith("% of") for c in low):
-            hdr = low; ti = hdr.index("ticker"); wi = next(j for j, c in enumerate(hdr) if c.startswith("weight") or c.startswith("% of"))
+        wcols = [j for j, c in enumerate(low) if c.startswith("weight") or c.startswith("% of") or c == "market weight"]
+        if "ticker" in low and wcols:                  # iShares writes "Weight (%)" on some files and "Market Weight" on others
+            hdr = low; ti = hdr.index("ticker"); wi = wcols[0]
             ni = hdr.index("name") if "name" in hdr else None
             out = []
             for r2 in rows[i + 1:]:
@@ -54,8 +57,10 @@ def parse_holdings_csv(text):
 def parse_holdings_html(text):
     """Any page with a holdings table: pick the table that has a ticker-like and a weight-like column."""
     for t in pd.read_html(io.StringIO(text)):
+        if all(isinstance(c, int) for c in t.columns) and len(t) > 1:     # header sits in the first row (First Trust pages)
+            t = t.iloc[1:].set_axis([str(x) for x in t.iloc[0]], axis=1)
         cols = {c: str(c).lower() for c in t.columns}
-        tc = next((c for c, l in cols.items() if "ticker" in l or "symbol" in l), None)
+        tc = next((c for c, l in cols.items() if "ticker" in l or "symbol" in l or l == "identifier"), None)
         wc = next((c for c, l in cols.items() if "weight" in l or "% of" in l or "%" == l.strip()), None)
         if tc is not None and wc is not None:
             d = pd.DataFrame({"ticker": t[tc].map(norm_ticker),
@@ -142,7 +147,9 @@ def refresh_holdings(today):
                 import edgar as EG
                 d, asof, _, src = EG.fetch_fund(f.etf if f.format != "nport" or not (isinstance(f.url, str) and f.url) else f.url)
                 asof = asof or str(today)
-                if (today - pd.Timestamp(asof).date()).days > 150: raise ValueError(f"newest public N-PORT is {asof}, too old")
+                if (today - pd.Timestamp(asof).date()).days > MAX_HOLDINGS_AGE: raise ValueError(f"newest public N-PORT is {asof}, too old")
+            if "name" not in d.columns: d["name"] = ""
+            d = clean(d.assign(ticker=d.ticker.map(norm_ticker)))    # same tickers as issuer files; drops bonds, preferreds, local codes
             if len(d) < 5 or d.weight.sum() < 30: raise ValueError(f"only {len(d)} rows / {d.weight.sum():.0f}% of weight")
             hist = ROOT / "data/holdings_history" / f.etf; hist.mkdir(parents=True, exist_ok=True)
             d.to_csv(hist / f"{asof}.csv", index=False)
@@ -166,13 +173,47 @@ def refresh_holdings(today):
                 log(f"candidate {f.etf}: not added yet ({str(e)[:90]})")
         if promoted:
             reg = pd.concat([reg, pd.DataFrame(promoted)[reg.columns]], ignore_index=True); reg.to_csv(ROOT / "fund_registry.csv", index=False)
+    # a list kept after failed downloads expires: older than MAX_HOLDINGS_AGE it is dropped, not carried forever
+    age = (pd.Timestamp(today) - pd.to_datetime(h["asof"], errors="coerce")).dt.days
+    expired = sorted(h[age > MAX_HOLDINGS_AGE].etf.unique())
+    if expired: log(f"holdings expired (older than {MAX_HOLDINGS_AGE} days): {', '.join(expired)}")
+    h = h[~(age > MAX_HOLDINGS_AGE)]
+    h["ticker"] = h.ticker.map(norm_ticker)
     h.to_csv(ROOT / "data_web/holdings.csv", index=False)
     log(f"funds in the overlap analysis: {h.etf.nunique()} ({sum(1 for _, f in reg.iterrows() if f.format != 'nport')} on daily issuer files)")
     # universe = existing funds + any registry fund
     u = pd.read_csv(ROOT / "etf_universe.csv")
-    add = reg[~reg.etf.isin(u.etf)][["etf", "manager", "benchmark", "style"]]
+    add = reg[~reg.etf.isin(u.etf)][[c for c in ("etf", "manager", "benchmark", "style", "kind") if c in reg.columns]]
     if len(add): pd.concat([u, add]).to_csv(ROOT / "etf_universe.csv", index=False)
     return ok
+
+
+# ---------------------------------------------------------------- benchmarks (iShares daily CSVs, free)
+_ISH = "https://www.ishares.com/us/products/{}/{}/latest-holdings.csv"
+BENCH_URLS = {   # label used in the fund list -> iShares file (SPY's own holdings are not published as a file: IVV tracks the same index)
+    "SPY": _ISH.format(239726, "ishares-core-sp-500-etf"), "IWF": _ISH.format(239706, "ishares-russell-1000-growth-etf"),
+    "IWD": _ISH.format(239708, "ishares-russell-1000-value-etf"), "IWN": _ISH.format(239712, "ishares-russell-2000-value-etf"),
+    "IWO": _ISH.format(239709, "ishares-russell-2000-growth-etf"), "IWM": _ISH.format(239710, "ishares-russell-2000-etf"),
+    "IWR": _ISH.format(239718, "ishares-russell-midcap-etf"), "IWS": _ISH.format(239719, "ishares-russell-mid-cap-value-etf"),
+    "SOXX": _ISH.format(239705, "ishares-phlx-semiconductor-etf"), "IYW": _ISH.format(239522, "ishares-us-technology-etf"),
+    "IBB": _ISH.format(239699, "ishares-biotechnology-etf"), "ITA": _ISH.format(239502, "ishares-us-aerospace-defense-etf"),
+    "IYF": _ISH.format(239508, "ishares-us-financials-etf"),
+}
+
+
+def refresh_benchmarks(today):
+    """Daily benchmark holdings, so active weights use today's index weights. A failed file keeps the previous list."""
+    p = ROOT / "data_web/benchmarks.csv"; b = pd.read_csv(p); ok = []
+    for lab, url in BENCH_URLS.items():
+        try:
+            txt = get(url, timeout=60); d = parse_holdings_csv(txt); asof = csv_asof(txt) or str(today)
+            first = txt.splitlines()[0] if txt else ""
+            if len(d) < 25 or d.weight.sum() < 90: raise ValueError(f"only {len(d)} rows / {d.weight.sum():.0f}%")
+            b = pd.concat([b[b.etf != lab], d.assign(etf=lab, source=f"ishares.com {first[:40]}", asof=asof, fresh=True)[["etf", "ticker", "weight", "source", "asof", "fresh"]]])
+            ok.append(lab)
+        except Exception as e:
+            log(f"benchmark {lab}: FAILED ({str(e)[:80]}); keeping previous list")
+    b.to_csv(p, index=False); log(f"benchmarks refreshed: {', '.join(ok) or 'none'}")
 
 
 # ---------------------------------------------------------------- prices (stooq, free CSV, no key)
@@ -205,7 +246,14 @@ def refresh_regime(today):
         (ROOT / "data/macro").mkdir(parents=True, exist_ok=True); o.to_csv(ROOT / "data/macro/hy_oas.csv", index=False)
         out.update(hy_spread=round(float(o.oas.iloc[-1]), 2), hy_spread_3m_change=round(float(o.oas.iloc[-1] - o.oas.iloc[-64]), 2),
                    spreads_widening=bool(o.oas.iloc[-1] - o.oas.iloc[-64] > 0.75))
-    except Exception as e: log(f"regime: credit spreads FAILED ({e})")
+    except Exception as e:
+        log(f"regime: credit spreads from FRED FAILED ({e}); using high-yield vs Treasury bond prices instead")
+        try:   # FRED often refuses cloud runners. Same idea from Yahoo: junk bonds (HYG) lagging Treasuries (IEF) = spreads widening
+            import yfinance as yf
+            px = yf.download(["HYG", "IEF"], period="1y", interval="1d", auto_adjust=True, progress=False)["Close"].dropna()
+            ratio = px["HYG"] / px["IEF"]; chg = float(ratio.iloc[-1] / ratio.iloc[-64] - 1)
+            out.update(credit_proxy="HYG/IEF", hy_vs_tsy_3m=round(chg, 4), spreads_widening=bool(chg < -0.03))
+        except Exception as e2: log(f"regime: credit proxy FAILED ({e2})")
     out["risk_off"] = bool(out.get("spy_below_200d") or out.get("spreads_widening"))
     (ROOT / "docs/data").mkdir(parents=True, exist_ok=True); (ROOT / "docs/data/regime.json").write_text(json.dumps(out))
     log(f"market regime: {'STRESS' if out['risk_off'] else 'normal'} ({out})")
@@ -309,6 +357,7 @@ def due_for_earnings(pool, base, seen, today, stale_days=7):
     for t in pool:
         if t not in base.index: continue
         last = seen.get(t); nxt = base.loc[t, "next_earnings"] if "next_earnings" in base.columns else None
+        if "earnings_asof" in base.columns and pd.isna(base.loc[t, "earnings_asof"]): last = None   # state says done, data missing
         if not last or (pd.Timestamp(today) - pd.Timestamp(last)).days >= stale_days: out.append(t); continue
         if isinstance(nxt, str) and nxt and pd.Timestamp(last) <= pd.Timestamp(nxt) <= pd.Timestamp(today): out.append(t)
     return sorted(out, key=lambda t: seen.get(t, ""))
@@ -360,13 +409,15 @@ def refresh_reactions(closes, today, a):
 
 
 # ---------------------------------------------------------------- rebuild + snapshot
-def rebuild(today, weekly):
+def rebuild(today, weekly, closes=None):
     import tempfile
     sys.path.insert(0, str(ROOT))
     subprocess.run([sys.executable, str(ROOT / "data_web/build_live.py")], cwd=ROOT, check=False, capture_output=True)
     import weekly as W, diagnostics as D
     from web_snapshot import WebSnapshotProvider
     prov, cfg = WebSnapshotProvider(), W.Config()
+    if closes is not None and len(closes):            # prices go into the weekly snapshot so flow can strip out price moves
+        prov.px = {k: float(v) for k, v in closes.ffill().iloc[-1].dropna().items()}
     prev = sorted(f for f in (ROOT / "data/daily").glob("20??-??-??.csv") if f.stem < str(today))   # sell discipline: yesterday's board
     if prev:
         pb = pd.read_csv(prev[-1]); cfg.prev_board = tuple(pb[pb["rank"] <= cfg.top_n].ticker) if "rank" in pb.columns else ()
@@ -511,6 +562,7 @@ def main():
     if "--history" in sys.argv: return history_mode(today)
     import autodata as AD
     ok = refresh_holdings(today)
+    refresh_benchmarks(today)
     refresh_fund_returns(today); refresh_regime(today)
     try:
         import autodata as _AD; _AD.capex_gauge(today, log=log)
@@ -527,7 +579,7 @@ def main():
         except Exception as e: log(f"step FAILED ({type(e).__name__}: {e})")
         AD.save_auto(a)
     log(freshness_report(a, pool, today))
-    rk = rebuild(today, weekly)
+    rk = rebuild(today, weekly, closes)
     try:
         import pit_backtest; r = pit_backtest.main()
         oos = r.get("out_of_sample", {}).get("current", {})
@@ -535,7 +587,7 @@ def main():
     except Exception as e:
         log(f"point-in-time backtest FAILED ({type(e).__name__}: {e})")
     try:
-        import paper; paper.update(rk, closes, today, log=log)
+        import paper; paper.update(rk, closes, today, log=log, trade=not weekly)   # the Monday freeze runs mid-morning: mark only, never trade
     except Exception as e:
         log(f"paper portfolio FAILED ({type(e).__name__}: {e})")
     try:
@@ -597,7 +649,7 @@ def holdings_selftest():
 
 
 def selftest():
-    import paper; paper.selftest(); import emerging; emerging.selftest(); import sidedoor; sidedoor.selftest(); import signals2; signals2.selftest(); import pit_backtest; pit_backtest.selftest(); import portfolio; portfolio.selftest(); holdings_selftest(); earnings_selftest(); import autodata; autodata.selftest()
+    import paper; paper.selftest(); import weekly; weekly.flow_selftest(); import emerging; emerging.selftest(); import sidedoor; sidedoor.selftest(); import signals2; signals2.selftest(); import pit_backtest; pit_backtest.selftest(); import portfolio; portfolio.selftest(); holdings_selftest(); earnings_selftest(); import autodata; autodata.selftest()
     import edgar, revisions, backtest, form4; edgar.selftest(); revisions.selftest(); backtest.selftest(); form4.selftest(); import factor_backtest; factor_backtest.selftest()
     s = 'iShares\nFund Holdings as of,"Oct 21, 2026"\nTicker,Name,Sector,Asset Class,Market Value,Weight (%),Notional\nMU,MICRON,IT,Equity,1,6.05,1\nNVDA,NVIDIA,IT,Equity,1,5.66,1\nUSD,USD CASH,Cash,Cash,1,-0.03,1\nBRK.B,BERKSHIRE,F,Equity,1,2.0,1\nGOOG,ALPHABET,C,Equity,1,1.0,1\n'
     d = parse_holdings_csv(s); assert list(d.ticker) == ["BRK-B", "GOOGL", "MU", "NVDA"], d

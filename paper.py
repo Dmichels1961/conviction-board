@@ -78,7 +78,7 @@ def rebalance(st, targets, px, day, log=print):
     log(f"paper portfolio: rebalanced on {day}, {len(trades)} trades, holdings {', '.join(targets)}")
 
 
-def update(rk, closes, today, log=print):
+def update(rk, closes, today, log=print, trade=True):
     """Mark to market; start or rebalance when due. Writes docs/data/paper.json."""
     if closes.empty: log("paper portfolio: no prices"); return None
     last_day = str(closes.index[-1].date()); px = closes.iloc[-1].dropna().to_dict()
@@ -88,7 +88,7 @@ def update(rk, closes, today, log=print):
         st = dict(start=last_day, cash=START_CASH, positions={}, trades=[], nav=[], realized=0.0, costs=0.0,
                   bench_start={b: float(px[b]) for b in ("SPY", "QQQ") if b in px})
         rebalance(st, targets, px, last_day, log)
-    elif last_day >= st["next_rebalance"] and st.get("last_rebalance") != last_day:
+    elif trade and last_day >= st["next_rebalance"] and st.get("last_rebalance") != last_day:   # trades only on the evening run, at the close
         targets = [t for t in picks(rk) if t in px]
         if len(targets) >= N // 2: rebalance(st, targets, px, last_day, log)
     for t, p in st["positions"].items(): p["last"] = float(px.get(t, p["last"]))

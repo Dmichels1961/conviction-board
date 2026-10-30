@@ -1,48 +1,47 @@
-etf,manager,benchmark,style,format,url
-BAI,BlackRock,IWF,AI / tech,csv,https://www.ishares.com/us/products/339081/ishares-a-i-innovation-and-tech-active-etf/latest-holdings.csv
-ILDR,First Trust,IWF,US large growth innovation,html,https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ILDR
-CGGR,Capital Group,IWF,US large growth,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cggr/download/daily-holdings?audience=advisor
-CGUS,Capital Group,SPY,US core,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgus/download/daily-holdings?audience=advisor
-CGDV,Capital Group,SPY,US dividend value,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgdv/download/daily-holdings?audience=advisor
-AGTHX,Capital Group,IWF,US large growth (MF),nport,
-TCHP,T. Rowe Price,IWF,US large growth,nport,
-TGRW,T. Rowe Price,IWF,US large growth,nport,
-TCAF,T. Rowe Price,SPY,US core,nport,
-FBCG,Fidelity,IWF,US large growth,nport,
-FCNTX,Fidelity,IWF,US large growth (MF),nport,
-FDGRX,Fidelity,IWF,US large growth (MF),nport,
-FFLG,Fidelity,IWF,US large growth,nport,
-JGRO,JPMorgan,IWF,US large growth,nport,
-HFGO,Hartford,IWF,US large growth,nport,
-FDG,American Century,IWF,US focused growth,nport,
-POGRX,Pioneer/Amundi,IWF,US large growth (MF),nport,
-PGRO,Putnam/Franklin,IWF,US large growth,nport,
-ATFV,Alger,IWF,US large growth,nport,
-ANCFX,Capital Group,SPY,US core (MF),nport,
-MFSV,MFS,SPY,US value,nport,
-TDVG,T. Rowe Price,SPY,US dividend growth,nport,
-OAKM,Oakmark,SPY,US large value,nport,
-RFNGX,Capital Group,SPY,US core (MF),nport,
-RICGX,Capital Group,SPY,US core (MF),nport,
-FCLKX,Fidelity,SPY,US large cap blend (MF),nport,
-NESNX,Natixis / Loomis,SPY,US large cap blend (MF),nport,
-FDTX,Fidelity,IWF,Tech / AI innovation,nport,
-FSPTX,Fidelity,IWF,Technology (MF),nport,
-FSELX,Fidelity,IWF,Semiconductors (MF),nport,
-PRSCX,T. Rowe Price,IWF,Science and tech (MF),nport,
-SLMCX,Columbia Threadneedle,IWF,Tech / software / semis (MF),nport,
-FBIOX,Fidelity,SPY,Biotech (MF),nport,
-FIDSX,Fidelity,SPY,Financials (MF),nport,
-ARKW,ARK Invest,IWF,Innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_NEXT_GENERATION_TECHNOLOGY_ETF_ARKW_HOLDINGS.csv
-ARKQ,ARK Invest,IWF,Autonomous / robotics,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv
-ARKF,ARK Invest,IWF,Fintech,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_BLOCKCHAIN_&_FINTECH_INNOVATION_ETF_ARKF_HOLDINGS.csv
-ARKX,ARK Invest,SPY,Space / industrial innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_SPACE_&_DEFENSE_INNOVATION_ETF_ARKX_HOLDINGS.csv
-GTEK,Goldman Sachs,IWF,Tech / innovation,nport,
-ARKK,ARK Invest,IWF,Disruptive innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv
-ARKG,ARK Invest,IWF,Genomics,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv
-CGGO,Capital Group,IWF,Global growth,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cggo/download/daily-holdings?audience=advisor
-CGCV,Capital Group,SPY,US conservative equity,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgcv/download/daily-holdings?audience=advisor
-CGDG,Capital Group,SPY,Dividend growers,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgdg/download/daily-holdings?audience=advisor
-CGMM,Capital Group,SPY,US mid cap,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgmm/download/daily-holdings?audience=advisor
-CGBL,Capital Group,SPY,Balanced (equity sleeve),xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgbl/download/daily-holdings?audience=advisor
-JPSV,JPMorgan,IWN,US small value,xlsx,https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46654Q708&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false
+etf,manager,benchmark,style,format,url,kind
+BAI,BlackRock,IYW,AI / tech,csv,https://www.ishares.com/us/products/339081/ishares-a-i-innovation-and-tech-active-etf/latest-holdings.csv,sector
+ILDR,First Trust,IWF,US large growth innovation,html,https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ILDR,diversified
+CGGR,Capital Group,IWF,US large growth,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cggr/download/daily-holdings?audience=advisor,diversified
+CGUS,Capital Group,SPY,US core,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgus/download/daily-holdings?audience=advisor,diversified
+CGDV,Capital Group,IWD,US dividend value,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgdv/download/daily-holdings?audience=advisor,diversified
+AGTHX,Capital Group,IWF,US large growth (MF),nport,,diversified
+TCHP,T. Rowe Price,IWF,US large growth,nport,,diversified
+TGRW,T. Rowe Price,IWF,US large growth,nport,,diversified
+TCAF,T. Rowe Price,SPY,US core,nport,,diversified
+FBCG,Fidelity,IWF,US large growth,nport,,diversified
+FCNTX,Fidelity,IWF,US large growth (MF),nport,,diversified
+FDGRX,Fidelity,IWF,US large growth (MF),nport,,diversified
+FFLG,Fidelity,IWF,US large growth,nport,,diversified
+JGRO,JPMorgan,IWF,US large growth,nport,,diversified
+HFGO,Hartford,IWF,US large growth,nport,,diversified
+FDG,American Century,IWF,US focused growth,nport,,diversified
+POGRX,Pioneer/Amundi,IWF,US large growth (MF),nport,,diversified
+ATFV,Alger,IWF,US large growth,nport,,diversified
+ANCFX,Capital Group,SPY,US core (MF),nport,,diversified
+MFSV,MFS,IWD,US value,nport,,diversified
+TDVG,T. Rowe Price,SPY,US dividend growth,nport,,diversified
+OAKM,Oakmark,IWD,US large value,nport,,diversified
+RFNGX,Capital Group,SPY,US core (MF),nport,,diversified
+RICGX,Capital Group,SPY,US core (MF),nport,,diversified
+FCLKX,Fidelity,SPY,US large cap blend (MF),nport,,diversified
+NESNX,Natixis / Loomis,SPY,US large cap blend (MF),nport,,diversified
+FDTX,Fidelity,IYW,Tech / AI innovation,nport,,sector
+FSPTX,Fidelity,IYW,Technology (MF),nport,,sector
+FSELX,Fidelity,SOXX,Semiconductors (MF),nport,,sector
+PRSCX,T. Rowe Price,IYW,Science and tech (MF),nport,,sector
+SLMCX,Columbia Threadneedle,IYW,Tech / software / semis (MF),nport,,sector
+FBIOX,Fidelity,IBB,Biotech (MF),nport,,sector
+FIDSX,Fidelity,IYF,Financials (MF),nport,,sector
+ARKW,ARK Invest,QQQ,Innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_NEXT_GENERATION_TECHNOLOGY_ETF_ARKW_HOLDINGS.csv,thematic
+ARKQ,ARK Invest,QQQ,Autonomous / robotics,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv,thematic
+ARKF,ARK Invest,QQQ,Fintech,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_BLOCKCHAIN_&_FINTECH_INNOVATION_ETF_ARKF_HOLDINGS.csv,thematic
+ARKX,ARK Invest,ITA,Space / industrial innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_SPACE_&_DEFENSE_INNOVATION_ETF_ARKX_HOLDINGS.csv,thematic
+GTEK,Goldman Sachs,IYW,Tech / innovation,nport,,sector
+ARKK,ARK Invest,QQQ,Disruptive innovation,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv,thematic
+ARKG,ARK Invest,IBB,Genomics,csv,https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv,thematic
+CGGO,Capital Group,IWF,Global growth,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cggo/download/daily-holdings?audience=advisor,diversified
+CGCV,Capital Group,SPY,US conservative equity,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgcv/download/daily-holdings?audience=advisor,diversified
+CGDG,Capital Group,SPY,Dividend growers,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgdg/download/daily-holdings?audience=advisor,diversified
+CGMM,Capital Group,SPY,US mid cap,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgmm/download/daily-holdings?audience=advisor,diversified
+CGBL,Capital Group,SPY,Balanced (equity sleeve),xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgbl/download/daily-holdings?audience=advisor,diversified
+JPSV,JPMorgan,IWN,US small value,xlsx,https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46654Q708&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false,diversified

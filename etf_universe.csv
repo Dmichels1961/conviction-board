@@ -1,48 +1,47 @@
-etf,manager,benchmark,style
-CGGR,Capital Group,IWF,US large growth
-CGUS,Capital Group,SPY,US core
-CGDV,Capital Group,SPY,US dividend value
-TCHP,T. Rowe Price,IWF,US large growth
-TGRW,T. Rowe Price,IWF,US large growth
-TCAF,T. Rowe Price,SPY,US core
-FBCG,Fidelity,IWF,US large growth
-JGRO,JPMorgan,IWF,US large growth
-BAI,BlackRock,IWF,AI / tech
-ILDR,First Trust,IWF,US large growth innovation
-MFSV,MFS,SPY,US value
-TDVG,T. Rowe Price,SPY,US dividend growth
-AGTHX,Capital Group,IWF,US large growth (MF)
-FCNTX,Fidelity,IWF,US large growth (MF)
-FDGRX,Fidelity,IWF,US large growth (MF)
-FFLG,Fidelity,IWF,US large growth
-HFGO,Hartford,IWF,US large growth
-FDG,American Century,IWF,US focused growth
-POGRX,Pioneer/Amundi,IWF,US large growth (MF)
-PGRO,Putnam/Franklin,IWF,US large growth
-ATFV,Alger,IWF,US large growth
-ANCFX,Capital Group,SPY,US core (MF)
-OAKM,Oakmark,SPY,US large value
-RFNGX,Capital Group,SPY,US core (MF)
-RICGX,Capital Group,SPY,US core (MF)
-FCLKX,Fidelity,SPY,US large cap blend (MF)
-NESNX,Natixis / Loomis,SPY,US large cap blend (MF)
-FDTX,Fidelity,IWF,Tech / AI innovation
-FSPTX,Fidelity,IWF,Technology (MF)
-FSELX,Fidelity,IWF,Semiconductors (MF)
-PRSCX,T. Rowe Price,IWF,Science and tech (MF)
-SLMCX,Columbia Threadneedle,IWF,Tech / software / semis (MF)
-FBIOX,Fidelity,SPY,Biotech (MF)
-FIDSX,Fidelity,SPY,Financials (MF)
-ARKW,ARK Invest,IWF,Innovation
-ARKQ,ARK Invest,IWF,Autonomous / robotics
-ARKF,ARK Invest,IWF,Fintech
-ARKX,ARK Invest,SPY,Space / industrial innovation
-GTEK,Goldman Sachs,IWF,Tech / innovation
-ARKK,ARK Invest,IWF,Disruptive innovation
-ARKG,ARK Invest,IWF,Genomics
-CGGO,Capital Group,IWF,Global growth
-CGCV,Capital Group,SPY,US conservative equity
-CGDG,Capital Group,SPY,Dividend growers
-CGMM,Capital Group,SPY,US mid cap
-CGBL,Capital Group,SPY,Balanced (equity sleeve)
-JPSV,JPMorgan,IWN,US small value
+etf,manager,benchmark,style,kind
+CGGR,Capital Group,IWF,US large growth,diversified
+CGUS,Capital Group,SPY,US core,diversified
+CGDV,Capital Group,IWD,US dividend value,diversified
+TCHP,T. Rowe Price,IWF,US large growth,diversified
+TGRW,T. Rowe Price,IWF,US large growth,diversified
+TCAF,T. Rowe Price,SPY,US core,diversified
+FBCG,Fidelity,IWF,US large growth,diversified
+JGRO,JPMorgan,IWF,US large growth,diversified
+BAI,BlackRock,IYW,AI / tech,sector
+ILDR,First Trust,IWF,US large growth innovation,diversified
+MFSV,MFS,IWD,US value,diversified
+TDVG,T. Rowe Price,SPY,US dividend growth,diversified
+AGTHX,Capital Group,IWF,US large growth (MF),diversified
+FCNTX,Fidelity,IWF,US large growth (MF),diversified
+FDGRX,Fidelity,IWF,US large growth (MF),diversified
+FFLG,Fidelity,IWF,US large growth,diversified
+HFGO,Hartford,IWF,US large growth,diversified
+FDG,American Century,IWF,US focused growth,diversified
+POGRX,Pioneer/Amundi,IWF,US large growth (MF),diversified
+ATFV,Alger,IWF,US large growth,diversified
+ANCFX,Capital Group,SPY,US core (MF),diversified
+OAKM,Oakmark,IWD,US large value,diversified
+RFNGX,Capital Group,SPY,US core (MF),diversified
+RICGX,Capital Group,SPY,US core (MF),diversified
+FCLKX,Fidelity,SPY,US large cap blend (MF),diversified
+NESNX,Natixis / Loomis,SPY,US large cap blend (MF),diversified
+FDTX,Fidelity,IYW,Tech / AI innovation,sector
+FSPTX,Fidelity,IYW,Technology (MF),sector
+FSELX,Fidelity,SOXX,Semiconductors (MF),sector
+PRSCX,T. Rowe Price,IYW,Science and tech (MF),sector
+SLMCX,Columbia Threadneedle,IYW,Tech / software / semis (MF),sector
+FBIOX,Fidelity,IBB,Biotech (MF),sector
+FIDSX,Fidelity,IYF,Financials (MF),sector
+ARKW,ARK Invest,QQQ,Innovation,thematic
+ARKQ,ARK Invest,QQQ,Autonomous / robotics,thematic
+ARKF,ARK Invest,QQQ,Fintech,thematic
+ARKX,ARK Invest,ITA,Space / industrial innovation,thematic
+GTEK,Goldman Sachs,IYW,Tech / innovation,sector
+ARKK,ARK Invest,QQQ,Disruptive innovation,thematic
+ARKG,ARK Invest,IBB,Genomics,thematic
+CGGO,Capital Group,IWF,Global growth,diversified
+CGCV,Capital Group,SPY,US conservative equity,diversified
+CGDG,Capital Group,SPY,Dividend growers,diversified
+CGMM,Capital Group,SPY,US mid cap,diversified
+CGBL,Capital Group,SPY,Balanced (equity sleeve),diversified
+JPSV,JPMorgan,IWN,US small value,diversified

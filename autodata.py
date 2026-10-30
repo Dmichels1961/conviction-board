@@ -49,8 +49,13 @@ def save_state(s):
     STATE.parent.mkdir(parents=True, exist_ok=True); STATE.write_text(json.dumps(s, indent=0, sort_keys=True))
 
 
-def due(pool, last_done, today, every_days, cap):
-    """Oldest-first rotation: names never done or done `every_days`+ ago, at most `cap` per run."""
+def due(pool, last_done, today, every_days, cap, a=None, mark=None):
+    """Oldest-first rotation: names never done or done `every_days`+ ago, at most `cap` per run.
+    With `a` and `mark` (a column such as 'info_asof'), a name the state calls done but whose data is missing is due again:
+    the state file and the data file can disagree after an interrupted or overlapping run."""
+    if a is not None and mark:
+        have = set(a.index[a[mark].notna()]) if mark in a.columns else set()
+        last_done = {t: d for t, d in last_done.items() if t in have}
     age = lambda t: (pd.Timestamp(today) - pd.Timestamp(last_done[t])).days if t in last_done else 10 ** 6
     return sorted([t for t in pool if age(t) >= every_days], key=age, reverse=True)[:cap]
 
@@ -69,7 +74,7 @@ def refresh_info(a, pool, today, log=print, cap=420, fetch=None, sleep=0.35):
         import yfinance as yf
         fetch = lambda t: yf.Ticker(t).info
     st = load_state(); done = st.setdefault("info", {}); ok = 0
-    for t in due(pool, done, today, 3, cap):
+    for t in due(pool, done, today, 3, cap, a, "info_asof"):
         try:
             f = info_fields(fetch(t))
             for k, v in f.items():
@@ -148,7 +153,7 @@ def fundamentals(cf):
     gp, gp_end = ttm(_facts(cf, "gross_profit"))
     if np.isnan(gp):
         rev, r_end = ttm(_facts(cf, "revenue")); cogs, c_end = ttm(_facts(cf, "cogs"))
-        if not np.isnan(rev) and not np.isnan(cogs) and r_end == c_end: gp, gp_end = rev - cogs, r_end
+        if not np.isnan(rev) and not np.isnan(cogs) and r_end is not None and c_end is not None and abs((r_end - c_end).days) <= 10: gp, gp_end = rev - cogs, r_end
     ni, _ = ttm(_facts(cf, "net_income")); cfo, _ = ttm(_facts(cf, "cfo"))
     sh_now, sh_old, _ = instant_now_and_year_ago(_facts(cf, "shares"), sum_same_end=True)
     cx = _facts(cf, "capex"); cx_now, cx_end = ttm(cx)
@@ -183,7 +188,7 @@ def refresh_sec(a, pool, today, log=print, cap=300, budget_s=1500, fetch=None):
     except Exception as e: log(f"SEC ticker map FAILED ({e}); fundamentals skipped"); return
     fetch = fetch or (lambda cik: json.loads(EG._get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json")))
     st = load_state(); done = st.setdefault("sec", {}); ok = miss = 0; t0 = time.time()
-    for t in due(pool, done, today, 7, cap):
+    for t in due(pool, done, today, 7, cap, a, "sec_asof"):
         if time.time() - t0 > budget_s: log("SEC fundamentals: time budget reached, rest continue tomorrow"); break
         cik = cmap.get(t.upper())
         if not cik: done[t] = str(today); miss += 1; continue          # no SEC filer (e.g. a foreign ordinary share)
