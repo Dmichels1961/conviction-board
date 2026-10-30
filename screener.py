@@ -94,7 +94,7 @@ def skill_table(universe: pd.DataFrame, prices: pd.DataFrame, cfg: Config) -> pd
 def _bench_lookup(bench_holdings: pd.DataFrame):
     """(series ticker->weight%, is_full) for a benchmark's holdings."""
     s = bench_holdings.set_index("ticker")["weight"] if len(bench_holdings) else pd.Series(dtype=float)
-    return s, len(s) >= 200   # a top-60 list is not a full benchmark
+    return s, len(s) >= 200 or (len(s) >= 25 and float(s.sum()) >= 95)   # full = the whole index: 200+ names, or a small index (SOXX has 30) adding to ~100%
 
 
 def overlap_table(skilled: pd.DataFrame, holdings: dict, bench_holdings: dict) -> pd.DataFrame:

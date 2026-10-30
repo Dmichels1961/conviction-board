@@ -415,7 +415,7 @@ def run_week(provider, universe, cfg: Config, themes: pd.DataFrame, prev_hold, l
     log("[2/6] Holdings...")
     holdings = {e: provider.holdings(e) for e in skilled["etf"]}
     benches = {b: provider.holdings(b) for b in skilled["benchmark"].unique()}
-    partial = [b for b, h in benches.items() if len(h) < 200]
+    partial = [b for b, h in benches.items() if not S._bench_lookup(h)[1]]
     if partial:
         log(f"      WARNING: partial benchmark holdings for {partial}; add full CSVs to holdings/ to verify "
             f"benchmark weight and active weight")

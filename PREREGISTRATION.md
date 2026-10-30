@@ -74,5 +74,6 @@ no trading costs, estimate revisions and guidance have no history and are untest
     PGRO removed (no holdings published). ILDR's daily page parses again.
   - Benchmark holdings refresh daily from iShares files. Credit-stress gauge falls back to high-yield vs Treasury bond prices when
     FRED does not answer. Paper portfolio trades only on the evening run, at the close.
+  - Small complete indexes (SOXX, IYW, IBB, ITA, IYF) count as full benchmark lists; tickers merged after normalisation.
   - Data refreshes no longer trust a "done" mark when the data is missing, and workflow runs no longer overlap (overlapping runs
     had mixed two runs' files, losing earnings surprises for about 100 names including MU, AAPL and AVGO).

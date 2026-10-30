@@ -37,7 +37,7 @@ class WebSnapshotProvider:
 
     # ----- interface used by weekly.run_week -----
     def holdings(self, fund: str) -> pd.DataFrame:
-        d = self.h[self.h["etf"] == fund][["ticker", "weight"]].reset_index(drop=True)
+        d = self.h[self.h["etf"] == fund][["ticker", "weight"]].groupby("ticker", as_index=False)["weight"].sum()   # one row per ticker
         cov = d["weight"].sum()
         d.attrs["source"] = "url" if cov >= 85 else "web_top_n"   # >=85% of net assets listed: absence means not held
         return d

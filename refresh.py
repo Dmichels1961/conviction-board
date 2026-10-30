@@ -179,6 +179,8 @@ def refresh_holdings(today):
     if expired: log(f"holdings expired (older than {MAX_HOLDINGS_AGE} days): {', '.join(expired)}")
     h = h[~(age > MAX_HOLDINGS_AGE)]
     h["ticker"] = h.ticker.map(norm_ticker)
+    h = h[h.ticker.str.match(r"^[A-Z][A-Z0-9\-]{0,5}$", na=False)]          # same rule as clean(): no bonds, preferreds, local codes
+    h = h.groupby(["etf", "ticker"], as_index=False).agg(weight=("weight", "sum"), source=("source", "first"), asof=("asof", "first"), fresh=("fresh", "first"))
     h.to_csv(ROOT / "data_web/holdings.csv", index=False)
     log(f"funds in the overlap analysis: {h.etf.nunique()} ({sum(1 for _, f in reg.iterrows() if f.format != 'nport')} on daily issuer files)")
     # universe = existing funds + any registry fund
