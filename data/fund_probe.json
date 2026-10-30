@@ -7,6 +7,90 @@
    "rows": 117,
    "weight": 99.1,
    "asof": null
+  },
+  "_sources": {
+   "IVV": {
+    "url": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf/1467271812596.ajax?fileType=csv&fileName=IVV_holdings&dataType=fund",
+    "bytes": 2314529,
+    "parsed": null,
+    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+   },
+   "IWF": {
+    "url": "https://www.ishares.com/us/products/239706/ishares-russell-1000-growth-etf/1467271812596.ajax?fileType=csv&fileName=IWF_holdings&dataType=fund",
+    "bytes": 1518522,
+    "parsed": null,
+    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+   },
+   "IWD": {
+    "url": "https://www.ishares.com/us/products/239708/ishares-russell-1000-value-etf/1467271812596.ajax?fileType=csv&fileName=IWD_holdings&dataType=fund",
+    "bytes": 1515148,
+    "parsed": null,
+    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+   },
+   "IWN": {
+    "url": "https://www.ishares.com/us/products/239714/ishares-russell-2000-value-etf/1467271812596.ajax?fileType=csv&fileName=IWN_holdings&dataType=fund",
+    "bytes": 1514487,
+    "parsed": null,
+    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+   },
+   "IWO": {
+    "url": "https://www.ishares.com/us/products/239709/ishares-russell-2000-growth-etf/1467271812596.ajax?fileType=csv&fileName=IWO_holdings&dataType=fund",
+    "bytes": 1523863,
+    "parsed": null,
+    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+   },
+   "IWM": {
+    "url": "https://www.ishares.com/us/products/239710/ishares-russell-2000-etf/1467271812596.ajax?fileType=csv&fileName=IWM_holdings&dataType=fund",
+    "bytes": 1521353,
+    "parsed": null,
+    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+   },
+   "IWR": {
+    "url": "https://www.ishares.com/us/products/239718/ishares-russell-midcap-etf/1467271812596.ajax?fileType=csv&fileName=IWR_holdings&dataType=fund",
+    "bytes": 1508735,
+    "parsed": null,
+    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+   },
+   "SOXX": {
+    "url": "https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf/1467271812596.ajax?fileType=csv&fileName=SOXX_holdings&dataType=fund",
+    "bytes": 1491250,
+    "parsed": null,
+    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+   },
+   "IYW": {
+    "url": "https://www.ishares.com/us/products/239522/ishares-us-technology-etf/1467271812596.ajax?fileType=csv&fileName=IYW_holdings&dataType=fund",
+    "bytes": 1527814,
+    "parsed": null,
+    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+   },
+   "IYF": {
+    "url": "https://www.ishares.com/us/products/239511/ishares-us-financials-etf/1467271812596.ajax?fileType=csv&fileName=IYF_holdings&dataType=fund",
+    "bytes": 1497129,
+    "parsed": null,
+    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+   },
+   "IBB": {
+    "url": "https://www.ishares.com/us/products/239699/ishares-nasdaq-biotechnology-etf/1467271812596.ajax?fileType=csv&fileName=IBB_holdings&dataType=fund",
+    "error": "HTTPError HTTP Error 403: Forbidden"
+   },
+   "ITA": {
+    "url": "https://www.ishares.com/us/products/239502/ishares-us-aerospace-defense-etf/1467271812596.ajax?fileType=csv&fileName=ITA_holdings&dataType=fund",
+    "bytes": 1481621,
+    "parsed": null,
+    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+   },
+   "ILDR": {
+    "url": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ILDR",
+    "bytes": 281415,
+    "parsed": null,
+    "head": "\r\n\r\n<!DOCTYPE html>\r\n\r\n<!--[if lt IE 7 ]> <html class=\"ie6\"> <![endif]-->\r\n<!--[if IE 7 ]> <html class=\"ie7\"> <![endif]-->\r\n<!--[if IE 8 ]> <html class=\"ie8\"> <![endif]-->\r\n<!--[if IE 9 ]> <html class"
+   },
+   "NASDAQ_CAL": {
+    "url": "https://api.nasdaq.com/api/calendar/earnings?date=2026-10-28",
+    "bytes": 51984,
+    "parsed": null,
+    "head": "{\"data\":{\"asOf\":\"Wed, Oct 28, 2026\",\"headers\":{\"time\":\"Time\",\"symbol\":\"Symbol\",\"name\":\"Company Name\",\"eps\":\"EPS\",\"surprise\":\"% Surprise\",\"marketCap\":\"Market Cap\",\"fiscalQuarterEnding\":\"Fiscal Quarter "
+   }
   }
  }
 }

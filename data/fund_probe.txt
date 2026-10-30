@@ -21,3 +21,17 @@ JPSV https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&c
 JPSV https://am.jpmorgan.com/us/en/asset-management/adv/products/jpmorgan-active-small-cap-value-etf-etf-shares-46654q708 -> 230716 bytes, parsed: None
 FRTY https://www.alger.com/pages/Products.aspx?productCode=2490 -> 194409 bytes, parsed: None
 FRTY https://www.alger.com/Pages/ETFs.aspx -> 97292 bytes, parsed: None
+SOURCE IVV -> 2314529 bytes, parsed: None :: b'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">'
+SOURCE IWF -> 1518522 bytes, parsed: None :: b'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">'
+SOURCE IWD -> 1515148 bytes, parsed: None :: b'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">'
+SOURCE IWN -> 1514487 bytes, parsed: None :: b'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">'
+SOURCE IWO -> 1523863 bytes, parsed: None :: b'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">'
+SOURCE IWM -> 1521353 bytes, parsed: None :: b'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">'
+SOURCE IWR -> 1508735 bytes, parsed: None :: b'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">'
+SOURCE SOXX -> 1491250 bytes, parsed: None :: b'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">'
+SOURCE IYW -> 1527814 bytes, parsed: None :: b'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">'
+SOURCE IYF -> 1497129 bytes, parsed: None :: b'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">'
+SOURCE IBB -> HTTPError HTTP Error 403: Forbidden
+SOURCE ITA -> 1481621 bytes, parsed: None :: b'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="en-US" xml:lang="en-US">'
+SOURCE ILDR -> 281415 bytes, parsed: None :: b'\r\n\r\n<!DOCTYPE html>\r\n\r\n<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->\r\n<!--[if IE 7 ]> <html class="ie7"> <![endif]-'
+SOURCE NASDAQ_CAL -> 51984 bytes, parsed: None :: b'{"data":{"asOf":"Wed, Oct 28, 2026","headers":{"time":"Time","symbol":"Symbol","name":"Company Name","eps":"EPS","surpri'
