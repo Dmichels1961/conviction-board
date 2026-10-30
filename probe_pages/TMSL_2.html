@@ -1,0 +1,4741 @@
+<!DOCTYPE HTML>
+
+  
+
+<html lang="en" data-site-country="us" data-rootpath="/content/fai/us/en" data-site-language="en" data-assets-base="base" data-audience="intermediary" ng-app="FAIGlobalApp" ng-controller="MessagesController" class="mobile-optimized-viewport">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta charset="UTF-8"/>
+  <title>Small-Mid Cap ETF | T. Rowe Price</title>
+  
+  <meta name="description" content="Find investment performance and objectives for the T. Rowe Price Small-Mid Cap ETF (TMSL)."/>
+  <meta name="template" content="transparent-equity-etf"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  
+
+  
+
+  <link rel="shortcut icon" href="/etc/designs/fai/clientlibs/base/images/favicon.png" type="image/png"/>
+  <link rel="stylesheet" href="https://www.troweprice.com/shared-assets/usi-wc-user-elements/1.3.13/fai_styles.css"/>
+  
+  
+
+
+  
+
+    
+    <!-- to make sure foundation is included only once -->
+
+    
+    
+      <!-- Imports fonts from CDN -->
+      <link rel="stylesheet" href="https://www.troweprice.com/beacon/foundation/5.9.3/fonts/fonts.css"/>
+      <!-- Imports style tokens from CDN -->
+      <link rel="stylesheet" href="https://www.troweprice.com/beacon/foundation/5.9.3/style-tokens/css/variables.css"/>
+      <!-- Imports utility classes from CDN -->
+      <link rel="stylesheet" href="https://www.troweprice.com/beacon/foundation/5.9.3/css/style.css"/>
+      <!-- Import TRP themes needed for Foundation 5.0+ from CDN -->
+      <link rel="stylesheet" href="https://www.troweprice.com/beacon/foundation/5.9.3/style-tokens/css/theme-trp.css"/>
+      <!-- Script below imports Beacon component autoloading function and mounts it to the window object -->
+      <!-- Script below imports Beacon component autoloading function and mounts it to the window object -->
+      <script type="module">
+        import { autoLoadBeaconComponents } from 'https://www.troweprice.com/beacon/foundation/5.9.3/components/register.js';
+        import * as BeaconUiKitFoundation from 'https://www.troweprice.com/beacon/foundation/5.9.3/components/register.js';
+
+        if (window.FAIFoundationLibsLoaded) {
+          console.warn('FAIFoundationLibsLoaded is already set, skipping loading of Beacon UI Kit Foundation');
+        }
+        else {
+          window.FAIFoundationLibsLoaded = true;
+          /** Running this function registers only the Beacon components found in the document.
+         * If new undefined Beacon components are added to the DOM later, they are registered as needed.
+         */
+          const projectName = "fai"
+          await autoLoadBeaconComponents(projectName);
+          if (window.FaiGlobalLibs) {
+            window.FaiGlobalLibs.BeaconUiKitFoundation = BeaconUiKitFoundation;
+            console.log('Beacon UI Kit Foundation loaded:');
+            var foundationEvent = new CustomEvent('fai-foundation-loaded');
+            document.dispatchEvent(foundationEvent);
+          }
+        }
+
+      </script>
+    
+  
+
+
+  
+    
+<script src="/etc/designs/fai/clientlibs/vendor/jquery.dc5e7f18c8d36ac1d3d4753a87c98d0a.js"></script>
+<script src="/etc/designs/fai/clientlibs/vendor/angularjs.65173117e785faf0544a9ccd659adc6e.js"></script>
+<script src="/etc/designs/fai/clientlibs/mmrMessages.41caf848f513234f49d223f0823cf989.js"></script>
+<script src="/etc.clientlibs/clientlibs/granite/jquery.1fc733054ddb2e2fcd4a0f763671047b.js"></script>
+<script src="/etc.clientlibs/clientlibs/granite/utils.15b6fc27cccbddb5fb7b88a7c6a2c7e4.js"></script>
+<script src="/etc/designs/fai/clientlibs/vendor/jqueryui.640347581be624cd990a11ede22580c4.js"></script>
+<script src="/etc.clientlibs/fai/clientlibs/clientlib-analytics.c10e62575cbaefc0b84215015de382f3.js"></script>
+
+
+
+  
+    
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/videocontainer/v1/videocontainer/clientlibs/clientlib-component-videocontainer.2d4878607432862d25a8dbe4722d47c8.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/video-full-width/v1/video-full-width/clientlibs.7d7859c2d3bc303754da577c3ac855b3.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/title/clientlibs.b645ca77007e0471f3b1d30b07ba3bb6.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/tiles/value-prop/v1/value-prop/clientlibs.bf68f887711bd56382d056d75fe19f99.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/tiles/quote/v1/quote/clientlibs.afb60d6ee76aeae9760432822dfa9583.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/tiles/key-facts-and-figures/v1/key-facts-and-figures/clientlibs.e5018e84fe2bbe5e4b72af32bfabd2f3.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/text/v1/text/clientlibs.80fcab2158ee59bf9a31dff405cf9524.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/tabs/v1/tabs/clientlibs.b6182a204b59597b819aad881de8490f.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/separator/clientlibs.bd0d3e51e0b87e979148a735de3c1e3a.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/modal/v1/modal/clientlibs.40b04df04b9a416d9f9a6278e2b3fe87.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/list/clientlibs.b46f40b0b435dd9da9f3214e62b41d3d.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/image/v1/image/clientlibs.36b27c35158e6c51b4bbc2e2ca23b83f.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/hero/v1/hero/clientlibs.baf2efd8745b97a7226c9649f6941cbf.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/experiencefragment/v2/experiencefragment/clientlibs.ad25d49d760d5d501be0c845db7464cc.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/experiencefragment/v1/experiencefragment/clientlibs.b46f40b0b435dd9da9f3214e62b41d3d.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/error-tile/clientlib.7c9d8b1ba7f3de940ac90e10045b9e68.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/download/clientlibs.ea8c5c34f3dd737a1ad344eea9e38fa3.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/container/v1/container/clientlibs.9a37ccc0c32356301e11e4b5e7a5e146.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/components/content/accordion/clientlibs.a3e48169e29205465b25b68ffa8e68f4.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/clientlibs/clientlib-dependencies.d41d8cd98f00b204e9800998ecf8427e.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/trp-core/clientlibs/clientlib-site.1b19b8c0c645f08dbb8b99735c6b42e9.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/fai/clientlibs/clientlib-dependencies.d41d8cd98f00b204e9800998ecf8427e.css" type="text/css">
+<link rel="stylesheet" href="/etc/designs/fai/clientlibs/base.07f8c34c1cf412c24ab3d3a35d361e4a.css" type="text/css">
+<link rel="stylesheet" href="/etc/designs/fai/clientlibs/vendor/jqueryui.107d88de6077aa48daba410051d571e2.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/fai/clientlibs/clientlib-foundation/generated-clientlibs.0a997b77af271139d6252c176813b082.css" type="text/css">
+
+
+
+
+
+<!-- <sly data-sly-resource="contexthub"/> -->
+
+
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+<script type="text/javascript">
+  function parseSafeJson(jsonString) {
+    try {
+      return JSON.parse(jsonString);
+    } catch (e) {
+      console.error("Unable to parse JSON: ", e);
+      return null;
+    }
+  }
+</script>
+
+<!-- Site Catalyst Init -->
+
+<!-- Site Catalyst Init -->
+
+<script type="text/javascript">
+  var tagJSONString = '{}';
+  window.metricsData = {
+    page: {
+      lob: 'INST',
+      site: 'FAI'
+    },
+    taxonomy: parseSafeJson(tagJSONString)
+  };
+</script>
+<script src="//assets.adobedtm.com/b6157d8f598e/a4667a2548dc/launch-bf819d07311a.min.js"></script>
+  
+<script type="text/javascript">
+  var apigeeDomain = 'https:\/\/api.public.troweprice.com';
+  var gdxAemWebConfiguration = {
+    ciamMePublicUrl: 'https:\/\/api.public.troweprice.com\/v0\/ciam\u002Dpublic\/me',
+    gisAemApigeeBaseUrl: 'https:\/\/www.troweprice.com',
+    gdxAemApigeeBaseUrl: 'https:\/\/www.troweprice.com',
+    gdxProductApigeeBaseUrl: 'https:\/\/api.public.troweprice.com\/gdx\u002Dproduct',
+    gdxProductApigeeApiKey: 'oQIlGkPYRyjb7MPqBtWNhCHA9v7yM7N7',
+    iidProductBaseUrl: 'https:\/\/api.public.troweprice.com\/iid\u002Dproduct',
+    iidProductApigeeBaseUrl: 'https:\/\/api.public.troweprice.com\/iid\u002Dproduct',
+    iidProductApigeeApiKey: 'oQIlGkPYRyjb7MPqBtWNhCHA9v7yM7N7',
+    iidSvcApigeeBaseUrl: 'https:\/\/api.public.troweprice.com\/iid\u002Dservices',
+    iidSvcApigeeApiKey: 'oQIlGkPYRyjb7MPqBtWNhCHA9v7yM7N7',
+    gdxServicesApigeeBaseUrl: 'https:\/\/api.public.troweprice.com\/iid\u002Dservices',
+    gdxServicesApigeeApiKey: 'oQIlGkPYRyjb7MPqBtWNhCHA9v7yM7N7',
+    eloGatewayApigeeApikey: 'P1vTWJHN3SAIhEpLwlZXb7HcZYYscYxyArUre6XmyNxrG6os',
+    eloGatewayApigeeBaseUrl: 'https:\/\/api.public.troweprice.com\/elo\u002Dgateway\u002Dsvc',
+    wwwBaseUrl: 'https:\/\/www.troweprice.com',
+    aemHost: 'https:\/\/www.troweprice.com',
+    audience: 'intermediary',
+    language: 'en',
+    country: 'us',
+    dictionaryBaseUrl: '/libs/cq/i18n/dict.',
+    aemContextRoot: '/financial-intermediary/',
+    assetBaseUrl: 'https://www.troweprice.com/shared-assets/usi-wc-user-elements/1.3.13/assets/',
+    crdRegistrationEnabled: 'false',
+    faiWebComponentUrl: 'https://www.troweprice.com/shared-assets/fai-web-components/1.4.0',
+    faiWebCompFoundationVersion: '5.9.3'
+  };
+  var ivsConfiguration = {
+    ivsApiKey: 'uYsCBNNEDqARe1qdsN1oilm8lcXKGzUl',
+  };
+  var clawsLoginConfiguration = {
+    requireCommonLogin: 'false',
+    ciamMePublicUrl: 'https:\/\/api.public.troweprice.com\/v0\/ciam\u002Dpublic\/me',
+    ciamMePublicUrlInternal: 'https:\/\/api.awstrp.net\/v0\/ciam\u002Dpublic\/me',
+    clawsLogoutUrl: 'https:\/\/www.troweprice.com\/usis\/login\/logout',
+    denyB2CLoginEnabled: 'true',
+  }
+  var pagePropertiesConfiguration = {
+    literatureHost: 'https:\/\/www.troweprice.com',
+    pageIsRestricted: 'true' === 'false' ? true : false,
+    pageIsInstitutional: 'true' === 'false' ? true : false,
+    loginLocation: ''
+  }
+</script>
+
+  
+    
+    
+
+    
+    
+    
+    
+
+  
+</head>
+
+<body class="mobile-optimized-viewport editable  ">
+  
+  
+    
+
+
+
+    
+
+<div id="header-eb3972d615" class="cmp-experiencefragment cmp-experiencefragment--header-eb3972d615"><div class="xfpage page basicpage b-reset beacon-theme-modern-outlook">
+
+    
+
+
+
+<div class="xf-content-height">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="navigation parsys aem-GridColumn aem-GridColumn--default--12">
+
+    <nav aria-label="Primary" class="beacon-on-darker">
+        
+        
+    
+    
+    <fai-beacon-navigation id="main-al" wordmark-href="/financial-intermediary/us/en/home.html" beacon-aria-label="T. Rowe Price Financial Intermediaries Home Page" defer-until="defined">
+        
+            <a slot="skip-link" href="#a11y-skip-to-main-content">Skip to Content</a>
+            
+            
+            
+ 
+
+
+  
+    
+        
+    
+        
+    
+        
+    
+        
+            <fai-beacon-navigation-button slot="site-selector" id="site-al" opens="site-selector">
+                
+                Financial Advisors/Intermediaries
+            </fai-beacon-navigation-button>
+        
+    
+        
+    
+        
+    
+        
+    
+    <fai-beacon-navigation-popover  slot="site-selector" opens-by="site-selector">
+        <fai-beacon-navigation-expanded >
+            <h2 slot="title">Choose a site</h2>
+            <fai-beacon-navigation-expanded  split-columns="false">
+                
+                    <a href="https://www.troweprice.com/en/us">Enterprise</a>
+                
+                    <a href="https://www.troweprice.com/personal-investing/index.html">Personal Investing</a>
+                
+                    <a href="https://www.troweprice.com/workplace/en/login.html">Workplace Retirement</a>
+                
+                    <a href="https://www.troweprice.com/financial-intermediary/us/en/home.html" selected-site>Financial Advisors/Intermediaries</a>
+                
+                    <a href="https://www.troweprice.com/institutional/us/en/home.html">Institutional Investors/Consultants</a>
+                
+                    <a href="https://www.troweprice.com/retirement-plan-services/en/home.html">Retirement Plan Sponsors/Consultants</a>
+                
+                    <a href="https://www.oakhilladvisors.com/">Oak Hill Advisors, L.P. (OHA) - External Site</a>
+                
+            </fai-beacon-navigation-expanded >
+            <fai-beacon-navigation-expanded  country-selector=""></fai-beacon-navigation-expanded >
+        </fai-beacon-navigation-expanded >
+    </fai-beacon-navigation-popover >
+    
+
+
+
+
+    
+    <fai-beacon-navigation-toolbelt slot="site-selector" opens-by="country-selector">
+        <span slot="close-button">Close</span>
+        <fai-beacon-navigation-expanded>
+            <h2 slot="title">Localization Settings</h2>
+            <fai-beacon-navigation-expanded>
+                <fai-beacon-country-selector>
+                    <h3 slot="title">Current Selection</h3>
+                    
+                        <fai-beacon-region-selector>
+                            <h3 slot="title">Americas</h3>
+                            <div slot="item-count">(2)</div>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Canada</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/ca/en/home.html" lang="en-ca">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">United States</div>
+                                    
+                                        <span lang="en-us" selected-language>English</span>
+                                        
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                        </fai-beacon-region-selector>
+                    
+                        <fai-beacon-region-selector>
+                            <h3 slot="title">Asia Pacific</h3>
+                            <div slot="item-count">(5)</div>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Australia</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/au/en/home.html" lang="en-au">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Hong Kong</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/hk/en/home.html" lang="en-hk">English</a>
+										
+										
+                                    
+                                        
+                                        <a href="/financial-intermediary/hk/zh/home.html" lang="zh-hk">中文</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Japan</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/jp/ja/home.html" lang="ja-jp">日本語</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">New Zealand</div>
+                                    
+                                        
+                                        <a href="/en/nz-old" lang="en-nz">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Singapore</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/sg/en/home.html" lang="en-sg">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                        </fai-beacon-region-selector>
+                    
+                        <fai-beacon-region-selector>
+                            <h3 slot="title">Europe</h3>
+                            <div slot="item-count">(20)</div>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Austria</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/at/en/home.html" lang="en-at">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Belgium</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/be/en/home.html" lang="en-be">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Denmark</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/dk/en/home.html" lang="en-dk">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Estonia</div>
+                                    
+                                        
+                                        <a href="/en/ee-old" lang="en-ee">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Finland</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/fi/en/home.html" lang="en-fi">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">France</div>
+                                    
+                                        
+                                        <a href="/en/fr-old" lang="en-fr">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Germany</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/de/en/home.html" lang="en-de">English</a>
+										
+										
+                                    
+                                        
+                                        <a href="/financial-intermediary/de/de/startseite.html" lang="de-de">Deutsch</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Iceland</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/is/en/home.html" lang="en-is">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Ireland</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/ie/en/home.html" lang="en-ie">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Italy</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/it/en/home.html" lang="en-it">English</a>
+										
+										
+                                    
+                                        
+                                        <a href="/financial-intermediary/it/it/home.html" lang="it-it">Italiano</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Latvia</div>
+                                    
+                                        
+                                        <a href="/en/lv-old" lang="en-lv">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Lithuania</div>
+                                    
+                                        
+                                        <a href="/en/lt-old" lang="en-lt">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Luxembourg</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/lu/en/home.html" lang="en-lu">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Netherlands</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/nl/en/home.html" lang="en-nl">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Norway</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/no/en/home.html" lang="en-no">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Portugal</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/pt/en/home.html" lang="en-pt">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Spain</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/es/en/home.html" lang="en-es">English</a>
+										
+										
+                                    
+                                        
+                                        <a href="/financial-intermediary/es/es/home.html" lang="es-es">Español</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Sweden</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/se/en/home.html" lang="en-se">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">Switzerland</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/ch/en/home.html" lang="en-ch">English</a>
+										
+										
+                                    
+                                        
+                                        
+										
+										<a href="/financial-intermediary/ch/de-ch/startseite.html" lang="de-ch">Deutsch</a>
+                                    
+                                </fai-beacon-country>
+                            
+                                <fai-beacon-country>
+                                    
+                                    <div slot="title">United Kingdom</div>
+                                    
+                                        
+                                        <a href="/financial-intermediary/uk/en/home.html" lang="en-uk">English</a>
+										
+										
+                                    
+                                </fai-beacon-country>
+                            
+                        </fai-beacon-region-selector>
+                    
+                </fai-beacon-country-selector>
+            </fai-beacon-navigation-expanded>
+        </fai-beacon-navigation-expanded>
+    </fai-beacon-navigation-toolbelt>
+
+
+
+
+ 
+
+            
+
+
+
+    
+    
+        
+        
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+        <a slot="local-zone" href="javascript:trp.fai.sitePreference.renderOverlay()">Preferred Website</a>
+        
+        
+    
+    
+    
+    
+    
+    
+
+    
+
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+        <a slot="local-zone" href="/financial-intermediary/us/en/about/contact-us.html">Contact Us</a>
+        
+        
+    
+    
+    
+    
+    
+    
+
+    
+
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+        <a slot="local-zone" href="/financial-intermediary/us/en/subscriptions/dashboard.html">Subscribe</a>
+        
+        
+    
+    
+    
+    
+    
+    
+
+    
+
+            
+        
+    
+
+
+
+
+            
+
+
+
+    
+    
+        
+        
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <fai-beacon-navigation-button id="fai-masthead-navigation-button-search" slot="global-zone" hide-chevron header-zone opens="Search">
+            <img slot="icon" alt="" src="/content/dam/fai/images/navigation-thumbnails/magnifying-glass-search-icon.svg" data-metrics-clickable="true" data-metrics-type="BTN" data-metrics-link-text="Search"/>
+            Search
+        </fai-beacon-navigation-button>
+        
+        
+        
+    
+    
+    
+    
+    
+    <fai-beacon-navigation-toolbelt slot="global-zone" opens-by="Search">
+        <span slot="close-button">Close</span>
+        
+    
+        <fai-beacon-navigation-expanded>
+            <h2 slot="title" aria-label="Search field">
+                Search
+            </h2>
+            
+            
+            <div slot="promo">
+                
+                
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="search aem-GridColumn aem-GridColumn--default--12"><div id="fai-page-component-search-field" class="search-container">
+  <div class="search-field-container">
+    <div class="search-field-container--input">
+      <fai-beacon-control>
+        <input id="fai-page-component-search-field-input" class="search-input-field beacon-control__field" type="text" title="Search Input Field" aria-label="Search Input" aria-disabled="false"/>
+      </fai-beacon-control>
+    </div>
+    <div class="search-button-container">
+      <fai-beacon-button id="fai-page-component-search-field-button" type="button" label="Search" button-variant="primary" scale="normal" aria-disabled="false">
+        Search
+      </fai-beacon-button>
+    </div>
+  </div>
+
+  <div class="predictive-search-results-section">
+    <div class="search-results">
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+    
+<script src="/etc/designs/fai/clientlibs/search.a06afdcc44ab743311923f6b383e49bf.js"></script>
+<script src="/etc.clientlibs/fai/components/content/search/generated-clientlibs.d41d8cd98f00b204e9800998ecf8427e.js"></script>
+
+
+
+</div>
+
+    
+</div>
+
+            </div>
+            
+            
+        </fai-beacon-navigation-expanded>
+    
+
+    </fai-beacon-navigation-toolbelt>
+
+        
+    
+
+            
+        
+    
+
+
+
+            
+
+
+
+    
+    
+        
+        
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <fai-beacon-navigation-button id="fai-masthead-navigation-my-account" slot="global-zone" opens="Account">
+            
+            Account
+        </fai-beacon-navigation-button>
+        
+        
+        
+        
+    
+    
+    
+    
+    
+    <fai-beacon-navigation-popover slot="global-zone" opens-by="Account">
+         
+    
+        <fai-beacon-navigation-expanded split-columns="false">
+            <h2 slot="title" aria-label="Account">
+                Account
+            </h2>
+            
+            
+            
+            
+            
+                <fai-beacon-navigation-expanded split-columns="false">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/subscriptions/dashboard.html" aria-label="Subscriptions and Settings">Subscriptions &amp; Settings</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="javascript:trp.fai.user.logout()" aria-label="Log Out">Log Out</a>
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+        </fai-beacon-navigation-expanded>
+    
+
+    </fai-beacon-navigation-popover>
+
+    
+
+            
+        
+    
+
+
+
+            
+
+
+
+
+    
+    
+    
+        
+            
+            
+    
+    
+    <fai-beacon-button slot="action-zone" scale="normal" link-target="_self" link-href="javascript:trp.fai.overlay.signinregister.showRegisterOverlay()" variant="secondary" id="fai-masthead-navigation-register" beacon-aria-label="Register" defer-until="defined">
+        Register
+        
+    </fai-beacon-button>
+
+        
+            
+            
+    
+    
+    <fai-beacon-button slot="action-zone" scale="normal" link-target="_self" link-href="javascript:trp.fai.overlay.signinregister.showSignInOverlay()" variant="primary" id="fai-masthead-navigation-log-in" beacon-aria-label="Log in" defer-until="defined">
+        Log in
+        
+    </fai-beacon-button>
+
+        
+    
+
+
+            
+
+
+
+    
+    
+        
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <fai-beacon-navigation-button beacon-aria-label="Products" opens="Products">
+            
+            Products
+        </fai-beacon-navigation-button>
+        
+        
+        
+    
+    
+    
+    
+    
+    <fai-beacon-navigation-toolbelt opens-by="Products">
+        <span slot="close-button">Close</span>
+        
+    
+        <fai-beacon-navigation-expanded>
+            <h2 slot="title" aria-label="Products">
+                Products
+            </h2>
+            
+            
+            
+            
+            
+                <fai-beacon-navigation-expanded>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        
+                        
+                        <fai-beacon-navigation-expanded>
+                            
+                            
+                            <h4 slot="title" aria-label="Mutual Funds">
+                                Mutual Funds
+                            </h4>
+                            
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=mutualfund" aria-label="Mutual Fund Finder">Mutual Fund Finder</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=mutualfund&assetClass=u.s.+equity" aria-label="U.S. Equity Mutual Funds">U.S. Equity</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=mutualfund&assetClass=international+equity" aria-label="International Equity Mutual Funds">International Equity</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=mutualfund&assetClass=fixed+income" aria-label="Fixed Income Mutual Funds">Fixed Income</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=mutualfund&assetClass=asset+allocation" aria-label="Multi-Asset Mutual Funds">Multi-Asset</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=mutualfund&assetClass=target+date" aria-label="Target Date Mutual Funds">Target Date</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=mutualfund&assetClass=money+market" aria-label="Money Market Mutual Funds">Money Market</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=mutualfund&tabname=Literature" aria-label="Mutual Fund Literature">Literature</a>
+                            
+                        </fai-beacon-navigation-expanded>
+                    
+                        
+                        
+                        
+                        
+                        <fai-beacon-navigation-expanded>
+                            
+                            
+                            <h4 slot="title" aria-label="Separately Managed Accounts (SMAs)">
+                                Separately Managed Accounts (SMAs)
+                            </h4>
+                            
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investments/separately-managed-accounts.html" aria-label="Separately Managed Accounts Overview">Overview</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=sma" aria-label="SMA Finder: Separately Managed Accounts (SMAs)">SMA Finder</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=sma&assetClass=u.s.+equity" aria-label="U.S. Equity Separately Managed Accounts">U.S. Equity</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=sma&assetClass=international+equity" aria-label="International Equity Separately Managed Accounts">International Equity</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=sma&assetClass=fixed+income" aria-label="Fixed Income Separately Managed Accounts">Fixed Income</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=sma&assetClass=asset+allocation" aria-label="Multi-Asset Separately Managed Accounts">Multi-Asset</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=sma&assetClass=all-assetclass&category=All&shareClass=All&tabname=Literature" aria-label="Separately Managed Accounts Literature">Literature</a>
+                            
+                        </fai-beacon-navigation-expanded>
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/investments/model-portfolio-capabilities.html" aria-label="Model Portfolios">Model Portfolios</a>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        <fai-beacon-navigation-expanded>
+                            
+                            
+                            <h4 slot="title" aria-label="Exchange-Traded Funds (ETFs)">
+                                Exchange-Traded Funds (ETFs)
+                            </h4>
+                            
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investments/etfs.html" aria-label="Exchange-Traded Funds Overview">Overview</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=Exchange+Traded+Fund" aria-label="ETF Finder: Exchange-Traded Funds (ETFs)">ETF Finder</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=Exchange+Traded+Fund&assetClass=u.s.+equity" aria-label="U.S. Equity Exchange-Traded Funds">U.S. Equity</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=Exchange+Traded+Fund&assetClass=international+equity" aria-label="International Equity Exchange-Traded Funds">International Equity</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=Exchange+Traded+Fund&assetClass=fixed+income" aria-label="Fixed Income Exchange-Traded Funds">Fixed Income</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=Exchange+Traded+Fund&assetClass=all-assetclass&category=all-category&shareClass=all-shareClass&tabname=Literature" aria-label="Exchange-Traded Funds Literature">Literature</a>
+                            
+                        </fai-beacon-navigation-expanded>
+                    
+                        
+                        
+                        
+                        
+                        <fai-beacon-navigation-expanded>
+                            
+                            
+                            <h4 slot="title" aria-label="Collective Investment Trusts (CITs)">
+                                Collective Investment Trusts (CITs)
+                            </h4>
+                            
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investments/collective-investment-trusts.html" aria-label="Collective Investment Trusts Overview">Overview</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=CIT" aria-label="CIT Finder: Collective Investment Trusts (CITs)">CIT Finder</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=CIT&assetClass=u.s.+equity" aria-label="U.S. Equity Collective Investment Trusts">U.S. Equity</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=CIT&assetClass=international+equity" aria-label="International Equity Collective Investment Trusts">International Equity</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=CIT&assetClass=fixed+income" aria-label="Fixed Income Collective Investment Trusts">Fixed Income</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=CIT&assetClass=target+date" aria-label="Target Date Collective Investment Trusts">Target Date</a>
+                            
+                                
+                                
+                                <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=CIT&assetClass=all-assetclass&category=all-category&shareClass=all-shareClass&tabname=Literature" aria-label="Collective Investment Trusts Literature">Literature</a>
+                            
+                        </fai-beacon-navigation-expanded>
+                    
+                        
+                        
+                        
+                        
+                        <fai-beacon-navigation-expanded>
+                            
+                            
+                            <h4 slot="title" aria-label="Private Markets">
+                                Private Markets
+                            </h4>
+                            
+                            
+                                
+                                
+                                <a href="https://www.troweprice.com/en/us/ocredit" target="_blank" aria-label="T. Rowe Price OHA Select Private Credit Fund">T. Rowe Price OHA Select Private Credit Fund</a>
+                            
+                                
+                                
+                                <a href="https://www.troweprice.com/en/us/oflex" target="_blank" aria-label="T. Rowe Price OHA Flexible Credit Income Fund">T. Rowe Price OHA Flexible Credit Income Fund</a>
+                            
+                                
+                                
+                                <a href="https://www.troweprice.com/tpriv" target="_blank" aria-label="T. Rowe Price Goldman Sachs Private Markets Fund">T. Rowe Price Goldman Sachs Private Markets Fund</a>
+                            
+                                
+                                
+                                <a href="https://www.troweprice.com/financial-intermediary/us/en/investments/interval-funds/t-rowe-price-goldman-sachs-all-equity-access-fund-class-i.html" target="_blank" aria-label="T. Rowe Price Goldman Sachs All Equity Access Fund">T. Rowe Price Goldman Sachs All Equity Access Fund</a>
+                            
+                        </fai-beacon-navigation-expanded>
+                    
+                </fai-beacon-navigation-expanded>
+            
+                <fai-beacon-navigation-expanded>
+                    <h3 slot="title">
+                        Resources
+                    </h3>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/investments/tax-center.html" aria-label="Tax Center">Tax Center</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/investments/capacity-constrained-funds.html" aria-label="Capacity Constrained Strategies">Capacity Constrained Strategies</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=mutualfund&assetClass=all-assetclass&category=All&shareClass=All&tabname=Literature" aria-label="Product Literature Finder">Product Literature Finder</a>
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+        </fai-beacon-navigation-expanded>
+    
+
+    </fai-beacon-navigation-toolbelt>
+
+        
+    
+
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <fai-beacon-navigation-button beacon-aria-label="Capabilities" opens="Capabilities">
+            
+            Capabilities
+        </fai-beacon-navigation-button>
+        
+        
+        
+    
+    
+    
+    
+    
+    <fai-beacon-navigation-toolbelt opens-by="Capabilities">
+        <span slot="close-button">Close</span>
+        
+    
+        <fai-beacon-navigation-expanded>
+            <h2 slot="title" aria-label="Capabilities">
+                Capabilities
+            </h2>
+            
+            
+            <div slot="promo">
+                
+                
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="article-tile base-tile base-component aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+  
+  
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fai-beacon-tile tag-separator="," container="free-floating" aspect-ratio="default" scale="mini" orientation="horizontal" position="right" layout="standard" template="article">
+        
+        
+    <img src="/content/dam/fai/images/navigation-thumbnails/capabilities-cta-perform-volatile-market.jpg" role="presentation" slot="media"/>
+
+        
+        
+        <span slot="eyebrow">
+            <ul>
+                <li>Performance in Volatile Markets</li>
+
+            </ul>
+        </span>
+        
+        <h3 slot="heading">
+            <a href="/financial-intermediary/us/en/insights/articles/2022/q1/market-volatility-tools-to-help-guide-your-clients.html">How we’ve helped investors navigate 20 years of market ups and downs.<br />
+</a></h3>
+        
+        <div class="b-flow-space" slot="footer">
+            
+            
+  
+  
+
+
+            
+        </div>
+        
+    </fai-beacon-tile>
+
+
+  
+
+
+
+
+</div>
+
+    
+</div>
+
+            </div>
+            
+            
+                <fai-beacon-navigation-expanded>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/capabilities/investment-capabilities.html" aria-label="Investment Capabilities Overview">Investment Capabilities Overview</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/capabilities/equities.html" aria-label="Equity Capabilities">Equity</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/capabilities/fixed-income.html" aria-label="Fixed Income Capabilities">Fixed Income</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/capabilities/multi-asset-capabilities.html" aria-label="Multi-Asset Capabilities">Multi-Asset</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/capabilities/private-markets.html" aria-label="Private Markets">Private Markets</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/capabilities/target-date-solutions.html" aria-label="Target Date Capabilities">Target Date</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/capabilities/retirement.html" aria-label="Retirement Capabilities">Retirement</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/en/us/about-us/esg/esg-investing" aria-label="Environmental, Social, and Governance (ESG)">Environmental, Social, and Governance (ESG)</a>
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+        </fai-beacon-navigation-expanded>
+    
+
+    </fai-beacon-navigation-toolbelt>
+
+        
+    
+
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <fai-beacon-navigation-button beacon-aria-label="Insights" opens="Insights">
+            
+            Insights
+        </fai-beacon-navigation-button>
+        
+        
+        
+    
+    
+    
+    
+    
+    <fai-beacon-navigation-toolbelt opens-by="Insights">
+        <span slot="close-button">Close</span>
+        
+    
+        <fai-beacon-navigation-expanded>
+            <h2 slot="title" aria-label="Insights">
+                Insights
+            </h2>
+            
+            
+            <div slot="promo">
+                
+                
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="article-tile base-tile base-component aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+  
+  
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fai-beacon-tile tag-separator="," container="free-floating" aspect-ratio="default" scale="mini" orientation="horizontal" position="right" layout="standard" template="article">
+        
+        
+    <img src="/content/dam/fai/images/navigation-thumbnails/insights-cta-2025-global-market-outlook.png" role="presentation" slot="media"/>
+
+        
+        
+        <span slot="eyebrow">
+            <ul>
+                <li>2026 Midyear Market Outlook</li>
+
+            </ul>
+        </span>
+        
+        <h3 slot="heading">
+            <a href="/financial-intermediary/us/en/insights/articles/global-market-outlook.html">Five shifts reshaping markets<br />
+</a></h3>
+        
+        <div class="b-flow-space" slot="footer">
+            
+            
+  
+  
+
+
+            
+        </div>
+        
+    </fai-beacon-tile>
+
+
+  
+
+
+
+
+</div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule-1194779069">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-light-blue sep padding-small sep hide-line"></div>
+</div></div>
+<div class="article-tile base-tile base-component aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+  
+  
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fai-beacon-tile tag-separator="," container="free-floating" aspect-ratio="default" scale="mini" orientation="horizontal" position="right" layout="standard" template="article">
+        
+        
+    <img src="/content/dam/fai/images/navigation-thumbnails/insights-cta-ce-center.jpg" role="presentation" slot="media"/>
+
+        
+        
+        <span slot="eyebrow">
+            <ul>
+                <li>CE Center</li>
+
+            </ul>
+        </span>
+        
+        <h3 slot="heading">
+            <a href="/financial-intermediary/us/en/insights/financial-advisor-continuing-education.html">Earn CE credits and strengthen your practice at the same time.<br />
+</a></h3>
+        
+        <div class="b-flow-space" slot="footer">
+            
+            
+  
+  
+
+
+            
+        </div>
+        
+    </fai-beacon-tile>
+
+
+  
+
+
+
+
+</div>
+
+    
+</div>
+
+            </div>
+            
+            
+                <fai-beacon-navigation-expanded>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/insights/view-all-insights.html" aria-label="All Insights">All Insights</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/insights/markets-economics.html" aria-label="Markets &amp; Economics Insights">Markets &amp; Economics</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/insights/asset-allocation.html" aria-label="Asset Allocation Insights">Asset Allocation</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/insights/investments.html" aria-label="Investments Insights">Investments</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/insights/retirement.html" aria-label="Retirement Insights">Retirement</a>
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+        </fai-beacon-navigation-expanded>
+    
+
+    </fai-beacon-navigation-toolbelt>
+
+        
+    
+
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <fai-beacon-navigation-button beacon-aria-label="Portfolio Construction" opens="Portfolio Construction">
+            
+            Portfolio Construction
+        </fai-beacon-navigation-button>
+        
+        
+        
+    
+    
+    
+    
+    
+    <fai-beacon-navigation-toolbelt opens-by="Portfolio Construction">
+        <span slot="close-button">Close</span>
+        
+    
+        <fai-beacon-navigation-expanded>
+            <h2 slot="title" aria-label="Portfolio Construction">
+                Portfolio Construction
+            </h2>
+            
+            
+            <div slot="promo">
+                
+                
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="article-tile base-tile base-component aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+  
+  
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fai-beacon-tile tag-separator="," container="free-floating" aspect-ratio="default" scale="mini" orientation="horizontal" position="right" layout="standard" template="article">
+        
+        
+    <img src="/content/dam/fai/images/navigation-thumbnails/asset-allocation-viewpoints-cta.jpg" role="presentation" slot="media"/>
+
+        
+        
+        <span slot="eyebrow">
+            <ul>
+                <li>Asset Allocation Viewpoints</li>
+
+            </ul>
+        </span>
+        
+        <h3 slot="heading">
+            <a href="/financial-intermediary/us/en/insights/articles/asset-allocation-viewpoints.html">Learn how our Asset Allocation Committee is positioning its portfolios.<br />
+</a></h3>
+        
+        <div class="b-flow-space" slot="footer">
+            
+            
+  
+  
+
+
+            
+        </div>
+        
+    </fai-beacon-tile>
+
+
+  
+
+
+
+
+</div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule-1272730530">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-light-blue sep padding-small sep hide-line"></div>
+</div></div>
+<div class="article-tile base-tile base-component aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+  
+  
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fai-beacon-tile tag-separator="," container="free-floating" aspect-ratio="default" scale="mini" orientation="horizontal" position="right" layout="standard" template="article">
+        
+        
+    <img src="/content/dam/fai/insights/portfolio-construction-pulse/pc-pulse-nav-image.png" role="presentation" slot="media"/>
+
+        
+        
+        <span slot="eyebrow">
+            <ul>
+                <li>Portfolio Construction Pulse</li>
+
+            </ul>
+        </span>
+        
+        <h3 slot="heading">
+            <a href="/financial-intermediary/us/en/insights/portfolio-construction-pulse.html">Portfolio Construction Pulse Summer 2026: Diversifying with conviction<br />
+</a></h3>
+        
+        <div class="b-flow-space" slot="footer">
+            
+            
+  
+  
+
+
+            
+        </div>
+        
+    </fai-beacon-tile>
+
+
+  
+
+
+
+
+</div>
+
+    
+</div>
+
+            </div>
+            
+            
+                <fai-beacon-navigation-expanded>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/portfolio-construction/overview.html" aria-label="Portfolio Construction Solutions Overview">Portfolio Construction Solutions Overview</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/portfolio-construction/manager-review.html" aria-label="Manager Review featuring Art of Clean Up®">Manager Review featuring Art of Clean Up®</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/portfolio-construction/model-construction.html" aria-label="Model Construction">Model Construction</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/portfolio-construction/model-review.html" aria-label="Model Review">Model Review</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/portfolio-construction/insights.html" aria-label="Insights">Insights</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/advisor-dashboard/home.html" aria-label="Advisor Dashboard">Advisor Dashboard</a>
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+        </fai-beacon-navigation-expanded>
+    
+
+    </fai-beacon-navigation-toolbelt>
+
+        
+    
+
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <fai-beacon-navigation-button beacon-aria-label="Practice Management" opens="Practice Management">
+            
+            Practice Management
+        </fai-beacon-navigation-button>
+        
+        
+        
+    
+    
+    
+    
+    
+    <fai-beacon-navigation-toolbelt opens-by="Practice Management">
+        <span slot="close-button">Close</span>
+        
+    
+        <fai-beacon-navigation-expanded>
+            <h2 slot="title" aria-label="Practice Management">
+                Practice Management
+            </h2>
+            
+            
+            <div slot="promo">
+                
+                
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="article-tile base-tile base-component aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+  
+  
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fai-beacon-tile tag-separator="," container="free-floating" aspect-ratio="default" scale="mini" orientation="horizontal" position="right" layout="standard" template="article">
+        
+        
+    <img src="/content/dam/fai/tools-resources/continuing-education-center/social-security-solutions-to-work-for-your-clients-nav-img.jpg" role="presentation" slot="media"/>
+
+        
+        
+        <span slot="eyebrow">
+            <ul>
+                <li>The Power of Social Security</li>
+
+            </ul>
+        </span>
+        
+        <h3 slot="heading">
+            <a href="/financial-intermediary/us/en/insights/programs/social-security.html?van=powerofsocialsecurity">Put Social Security solutions to work for your clients<br />
+</a></h3>
+        
+        <div class="b-flow-space" slot="footer">
+            
+            
+  
+  
+
+
+            
+        </div>
+        
+    </fai-beacon-tile>
+
+
+  
+
+
+
+
+</div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule-1319561317">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-light-blue sep padding-small sep hide-line"></div>
+</div></div>
+<div class="article-tile base-tile base-component aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+  
+  
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fai-beacon-tile tag-separator="," container="free-floating" aspect-ratio="default" scale="mini" orientation="horizontal" position="right" layout="standard" template="article">
+        
+        
+    <img src="/content/dam/fai/tools-resources/continuing-education-center/pm-pulse-nav-thumb.svg" role="presentation" slot="media"/>
+
+        
+        
+        <span slot="eyebrow">
+            <ul>
+                <li>Practice Management Pulse</li>
+
+            </ul>
+        </span>
+        
+        <h3 slot="heading">
+            <a href="/financial-intermediary/us/en/insights/programs/practice-management-pulse.html">Curated trends, insights, and actions<br />
+</a></h3>
+        
+        <div class="b-flow-space" slot="footer">
+            
+            
+  
+  
+
+
+            
+        </div>
+        
+    </fai-beacon-tile>
+
+
+  
+
+
+
+
+</div>
+
+    
+</div>
+
+            </div>
+            
+            
+                <fai-beacon-navigation-expanded>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/practice-management/overview.html" aria-label="Practice Management Overview">Practice Management Overview</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/practice-management/client-acquisition.html" aria-label="Client Acquisition">Client Acquisition</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/practice-management/client-engagement.html" aria-label="Client Engagement">Client Engagement</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/practice-management/business-management.html" aria-label="Business Management">Business Management</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/insights/financial-advisor-continuing-education.html" aria-label="CE Center">CE Center</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/ssanalyzer/overview.html" aria-label="Social Security Analyzer">SSAnalyzer<sup>®</sup></a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/income-solver/overview.html" aria-label="Income Solver">Income Solver<sup>®</sup></a>
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+        </fai-beacon-navigation-expanded>
+    
+
+    </fai-beacon-navigation-toolbelt>
+
+        
+    
+
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <fai-beacon-navigation-button beacon-aria-label="Tools and Resources" opens="Tools and Resources">
+            
+            Tools and Resources
+        </fai-beacon-navigation-button>
+        
+        
+        
+    
+    
+    
+    
+    
+    <fai-beacon-navigation-toolbelt opens-by="Tools and Resources">
+        <span slot="close-button">Close</span>
+        
+    
+        <fai-beacon-navigation-expanded>
+            <h2 slot="title" aria-label="Tools and Resources">
+                Tools and Resources
+            </h2>
+            
+            
+            
+            
+            
+                <fai-beacon-navigation-expanded>
+                    <h3 slot="title">
+                        SSAnalyzer®
+                    </h3>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/ssanalyzer/overview.html" aria-label="SSAnalyzer Overview">Overview</a>
+                        
+                        
+                    
+                        
+                        <fai-beacon-button beacon-aria-label="Access SSAnalyzer" href="/financial-intermediary/us/en/ssanalyzer-login.html" link-href="/financial-intermediary/us/en/ssanalyzer-login.html" variant="tertiary">Access SSAnalyzer
+                            <fai-beacon-icon slot="suffix" name="locked"></fai-beacon-icon>
+                        </fai-beacon-button>
+                        
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+                <fai-beacon-navigation-expanded>
+                    <h3 slot="title">
+                        Income Solver®
+                    </h3>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/income-solver/overview.html" aria-label="Income Solver Overview">Overview</a>
+                        
+                        
+                    
+                        
+                        <fai-beacon-button beacon-aria-label="Access Income Solver" href="/financial-intermediary/us/en/income-solver.html" link-href="/financial-intermediary/us/en/income-solver.html" variant="tertiary">Access Income Solver
+                            <fai-beacon-icon slot="suffix" name="locked"></fai-beacon-icon>
+                        </fai-beacon-button>
+                        
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+                <fai-beacon-navigation-expanded>
+                    <h3 slot="title">
+                        Portfolio Construction
+                    </h3>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/advisor-dashboard/home.html" aria-label="Advisor Dashboard Overview">Overview</a>
+                        
+                        
+                    
+                        
+                        <fai-beacon-button beacon-aria-label="Access Advisor Dashboard" href="/financial-intermediary/us/en/advisor-dashboard/dashboard.html" link-href="/financial-intermediary/us/en/advisor-dashboard/dashboard.html" variant="tertiary">Access Advisor Dashboard
+                            <fai-beacon-icon slot="suffix" name="locked"></fai-beacon-icon>
+                        </fai-beacon-button>
+                        
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+                <fai-beacon-navigation-expanded>
+                    <h3 slot="title">
+                        Investment Research
+                    </h3>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=mutualfund" aria-label="Product Finer">Product Finder</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/investment-research-tool.html#investment=mutualfund&assetClass=all-assetclass&category=All&shareClass=All&tabname=Literature" aria-label="Literature Finder">Literature Finder</a>
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+                <fai-beacon-navigation-expanded>
+                    <h3 slot="title">
+                        Resources
+                    </h3>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/insights/financial-advisor-continuing-education.html" aria-label="CE Center">CE Center</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/investments/tax-center.html" aria-label="Tax Center">Access Tax Center</a>
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+        </fai-beacon-navigation-expanded>
+    
+
+    </fai-beacon-navigation-toolbelt>
+
+        
+    
+
+            
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <fai-beacon-navigation-button beacon-aria-label="About" opens="About">
+            
+            About
+        </fai-beacon-navigation-button>
+        
+        
+        
+    
+    
+    
+    
+    
+    <fai-beacon-navigation-toolbelt opens-by="About">
+        <span slot="close-button">Close</span>
+        
+    
+        <fai-beacon-navigation-expanded>
+            <h2 slot="title" aria-label="About">
+                About
+            </h2>
+            
+            
+            <div slot="promo">
+                
+                
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="article-tile base-tile base-component aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+  
+  
+  
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fai-beacon-tile tag-separator="," container="free-floating" aspect-ratio="default" scale="mini" orientation="horizontal" position="right" layout="standard" template="article">
+        
+        
+    <img src="/content/dam/fai/images/navigation-thumbnails/capabilities-cta-perform-volatile-market.jpg" role="presentation" slot="media"/>
+
+        
+        
+        <span slot="eyebrow">
+            <ul>
+                <li>Performance in Volatile Markets</li>
+
+            </ul>
+        </span>
+        
+        <h3 slot="heading">
+            <a href="/financial-intermediary/us/en/insights/articles/2022/q1/market-volatility-tools-to-help-guide-your-clients.html">How we’ve helped investors navigate 20 years of market ups and downs.<br />
+</a></h3>
+        
+        <div class="b-flow-space" slot="footer">
+            
+            
+  
+  
+
+
+            
+        </div>
+        
+    </fai-beacon-tile>
+
+
+  
+
+
+
+
+</div>
+
+    
+</div>
+
+            </div>
+            
+            
+                <fai-beacon-navigation-expanded>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        
+                        
+                        <a href="/financial-intermediary/us/en/about/about-us.html" aria-label="About Us">About Us</a>
+                        
+                        
+                    
+                        
+                        
+                        <a href="/en/us/about-us/diversity-and-inclusion" target="_blank" aria-label="Diversity &amp; Inclusion">Diversity &amp; Inclusion</a>
+                        
+                        
+                    
+                </fai-beacon-navigation-expanded>
+            
+        </fai-beacon-navigation-expanded>
+    
+
+    </fai-beacon-navigation-toolbelt>
+
+        
+    
+
+            
+        
+        
+    
+
+
+
+
+    </fai-beacon-navigation>
+<div id="a11y-skip-to-main-content"></div>
+
+
+
+
+    </nav>
+
+</div>
+
+    
+</div>
+
+</div></div>
+</div>
+
+  
+
+
+
+
+
+<main class="fai-legacy-template fund-overview main-container ">
+  <div class="page-wrapper">
+    <div class="root responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--tablet--12 aem-Grid--default--12 ">
+    
+    <div class="story-infographic parbase aem-GridColumn aem-GridColumn--default--12">
+
+
+  
+    
+<script src="/etc/designs/fai/clientlibs/vendor/greensock.91a58a8d27f3267f74382f70e4f46caa.js"></script>
+
+
+
+
+
+
+
+
+
+<div style="clear: both; width: 100%;"></div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule1101245999">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-light-blue sep padding-small sep hide-line"></div>
+</div></div>
+<div class="angular-ddm-snapshot-component aem-GridColumn aem-GridColumn--default--12"><div id="angular_ddm_snapshot620329826">
+  <div data-emptytext="Angular DDM Snapshot Component" class="cq-placeholder"></div>
+  
+  
+  
+  
+
+  
+  
+
+  <div>
+    <div class="gdx-web-components">
+      <gdx-fund-snapshot class="gdx-web-components gdx-fund-snapshot" vehicle="Exchange Traded Fund" product-code="TMSL" product-story-button-label="Product Story" authored-literature="[{&#34;displayName&#34;:&#34;Fund Focus&#34;,&#34;url&#34;:&#34;/content/dam/fai/Investments/etf/etf-literature/Small_Mid_Cap_ETF_Fund_Focus.pdf&#34;}]">
+      </gdx-fund-snapshot>
+    </div>
+  </div>
+</div>
+
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/fai/components/content/jump-menu/clientlibs.d65495aee0bbf7949710bc2e055ed263.css" type="text/css">
+<script src="/etc.clientlibs/fai/components/content/jump-menu/clientlibs.ad096341fd92d1f5755c0791bd1ebe26.js"></script>
+<script src="/etc.clientlibs/fai/components/content/angular-snapshot-component/clientlibs.ef534d3db8dd153652ef8922751eb83e.js"></script>
+
+
+</div>
+<div class="rich-text aem-GridColumn aem-GridColumn--default--12"><div id="-280997826">
+  <div data-emptytext="Rich Text Editor" class="cq-placeholder"></div>
+  
+</div></div>
+<div class="primary-tabs parbase aem-GridColumn--tablet--12 aem-GridColumn--offset--tablet--0 aem-GridColumn--default--none aem-GridColumn--tablet--none aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--offset--default--0"><div data-emptytext="Primary tabs" class="cq-placeholder"></div>
+<div id="primary_tabs-1822384477">
+  
+  
+  <nav class="jump-to-tabs header-tab primary-tab phone-hidden" data-tab-group="primary">
+    
+    <ul>
+      <li class="selected">
+        <a href="#primary-overview" id="primary-overview-tab" data-tab-show="primary-overview" data-metrics-type="TAB" tabindex="0">OVERVIEW</a>
+      </li>
+    
+      <li>
+        <a href="#primary-strategy" id="primary-strategy-tab" data-tab-show="primary-strategy" data-metrics-type="TAB" tabindex="0">STRATEGY</a>
+      </li>
+    
+      <li>
+        <a href="#primary-performance" id="primary-performance-tab" data-tab-show="primary-performance" data-metrics-type="TAB" tabindex="0">PERFORMANCE</a>
+      </li>
+    
+      <li>
+        <a href="#primary-holdings" id="primary-holdings-tab" data-tab-show="primary-holdings" data-metrics-type="TAB" tabindex="0">HOLDINGS</a>
+      </li>
+    
+      <li>
+        <a href="#primary-metrics" id="primary-metrics-tab" data-tab-show="primary-metrics" data-metrics-type="TAB" tabindex="0">MARKET METRICS</a>
+      </li>
+    
+      <li>
+        <a href="#primary-team" id="primary-team-tab" data-tab-show="primary-team" data-metrics-type="TAB" tabindex="0">TEAM</a>
+      </li>
+    
+      <li>
+        <a href="#primary-how-to-invest" id="primary-how-to-invest-tab" data-tab-show="primary-how-to-invest" data-metrics-type="TAB" tabindex="0">HOW TO INVEST</a>
+      </li>
+    </ul>
+    
+  </nav>
+  
+  
+  
+  <div class="tabctrl-container">
+    <div class="white-tab-background">
+      <div>
+        
+        <section id="primary-overview" class="tabctrl-content " data-tab="primary-overview" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-0">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--0 ">
+    
+    <div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_934533098463235089">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep  sep padding-small sep hide-line"></div>
+</div></div>
+<div class="richtext-heading aem-GridColumn aem-GridColumn--default--12"><div class="richtext-heading" id="richtext_heading228076743">
+  <div data-emptytext="Richtext Heading" class="cq-placeholder"></div>
+  
+  
+  
+  
+    
+    <h3 class="trp-dark-grey sep large sep  sep case-normal sep ">Investment Objective</h3>
+  
+  
+  
+</div></div>
+<div class="pcl-backbone aem-GridColumn aem-GridColumn--default--12"><div id="pclcontent">
+  
+  <div data-emptytext="PCL Backbone" class="cq-placeholder"></div>
+  <p>The fund seeks to provide long-term capital growth.</p>
+
+</div></div>
+<div class="paragraph-with-heading aem-GridColumn aem-GridColumn--default--12"><div id="paragraph_with_headi343895875">
+  
+    <div class="cq-placeholder" data-emptytext="Configure Paragraph With Heading-V2"></div>
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <div class="transparent  no-padding  no-margin">
+    
+    
+    
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule-1167987236">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="primary-tabs parbase aem-GridColumn aem-GridColumn--default--12"><div data-emptytext="Primary tabs" class="cq-placeholder"></div>
+<div id="primary_tabs-1430174186">
+  
+  
+  <nav class="carousel-tabs header-tab average-annual-total-returns-overview-tab " data-tab-group="average-annual-total-returns-overview">
+    <div class="carousel-nav carousel-nav-left phone-only">
+    </div>
+    <ul>
+      <li class="selected">
+        <a href="#average-annual-total-returns-overview-quarterly" id="average-annual-total-returns-overview-quarterly-tab" data-tab-show="average-annual-total-returns-overview-quarterly" data-metrics-type="TAB" tabindex="0">Quarterly</a>
+      </li>
+    
+      <li>
+        <a href="#average-annual-total-returns-overview-monthly" id="average-annual-total-returns-overview-monthly-tab" data-tab-show="average-annual-total-returns-overview-monthly" data-metrics-type="TAB" tabindex="0">Monthly</a>
+      </li>
+    </ul>
+    <div class="carousel-nav carousel-nav-right phone-only"></div>
+  </nav>
+  
+  
+  
+  <div class="tabctrl-container">
+    <div class="white-tab-background">
+      <div>
+        
+        <section id="average-annual-total-returns-overview-quarterly" class="tabctrl-content " data-tab="average-annual-total-returns-overview-quarterly" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-primary-overview-content/primary_tabs/tab-0">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components733185041">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-annual-returns"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers="false"
+      data-schedule="">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_1352646301765">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components_3216190853">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-elements-expense-ratio"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers="false"
+      data-schedule="">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+<div>
+        
+        <section id="average-annual-total-returns-overview-monthly" class="tabctrl-content hidden" data-tab="average-annual-total-returns-overview-monthly" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-primary-overview-content/primary_tabs/tab-1">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components1833990589">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-annual-returns"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers="false"
+      data-schedule="monthly">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule514140749">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components_9250586941270197592">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-elements-expense-ratio"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers="false"
+      data-schedule="">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+<div class="paragraph aem-GridColumn aem-GridColumn--default--12"><div class="paragraph" id="paragraph-1427253076">
+  <div data-emptytext="Paragraph" class="cq-placeholder"></div>
+  
+
+  
+    
+    
+      
+    
+    
+    <div class=" transparent  no-padding normal-margin">
+      <p><p><b>Performance data quoted represents past performance and does not guarantee future results; current performance may be higher or lower than performance quoted. Investment returns and principal value will fluctuate and shares, when sold, may be worth more or less than their original cost. Market returns are based on the midpoint of the bid/ask spread as 4p.m. ET and do not represent returns an investor would receive if shares were traded at other times.</b> Click the Performance tab for standardized performance information.</p>
+<p>ETFs are bought and sold at market prices, not NAV. Investors generally incur the cost of the spread between the prices at which shares are bought and sold. Buying and selling shares may result in brokerage commissions which will reduce returns.<br />
+ <br />
+ </p>
+</p>
+    </div>
+  
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_1219278527-1143135917">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule dotted sep  sep padding-medium sep "></div>
+</div></div>
+<div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components_1740076352-1278285996">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+      <gdx-team-overview
+      product-code="SMX"
+      vehicle=""
+      schedule=""
+      country-region-type=""
+      attribution-type=""
+      sector-industry-type=""
+      suppress-top-ten-issuers="false""
+      >
+    </gdx-team-overview>
+    
+
+    
+
+    
+  </div>
+</div></div>
+<div class="rich-text aem-GridColumn aem-GridColumn--default--12"><div id="75812334">
+  <div data-emptytext="Rich Text Editor" class="cq-placeholder"></div>
+  
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+<div>
+        
+        <section id="primary-strategy" class="tabctrl-content hidden" data-tab="primary-strategy" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-1">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--0 ">
+    
+    <div class="responsivegrid aem-GridColumn--default--none aem-GridColumn aem-GridColumn--offset--default--0">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="paragraph-with-heading aem-GridColumn aem-GridColumn--default--12"><div id="1345593917">
+  
+    <div class="cq-placeholder" data-emptytext="Configure Paragraph With Heading-V2"></div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="    ">
+    
+    
+    
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--offset--default--0"><div id="horizontal_rule-495637438">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="paragraph-with-heading aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--offset--default--0"><div id="2107078198">
+  
+    <div class="cq-placeholder" data-emptytext="Configure Paragraph With Heading-V2"></div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="    ">
+    
+    
+    
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_106728456-776157966">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="paragraph-with-heading aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--offset--default--0"><div id="-749124113">
+  
+    <div class="cq-placeholder" data-emptytext="Configure Paragraph With Heading-V2"></div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="    ">
+    
+    
+    
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_1067-371726595">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="paragraph-with-heading aem-GridColumn aem-GridColumn--default--12"><div id="856597755">
+  
+    <div class="cq-placeholder" data-emptytext="Configure Paragraph With Heading-V2"></div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="    ">
+    
+    
+    
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+<div class="richtext-heading aem-GridColumn aem-GridColumn--default--12"><div class="richtext-heading" id="richtext_heading_174-1752996964">
+  <div data-emptytext="Richtext Heading" class="cq-placeholder"></div>
+  
+  
+  
+  
+    
+    <h3 class="trp-dark-grey sep large sep  sep case-normal sep ">Investment Objective</h3>
+  
+  
+  
+</div></div>
+<div class="pcl-backbone aem-GridColumn aem-GridColumn--default--12"><div id="pclcontent">
+  
+  <div data-emptytext="PCL Backbone" class="cq-placeholder"></div>
+  <p>The fund seeks to provide long-term capital growth.</p>
+
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_1589038075638762695">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_16032724991099417496">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="richtext-heading aem-GridColumn aem-GridColumn--default--12"><div class="richtext-heading" id="richtext_heading1499612173">
+  <div data-emptytext="Richtext Heading" class="cq-placeholder"></div>
+  
+  
+  
+  
+    
+    <h3 class="trp-dark-grey sep large sep  sep case-normal sep ">Investor Profile</h3>
+  
+  
+  
+</div></div>
+<div class="pcl-backbone aem-GridColumn aem-GridColumn--default--12"><div id="pclcontent">
+  
+  <div data-emptytext="PCL Backbone" class="cq-placeholder"></div>
+  <p>For long-term investors seeking high growth potential who can accept the price volatility inherent with the stocks of small- and mid-sized companies.</p>
+
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule1089787350">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="richtext-heading aem-GridColumn aem-GridColumn--default--12"><div class="richtext-heading" id="richtext_heading_663457697-1832341057">
+  <div data-emptytext="Richtext Heading" class="cq-placeholder"></div>
+  
+  
+  
+  
+    
+    <h3 class="trp-dark-grey sep large sep  sep case-normal sep ">Benefits</h3>
+  
+  
+  
+</div></div>
+<div class="pcl-backbone aem-GridColumn aem-GridColumn--default--12"><div id="pclcontent">
+  
+  <div data-emptytext="PCL Backbone" class="cq-placeholder"></div>
+  <p>Offers access to newer, smaller, innovative companies with the possibilty for greater return potential than larger well-established companies.</p>
+
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_722717126-513149754">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="paragraph-with-heading aem-GridColumn aem-GridColumn--default--12"><div id="paragraph_with_headi-1287621751">
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <div class="transparent  no-padding  normal-margin">
+    
+    
+      
+      
+      
+      
+      <h3 class="gray-content ">Risks</h3>
+    
+    <div class="  ">
+      <p><p>All investments are subject to market risk, including the possible loss of principal. Small- and mid-cap stocks: Investments in securities issued by small and mid-cap companies are likely to be more volatile than investments in securities issued by larger companies. Sector exposure: Issuers in the same economic sector may be similarly affected by economic or market events, making the fund more vulnerable to unfavorable developments in that economic sector than funds that invest more broadly. <i>See the prospectus for more detail on the fund's principal risks.</i></p>
+<p> </p>
+<p><a href="https://prospectus-express.broadridge.com/summary.asp?doctype=sai&amp;clientid=trowepll&amp;fundid=87283Q800">Statement of Additional Information (SAI)</a></p>
+</p>
+    </div>
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+<div>
+        
+        <section id="primary-performance" class="tabctrl-content hidden" data-tab="primary-performance" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-2">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--0 ">
+    
+    <div class="richtext-heading aem-GridColumn aem-GridColumn--default--12"><div class="richtext-heading" id="richtext_heading1719824302">
+  <div data-emptytext="Richtext Heading" class="cq-placeholder"></div>
+  
+  
+  
+  
+    
+    <h3 class="trp-dark-grey sep small sep  sep case-normal sep ">Average Annual Returns</h3>
+  
+  
+  
+</div></div>
+<div class="primary-tabs parbase aem-GridColumn aem-GridColumn--default--newline aem-GridColumn--offset--default--0"><div data-emptytext="Primary tabs" class="cq-placeholder"></div>
+<div id="primary_tabs429331581">
+  
+  
+  <nav class="carousel-tabs header-tab average-annual-returns-tab " data-tab-group="average-annual-returns">
+    <div class="carousel-nav carousel-nav-left phone-only">
+    </div>
+    <ul>
+      <li class="selected">
+        <a href="#average-annual-returns-monthly" id="average-annual-returns-monthly-tab" data-tab-show="average-annual-returns-monthly" data-metrics-type="TAB" tabindex="0">Quarterly</a>
+      </li>
+    
+      <li>
+        <a href="#average-annual-returns-quarterly" id="average-annual-returns-quarterly-tab" data-tab-show="average-annual-returns-quarterly" data-metrics-type="TAB" tabindex="0">Monthly</a>
+      </li>
+    </ul>
+    <div class="carousel-nav carousel-nav-right phone-only"></div>
+  </nav>
+  
+  
+  
+  <div class="tabctrl-container">
+    <div class="white-tab-background">
+      <div>
+        
+        <section id="average-annual-returns-monthly" class="tabctrl-content " data-tab="average-annual-returns-monthly" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-primary-performance-content/primary_tabs/tab-0">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--10 aem-Grid--default--10 ">
+    
+    <div class="angular-components aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--10 aem-GridColumn--offset--default--0"><div id="angular_components893824039">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-annual-returns"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers=""
+      data-schedule="quarterly">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--10"><div id="horizontal_rule_1102789503-167372610">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--10"><div id="horizontal_rule-1573904349">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-light-blue sep padding-small sep hide-line"></div>
+</div></div>
+<div class="angular-components aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--offset--default--0"><div id="angular_components_5-28554723">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-elements-expense-ratio"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers=""
+      data-schedule="">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+<div>
+        
+        <section id="average-annual-returns-quarterly" class="tabctrl-content hidden" data-tab="average-annual-returns-quarterly" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-primary-performance-content/primary_tabs/tab-1">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--10 aem-Grid--default--10 ">
+    
+    <div class="angular-components aem-GridColumn aem-GridColumn--default--10"><div id="angular_components-823737349">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-annual-returns"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers=""
+      data-schedule="monthly">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--10"><div id="horizontal_rule-731432753">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-light-blue sep padding-small sep hide-line"></div>
+</div></div>
+<div class="angular-components aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--offset--default--0"><div id="angular_components_1653405706-1848617813">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-elements-expense-ratio"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers=""
+      data-schedule="">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+<div class="paragraph aem-GridColumn aem-GridColumn--default--12"><div class="paragraph" id="paragraph_1348954153683072777">
+  <div data-emptytext="Paragraph" class="cq-placeholder"></div>
+  
+
+  
+    
+    
+      
+    
+    
+    <div class=" transparent  no-padding normal-margin">
+      <p><p><b>Performance data quoted represents past performance and does not guarantee future results; current performance may be higher or lower than performance quoted. Investment returns and principal value will fluctuate and shares, when sold, may be worth more or less than their original cost. Market returns are based on the midpoint of the bid/ask spread as 4p.m. ET and do not represent returns an investor would receive if shares were traded at other times. </b></p>
+<p>ETFs are bought and sold at market prices, not NAV. Investors generally incur the cost of the spread between the prices at which shares are bought and sold. Buying and selling shares may result in brokerage commissions which will reduce returns.</p>
+<p>The gross expense ratio reflects the fund expenses as stated in the fee table of the fund's prospectus prior to the deduction of any waiver or reimbursement. The net expense ratio reflects fund expenses after the deduction of any waiver or reimbursement.  If a fund has an active contractual expense limitation, the expiration date is shown below the gross and net expense ratio values above.  Expense ratios are as of the most recent prospectus.</p>
+</p>
+    </div>
+  
+</div></div>
+<div class="primary-tabs parbase aem-GridColumn aem-GridColumn--default--12"><div data-emptytext="Primary tabs" class="cq-placeholder"></div>
+<div id="primary_tabs_169957440067441513">
+  
+  
+  <nav class="accordion-tabs header-tab additional-return-info-tab phone-hidden" data-tab-group="additional-return-info">
+    
+    <ul>
+      <li class="selected">
+        <a href="#additional-return-info-distributions-" id="additional-return-info-distributions--tab" data-tab-show="additional-return-info-distributions-" data-metrics-type="TAB" tabindex="0">DISTRIBUTIONS </a>
+      </li>
+    </ul>
+    
+  </nav>
+  
+  
+  
+  <div class="tabctrl-container">
+    <div class="white-tab-background">
+      <div>
+        <button class="accordion-nav phone-only accordion-nav-open-tab" data-toggle="collapse">DISTRIBUTIONS </button>
+        <section id="additional-return-info-distributions-" class="tabctrl-content " data-tab="additional-return-info-distributions-" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-primary-performance-content/primary_tabs_1699574400/tab-0">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components1615394638">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-distribution-history"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers="false"
+      data-schedule="quarterly">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+<div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components_139088188-2097152217">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-performance-distributions-schedule"
+      data-fundCode="SMX"
+      data-vehicle=""
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers="false"
+      data-schedule="">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+<div>
+        
+        <section id="primary-holdings" class="tabctrl-content hidden" data-tab="primary-holdings" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-3">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--0 ">
+    
+    <div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule133582195">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+  <div class="rule  sep  sep  sep "></div>
+</div></div>
+<div class="primary-tabs parbase aem-GridColumn aem-GridColumn--default--12"><div data-emptytext="Primary tabs" class="cq-placeholder"></div>
+<div id="primary_tabs454026719">
+  
+  
+  <nav class="accordion-tabs header-tab no-description-provided-tab phone-hidden" data-tab-group="no-description-provided">
+    
+    <ul>
+      <li class="selected">
+        <a href="#no-description-provided-full-holdings" id="no-description-provided-full-holdings-tab" data-tab-show="no-description-provided-full-holdings" data-metrics-type="TAB" tabindex="0">FULL HOLDINGS</a>
+      </li>
+    </ul>
+    
+  </nav>
+  
+  
+  
+  <div class="tabctrl-container">
+    <div class="white-tab-background">
+      <div>
+        <button class="accordion-nav phone-only accordion-nav-open-tab" data-toggle="collapse">FULL HOLDINGS</button>
+        <section id="no-description-provided-full-holdings" class="tabctrl-content " data-tab="no-description-provided-full-holdings" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-primary-holdings-content/primary_tabs/tab-0">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components_617862613160221566">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-elements-full-holdings"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers="false"
+      data-schedule="monthly">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+<div>
+        
+        <section id="primary-metrics" class="tabctrl-content hidden" data-tab="primary-metrics" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-4">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--0 ">
+    
+    <div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_1419358994639595776">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-light-blue sep padding-small sep hide-line"></div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule-52639192">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-light-blue sep padding-small sep hide-line"></div>
+</div></div>
+<div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components_902328502240327772">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-market-data"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers=""
+      data-schedule="">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_1756353918-474186515">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-light-blue sep padding-small sep hide-line"></div>
+</div></div>
+<div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components_532345968-184563554">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-market-price"
+      data-fundCode="TMSL"
+      data-vehicle="Exchange Traded Fund"
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers=""
+      data-schedule="">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_1536151192-402223589">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-black sep padding-small sep hide-line"></div>
+</div></div>
+<div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components_2099169550550294039">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+      <gdx-premium-discount-days
+      product-code="TMSL"
+      vehicle="Exchange Traded Fund"
+      schedule=""
+      country-region-type=""
+      attribution-type=""
+      sector-industry-type=""
+      suppress-top-ten-issuers="""
+      >
+    </gdx-premium-discount-days>
+    
+
+    
+
+    
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+<div>
+        
+        <section id="primary-team" class="tabctrl-content hidden" data-tab="primary-team" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-5">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--0 ">
+    
+    <div class="angular-components aem-GridColumn aem-GridColumn--default--12"><div id="angular_components395134186">
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <div class="gdx-web-components">
+    
+
+    
+      <div
+      class="angular-component gdx-web-components"
+      data-component="gdx-team-overview"
+      data-fundCode="SMX"
+      data-vehicle=""
+      data-country-region-type=""
+      data-attribution-type=""
+      data-sector-industry-type=""
+      data-suppress-top-ten-issuers="false"
+      data-schedule="">
+    </div>
+    
+
+    
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule377419328">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-light-blue sep padding-medium sep hide-line"></div>
+</div></div>
+<div class="paragraph aem-GridColumn aem-GridColumn--default--12"><div class="paragraph" id="paragraph1428815927">
+  <div data-emptytext="Paragraph" class="cq-placeholder"></div>
+  
+
+  
+    
+    
+      
+    
+    
+    <div class=" transparent  no-padding no-margin">
+      <p>For a complete list of the members of the fund's Investment Advisory Committee, please refer to the fund's prospectus.</p>
+    </div>
+  
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+<div>
+        
+        <section id="primary-how-to-invest" class="tabctrl-content hidden" data-tab="primary-how-to-invest" data-path="/conf/fai/settings/wcm/templates/transparent-equity-etf/structure/jcr:content/root/primary_tabs/tab-6">
+          
+          <div>
+
+
+<div class="aem-Grid aem-Grid--0 ">
+    
+    <div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule-564866577">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep  sep padding-small sep hide-line"></div>
+</div></div>
+<div class="paragraph-with-heading aem-GridColumn aem-GridColumn--default--12"><div id="paragraph_with_headi-542847863">
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  <div class="transparent  no-padding  no-margin">
+    
+    
+      
+      
+      
+      
+      <h3 class="gray-content ">For general inquiries </h3>
+    
+    <div class="  ">
+      <p><p>Individual shares may only be purchased and sold on secondary markets through a broker-dealer. We would be pleased to discuss our solutions, products, and capabilities with you. Call <b>1-877-561-7670 </b>to learn more about which ETFs may be suitable for your clients. </p>
+<p> </p>
+</p>
+    </div>
+  </div>
+</div></div>
+<div class="two-column aem-GridColumn aem-GridColumn--default--12"><div data-emptytext="Two Column" class="cq-placeholder"></div>
+<div id="two_column60954097">
+  <div class="two-column columns">
+    
+    
+    
+    
+    
+      
+      
+    
+    
+      
+      
+      
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+      
+    
+    
+    
+    
+    
+
+    
+
+    
+
+
+    
+
+    <div class="columns-row       border-top- border-bottom-  ">
+      <div class="column col-one   no-background     ">
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+      </div>
+      <div class="column col-two   no-background      last">
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+    
+</div>
+</div>
+        </section>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+<div class="horizontal-rule aem-GridColumn aem-GridColumn--default--12"><div id="horizontal_rule_copy-1927921787">
+  <div data-emptytext="Separator" class="cq-placeholder"></div>
+  
+  
+    
+  
+  <div class="rule dotted sep trp-light-blue sep padding-small sep hide-line"></div>
+</div></div>
+<div class="rich-text aem-GridColumn aem-GridColumn--default--12"><div id="rich_text-1239943231">
+  <div data-emptytext="Rich Text Editor" class="cq-placeholder"></div>
+  <p>202606 - 5542230<br />
+</p>
+
+</div></div>
+<div class="paragraph aem-GridColumn aem-GridColumn--default--12"><div class="paragraph" id="1551958655">
+  <div data-emptytext="Paragraph" class="cq-placeholder"></div>
+  
+
+  
+</div></div>
+<div class="contentfragment aem-GridColumn aem-GridColumn--default--12">
+<div class="cq-dd-fragment" data-emptytext="Content Fragment">
+    <div>
+        
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+    
+        <p><b>Market value of holdings shown are illustrative and may differ from the values used to calculate the fund’s net asset value (“NAV”). For information on valuation of portfolio assets used to calculate NAV, please see the prospectus.</b></p>
+
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+    
+        <p><b>ETFs are bought and sold at market prices, not NAV. Investors generally incur the cost of the spread between the prices at which shares are bought and sold. Buying and selling shares may result in brokerage commissions which will reduce returns.</b></p>
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+    </div>
+    
+</div></div>
+<div class="rich-text aem-GridColumn aem-GridColumn--default--12"><div id="-1147302687">
+  <div data-emptytext="Rich Text Editor" class="cq-placeholder"></div>
+  
+</div></div>
+
+    
+</div>
+</div>
+<div class="footer responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="experiencefragment aem-GridColumn aem-GridColumn--default--12">
+
+    
+    
+
+    
+
+
+
+<div class="xf-content-height">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="footer base-component aem-GridColumn aem-GridColumn--default--12">
+
+    
+    
+    
+<link rel="stylesheet" href="/etc.clientlibs/trp-compose/components/structure/footer/v1/footer/clientlibs.2d9861ec11add36460906db12f019046.css" type="text/css">
+
+
+
+
+
+
+
+    
+    <footer class="beacon-theme-modern-outlook beacon-on-darker" data-metrics-location="FTR">
+        <fai-beacon-footer defer-until="defined">
+            <div slot="trademark">Invest With Confidence<sup>®</sup></div>
+            
+            
+            
+
+            
+                
+
+
+
+
+    
+    
+    
+        
+            <fai-beacon-navigation-footer slot="links" defer-until="defined">
+                <span slot="title"></span>
+                
+                    
+                        <a href="https://www.troweprice.com/financial-intermediary/us/en/search.html?q=full%20prospectus" target="_self">Download a Prospectus</a>
+                    
+                
+                    
+                        <a href="https://www.troweprice.com/en/us/terms-of-use" target="_blank">Terms of Use</a>
+                    
+                
+                    
+                        <a href="https://www.troweprice.com/personal-investing/help/policies-and-security/customer-agreement.html" target="_self">Customer Agreement</a>
+                    
+                
+            </fai-beacon-navigation-footer>
+        
+            <fai-beacon-navigation-footer slot="links" defer-until="defined">
+                <span slot="title"></span>
+                
+                    
+                        <a href="https://www.troweprice.com/en/security-measures" target="_self">Security Measures</a>
+                    
+                
+                    
+                        <a href="https://www.troweprice.com/en/us/legal/privacy-notices/us-ca-privacy-notice" target="_self">U.S. &amp; Canada Privacy Notice</a>
+                    
+                
+                    
+                        <a href="https://www.troweprice.com/en/us/accessibility.html" target="_blank">Accessibility Statement</a>
+                    
+                
+            </fai-beacon-navigation-footer>
+        
+            <fai-beacon-navigation-footer slot="links" defer-until="defined">
+                <span slot="title"></span>
+                
+                    
+                        <a href="https://www.troweprice.com/en/us/market-data-disclosures" target="_blank">Market Data Disclosure</a>
+                    
+                
+                    
+                        <a href="https://www.troweprice.com/en/us/glossary" target="_blank">Glossary</a>
+                    
+                
+                    
+                        <a href="https://www.troweprice.com/financial-intermediary/us/en/site-content/site-map.html" target="_self">Sitemap</a>
+                    
+                
+                    
+                        <a href="https://www.troweprice.com/en/press" target="_self">Newsroom</a>
+                    
+                
+            </fai-beacon-navigation-footer>
+        
+    
+
+
+            
+            
+                
+
+
+
+
+    
+    
+    <fai-beacon-social-link-container slot="socials" defer-until="defined">
+        <p id="find-us" slot="text">Find us on:</p>
+        <fai-beacon-social-link>
+            <a id="social-link-0" href="https://www.facebook.com/troweprice" aria-labelledby="find-us social-link-0">Facebook</a>
+        </fai-beacon-social-link><fai-beacon-social-link>
+            <a id="social-link-1" href="https://twitter.com/troweprice" aria-labelledby="find-us social-link-1">X</a>
+        </fai-beacon-social-link><fai-beacon-social-link>
+            <a id="social-link-2" href="https://www.youtube.com/trowepricegroup" aria-labelledby="find-us social-link-2">YouTube</a>
+        </fai-beacon-social-link><fai-beacon-social-link>
+            <a id="social-link-3" href="https://www.linkedin.com/company/157329?trk=tyah" aria-labelledby="find-us social-link-3">LinkedIn</a>
+        </fai-beacon-social-link><fai-beacon-social-link>
+            <a id="social-link-4" href="https://www.instagram.com/t._rowe_price/" aria-labelledby="find-us social-link-4">Instagram</a>
+        </fai-beacon-social-link>
+    </fai-beacon-social-link-container>
+
+
+            
+            <div slot="disclaimer" class="b-flow-space">
+                
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="contentfragment aem-GridColumn aem-GridColumn--default--12">
+<div class="cq-dd-fragment" data-emptytext="Content Fragment">
+    
+    
+</div></div>
+<div class="contentfragment aem-GridColumn aem-GridColumn--default--12">
+<div class="cq-dd-fragment" data-emptytext="Content Fragment">
+    <div>
+        
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+    
+        <p><a class="ot-sdk-show-settings" href="#">Do Not Sell or Share My Personal Information</a></p>
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+    </div>
+    
+</div></div>
+<div class="contentfragment aem-GridColumn aem-GridColumn--default--12">
+<div class="cq-dd-fragment" data-emptytext="Content Fragment">
+    <div>
+        
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+    
+        <p>This material is provided for general informational purposes only and is not intended to provide legal, tax, or investment advice. This material does not provide recommendations concerning investments, investment strategies, or account types; it is not individualized to the needs of any specific investor and not intended to suggest any particular investment action is appropriate for you.</p>
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+    </div>
+    
+</div></div>
+
+    
+</div>
+
+            </div>
+            <div slot="copyright" class="b-flow-space">
+                
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="contentfragment aem-GridColumn aem-GridColumn--default--12">
+<div class="cq-dd-fragment" data-emptytext="Content Fragment">
+    <div>
+        
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+    
+        <p>© 2026 T. Rowe Price. All Rights Reserved. T. ROWE PRICE, INVEST WITH CONFIDENCE, the Bighorn Sheep design, and <a href="https://www.troweprice.com/en/us/intellectual-property"><u>related indicators</u></a> are trademarks of T. Rowe Price Group, Inc. All other trademarks are the property of their respective owners. Use does not imply endorsement, sponsorship, or affiliation of T. Rowe Price with any of the trademark owners.</p>
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+    </div>
+    
+</div></div>
+<div class="contentfragment aem-GridColumn aem-GridColumn--default--12">
+<div class="cq-dd-fragment" data-emptytext="Content Fragment">
+    <div>
+        
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+    
+        <p>T. Rowe Price Investment Services, Inc., distributor, T. Rowe Price funds. </p>
+        <div>
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+</div>
+    </div>
+    
+</div></div>
+
+    
+</div>
+
+            </div>
+        </fai-beacon-footer>
+    </footer>
+
+
+
+</div>
+
+    
+</div>
+
+</div>
+</div>
+
+    
+</div>
+</div>
+
+  </div>
+</main>
+<div class="beacon-fai-footer">
+  
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+
+  <!-- This is needed for the Primary Tabs Jump To Navigation in mobile view -->
+  
+  <nav id="jcr:content-related-jump-to" class="cmp-primary-tab__jump-to phone-only ">
+    <section class="sticky">
+      <label class="h3" for="jumpto">Jump to</label>
+      <select id="jumpto">
+        <option value="primary-overview-tab">OVERVIEW</option>
+      
+        <option value="primary-strategy-tab">STRATEGY</option>
+      
+        <option value="primary-performance-tab">PERFORMANCE</option>
+      
+        <option value="primary-holdings-tab">HOLDINGS</option>
+      
+        <option value="primary-metrics-tab">MARKET METRICS</option>
+      
+        <option value="primary-team-tab">TEAM</option>
+      
+        <option value="primary-how-to-invest-tab">HOW TO INVEST</option>
+      </select>
+    </section>
+  </nav>
+  
+    
+<link rel="stylesheet" href="/etc.clientlibs/fai/components/content/tab-control/v2/primary-tabs/clientlibs.fff7949274f247aca29fb0bdc1ea97a8.css" type="text/css">
+<script src="/etc.clientlibs/fai/components/content/tab-control/v2/primary-tabs/clientlibs.e3b22e97d0f8a3e60de0f83d3e272d3b.js"></script>
+
+
+
+
+</div>
+
+<div class="beacon-fai-footer">
+  
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    
+    
+</div>
+
+</div>
+
+    <div id="register-success-overlay" role="dialog" aria-modal="true" class="overlay-container registersuccessoverlay"
+  data-metrics-location="PU">
+
+  <button class="close-button trp-icon trp-times cancel register-successful-overlay" aria-expanded="true"
+    aria-controls="register-success-overlay" aria-label="Close this dialog">
+  </button>
+
+  <h4>Congratulations! You are now registered.</h4>
+
+  <div class="messagecon">
+    <p class="subtitle">Start subscribing to receive email updates.</p>
+  </div>
+  <div class="links">
+    <a class="funds-link" href="/financial-intermediary/us/en/subscriptions/dashboard.html">Subscribe now</a><br>
+  </div>
+
+  <div class="button-control" role="group">
+    <button id="cancel-btn" class="button superslim nohover cancel register-successful-overlay"
+      data-metrics-type="BTN">Ok</button>
+  </div>
+</div>
+
+    
+<script src="/etc.clientlibs/fai/clientlibs/clientlib-dependencies.d41d8cd98f00b204e9800998ecf8427e.js"></script>
+<script src="/etc/designs/fai/clientlibs/vendor/images-libs.44741a86048bbcd0c4dbaad665b2b47c.js"></script>
+<script src="/etc/designs/fai/clientlibs/vendor/fooTable.d41b0d0aeda7646a69efcce9197dcf8b.js"></script>
+<script src="/etc.clientlibs/core/wcm/components/commons/site/clientlibs/container.027d01df25f17066242db969c9bf2ade.js"></script>
+<script src="/etc/designs/fai/clientlibs/base.f57d25d6686f17f647bb923c2e73af70.js"></script>
+<script src="/etc/designs/fai/clientlibs/angularDist.cfcb260b7811b570856c0085136749f2.js"></script>
+
+
+
+
+<script type="text/javascript">
+  function loadUsiWebComponents() {
+    const jsBaseUrl = 'https://www.troweprice.com/shared-assets/usi-wc-user-elements/1.3.13/';
+    const scripts = [
+      "usi-wc-user-elements.js",
+    ];
+    scripts.forEach(src => {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = jsBaseUrl + src;
+      document.head.appendChild(script);
+    });
+    console.log(`loading usiWcUserElements from CDN at ${jsBaseUrl}`);
+  }
+
+  if (!window.hasUsiWebComponentsAlreadyBeenIncluded) {
+    window.hasUsiWebComponentsAlreadyBeenIncluded = true;
+    if(window.FaiGlobalLibs && window.FaiGlobalLibs.BeaconUiKitFoundation){
+      loadUsiWebComponents();
+      console.log('Usi Web Components loaded from CDN');
+    }
+    else {
+      document.addEventListener('fai-foundation-loaded', function () {
+        loadUsiWebComponents();
+        console.log('Usi Web Components loaded from CDN after fai-foundation-loaded event');
+      });
+    }
+
+  }
+</script>
+
+<div id="dialog-signin" role="dialog" aria-modal="true" tabindex="-1" aria-labelledby="register/signin dialog" data-metrics-location="PU">
+
+  <div id="dialog-signin-gdx-usi-login">
+    
+    
+    
+    
+    
+    
+    <div id="lib-usi-elements-web-login-modal-component">
+      <div data-emptytext="Angular Login Registration" class="cq-placeholder">
+
+        <lib-usi-elements-web-login
+      is-advisor-dashboard-view="false"
+      show-login-modal="false"
+      login-page-title="Log in to the Financial Advisors/Intermediaries website."
+      login-page-sub-title="Gain access to a range of resources for financial professionals."
+      registration-page-title="Register for the Financial Advisors/Intermediaries website. It’s easy."
+      registration-page-sub-title="Elevate your practice with exclusive tools, insights, and resources."
+    >
+    </lib-usi-elements-web-login>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div role="dialog" aria-modal="true" class="overlay-container updateemailconfirmationoverlay" data-metrics-location="PU">
+  <button class="close-button trp-icon trp-times cancel" aria-expanded="true" aria-label="Close this dialog">
+  </button>
+  <h4>You have updated your email address.</h4>
+
+    <div id="messagecon" class="messagecon">
+      <p class="subtitle">An activation email has been sent to your new email address from T. Rowe Price.</p>
+      <p class="subtitle">Please click on the activation link in order to receive email updates.</p>
+    </div>
+
+  <div class="button-control" role="group">
+    <button id="cancel-btn" class="button superslim nohover cancel" data-metrics-type="BTN">Ok</button>
+  </div>
+</div>
+<div role="dialog" aria-modal="true" class="overlay-container pre-registrationconfirmationoverlay"
+  data-metrics-location="PU">
+  <button class="close-button trp-icon trp-times cancel" aria-expanded="true" aria-label="Close this dialog">
+  </button>
+  <h4>You have an existing account</h4>
+  <div class="messagecon">
+    <p class="subtitle">Click OK to view your subscriptions.</p>
+  </div>
+  <div class="button-control" role="group">
+    <button class="button superslim nohover" data-template-field="pre-registrationConfirmation"
+      data-metrics-type="BTN">OK</button>
+  </div>
+</div>
+
+<gdx-elements-usi-terms-and-conditions use-custom-event="showOverlay" (close)="void(0)"></gdx-elements-usi-terms-and-conditions>
+<div
+  id="responsiveImageZoom"
+  role="dialog"
+  aria-modal="true"
+  class="overlay-container responsive-image-zoom"
+  data-metrics-location="PU"
+  data-overlay-name="responsive-image-zoom"
+  onClick="trp.fai.image.zoomClose();"
+>
+  <div
+    class="inner"
+    role="group"
+  >
+    <button
+      class="button slim secondary trp-icon trp-times"
+      onClick="trp.fai.image.zoomClose();"
+      data-metrics-type="BTN"
+      aria-expanded="true"
+      aria-controls="responsiveImageZoom"
+      aria-label="Close this dialog"
+    ></button>
+  </div>
+</div>
+<div id="fai-base-page-5a5b38c741" class="cmp-experiencefragment cmp-experiencefragment--fai-base-page-5a5b38c741 trp-beacon"><div class="xfpage page basicpage">
+<div class="xf-content-height">
+    
+
+    
+    
+    
+    <div id="container-f0bd9a0aeb" class="cmp-container">
+        
+        <div class="responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--small--6 aem-Grid--default--12 aem-Grid--extraLarge--12 aem-Grid--large--12 aem-Grid--medium--12 ">
+    
+    <div class="unsupported-browser modal aem-GridColumn--extraLarge--12 aem-GridColumn--medium--12 aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--small--6 aem-GridColumn--large--12" beacon-incubator="modal"><div class="cmp-modal cmp-unsupported-browser">
+    
+    
+    
+<link rel="stylesheet" href="/etc.clientlibs/trp-sites/components/content/modal/v1/modal/clientlibs.57a3a8d932d8eee6b48efa02b705ef2a.css" type="text/css">
+<script src="/etc.clientlibs/trp-sites/components/content/modal/v1/modal/clientlibs.23866e1eae36e45c3e615d2b4cccdda0.js"></script>
+
+
+
+    
+    
+<link rel="stylesheet" href="/etc.clientlibs/trp-sites/components/structure/unsupported-browser/v1/unsupported-browser/clientlibs.6040f9744d55f81ab732f4b25940b278.css" type="text/css">
+<script src="/etc.clientlibs/trp-sites/components/structure/unsupported-browser/v1/unsupported-browser/clientlibs.b660a1dac3d56469c53a90841f4fc872.js"></script>
+
+
+
+
+
+    <div class="cmp-modal__overlay">
+</div>
+
+    <div class="cmp-modal__dialog">
+    <button class="cmp-modal__dialog__close" aria-label="close dialog">
+    <img src="/etc.clientlibs/trp-sites/components/content/modal/v1/modal/clientlibs/resources/images/close.svg" alt="close dialog" title="close"/>
+</button>
+
+    <div class="cmp-modal__dialog__title">
+    <p>You are using an unsupported browser that might prevent you from accessing certain features on our site</p>
+
+</div>
+
+    
+    <div class="cmp-modal__dialog__content">
+        <p>We suggest clicking an icon below to download a supported browser.</p>
+
+        <div class="browser-link-container">
+            <a class="browser-link" href="https://www.google.com/chrome/" aria-label="Google Chrome Download">
+                <img class="browser-link__img" src="/etc.clientlibs/trp-sites/components/structure/unsupported-browser/v1/unsupported-browser/clientlibs/resources/images/chrome-icon.png" alt="Google Chrome Download" title="Google Chrome Download"/>
+                <span class="caption">Google Chrome</span>
+            </a>
+        
+            <a class="browser-link" href="https://www.mozilla.org/en-US/firefox/new/" aria-label="Google Chrome Download">
+                <img class="browser-link__img" src="/etc.clientlibs/trp-sites/components/structure/unsupported-browser/v1/unsupported-browser/clientlibs/resources/images/firefox-icon.png" alt="Firefox Download" title="Firefox Download"/>
+                <span class="caption">Firefox</span>
+            </a>
+        
+            <a class="browser-link" href="https://www.microsoft.com/en-us/edge" aria-label="Google Chrome Download">
+                <img class="browser-link__img" src="/etc.clientlibs/trp-sites/components/structure/unsupported-browser/v1/unsupported-browser/clientlibs/resources/images/edge-icon.png" alt="Microsoft Edge Download" title="Microsoft Edge Download"/>
+                <span class="caption">Microsoft Edge</span>
+            </a>
+        
+            <a class="browser-link" href="https://support.apple.com/downloads/safari" aria-label="Google Chrome Download">
+                <img class="browser-link__img" src="/etc.clientlibs/trp-sites/components/structure/unsupported-browser/v1/unsupported-browser/clientlibs/resources/images/safari-icon.png" alt="Safari Download" title="Safari Download"/>
+                <span class="caption">Safari</span>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+</div>
+
+    
+
+</div>
+
+    
+</div>
+</div>
+
+        
+    </div>
+
+
+</div></div>
+</div><div class="fai-modal-container" id="sitePreferenceOverlayId" data-metrics-location="PU" beacon-incubator="sitePreferenceOverlay">
+  <div class="beacon-modal-wrapper">
+    <div class="beacon-modal-surface beacon-modal-elevation-3 normal fixed">
+      <div class="beacon-modal-zones-wrapper">
+        <div class="beacon-modal-header">
+          <a class="beacon-modal-close-button" role="button"></a>
+        </div>
+        <div class="beacon-modal-content-zone">
+          <div class="beacon-modal-description-zone">
+            <div class="beacon-modal-title-wrapper">
+              <h2>Preferred Website</h2>
+            </div>
+            <div class="beacon-modal-description-wrapper">
+              <p>Do you want to go directly to the Financial Advisors/Intermediaries site when you visit troweprice.com
+                ?
+              </p>
+              <div id='dialog-toggle-switch-id'>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="beacon-modal-action-zone fixed">
+          <button class="trp-beacon-button primary default">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/fai/clientlibs/clientlib-site.c8b68e26f056c5c9070c53a2b0a84ae9.css" type="text/css">
+
+
+<div class="fai-modal-container" id="logoutOverlayId" data-metrics-location="PU">
+  <div class="beacon-modal-wrapper">
+    <div class="beacon-modal-surface beacon-modal-elevation-3 normal fixed">
+      <div class="beacon-modal-zones-wrapper">
+        <div class="beacon-modal-header">
+          <a class="beacon-modal-close-button multiple-login-logout-close-button" role="button"></a>
+        </div>
+        <div class="beacon-modal-content-zone">
+          <div class="beacon-modal-description-zone">
+            <div class="beacon-modal-title-wrapper">
+              <h2>You are currently logged in to multiple T. Rowe Price websites.</h2>
+            </div>
+            <div class="beacon-modal-description-wrapper">
+              <p>You will need to log out below and log back in with your Advisor Dashboard credentials.
+              </p>
+              <div id='dialog-toggle-switch-id'>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="beacon-modal-action-zone fixed deny-b2c-logout">
+          <button class="trp-beacon-button primary default multiple-login-logout-overlay">Log Out Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="registrationConfirmationOverlayID">
+  <div class="xfpage page basicpage b-reset beacon-theme-modern-outlook"><div class="container">
+  <div class="root responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="usi-modal-component aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+<script type="text/javascript">
+  function loadUsiWebComponents() {
+    const jsBaseUrl = 'https://www.troweprice.com/shared-assets/usi-wc-user-elements/1.3.13/';
+    const scripts = [
+      "usi-wc-user-elements.js",
+    ];
+    scripts.forEach(src => {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = jsBaseUrl + src;
+      document.head.appendChild(script);
+    });
+    console.log(`loading usiWcUserElements from CDN at ${jsBaseUrl}`);
+  }
+
+  if (!window.hasUsiWebComponentsAlreadyBeenIncluded) {
+    window.hasUsiWebComponentsAlreadyBeenIncluded = true;
+    if(window.FaiGlobalLibs && window.FaiGlobalLibs.BeaconUiKitFoundation){
+      loadUsiWebComponents();
+      console.log('Usi Web Components loaded from CDN');
+    }
+    else {
+      document.addEventListener('fai-foundation-loaded', function () {
+        loadUsiWebComponents();
+        console.log('Usi Web Components loaded from CDN after fai-foundation-loaded event');
+      });
+    }
+
+  }
+</script>
+
+
+
+
+
+
+<div data-emptytext="USI Modal Component" class="cq-placeholder">
+  <lib-usi-elements-beacon-modal title="Thank you for registering." description="&lt;p>Simply verify your email address in the verification email to start enjoying your exclusive resources:&lt;/p>
+&lt;ul>
+&lt;li>Sign up for personalized portfolio analysis on your &lt;a href=&#34;/content/fai/us/en/advisor-dashboard/dashboard.html&#34;>Advisor Dashboard&lt;/a>&lt;/li>
+&lt;li>Elevate your practice with &lt;a href=&#34;https://www.troweprice.com/financial-intermediary/us/en/insights.html&#34;>financial professional-only insights&lt;/a>&lt;/li>
+&lt;li>Earn CE credits with &lt;a href=&#34;https://www.troweprice.com/financial-intermediary/us/en/tools-resources/financial-advisor-continuing-education.html&#34;>webinars&lt;/a> led by our investment experts&lt;/li>
+&lt;/ul>
+" image-url="/content/dam/fai/images/registration-confirmation.png">
+  </lib-usi-elements-beacon-modal>
+
+</div></div>
+
+    
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+    
+  
+    
+<script src="/etc.clientlibs/trp-core/components/content/videocontainer/v1/videocontainer/clientlibs/clientlib-component-videocontainer.d2fde591d693a4fb3cc4d9d4f2ea5e86.js"></script>
+<script src="/etc.clientlibs/trp-core/components/content/title/clientlibs.e1c06d85ae7b8b032bef47e42e4c08f9.js"></script>
+<script src="/etc.clientlibs/trp-core/components/content/tiles/key-facts-and-figures/v1/key-facts-and-figures/clientlibs.d41d8cd98f00b204e9800998ecf8427e.js"></script>
+<script src="/etc.clientlibs/trp-core/components/content/tabs/v1/tabs/clientlibs.61dc70406c17bf64bebe0d2255949617.js"></script>
+<script src="/etc.clientlibs/trp-core/components/content/modal/v1/modal/clientlibs-js.20a1f5cbc4551be6bdc7aea89c3919d8.js"></script>
+<script src="/etc.clientlibs/trp-core/components/content/modal/v1/modal/clientlibs.e1c06d85ae7b8b032bef47e42e4c08f9.js"></script>
+<script src="/etc.clientlibs/trp-core/components/content/hero/v1/hero/clientlibs.aeea37bcbcc227a228a65201dbf19b54.js"></script>
+<script src="/etc.clientlibs/trp-core/components/content/accordion/clientlibs.d41d8cd98f00b204e9800998ecf8427e.js"></script>
+<script src="/etc.clientlibs/trp-core/clientlibs/clientlib-dependencies.d41d8cd98f00b204e9800998ecf8427e.js"></script>
+<script src="/etc.clientlibs/trp-core/clientlibs/clientlib-site.541c0e7d967beb32a2364f179104db34.js"></script>
+
+
+
+
+<script src="//geoip-js.com/js/apis/geoip2/v2.1/geoip2.js" type="text/javascript"></script>
+
+
+    
+
+  
+  <script type="text/javascript">
+    /* SiteCatalyst/DTM */
+    try {
+      _satellite.pageBottom();
+    } catch (e) {
+      /* Do nothing */
+    }
+  </script>
+</body>
+
+</html>

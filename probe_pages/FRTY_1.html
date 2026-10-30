@@ -1,0 +1,817 @@
+
+<!DOCTYPE HTML >
+<html lang="en" dir="ltr">
+    <head>
+		<!-- TrustArc Autoblock -->
+		<script type="text/javascript" src="https://consent.trustarc.com/v2/autoblockasset/core.min.js?cmId=gzzkum"></script>
+		<script type="text/javascript" src="https://consent.trustarc.com/v2/autoblock?cmId=gzzkum"></script>
+		
+		<script>
+		    window.dataLayer = window.dataLayer || [];
+		    function gtag() { dataLayer.push(arguments); }
+		    					
+		    // Default Consent - Determine actual values based on TrustArc
+		    gtag('consent', 'default', {
+		    'ad_storage': 'denied',
+		    'ad_user_data': 'denied',
+		    'ad_personalization': 'denied',
+		    'analytics_storage': 'denied',
+		    'functionality_storage': 'denied',
+		    'personalization_storage': 'denied',
+		    'security_storage': 'denied',
+		    'wait_for_update': 500
+		    });
+		    
+		    gtag('set', 'developer_id.dNTIxZG', true);
+		    gtag('set', 'ads_data_redaction', true);
+		    gtag('set', 'url_passthrough', true);
+		  		    
+		    //Consent Mode Status
+		    const ConsentType = {
+		        DENIED: 'denied',
+		        GRANTED: 'granted',
+		    };
+		    
+		    const convertBooleanToGrantedOrDenied = (boolean) => boolean ? ConsentType.GRANTED : ConsentType.DENIED;
+		    
+		    const domain = 'alger.com';
+		    
+		    // Bucket Mapping
+		    const REQUIRED = 1;
+		    const FUNCTIONAL = 2;
+		    const ADVERTISING = 3;
+		    
+		    const consentTypesMapped = {
+		        'ad_storage': ADVERTISING,
+		        'ad_user_data': ADVERTISING,
+		        'ad_personalization': ADVERTISING,
+		        'analytics_storage': FUNCTIONAL,
+		        'functionality_storage': FUNCTIONAL,
+		        'personalization_storage': FUNCTIONAL,
+		        'security_storage': REQUIRED
+		    }
+		    
+		    const getConsentState = (prefCookie) => {
+		        var consentStates = {};
+		    
+		        var noticeBehavior = window.truste.util.readCookie("notice_behavior"); 
+		    
+		        // Autoblock holds Google back where the visitor must choose first (EU, California).
+		        // Only treat the location as implied consent when Autoblock has let the tags through.
+		        var googleTagBlocked = !!document.querySelector('script[src*="googletagmanager.com/"][type="ta-blocked"]');
+
+		        var impliedLocation = noticeBehavior && noticeBehavior.includes("na") && !googleTagBlocked;
+		    
+		        for (const consentType in consentTypesMapped) {
+		            var id = consentTypesMapped[consentType];
+		    
+		            if(prefCookie && !prefCookie.includes(0)) {
+		                console.log("Existing consent..");
+		                consentStates[consentType] = convertBooleanToGrantedOrDenied(prefCookie && prefCookie.includes(id));
+		            } else {
+		                console.log("Non Existing consent..");
+		                consentStates[consentType] = convertBooleanToGrantedOrDenied(impliedLocation);
+		            }
+		        }
+		    
+		        consentStates['wait_for_update'] = 500;
+		        console.log(consentStates);
+		        return consentStates;
+		    };
+		    
+		    function handleConsentDecisionForGCM(consent) {
+
+
+		        const consentStates = getConsentState(consent.consentDecision);
+
+		        console.log('consent is being updated');
+		        console.log(consentStates);
+
+		        //The default is set above, so every TrustArc decision is sent as an update
+		        gtag('consent', 'update', consentStates);
+		    }
+		    
+		    var interval = setInterval(() => {
+		        if (window.truste && truste.cma && truste.cma.callApi) {
+		            var consentDecision = truste.cma.callApi("getGDPRConsentDecision", domain);
+		            handleConsentDecisionForGCM(consentDecision);
+		            clearInterval(interval);
+		            console.log("running once...");
+		        }
+		    }, 100);
+		    
+		    
+		    // Start listening to when users submit their preferences  
+		    window.addEventListener("message", (event) => {
+		        let eventDataJson = null;
+		        // We only care about TrustArc Events at this point. And TrustArc's even it encoded in JSON
+		        try {
+		            eventDataJson = JSON.parse(event.data);
+		        } catch {
+		            // Some other event that is not JSON. 
+		            // TrustArc encodes the data as JSON
+		            // console.log(event.data);
+		        }
+		    
+		        // Safeguard to make sure we are only getting events from TrustArc
+		        if (eventDataJson && eventDataJson.source === "preference_manager") {
+		            // Means that the user has submited their preferences
+		            if (eventDataJson.message === "submit_preferences") {
+		                console.log("Event Data: ", eventDataJson);
+		                // Waiting half a second to make sure user's preferences are reflected. 
+		                setTimeout(() => {
+		                    var consentDecision = truste.cma.callApi("getGDPRConsentDecision", domain);
+		                    console.log("Consent Decision: ", consentDecision);
+		                    handleConsentDecisionForGCM(consentDecision);
+		                }, 500);
+		            }
+		        }
+		    }, false);
+		    
+		    /*
+		    This verification will check if tags are firing before default consent is defined.
+		    */
+		    var _taInterval;
+		    var _taAttempts = 0;
+		    var _taGoogleTagWasSetLate = function () {
+		    
+		      if(_taAttempts > 50)
+		        clearInterval(_taInterval);
+		    
+		      if(window.google_tag_data && window.google_tag_data.ics && window.google_tag_data.ics.wasSetLate) {
+		         console.warn("WARNING: Tags are firing before consent is initialized. Please ensure that the consent mode default is initialized before firing tags.");
+		         clearInterval(_taInterval);
+		       }
+		    
+		      _taAttempts++;
+		    }
+		    _taInterval = setInterval(_taGoogleTagWasSetLate, 200); 
+		
+		</script>
+				
+		<!-- TrustArc Notice script -->
+		<script type="text/javascript" async="async" src="https://consent.trustarc.com/v2/notice/gzzkum"></script>
+		
+		<!-- Google Tag Manager -->
+		<script>
+		(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-WMLHK6K');
+		</script>
+		<!-- End Google Tag Manager -->
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta http-equiv="X-UA-Compatible" content="IE=10" /><meta http-equiv="“X-UA-Compatible”" content="IE=9" /><meta charset="utf-8" /><meta name="GENERATOR" content="Microsoft SharePoint" /><meta http-equiv="Content-type" content="text/html; charset=utf-8" /><meta http-equiv="Expires" content="0" /><meta name="description" /><meta name="author" /><link rel="icon" href="/Style Library/Images/Alger_Favicon.ico" /><meta name="viewport" content="width=device-width" /><link href="/Style%20Library/Alger/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Bootstrap core CSS -->
+        <link href="/Style%20Library/Alger/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+        <!-- Bootstrap theme -->
+        <link href="/Style%20Library/Alger/css/bootstrap-theme.min.css" rel="stylesheet" />
+        <!-- Custom Select -->
+        <link href="/Style%20Library/Alger/plugins/selectIt/selectIt.css" rel="stylesheet" /><link href="/Style%20Library/Alger/plugins/swiper/swiper.css" rel="stylesheet" />
+        <!-- Custom scrollbar css -->
+        <link href="/Style%20Library/Alger/plugins/scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+        <!-- Table Sort css -->
+        <link href="/Style%20Library/Alger/plugins/tablesort/css/theme.default.min.css" rel="stylesheet" /><link href="/Style%20Library/Alger/plugins/multiselect/jquery.multiselect.css" rel="stylesheet" /><link href="/Style%20Library/Alger/plugins/cool-share/plugin.css" rel="stylesheet" /><link href="/Style%20Library/Alger/plugins/hamburger/screen.css" rel="stylesheet" /><title>
+	
+	ETFs | Alger
+
+</title>
+        <link id="CssLink-f45a989e2fd744ebb9f648a22ff40295" rel="stylesheet" type="text/css" href="/_layouts/15/1033/styles/Themable/corev15.css?rev=mDUzGfgO2aHnLoh30SeNyw%3D%3DTAG0"/>
+<link id="CssLink-517f7978d620413192dd2cd653cb82d0" rel="stylesheet" type="text/css" href="/Style%20Library/Alger/css/AlgerFonts.css"/>
+<style id="SPThemeHideForms" type="text/css">body {opacity:0 !important}</style><link href="/Style%20Library/Alger/css/style.css" rel="stylesheet" />
+        <script type="text/javascript">// <![CDATA[ 
+
+var g_SPOffSwitches={};
+// ]]>
+</script>
+<script type="text/javascript" src="/_layouts/15/1033/initstrings.js?rev=PwfqGMCAYeGaq4UXoAzNyA%3D%3DTAG0"></script>
+<script type="text/javascript" src="/_layouts/15/init.js?rev=DYE3cedRmoawSt01VBdEbg%3D%3DTAG0"></script>
+<script type="text/javascript" src="/_layouts/15/theming.js?rev=1ynWt6nLEOEdBs3AwvIoMw%3D%3DTAG0"></script>
+<script type="text/javascript" src="/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvmMNt2GzqnMC6E4rWz3ZzMaWfJfomx6Xqeq1BFjj_6WMZCs_aPeIJjUaScmjt1fVyAgMKe6FJWFctLFnc_JgMUjhdnETeZSSgha7tEMYF5imyjF5vA3q_SWDAX7y6DB7Jv_KzyTrODUdUZtx_mNY5Ck1&amp;t=ffffffffa1bf0f7b"></script>
+<script type="text/javascript" src="/_layouts/15/blank.js?rev=E5awR%2Bfykt6gXvqtGE19XA%3D%3DTAG0"></script>
+<script type="text/javascript" src="/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OCczIOaLHfPJXLiuNdCKdvODxTcMt_376jm4alAWtPfmR6D6VT0hoyx4gq8AMfS3g3Dok-hKYoge4qFEGQziEf4s_WklkyV2JtgIoaX8Db68WVMTBlDkOPm899_F6weyg42LQN2FntkPoc1jEgLg11E1&amp;t=ffffffffa1bf0f7b"></script>
+<script type="text/javascript">RegisterSod("require.js", "\u002f_layouts\u002f15\u002frequire.js?rev=bv3fWJhk0uFGpVwBxnZKNQ\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("strings.js", "\u002f_layouts\u002f15\u002f1033\u002fstrings.js?rev=tob137cgLCsvzDNjZIOCNQ\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("sp.res.resx", "\u002f_layouts\u002f15\u002f1033\u002fsp.res.js?rev=FnWveYddVjlqQYS2ZBOOzA\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("sp.runtime.js", "\u002f_layouts\u002f15\u002fsp.runtime.js?rev=gn1bgwGnSSrUbvO1caHCZQ\u00253D\u00253DTAG0");RegisterSodDep("sp.runtime.js", "sp.res.resx");</script>
+<script type="text/javascript">RegisterSod("sp.js", "\u002f_layouts\u002f15\u002fsp.js?rev=PMf7njZbc8Nm3GKFDpwANA\u00253D\u00253DTAG0");RegisterSodDep("sp.js", "sp.runtime.js");RegisterSodDep("sp.js", "sp.ui.dialog.js");RegisterSodDep("sp.js", "sp.res.resx");</script>
+<script type="text/javascript">RegisterSod("sp.init.js", "\u002f_layouts\u002f15\u002fsp.init.js?rev=KQnMQPWHD\u00252BSGM95KBVXUJg\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("sp.ui.dialog.js", "\u002f_layouts\u002f15\u002fsp.ui.dialog.js?rev=1z5KO1B3h6J\u00252B\u00252FkJjbDQCbg\u00253D\u00253DTAG0");RegisterSodDep("sp.ui.dialog.js", "sp.init.js");RegisterSodDep("sp.ui.dialog.js", "sp.res.resx");</script>
+<script type="text/javascript">RegisterSod("core.js", "\u002f_layouts\u002f15\u002fcore.js?rev=vtdjq\u00252FlvuyzKJJob1Dc1SQ\u00253D\u00253DTAG0");RegisterSodDep("core.js", "strings.js");</script>
+<script type="text/javascript">RegisterSod("menu.js", "\u002f_layouts\u002f15\u002fmenu.js?rev=2M5kK3FkZDlKYPrDGZ2yNQ\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("mQuery.js", "\u002f_layouts\u002f15\u002fmquery.js?rev=YiFSlddzACF6APr5AV8JLA\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("callout.js", "\u002f_layouts\u002f15\u002fcallout.js?rev=dhdk00o\u00252BsgeT\u00252BsAiJby49w\u00253D\u00253DTAG0");RegisterSodDep("callout.js", "strings.js");RegisterSodDep("callout.js", "mQuery.js");RegisterSodDep("callout.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("sp.core.js", "\u002f_layouts\u002f15\u002fsp.core.js?rev=gUVctsjfaq\u00252F1h8zQ6UNkFw\u00253D\u00253DTAG0");RegisterSodDep("sp.core.js", "strings.js");RegisterSodDep("sp.core.js", "sp.init.js");RegisterSodDep("sp.core.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("clienttemplates.js", "\u002f_layouts\u002f15\u002fclienttemplates.js?rev=pY197cLBjyA9E5D15QUTVw\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("sharing.js", "\u002f_layouts\u002f15\u002fsharing.js?rev=hJGnqDBFlr\u00252FbOXAgOAhAyw\u00253D\u00253DTAG0");RegisterSodDep("sharing.js", "strings.js");RegisterSodDep("sharing.js", "mQuery.js");RegisterSodDep("sharing.js", "clienttemplates.js");RegisterSodDep("sharing.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("suitelinks.js", "\u002f_layouts\u002f15\u002fsuitelinks.js?rev=mqZnNbQIqD4p1KH9a6sGog\u00253D\u00253DTAG0");RegisterSodDep("suitelinks.js", "strings.js");RegisterSodDep("suitelinks.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("userprofile", "\u002f_layouts\u002f15\u002fsp.userprofiles.js?rev=J0M1pzLkfDXcJflabMvTYA\u00253D\u00253DTAG0");RegisterSodDep("userprofile", "sp.runtime.js");</script>
+<script type="text/javascript">RegisterSod("followingcommon.js", "\u002f_layouts\u002f15\u002ffollowingcommon.js?rev=oTJm5M3M5tEQNaPADF2qAw\u00253D\u00253DTAG0");RegisterSodDep("followingcommon.js", "strings.js");RegisterSodDep("followingcommon.js", "sp.js");RegisterSodDep("followingcommon.js", "userprofile");RegisterSodDep("followingcommon.js", "core.js");RegisterSodDep("followingcommon.js", "mQuery.js");</script>
+<script type="text/javascript">RegisterSod("profilebrowserscriptres.resx", "\u002f_layouts\u002f15\u002f1033\u002fprofilebrowserscriptres.js?rev=qwf69WaVc1mYlJLXqmZmVA\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("sp.ui.mysitecommon.js", "\u002f_layouts\u002f15\u002fsp.ui.mysitecommon.js?rev=pj3X\u00252BVborHNas1qYiOC1fw\u00253D\u00253DTAG0");RegisterSodDep("sp.ui.mysitecommon.js", "sp.init.js");RegisterSodDep("sp.ui.mysitecommon.js", "sp.runtime.js");RegisterSodDep("sp.ui.mysitecommon.js", "userprofile");RegisterSodDep("sp.ui.mysitecommon.js", "profilebrowserscriptres.resx");</script>
+<script type="text/javascript">RegisterSod("browserScript", "\u002f_layouts\u002f15\u002fnon_ie.js?rev=H1GnnHRdOMP52x4IRrWVuQ\u00253D\u00253DTAG0");RegisterSodDep("browserScript", "strings.js");</script>
+<script type="text/javascript">RegisterSod("inplview", "\u002f_layouts\u002f15\u002finplview.js?rev=ApSfwlQx8y\u00252BHO0akuk0N5Q\u00253D\u00253DTAG0");RegisterSodDep("inplview", "strings.js");RegisterSodDep("inplview", "core.js");RegisterSodDep("inplview", "clienttemplates.js");RegisterSodDep("inplview", "sp.js");</script>
+<script type="text/javascript">RegisterSod("datepicker.js", "\u002f_layouts\u002f15\u002fdatepicker.js?rev=hLMLR3QM8e6kLfiVwsSDag\u00253D\u00253DTAG0");RegisterSodDep("datepicker.js", "strings.js");</script>
+<link type="text/xml" rel="alternate" href="/_vti_bin/spsdisco.aspx" />
+            
+            
+            <!-- _lcid="1033" _dal="1" -->
+<!-- _LocalBinding -->
+
+<link rel="canonical" href="https://www.alger.com:443/Pages/ETFs.aspx" />
+            
+            
+        <span id="DeltaSPWebPartManager">
+            
+        </span>        
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        
+                
+        <!-- Jquery UI -->
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->        
+        </head>
+    <body style="overflow:auto;" onhashchange="if (typeof(_spBodyOnHashChange) != 'undefined') _spBodyOnHashChange();">
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe title="GTM" src="https://www.googletagmanager.com/ns.html?id=GTM-WMLHK6K"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	
+	<div id="imgPrefetch" style="display:none">
+<img src="/_layouts/15/images/spcommon.png?rev=44" />
+</div>
+<form method="post" action="./ETFs.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="_wpcmWpid" id="_wpcmWpid" value="" />
+<input type="hidden" name="wpcmVal" id="wpcmVal" value="" />
+<input type="hidden" name="MSOWebPartPage_PostbackSource" id="MSOWebPartPage_PostbackSource" value="" />
+<input type="hidden" name="MSOTlPn_SelectedWpId" id="MSOTlPn_SelectedWpId" value="" />
+<input type="hidden" name="MSOTlPn_View" id="MSOTlPn_View" value="0" />
+<input type="hidden" name="MSOTlPn_ShowSettings" id="MSOTlPn_ShowSettings" value="False" />
+<input type="hidden" name="MSOGallery_SelectedLibrary" id="MSOGallery_SelectedLibrary" value="" />
+<input type="hidden" name="MSOGallery_FilterString" id="MSOGallery_FilterString" value="" />
+<input type="hidden" name="MSOTlPn_Button" id="MSOTlPn_Button" value="none" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__REQUESTDIGEST" id="__REQUESTDIGEST" value="noDigest" />
+<input type="hidden" name="MSOSPWebPartManager_DisplayModeName" id="MSOSPWebPartManager_DisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_ExitingDesignMode" id="MSOSPWebPartManager_ExitingDesignMode" value="false" />
+<input type="hidden" name="MSOWebPartPage_Shared" id="MSOWebPartPage_Shared" value="" />
+<input type="hidden" name="MSOLayout_LayoutChanges" id="MSOLayout_LayoutChanges" value="" />
+<input type="hidden" name="MSOLayout_InDesignMode" id="MSOLayout_InDesignMode" value="" />
+<input type="hidden" name="_wpSelected" id="_wpSelected" value="" />
+<input type="hidden" name="_wzSelected" id="_wzSelected" value="" />
+<input type="hidden" name="MSOSPWebPartManager_OldDisplayModeName" id="MSOSPWebPartManager_OldDisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_StartWebPartEditingName" id="MSOSPWebPartManager_StartWebPartEditingName" value="false" />
+<input type="hidden" name="MSOSPWebPartManager_EndWebPartEditing" id="MSOSPWebPartManager_EndWebPartEditing" value="false" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="8lTcz9EqV/fPjHioJEyGhpaUnNf1AOA6FrGMni34cZWiNIOuoZNBs9+BNiQfkrlL0TMkfPD//DHqGNo2XquaD1CMOXY9mkENvutumh/XW0SgLMIQb8F2ISCaVy8/He1PqagahXoPM0isMz6YEecqiyQKGOyl+zbTToEsI/LraQka1TQzx+OvPl3URHS8VTAetwKP6I6ZU9+cGnC1hLSxB6c4uYX3uHiPCuJ20nbCsU6sl4EsSvkETMFrNfiAjExuXXUnHPAmnkdnX1qtX0FpxYI40hwN9jC4RsCmDzTGDCjDUotwuldRi+gVqwL3Pf74zHdHC/Il/cv9H1Sn/i11XZ6NHiy8dTnm4XDiRwTxbQodvJQxl50DmvfUtz8tsDB038s4fZc/KG2JHcQtfeRYeKzjOU6Mk3ppbS/MakblTA0qF6PYIndEaDj+MDpWWcZ3vQbYgncem1nXszjMyzQjJesGXcejL730ydGOeQIfHUqrj18o/OlEpKgfehCLUEG7MsYe2veDe0mMYY4bl6GGjbR+Y9Ly9v9+vI+MI/fjnbmqIXXnGk2dptx7M1uZ+AYsVnDG++pOPBjTXCQ/wTnfp1jxQXHlpAJQ5B6rV0FNibbWB8QxBbYEwnNxPGGiWPh4sQ1L80zO2ojPNb8V77LZZWv3AMlkCQsB4uqolkTsaEgibVawcwiiY+R+2SOCSGikS9NYyCu0DAxUoa93N8dD6iQistBW9is276wEiTYkoCV3FLhB1jHR5D7Sd0tFuXLnSUqUYe3UBAtnsjhpK/bHA1GQmng2090gCm9d+uBTqG1iTmgiRz21dY5r2EiwVyKLBxUdtehOGXyyhVPEzx9a2AkCG79QX2k7bNCY7e36SQGiqiKUbf9z3Wy5//3qiBq6TVlG3bR5Dv8S1ySpptmvjkEiY9dfGziSKnghIa539IyEMIqu+c6sjPC0zUwBIjkSjo4/vPj0KeQm/cdzwTAMmxxFIiQ9zww24jDnHuotExPypZyLDg9KWXvwn3TbGv08Cxu/yUZD/7ZxtGInbWl6eaSZfl/Dmir+HiznQ8NBcVQn/QFWEyg231SrtkqEM71iRlaHxoYVVSVkDeOHD+YB7j9BY/gp6SSBpaRJ6Eu3sIXCmyPQ1pXeh21O6VbvY9kenLClx8gHtdXt+YjHPR+KTKDImbl+AGldCtCwB0TEanz+rsDEfWVuv/j4JJdL2msGpJjfClI/4I/EaZOhIV7TqpXE3RutBhiwvWbsuJNYwWrqYYc+mUwETccfclNdDHX7hWHYIBWY1ebo9BJj+t7vvU9d9g95oUtnsWWdNwX3s+9nsFJgwZa4v28gT5DJ0CYtEkkze2QxbDcpTVoWOXwH9I9DCC9XoVTfxPUE2sJahAQlcLH+NgSM7AtspeZmjo3IXdTfKckJ/ZVeF/0/9l5Lk5yXKu9a59UCfAF+GlQEzqLFap6PsjQwF6leY9J79AGuIGU2k3cUnRVEYZ1LqbkZ8ThPuQEvLcOKjFE2gllvdzSz1w666LkBHnZJMMfCTYNTg6LWgkTzRY8pPjtfBkoHeTJwZSWt+W0D/6gdozFcK/lrr+GmyYGVTv7u2Wss+BCfg16CMG2oC0ZiAbTsXY707j8MtHkTO22bsmwdcmAs/5+B7JzJeFJna//mhbIguCAOo9zOY2Fxhl1lMHjGZKj4LzFxwIM8MEsJn1CNtX524DDXNGyluwfb/r6FcHxdUd7PRxMRsXwi/7h93/kGhpKTFZsBIsCp8Kr46MBUVsjRR/Kn/L2RJojebO/Qcxvq2O2O0oGBkQsIXqTfOAx4r7GFvQSOxpPBRjxE+1MjC6JyNtFWC0f35RVU6hLyt5kjyyQH0lpX4qdZOgCFGnIrmLo2IcvtG4mf1R01/o35Y4pROVPYBz3KWQvJ1KlqBJE58UIhAZIWSmc9XentrGCFfyuXXBWXUEpmVdVzOfJw5MTt881lcapYejRFEvb7LRlw8yudBOz3W9lB8uOwPH3/SG691txSso/kWsinWtEeWWtCFMbESMVaQplY9EVUztBahGOh6rEkRl9sAIpIKXubW5kePwcNU1BGpy2nwc9I4rimTb1UEf76sutAlErFcvOMv17uXELU3ngrHqnO0iMqed3C/AQWva8Q8GWxQ4txKiqBiwQSmc9VvQjr/xb6caHm9envY7+FHHgTiE1ViTTw47r2qt8gZRgAhLeReWVgmRjzCPn+wkZbFy6dhZ1DV0WM84aEaKz1MaQFCl7IT9VmbM+bcVHPGdzo8rBC91rhuoiZ7KCMQKxiZL84ptIUNqAxmln6Bc79CINOHl8EIHgUx0H9uFexyuDCFnWPbNY1Z9EiVkTAzFYLmeT6gD821/RIgYQLM98kjmq9IzvE22Tj4B3OhsqnyKYRhPeSsXdX8XwEgko3JRA5Pav1oV27f8kWYq747FDX0UPiBzldZnka0fSZYT39R0zgPScMyPqNogCrYauY0hLY2n0aaAABMAvT+JB1b3kVv1Y/twfst9IIWQqT1EVx9q5JZIdPMJAeexMRf2L7sFeV8ROrHOd9xJZ1KHRoeMIXwK2gDIQj6XNitYXgcPhl1jw4Em/lTO2y3QyX7IyJdo3UYXxjVSajsSTv7RR2nGhrrqFT2kJRcdt0Eu6jX+38rTYG0FXQLecoUH59/tzVlLHJv+F20s325WzoxQ9MyEtzUqfFMOMATDkOeOx7Bpukv70lQ3WyLtjFU1MuLWAX3ccDQn/KENVqK75l60nUVEqFK8FBpltRLc6CL7vOqTAqsNULetzLlukNQ28kMcG5AxdI9bwTGx27ysBembjorkhFVbzFwZTP76+F8PmXHj06bAr1wttvD8Gq9+SgLcHAj+K7q+AZDRur3s+i6axIs0WKthQ/LjNo9+/XmBeV/v6UWUmYVjbTvHqNp1AGzNKlOuQGSRj3egrceQGinJqX/5Rt87qW7WyypwQhCHCyBGgPhv9skQjxNiEAwJ1ea6jrXz7MdtfKJ91UgKvT0NTxX4lTFYF6KxX+QOUbCtLW43WOdpWZghCypGjLtmq6R/w5GsiV335aT9vj6XSO7aaqZsMblLU7CheaMZbYJfe6ROR49MdE7tacedVKml9tSWI55qBSio6NdV7vCmZbVZ0uqYWKTcAGQpn3j61ULR2Zt9wFdVaRTYPTrhEx41nNCAtI05myD6qHAQLz51FbkR3IHWUO+uqyvQN4toGHO+sHDI99wjKCD0o8wZgaNTInGKhxBqU8ELS/aou1/BirDAmsPRkLwD3zj/p7bTuj0j8ZogU+MYFyJAN6zJRloyA+hEuCwhpKUdATb5OM5M4S8TBb/1VIaURfkXHM8+en3NCTJxRuSSYK45ZjImGJOS2rnhwEJ4QmYdJC2DmMjFeBRyR7PYrDQrMwLcpo+K4jOliop2WI28n00QP6WtYy8hJwWtDt55lh8/djptZTyPQKfVcb/TBVUYPHJtqhadu5/xJ27MqEQrQ/wSCwfHdLUo8mcceIHGwPK+JOvM7Ad6sQWPwnIoxjYNwC4gxgwbWvlGZNo732WnvSr9G6gwZEQo8TxKWA44106+I04jvggc5RJKp5g+C2nRDEmgNRgUy8rrpszaZMAXd+NYt5nwXcMt977MsENTa98dbsQmhS5c3MzX23RH9hJHIIqsE9Ho3XfFaKOjiD2bewm9Gnw5wTugfSeaxOG7Kt7dgMHq0TgT7pWkOdf/XD4SUbdvuMkcfh8jaFCoF4zq1W0odMFdiIj8FnF44NfjNVngk8PmYZWebDsp5/NuwNL7upWK2pUCdABET69fZzFvewetl8UsjL8IC5g906L8Z4/aIUOHWsZ60pCgVHIGXs/ti68GSxDUYxX2/n8YAYXZNfHGuQwKgKDtxjmhT/aKo95WhC3Y9hgxJKtDoSm46wt/BOJ9w/nWb8WowlIv3b+1IgZFj4gtJGKQomIAismLhWy1OWRlp1mylhJM9XmjLLJ5nU0YlE/IMP8tH1QEAjrGJBOUme5o5kZcYQWadYdE7Anl2Iss6vMzi71c4w9POEjD7xzTrvd59pJgTervsmC/6Bx061p1/m8yhYaoHz/jj9nVQNotf0vAW0ddqmiEZ13dUKhaHPHOx8sDtYa2ubRvW2AUabdmqLEgSOrYhg5Wt2afsIqBsWoAHaKLFLcdXopnrSwFJecmuSICy+Dh//0fiTfALegJpRp0s70sULWUA1krok0LdLs/dWIgkyaZfDkY1OW9XYH5vPXmN+Qi3X7qTQbbiiZBVmcr06gnKkx6rmQmsMF6l7mrviymSTneb3t7Io9HPeVj4NuJRcJ5HZVdBnU28VP/MqVsb424CQobmCZisKuyIsVOTQGULf2ExjPqHecTtP6unp9Z9bnOttFrNcAFiAPXdyBmB7PPX4JjB1tUgZ1QV9jeMPtLpIbmEtIYWTldpxj9q2bpdgq8WO6GqpbJ0QHsYms5WY3R2taIHyvmd2uiYgFuZ2CmHITywQTzAxZcgHCS57RPltFiaApT7R4oB25xgtBeQtGfGvhLHwFv7H+eRZluhBY+EyTP6JnzUSgVys9fAOJGplvXe9BuFxOuKFJwVDlOUYxumpCNEtp5cUOuQ2+1ndDll0Zb1NrYLCmUlRznmg4q+ir4b0oCaWoiZPMn176sYq0PIHcEK8f8cCDpKTgpxKiKwc0rzt6TaStxJCAbGCHFk3utQquUdv9DTkYk82S+CWNgeakoeBMRaUhDSgT8z+qGeE0wc4/KvLyUvIlioQvQrqN/wO0HT3dDkJcqx+krOikYsbRKFg7f6+07hn1PDrqB5xELqH2euGZtHtynN7bNN1+ya9BDlHy/Aqo/pbNgKTXjdvMKu2i3rF/XSqAh0m3Cgi3rHWmoK/H4v+PQ4+Ds6xLvRKsMBA+9Iqx7AfcHj0uiCLoRr2xEGXrUJiW2wTHw2yrJ/DiPL2eksfwFYLOxnWeH6W2sl4UzyHsbb5agAotXWfZpbWNqcHYZ87cD2jLj7ZxsegQosf233kcNkWrZmOcSnr+w8kaZGUVqrE+aZlVfPXVdToDdzIEIuijPOx5UIqra1XhzGvqZ+nbp31WVR3sbO4J/vnkiE0crB4wi7lrBbcTPDhuMT3zgEb+TkcWwmd35nuei+qM95ynKgBHsrxFBdYRwdzEulzzbwfT0yPJuIEx31Juz0rMMBg+VxV+dn36+82xd+bWMOGWJ+IucwdjX3QAnpMsLVOZMAaaqW1oPzI/d+IiUFuHDV5CY0j7SXfDFAOeoo9HxPREC3MciYjXmtTI4YWwv51LZa0LodhrnYHrVmMA0uPBqNzuUWqrdKE7CGWZyVS14nLnN1fwb3GLqHwRz1MtQhVH6VbavUEgsF9QmC0yJDqpS82m0j+OOpw" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZNSrVuWlJdJDLYjiVJcXPAYe2My-c9tdZ67lfoPa3e8gSTNMwnAAFFqMgMgqg1l8yg2&amp;t=639256253503738887" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var MSOWebPartPageFormName = 'aspnetForm';
+var g_presenceEnabled = true;
+var g_wsaEnabled = false;
+
+var g_correlationId = '7cc749a2-7dca-7087-12e3-3004f175b0b9';
+var g_wsaQoSEnabled = false;
+var g_wsaQoSDataPoints = [];
+var g_wsaRUMEnabled = false;
+var g_wsaLCID = 1033;
+var g_wsaListTemplateId = 850;
+var g_wsaSiteTemplateId = 'BLANKINTERNET#0';
+var _spPageContextInfo={"webServerRelativeUrl":"/","webAbsoluteUrl":"https://www.alger.com","viewId":"","listId":"{abb3b483-c9ec-4798-a44f-026b4c0a4479}","listPermsMask":{"High":16,"Low":196673},"listUrl":"/Pages","listTitle":"Pages","listBaseTemplate":850,"viewOnlyExperienceEnabled":false,"blockDownloadsExperienceEnabled":false,"idleSessionSignOutEnabled":false,"cdnPrefix":"","siteAbsoluteUrl":"https://www.alger.com","siteId":"{85dec706-27b0-43ea-8b0d-9f2f4166b8dd}","showNGSCDialogForSyncOnTS":false,"supportPoundStorePath":true,"supportPercentStorePath":true,"siteSubscriptionId":null,"CustomMarkupInCalculatedFieldDisabled":true,"AllowCustomMarkupInCalculatedField":false,"peoplePickerAutoSearchDelayMilliseconds":0,"peoplePickerRequireExplicitSearch":false,"isSPO":false,"farmLabel":null,"serverRequestPath":"/Pages/ETFs.aspx","layoutsUrl":"_layouts/15","webId":"{6a5b078c-b20d-44de-b747-10818e756d96}","webTitle":"Home","webTemplate":"53","webTemplateConfiguration":"BLANKINTERNET#0","webDescription":"Home","tenantAppVersion":"3087382548","isAppWeb":false,"webLogoUrl":"_layouts/15/images/siteicon.png","webLanguage":1033,"currentLanguage":1033,"currentUICultureName":"en-US","currentCultureName":"en-US","currentCultureLCID":1033,"spDocIntelligence":{"isEnabled":false,"isDocSummarizeEnabled":false,"isDocTranslateEnabled":false},"env":null,"nid":0,"fid":0,"serverTime":"2026-10-30T00:52:10.5823546Z","siteClientTag":"1920$$16.0.20326.20190","crossDomainPhotosEnabled":false,"openInClient":false,"Has2019Era":true,"webUIVersion":15,"webPermMasks":{"High":16,"Low":196673},"pageListId":"{abb3b483-c9ec-4798-a44f-026b4c0a4479}","pageItemId":12,"pagePermsMask":{"High":16,"Low":196673},"pagePersonalizationScope":1,"userEmail":"","userId":0,"userLoginName":null,"userDisplayName":null,"isAnonymousUser":true,"isAnonymousGuestUser":false,"isEmailAuthenticationGuestUser":false,"isExternalGuestUser":false,"sideBysideToken":"","systemUserKey":null,"alertsEnabled":false,"siteServerRelativeUrl":"/","allowSilverlightPrompt":"True","themeCacheToken":"/::14:","themedCssFolderUrl":null,"themedImageFileNames":null,"modernThemingEnabled":true,"isSiteAdmin":false,"ExpFeatures":[480216468,1884350801,1158731092,62197791,538521105,335811073,4194306,34614301,268500996,-1946025984,28445328,-2147475455,134291456,65544,288,950272,1282,808326148,134217873,0,0,-1073217536,545285252,18350656,-467402752,6291457,-2147483644,1074794496,-1728053184,1845537108,622628,4102,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"IsHybridEnabled":false,"SPOnPremFlights":[1737243,1635110,1608625,1615140,1574820,1551268,1554278,1536594,1451530,1437361,1293572,1281075,1266854,1262861,1263396,1261158,1245315,1242554,1241972,1232868,1227765,1225014,1220075,1218539,1175952,1174945,1165662,1159162,1149960,1149522,1113916,1111397,1101858,1099085,1086764,1080816,1079075,1075954,1073830,1073759,95255,1062921,1055593,1052809,1043614,1041859,1040063,1039112,1036486,1035189,1033993,1030381,1030382,1030364,1030362,1029854,1029586,1029565,1029556,1029555,1028671,1025113,1021288,1021275,1021274,1021272,1020637,1020043,1018275,1018016,1012433,1011886,1010592,1009740,1009585,1008744,1007603,1004459,1003886,1002806,1001164,116041,114176,114166,112973,108499,108186,107054,100994,100425,99885,99722,96075,94920],"InternalValidAuthorities":["www-sse-admin.alger.com","www-sse-ntlm.alger.com","www.alger.com"],"CorrelationId":"7cc749a2-7dca-7087-12e3-3004f175b0b9","hasManageWebPermissions":false,"isNoScriptEnabled":false,"groupId":null,"groupHasHomepage":true,"groupHasQuickLaunchConversationsLink":false,"departmentId":null,"hubSiteId":null,"hasPendingWebTemplateExtension":false,"isHubSite":false,"isWebWelcomePage":false,"siteClassification":"","hideSyncButtonOnODB":false,"showNGSCDialogForSyncOnODB":false,"sitePagesEnabled":false,"sitePagesFeatureVersion":0,"suiteNavInfo":{"suiteBarBackground":null,"suiteBarText":null,"suiteNavAccentColor":null,"suiteNavAllowCustom":false,"suiteNavAllowOverwrite":false,"suiteNavBrandingLogoNavigationUrl":null,"suiteNavBrandingLogoTitle":null,"suiteNavBrandingLogoUrl":null,"suiteNavBrandingText":null},"DesignPackageId":"00000000-0000-0000-0000-000000000000","groupType":null,"groupColor":"#ee0410","siteColor":"#ee0410","headerEmphasis":0,"navigationInfo":null,"guestsEnabled":false,"MenuData":{"SignInUrl":"/_layouts/15/Authenticate.aspx?Source=%2FPages%2FETFs%2Easpx"},"RecycleBinItemCount":-1,"PublishingFeatureOn":true,"PreviewFeaturesEnabled":false,"disableAppViews":false,"disableFlows":false,"serverRedirectedUrl":null,"formDigestValue":"0xC6BB96858C3A2A6EE950DCFD01BE40EF8BC4E025CBF3B6C131DDA600C0E7B8D233159245037368D053FC3C8EFCB12E6C0B87061339DD88139EA91BA6B1B56A20,30 Oct 2026 00:52:10 -0000","maximumFileSize":15360,"formDigestTimeoutSeconds":1800,"canUserCreateMicrosoftForm":false,"canUserCreateVisioDrawing":true,"readOnlyState":null,"isTenantDevSite":false,"preferUserTimeZone":false,"userTimeZoneData":null,"userTime24":false,"userFirstDayOfWeek":null,"webTimeZoneData":null,"webTime24":false,"webFirstDayOfWeek":null,"isSelfServiceSiteCreationEnabled":null,"alternateWebAppHost":"","aadTenantId":"","aadUserId":"","aadInstanceUrl":"","msGraphEndpointUrl":"https://","allowInfectedDownload":true};_spPageContextInfo.updateFormDigestPageLoaded=new Date();_spPageContextInfo.clientServerTimeDelta=new Date(_spPageContextInfo.serverTime)-new Date();if(typeof(define)=='function'){define('SPPageContextInfo',[],function(){return _spPageContextInfo;});}document.onreadystatechange=fnRemoveAllStatus; function fnRemoveAllStatus(){removeAllStatus(true)};
+                            function DoCallBack(filterText)
+                            {WebForm_DoCallback('ctl00$g_ed0a6aec_c693_4cda_a7b1_6fe83aca3e04',filterText,UpdateFilterCallback,0,CallBackError,true)
+                            }
+                            function CallBackError(result, clientsideString)
+                            {                
+                            }
+                        Flighting.ExpFeatures = [480216468,1884350801,1158731092,62197791,538521105,335811073,4194306,34614301,268500996,-1946025984,28445328,-2147475455,134291456,65544,288,950272,1282,808326148,134217873,0,0,-1073217536,545285252,18350656,-467402752,6291457,-2147483644,1074794496,-1728053184,1845537108,622628,4102,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; (function()
+{
+    if(typeof(window.SP) == "undefined") window.SP = {};
+    if(typeof(window.SP.YammerSwitch) == "undefined") window.SP.YammerSwitch = {};
+
+    var ysObj = window.SP.YammerSwitch;
+    ysObj.IsEnabled = false;
+    ysObj.TargetYammerHostName = "www.yammer.com";
+} )(); var _spWebPartComponents = new Object();_spBodyOnLoadFunctionNames.push('initPageRequestManagerForDFWP');
+//]]>
+</script>
+
+<script src="/_layouts/15/blank.js?rev=E5awR%2Bfykt6gXvqtGE19XA%3D%3DTAG0" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+window.__SP_THEMING_EVAL_FIX_DISABLED=false;window.SPThemeUtils && SPThemeUtils.RegisterCssReferences([{"Url":"\u002f_layouts\u002f15\u002f1033\u002fstyles\u002fThemable\u002fcorev15.css?rev=mDUzGfgO2aHnLoh30SeNyw\u00253D\u00253DTAG0","OriginalUrl":"\u002f_layouts\u002f15\u002f1033\u002fstyles\u002fThemable\u002fcorev15.css?rev=mDUzGfgO2aHnLoh30SeNyw\u00253D\u00253DTAG0","Id":"CssLink-f45a989e2fd744ebb9f648a22ff40295","ConditionalExpression":"","After":"","RevealToNonIE":"false"},{"Url":"\u002fStyle Library\u002fAlger\u002fcss\u002fAlgerFonts.css","OriginalUrl":"\u002fStyle Library\u002fAlger\u002fcss\u002fAlgerFonts.css","Id":"CssLink-517f7978d620413192dd2cd653cb82d0","ConditionalExpression":"","After":"System.String[]","RevealToNonIE":"false"}]);
+(function(){
+
+        if (typeof(_spBodyOnLoadFunctions) === 'undefined' || _spBodyOnLoadFunctions === null) {
+            return;
+        }
+        _spBodyOnLoadFunctions.push(function() {
+            SP.SOD.executeFunc('core.js', 'FollowingCallout', function() { FollowingCallout(); });
+        });
+    })();(function(){
+
+        if (typeof(_spBodyOnLoadFunctions) === 'undefined' || _spBodyOnLoadFunctions === null) {
+            return;
+        }
+        _spBodyOnLoadFunctions.push(function() {
+            SP.SOD.executeFunc('core.js', 'FollowingDocument', function() { FollowingDocument(); });
+        });
+    })();if (typeof(DeferWebFormInitCallback) == 'function') DeferWebFormInitCallback();function WebForm_OnSubmit() {
+UpdateFormDigest('\u002f', 1440000);if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;};
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BAB98CB3" />
+</div><script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager', 'aspnetForm', ['tctl00$g_ed0a6aec_c693_4cda_a7b1_6fe83aca3e04$updatePanelctl00_g_ed0a6aec_c693_4cda_a7b1_6fe83aca3e04','','tctl00$PlaceHolderMain$g_e6c7757c_1bf2_4ec2_9b47_28993fba607e$updatePanelctl00_PlaceHolderMain_g_e6c7757c_1bf2_4ec2_9b47_28993fba607e','','tctl00$g_3b596e10_df91_41de_9480_cc414f371f4e$updatePanelctl00_g_3b596e10_df91_41de_9480_cc414f371f4e',''], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        <!--changes-->
+        <div data-name="SecurityTrimmedAuthenticated">
+                        
+        </div>
+        <div id="s4-workspace" class="ms-core-overlay" style="background-color:inherit;">
+            <div id="s4-bodyContainer">
+	            <a class="skip-main" href="#DeltaPlaceHolderMain" style="">Skip to main content</a>
+	            <input type="submit" value="" style="display:none"/>
+                <div id="header">
+                    <div class="inner">
+                        <div id="top">
+                            <a href="/Pages/AlgerAccessLanding.aspx" id="login-link">
+                            Log In
+                            </a>
+                        </div>
+                        <div>
+                        <div class="ms-webpart-chrome ms-webpart-chrome-fullWidth ">
+	<div WebPartID="00000000-0000-0000-0000-000000000000" HasPers="true" id="WebPartWPQ1" width="100%" class="noindex " OnlyForMePart="true" allowDelete="false" style="" ><div id="ctl00_g_ed0a6aec_c693_4cda_a7b1_6fe83aca3e04_updatePanelctl00_g_ed0a6aec_c693_4cda_a7b1_6fe83aca3e04">
+		<input id="ctl00_g_ed0a6aec_c693_4cda_a7b1_6fe83aca3e04_ctl01" type="hidden" value="" /><div class="row" xmlns:x="http://www.w3.org/2001/XMLSchema" xmlns:d="http://schemas.microsoft.com/sharepoint/dsp" xmlns:asp="http://schemas.microsoft.com/ASPNET/20" xmlns:__designer="http://schemas.microsoft.com/WebParts/v2/DataView/designer" xmlns:SharePoint="Microsoft.SharePoint.WebControls" xmlns:ddwrt2="urn:frontpage:internal"><div class="col-xs-2"><a href="/" id="logo"><img src="/Style%20Library/Alger/img/logo.png" alt="Alger"></a></div><div class="col-xs-10" id="main_nav"><ul class="nav"><li class="dropdown"><a href="#" class="dropdown-toggle" data-hover="dropdown"><span>About Alger</span></a><ul class="dropdown-menu"><li><div class="row"><div class="col-xs-6 menu-box-element"><div class="mtitle"><a href="/Pages/Timeline.aspx">Our History</a><div></div></div><div class="mtitle"><a href="/Pages/Approach.aspx">Our Investment Approach</a><div></div></div><div class="mtitle"><a href="/Pages/InvestmentTeam.aspx">Investment Team</a><div></div></div><div class="mtitle"><a href="/Pages/Careers.aspx">Careers</a><div></div></div></div><div class="col-xs-6 menu-box-element"><div class="mtitle"><a href="/Pages/Sustainability.aspx">Commitment to Sustainability</a><div></div></div><div class="mtitle"><a href="/Pages/Employees.aspx">Commitment to Culture &amp; Employees</a><div></div></div><div class="mtitle"><a href="/Pages/Candlelight.aspx">Charitable Giving</a><div></div></div><div class="mtitle"><a href="/Pages/WeRemember.aspx">We Remember</a><div></div></div></div></div></li></ul></li><li class="dropdown"><a href="/Pages/StrategyFinder.aspx?client=any" class="dropdown-toggle" data-hover="dropdown"><span>Strategies</span></a><ul class="dropdown-menu"><li><div class="row"><div class="col-xs-4"><div class="menu_title">Strategies Overview</div></div><div class="col-xs-4"><div class="menu_title">Asset Classes</div></div><div class="col-xs-4"><div class="menu_title">Vehicles</div></div></div><div class="row"><div class="col-xs-4 menu-box-element"><div class="mtitle"><a href="/Pages/StrategyFinder.aspx?client=any">Strategy Finder</a><div></div></div></div><div class="col-xs-4 menu-box-element"><div class="mtitle"><a href="/Pages/AlgerStrategies.aspx?AssetClass=Large%20Cap">Large Cap</a><div></div></div><div class="mtitle"><a href="/Pages/AlgerStrategies.aspx?AssetClass=Mid%20Cap">Mid Cap</a><div></div></div><div class="mtitle"><a href="/Pages/AlgerStrategies.aspx?AssetClass=Small/SMid%20Cap">Small/SMid Cap</a><div></div></div><div class="mtitle"><a href="/Pages/AlgerStrategies.aspx?AssetClass=International">International</a><div></div></div><div class="mtitle"><a href="/Pages/AlgerStrategies.aspx?AssetClass=Alternatives">Alternatives</a><div></div></div><div class="mtitle"><a href="/Pages/AlgerStrategies.aspx?AssetClass=Specialty">Specialty</a><div></div></div><div class="mtitle"><a href="/Pages/AlgerStrategies.aspx?AssetClass=Focus">Focus</a><div></div></div></div><div class="col-xs-4 menu-box-element"><div class="mtitle"><a href="/Pages/StrategyFinder.aspx?vehicle=mf">Mutual Funds</a><div></div></div><div class="mtitle"><a href="/Pages/ETFs.aspx">ETFs</a><div></div></div><div class="mtitle"><a href="/Pages/StrategyFinder.aspx?vehicle=sma">SMAs</a><div></div></div><div class="mtitle"><a href="/Pages/StrategyFinder.aspx?vehicle=isa">Institutional Separate Accounts</a><div></div></div><div class="mtitle"><a href="/Pages/StrategyFinder.aspx?vehicle=ucits">UCITS</a><div></div></div><div class="mtitle"><a href="/Pages/Article.aspx?pageLabel=cit">Collective Investment Trusts</a><div></div></div></div></div></li></ul></li><li class="dropdown"><a href="/Pages/Search.aspx" class="dropdown-toggle" data-hover="dropdown"><span>Insights</span></a><ul class="dropdown-menu"><li><div class="row"><div class="col-xs-12"><div class="menu_title">Insights</div></div><div class="col-xs-12"><div class="menu_title">Blogs</div></div></div><div class="row"><div class="col-xs-12 menu-box-element"><div class="mtitle"><a href="/Pages/Archive.aspx?listType=OnTheMoney">Alger On the Money</a><div></div></div><div class="mtitle"><a href="/Pages/OnTheRecord.aspx">Alger On the Record</a><div></div></div><div class="mtitle"><a href="/Pages/Archive.aspx?listType=ManagerCommentary">Manager Commentary</a><div></div></div><div class="mtitle"><a href="/Pages/Archive.aspx?listType=CapitalMarkets">Capital Markets Outlook</a><div></div></div><div class="mtitle"><a href="/Pages/RetirementSolutions.aspx">Retirement Solutions</a><div></div></div><div class="mtitle"><a href="/Pages/Archive.aspx?listType=SectorViewpoints">Viewpoints</a><div></div></div><div class="mtitle"><a href="/Pages/AlgerFocus.aspx">The Power of Focus</a><div></div></div></div></div></li></ul></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-hover="dropdown"><span>Newsroom</span></a><div class="news-dropdown"><div class="news-links"><a href="/Pages/Press.aspx">Press Releases</a><a href="/Pages/IntheNews.aspx">In the News</a></div></div></li><li class="dropdown"><a href="/Pages/Contacts.aspx" class="dropdown-toggle" data-hover="dropdown"><span>Contact Us</span></a></li></ul></div></div>
+	</div><div class="ms-clear"></div></div>
+</div>
+</div>
+                    </div>
+                    <!--.inner-->
+                </div>
+                <!--#header-->
+                <!--#hero-->
+                <!-- /container -->
+                <div data-name="ContentPlaceHolderMain">                    
+                    <span id="DeltaPlaceHolderMain">
+                        
+<div id="ETFMain" style="display:none">
+<div class="ms-webpart-chrome ms-webpart-chrome-fullWidth ">
+	<div WebPartID="00000000-0000-0000-0000-000000000000" HasPers="true" id="WebPartWPQ2" width="100%" class="noindex " OnlyForMePart="true" allowDelete="false" style="" ><div id="ctl00_PlaceHolderMain_g_e6c7757c_1bf2_4ec2_9b47_28993fba607e_updatePanelctl00_PlaceHolderMain_g_e6c7757c_1bf2_4ec2_9b47_28993fba607e">
+		<input id="ctl00_PlaceHolderMain_g_e6c7757c_1bf2_4ec2_9b47_28993fba607e_ctl01" type="hidden" value="" /><div class="modal fade" id="buyETFModal" tabindex="-1" role="dialog" aria-labelledby="buyETFModalLabel" aria-hidden="true" style="display: none;" xmlns:x="http://www.w3.org/2001/XMLSchema" xmlns:d="http://schemas.microsoft.com/sharepoint/dsp" xmlns:asp="http://schemas.microsoft.com/ASPNET/20" xmlns:__designer="http://schemas.microsoft.com/WebParts/v2/DataView/designer" xmlns:SharePoint="Microsoft.SharePoint.WebControls" xmlns:ddwrt2="urn:frontpage:internal"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" id="etfmodal-button-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><h4 class="modal-title" id="etfModalLabel">How to Invest in ETF</h4></div><div class="modal-body"><div id="buyETFContent" class="modal-content-section" style="display: none;"><div class="" role="tabpanel"><ul class="nav nav-tabs" role="tablist"><li role="presentation" class="active"><a href="#individualinvestor" id="dataIndividualInvestor-title" aria-controls="individualinvestor" role="tab" data-toggle="tab">Individual Investor</a></li><li role="presentation"><a href="#financialprofessional" id="dataFinancialProfessional-title" aria-controls="financialprofessional" role="tab" data-toggle="tab">Financial Professional</a></li></ul><div class="tab-content nopt"><div role="tabpanel" class="tab-pane active" id="individualinvestor"><div class="tab_head">Purchase Online Via Your Brokerage Account</div><div class="tab_content"><div class="para"><strong>Please Note:</strong> By clicking one of the links below you are leaving the Alger website. <strong>Alger is not responsible for any content on the links below and is not affiliated with any firm listed.</strong></div><div class="btn_groups"><a href="https://us.etrade.com/home" target="_blank" class="btn">E*TRADE</a><a href="https://www.schwab.com/client-home" target="_blank" class="btn">Schwab</a><a href="https://www.fidelity.com/" target="_blank" class="btn">Fidelity</a><a href="https://investor.vanguard.com/" target="_blank" class="btn">Vanguard</a><a href="https://robinhood.com/us/en/" target="_blank" class="btn">Robinhood</a></div></div><div class="btn_wrap"><div class="para"><p><strong>If you don’t see your firm listed above, contact your financial advisor.</strong></p><div id="etfModalTickerLabel">Ask how Alger can help support your investment goals.</div></div></div></div><div role="tabpanel" class="tab-pane" id="financialprofessional"><div class="tab_head">Give us a call at 212.806.8800 or get in touch with us through our form.</div><div class="btn_wrap"><button id="btnETFContactUs" type="button" class="btn btn-lg" onclick="jumpTo('all-section-contactUs'); $('#buyETFModal').modal('hide');">CONTACT US</button></div></div></div></div></div><div id="advisorEmailContent" class="modal-content-section" style="display: none;"><form id="advisorEmailForm"><div class="mb-3 para">
+					To learn more about Alger ETF strategies, please reach out to your financial advisor. They can walk you through the unique advantages of investing in Alger ETFs, such as tax efficiency, diversification, and liquidity. Your advisor will also help you determine how ETFs may fit into your overall investment strategy, ensuring you make the best choice for your financial goals.	
+				  </div><br><a href="/AlgerDocuments/Alger_ETFs_Brochure.PDF" target="_blank" class="btn btn-lg">USE THIS GUIDE WITH YOUR ADVISOR</a></form></div></div></div></div></div><section class="etf-banner-sec" style="background-image: url('/AlgerImages/ETFHub/ETF-Header.png');" xmlns:x="http://www.w3.org/2001/XMLSchema" xmlns:d="http://schemas.microsoft.com/sharepoint/dsp" xmlns:asp="http://schemas.microsoft.com/ASPNET/20" xmlns:__designer="http://schemas.microsoft.com/WebParts/v2/DataView/designer" xmlns:SharePoint="Microsoft.SharePoint.WebControls" xmlns:ddwrt2="urn:frontpage:internal"><div class="container"><div class="etf-banner-wrap"><div class="etf-banner-title"><h1>Alger ETFs</h1></div><div class=" hero-details"><div class="ExternalClass62718205B7C04FFDBF45A61C5224344D">Explore Alger’s suite of growth equity exchange traded funds (ETFs) backed by over 60 years of investing experience.​<br></div></div><a class="skewed-btn" onclick="jumpTo('all-section-how-invest')" href="#" aria-label="How to invest" style="&#xD;&#xA;							        background-color: #9743B9; &#xD;&#xA;							        color: #fff;&#xD;&#xA;							    "><span>how to invest</span></a></div></div><img src="/AlgerImages/ETFHub/etf-banner-side-icon.png" alt=""></section><div id="etf-sticky-menu-content" class="row1 no-gutters etf-element etf-container" xmlns:x="http://www.w3.org/2001/XMLSchema" xmlns:d="http://schemas.microsoft.com/sharepoint/dsp" xmlns:asp="http://schemas.microsoft.com/ASPNET/20" xmlns:__designer="http://schemas.microsoft.com/WebParts/v2/DataView/designer" xmlns:SharePoint="Microsoft.SharePoint.WebControls" xmlns:ddwrt2="urn:frontpage:internal"><div class="etf-sticky-menu-wrapper"><div id="etf-sticky-menu-inner-wrapper"><div class="container"><div id="etf-sticky-menu" class="etf-sticky-horiz-menu"><div class="horiz-menu-item-wrapper"><div class="horiz-menu-item-inner-wrapper" style="left: 0;"><div id="skewed-menu-item-1" class="skewed-menu-item active-skew"><button type="button" onclick="jumpTo('all-section-featured')" tabindex="0">FEATURED</button></div><div id="skewed-menu-item-2" class="skewed-menu-item"><button type="button" onclick="jumpTo('all-section-etf')" tabindex="0">ALL ETFs</button></div><div id="skewed-menu-item-3" class="skewed-menu-item"><button type="button" onclick="jumpTo('all-section-how-invest')" tabindex="0">HOW TO INVEST</button></div><div id="skewed-menu-item-4" class="skewed-menu-item"><button type="button" onclick="jumpTo('all-section-insights')" tabindex="0">INSIGHTS</button></div><div id="skewed-menu-item-5" class="skewed-menu-item"><button type="button" onclick="jumpTo('all-section-faqs')" tabindex="0">FAQs</button></div><div id="skewed-menu-item-6" class="skewed-menu-item"><button type="button" onclick="jumpTo('all-section-contactUs')" tabindex="0">CONTACT US</button></div></div></div><div class="horiz-menu-arrow-wrapper"><div id="skewed-menu-1-next" class="skewed-menu-item next-menu-item"><button type="button" onclick="jumpToNext(1)" tabindex="0"><img src="https://www.alger.com/AlgerImages/careers/alg21-next-white.svg" alt="next menu item"></button></div><div id="skewed-menu-1-prev" class="skewed-menu-item prev-menu-item" style="display: none;"><button type="button" onclick="jumpToPrev(1)" tabindex="0"><img src="https://www.alger.com/AlgerImages/careers/alg21-prev-white.svg" alt="previous menu item"></button></div></div></div></div></div></div><div id="all-section-featured" class="etf-sticky-target-1 etf-sticky-target pt-100"><div class="container"><div class="inner-content-wrap"><div class="etf-common-head"><h2>Featured ETFs</h2></div><div class="featured-card-wrap"><div class="featured-card"><a href="/pages/Products.aspx?productCode=2489" target="_blank"><div class="fc_card-top"><img alt="" src="/AlgerImages/ETFHub/ATFV.jpg" style="BORDER&#58;0px solid;" /></div><div class="fc_card-body"><h3>Alger 35 ETF (ATFV)</h3><p>ATFV is an actively managed “best ideas” portfolio that invests in approximately 35 stocks in some of the most highly disrupted segments of the markets. The ETF is named for the 35 Alger colleagues we lost in the 9/11 attacks.</p><label class="btn learn-more">Learn more</label></div></a></div><div class="featured-card"><a href="/Pages/Products.aspx?productCode=2495" target="_blank"><div class="fc_card-top"><img alt="Thumbnail with ticker symbol FRTY" src="/AlgerImages/ETFHub/CNEQ.jpg" style="BORDER&#58;0px solid;" /></div><div class="fc_card-body"><h3>Alger Concentrated Equity ETF (CNEQ)</h3><p>Portfolio Manager Dr. Ankur Crawford constructs a focused portfolio of approximately 30 stocks and seeks to invest in companies that we believe are driving change and driving us forward into the next decade. </p><label class="btn learn-more">Learn more</label></div></a></div><div class="featured-card"><a href="/pages/Products.aspx?productCode=2494" target="_blank"><div class="fc_card-top"><img alt="Thumbnail with ticker symbol ALAI" src="/AlgerImages/ETFHub/ALAI.jpg" style="BORDER&#58;0px solid;" /></div><div class="fc_card-body"><h3>Alger AI Enablers & Adopters ETF (ALAI)</h3><p>Portfolio Manager Patrick Kelly, CFA, believes that AI is a massive total addressable market, and he seeks to invest in companies actively involved in developing and implementing AI technologies.</p><label class="btn learn-more">Learn more</label></div></a></div></div></div></div></div><div id="all-section-etf" class="col-xs-121 etf-sticky-target-2 etf-sticky-target py-100"><section class="container all-etf-sec"><div class="inner-content-wrap"><div class="etf-common-head"><h2 id="hash-etf">All of Alger’s ETFs</h2><div class="parah"><p>Alger’s suite of ETFs provides investors with unique and differentiated opportunities to invest in innovation and growth.</p></div></div><div class="etf-table"><div><table id="etf_table" class="tablesorter tablesorter-default show-perfomance"><thead><th>Fund Name</th><th>Ticker/ISIN</th><th>Asset Class</th><th>No. of Holdings<br><div id="effDate"></div></th><th>Portfolio Management</th></thead><tbody></tbody></table></div></div></div></section></div><div id="all-section-how-invest" class="etf-sticky-target-3 etf-sticky-target"><section class="how-to-invest-sec"><img src="/AlgerImages/ETFHub/how-to-invest-bg.png" alt=""><div class="container"><div class="how-to-invest-wrap"><div class="hi_header"><h2 class="header-62">How to Invest in ETFs</h2></div><div class="hi_content"><div class="hi_content_items"><a onclick="openETFModal('buyETF')" id="buyETF"><div class="item"><div class="icon-wrapper"><div class="icon"><img src="/AlgerImages/ETFHub/how-invest-purchase-online.png" alt=""></div></div><div class="content-wrapper"><h3>Purchase online via your brokerage account</h3><div class="parah"><p>Alger’s ETFs are available through most online brokerages and through select custodians. Click here to get started.</p></div></div></div></a><a id="advisorEmail" onclick="openETFModal('advisorEmail')"><div class="item"><div class="icon-wrapper"><div class="icon"><img src="/AlgerImages/ETFHub/how-invest-contact.png" alt=""></div></div><div class="content-wrapper"><h3>Contact your financial advisor</h3><div class="parah"><p>Work with your financial advisor to explore Alger's ETFs. Learn more here.</p></div></div></div></a><a onclick="jumpTo('all-section-contactUs')"><div class="item"><div class="icon-wrapper"><div class="icon"><img src="/AlgerImages/ETFHub/how-invest-form.png" alt=""></div></div><div class="content-wrapper"><h3>Get additional help</h3><div class="parah"><p>Give an Alger representative a call at 212.806.8800. You can also get in touch via our contact us form.</p></div></div></div></a></div></div></div></div></section></div><div id="all-section-insights" class="etf-sticky-target-4 etf-sticky-target"><div class="etf-insights"><div class="container"><div class="etf-common-head"><h2>ETF Insights</h2></div><div class="flexslider align-self-center" id="insight-slider"><ul class="insight-list slides"></ul></div><div class="custom-pagination"><span class="arrow" id="prev"></span><span id="pagination-text"></span><span class="arrow" id="next"></span></div></div></div></div><div id="all-section-faqs" class="etf-sticky-target-5 etf-sticky-target py-100"><div class="container"><div class="inner-content-wrap"><div class="etf-common-head"><h2>Frequently Asked Questions</h2></div><div id="faq-container" class="accordion-sec" role="region" aria-label="Frequently Asked Questions"><div class="tab"><button type="button" class="tab__label" id="faq-button-1" aria-expanded="false" aria-controls="faq-content-1" aria-label="FAQ 1: What is an ETF?">What is an ETF?</button><div class="tab__content" id="faq-content-1" role="region" aria-labelledby="faq-button-1"><p>ETFs, or exchange-traded funds, are baskets of securities that trade on stock exchanges like individual stocks. They can hold a variety of underlying assets and may be designed to track a specific index or be actively managed.&#160;<br></p></div></div><div class="tab"><button type="button" class="tab__label" id="faq-button-2" aria-expanded="false" aria-controls="faq-content-2" aria-label="FAQ 2: What are the differences between ETFs and mutual funds?">What are the differences between ETFs and mutual funds?</button><div class="tab__content" id="faq-content-2" role="region" aria-labelledby="faq-button-2"><p>ETFs trade throughout the day on stock exchanges, with prices fluctuating. In contrast, mutual funds are priced once daily, based on their Net Asset Value (NAV) at the end of the trading day. Mutual funds may have minimum investment thresholds for an investor to buy, while ETFs typically do not. ETFs may be considered more tax efficient than mutual funds, which can generate capital gains for shareholders when the fund manager sells securities, potentially creating a tax burden. ETFs may have lower expense ratios than some mutual funds.​<br></p></div></div><div class="tab"><button type="button" class="tab__label" id="faq-button-3" aria-expanded="false" aria-controls="faq-content-3" aria-label="FAQ 3: What are the different types of ETFs available?">What are the different types of ETFs available?</button><div class="tab__content" id="faq-content-3" role="region" aria-labelledby="faq-button-3"><p>There are many types of ETFs, including equity, fixed income, and specialty ETFs, as well as passive and actively managed options. Alger offers its own unique range of ETFs with a focus on growth equities.​​​<br></p></div></div><div class="tab"><button type="button" class="tab__label" id="faq-button-4" aria-expanded="false" aria-controls="faq-content-4" aria-label="FAQ 4: What is the difference between an Active and Passive ETF?">What is the difference between an Active and Passive ETF?</button><div class="tab__content" id="faq-content-4" role="region" aria-labelledby="faq-button-4"><p>An Active or Actively Managed ETF is managed by a portfolio manager and investment team who make investment decisions based on their individual investment philosophies. A Passive or Systematic ETF typically seeks to track an index and has a standardized investment methodology that does not change.​​​<br></p></div></div><div class="tab"><button type="button" class="tab__label" id="faq-button-5" aria-expanded="false" aria-controls="faq-content-5" aria-label="FAQ 5: Where can I find information about an ETF’s holdings?">Where can I find information about an ETF’s holdings?</button><div class="tab__content" id="faq-content-5" role="region" aria-labelledby="faq-button-5"><p>​​ETF holdings are typically listed on the fund’s website.</p></div></div></div></div></div></div><div id="all-section-contactUs" class="col-xs-121 etf-sticky-target-6 etf-sticky-target"><section id="contactUs" class="contact-us-sec"><div class="container"><div class="etf-common-head white"><h2>Request more information</h2><div class="parah"><p>Have questions about Alger’s ETFs? Fill out the form below, and an Alger representative will be in touch to provide the information and support you need.</p></div></div><iframe width="100%" height="430" title="Subscribe Box" src="https://insights.alger.com/General-ETFs" frameborder="0" style="border-width:0px;min-height:100%;"></iframe></div></section></div><div class="a21-disclosures"><div class="container">   ​ 
+	   		<hr><div class="ExternalClass63A471EBA4F04DCDB6461DBC480C92BC"><div> 
+      <strong>Risk Disclosures&#58;</strong> Investing in the stock market involves risks, including the potential loss of principal. Growth stocks may be more volatile than other stocks as their prices tend to be higher in relation to their companies’ earnings and may be more sensitive to market, political, and economic developments. Investing in companies of small and medium capitalizations involves the risk that such issuers may have limited product lines or financial resources, lack management depth, or have limited liquidity. A significant portion of assets will be concentrated in securities in related industries, and may be similarly affected by adverse developments and price movements in such industries.&#160;Assets may be focused in a small number of holdings, making them susceptible to risks associated with a single economic, political or regulatory event than a more diversified portfolio. A significant portion of assets may be invested in securities of companies in related sectors, and may be similarly affected by economic, political, or market events and conditions and may be more vulnerable to unfavorable sector developments. The Alger 35 ETF, Alger AI Enablers &amp; Adopters ETF, and Alger Concentrated Equity ETF are classified as “non-diversified funds” under federal securities laws because they can invest in fewer individual companies than a diversified fund. Active trading may increase transaction costs, brokerage commissions, and taxes, which can lower the return on investment.&#160;​ At times, cash may be a larger position in the portfolio and may underperform relative to equity securities. There is no guarantee that the Alger Russell Innovation Fund’s investment results will have a high degree of correlation to the Alger Russell Innovation Index (“ARII”) or that the Fund will achieve its investment objective. In addition, the Fund’s value will generally decline when the performance of the securities within the ARII declines. Investing in innovative companies may not be successful. The Fund may in invest companies that do not currently derive nor may never derive revenue from innovation or developing technologies. To the extent the ARII is concentrated, a significant portion of the Fund’s assets will be concentrated in securities in related industries, and may be similarly affected by adverse developments and price movements in such industries. The Fund is not “actively” managed and performance could be lower than actively managed funds. Because the Fund equally weights its holdings and rebalances its holdings quarterly, it may incur increased transaction costs, brokerage commissions, and taxes, which can lower the return on investment. 
+      <br> 
+      <br> ETF shares are based on market price rather than net asset value (“NAV”), as a result, shares may trade at a price greater than NAV (a premium) or less than NAV (a discount). The Fund may also incur brokerage commissions, as well as the cost of the bid/ask spread, when purchase or selling ETF shares. The Fund faces numerous market trading risks, including the potential lack of an active market for Fund shares, losses from trading in secondary markets, periods of high volatility and disruption in the creation and/or redemption process of the Fund. Any of these factors, among others, may lead to the Fund’s shares trading at a premium or discount to NAV. Thus, you may pay more (or less) than NAV when you buy shares of the Fund in the secondary market, and you may receive less (or more) than NAV when you sell those shares in the secondary market. The Manager cannot predict whether shares will trade above (premium), below (discount) or at NAV. The Fund may effect its creations and redemptions for cash, rather than for in-kind securities. Therefore, it may be required to sell portfolio securities and subsequently recognize gains on such sales that the Fund might not have recognized if it were to distribute portfolio securities in-kind. As such, investments in Fund shares may be less tax-efficient than an investment in an ETF that distributes portfolio securities entirely in-kind. Brokerage fees and taxes will be higher than if the Fund sold and redeemed shares in-kind. Certain shareholders, including other funds advised by the Manager or an affiliate of the Manager, may from time to time own a substantial amount of the shares of the Fund. Redemptions by large shareholders could have a significant negative impact on the Fund. 
+      <br> 
+      <br> Prior to December 2, 2024, Alger Mid Cap 40 ETF and Alger 35 ETF operated as non-transparent ETFs and were limited in the types of investments in which they could invest. This is because only exchange traded securities were permitted.​ 
+      <br> 
+      <br> Companies involved in, or exposed to, AI-related businesses may have limited product lines, markets, financial resources or personnel as they face intense competition and potentially rapid product obsolescence, and many depend significantly on retaining and growing their consumer base. These companies may be substantially exposed to the market and business risks of other industries or sectors, and may be adversely affected by negative developments impacting those companies, industries or sectors, as well as by loss or impairment of intellectual property rights or misappropriation of their technology. Companies that utilize AI could face reputational harm, competitive harm, and legal liability, and/or an adverse effect on business operations as content, analyses, or recommendations that AI applications produce may be deficient, inaccurate, biased, misleading or incomplete, may lead to errors, and may be used in negligent or criminal ways. AI technology could face increasing regulatory scrutiny in the future, which may limit the development of this technology and impede the future growth. AI companies, especially smaller companies, tend to be more volatile than companies that do not rely heavily on technology. 
+      <br> 
+      <br> The Alger Russell Innovation ETF (“INVN”) has been developed solely by Fred Alger Management, LLC. INVN is not in any way connected to or sponsored, endorsed, sold or promoted by the London Stock Exchange Group plc and its group undertakings (collectively, the “LSE Group”). FTSE Russell is a trading name of certain of the LSE Group companies. All rights in the Alger Russell Innovation Index (the “Index”) vest in the relevant LSE Group company which owns the Index. FTSE®” “Russell®”, “FTSE Russell®”, “FTSE4Good®”, “ICB®”, “The Yield Book®,” are trade mark(s) of the relevant LSE Group company and is/are used by any other LSE Group company under license. The Index is calculated by or on behalf of FTSE International Limited, FTSE Fixed Income, LLC or its affiliate, agent or partner. The LSE Group does not accept any liability whatsoever to any person arising out of (a) the use of, reliance on or any error in the Index or (b) investment in or operation of the INVN. The LSE Group makes no claim, prediction, warranty or representation either as to the results to be obtained from the INVN or the suitability of the Index for the purpose to which it is being put by Fred Alger Management, LLC. 
+      <br> 
+      <br> This material is not meant to provide investment advice and should not be considered a recommendation to purchase or sell securities. 
+      <br> 
+      <br> Alger pays compensation to third party marketers to sell various strategies to prospective investors. 
+      <br> 
+      <br> Equity Holdings for the referenced product represents individual securities held, excluding private placements, private equity, rights, warrants, options, other derivatives, cash or cash equivalents and securities where the total market value in the portfolio is less than one dollar. 
+      <br> 
+      <br><strong>Before investing, carefully consider the Fund’s investment objective, risks, charges, and expenses. For a prospectus and summary prospectus containing this and other information or for the Fund’s most recent month-end performance data, visit www.alger.com, call (800) 223-3810 or consult your financial advisor. Read the prospectus and summary prospectus carefully before investing. Distributor&#58; Fred Alger &amp; Company, LLC. Listed on NYSE Arca, Inc. NOT FDIC INSURED. NOT BANK GUARANTEED. MAY LOSE VALUE.</strong>​ </div>​​<br></div>​<br></div></div></div>
+	</div><div class="ms-clear"></div></div>
+</div>
+<div id="etf_iframezone">
+	<div class="ms-webpart-zone ms-fullWidth">
+	<div id="MSOZoneCell_WebPartctl00_ctl55_g_7d136840_0d69_47bb_94cf_03132e99587a" class="s4-wpcell-plain ms-webpartzone-cell ms-webpart-cell-vertical-inline-table ms-webpart-cell-vertical ms-fullWidth ">
+		<div class="ms-webpart-chrome ms-webpart-chrome-vertical " style="width:890px">
+			<div class="ms-webpart-chrome-title" id="WebPartctl00_ctl55_g_7d136840_0d69_47bb_94cf_03132e99587a_ChromeTitle" style="width:890px;">
+				<span title="StrategyFinder - StrategyFinder Description" id="WebPartTitlectl00_ctl55_g_7d136840_0d69_47bb_94cf_03132e99587a" class="js-webpart-titleCell"><h2 style="text-align:justify;" class="ms-webpart-titleText"><a accesskey="W" href="https://www.alger.com/_layouts/15/appredirect.aspx?client_id=i%3A0i%2Et%7Cms%2Esp%2Eext%7Cbf4cd5b7%2Db60a%2D4ad9%2Da171%2D9eb5a66b0d71%400bee1c64%2Dae72%2D43a6%2Da9f9%2D89851655d877&amp;redirect_uri=https%3A%2F%2Fwww%2Dsse%2Drem%2Ealger%2Ecom%2FStrategyFinder%2F%3F%7BStandardTokens%7D">&nbsp;<span>StrategyFinder</span><span id="WebPartCaptionctl00_ctl55_g_7d136840_0d69_47bb_94cf_03132e99587a"></span></a></h2></span>
+			</div><div WebPartID="7d136840-0d69-47bb-94cf-03132e99587a" HasPers="false" id="WebPartctl00_ctl55_g_7d136840_0d69_47bb_94cf_03132e99587a" class="ms-WPBody ms-WPBorder noindex ms-wpContentDivSpace " allowDelete="false" allowExport="false" style="width:890px;height:750px;" ><div id="ctl00_ctl55_g_7d136840_0d69_47bb_94cf_03132e99587a">
+				<script type='text/javascript'>
+                var spAppIFrameSenderInfo = new Array(2);
+                var SPAppIFramePostMsgHandler = function(e)
+                {
+                    if (e.data.length > 100)
+                        return;
+
+                    var regex = RegExp(/(<\s*[Mm]essage\s+[Ss]ender[Ii]d\s*=\s*([\dAaBbCcDdEdFf]{8})(\d{1,3})\s*>[Rr]esize\s*\(\s*(\s*(\d*)\s*([^,\)\s\d]*)\s*,\s*(\d*)\s*([^,\)\s\d]*))?\s*\)\s*<\/\s*[Mm]essage\s*>)/);
+                    var results = regex.exec(e.data);
+                    if (results == null)
+                        return;
+
+                    var senderIndex = results[3];
+                    if (senderIndex >= spAppIFrameSenderInfo.length)
+                        return;
+
+                    var senderId = results[2] + senderIndex;
+                    var iframeId = unescape(spAppIFrameSenderInfo[senderIndex][1]);
+                    var senderOrigin = unescape(spAppIFrameSenderInfo[senderIndex][2]);
+                    if (senderId != spAppIFrameSenderInfo[senderIndex][0] || senderOrigin != e.origin)
+                        return;
+
+                    var width = results[5];
+                    var height = results[7];
+                    if (width == "")
+                    {
+                        width = '300px';
+                    }
+                    else
+                    {
+                        var widthUnit = results[6];
+                        if (widthUnit == "")
+                            widthUnit = 'px';
+                    
+                        width = width + widthUnit;
+                    }
+
+                    if (height == "")
+                    {
+                        height = '150px';
+                    }
+                    else
+                    {
+                        var heightUnit = results[8];                        
+                        if (heightUnit == "")
+                            heightUnit = 'px';
+
+                        height = height + heightUnit;
+                    }
+                    
+                    var widthCssText = "";
+                    var resizeWidth = ('False' == spAppIFrameSenderInfo[senderIndex][3]);
+                    if (resizeWidth)
+                    {
+                        widthCssText = 'width:' + width + ' !important;';
+                    }
+                    
+                    var cssText = widthCssText;
+                    var resizeHeight = ('False' == spAppIFrameSenderInfo[senderIndex][4]);
+                    if (resizeHeight)
+                    {
+                        cssText += 'height:' + height + ' !important';
+                    }
+
+                    if (cssText != "")
+                    {
+                        var webPartInnermostDivId = spAppIFrameSenderInfo[senderIndex][5];
+                        if (webPartInnermostDivId != "")
+                        {
+                            var webPartDivId = 'WebPart' + webPartInnermostDivId;
+
+                            var webPartDiv = document.getElementById(webPartDivId);
+                            if (null != webPartDiv)
+                            {
+                                webPartDiv.style.cssText = cssText;
+                            }
+                            
+                            cssText = "";
+                            if (resizeWidth)
+                            {
+                                var webPartChromeTitle = document.getElementById(webPartDivId + '_ChromeTitle');
+                                if (null != webPartChromeTitle)
+                                {
+                                    webPartChromeTitle.style.cssText = widthCssText;
+                                }
+                                
+                                cssText = 'width:100% !important;'
+                            }
+
+                            if (resizeHeight)
+                            {
+                                cssText += 'height:100% !important';
+                            }
+                            
+                            var webPartInnermostDiv = document.getElementById(webPartInnermostDivId);
+                            if (null != webPartInnermostDiv)
+                            {
+                                webPartInnermostDiv.style.cssText = cssText;
+                            }
+                        }
+
+                        var iframe = document.getElementById(iframeId);
+                        if (null != iframe)
+                        {
+                            iframe.style.cssText = cssText;
+                        }
+                    }
+                }
+
+                if (typeof window.addEventListener != 'undefined')
+                {
+                    window.addEventListener('message', SPAppIFramePostMsgHandler, false);
+                }
+                else if (typeof window.attachEvent != 'undefined')
+                {
+                    window.attachEvent('onmessage', SPAppIFramePostMsgHandler);
+                }spAppIFrameSenderInfo[1] = new Array("CA13B4431","g_0399ed95_c05e_4553_bc9c_674844a0bdc4","https:\u002f\u002fwww-sse-rem.alger.com","False","False","ctl00_ctl55_g_7d136840_0d69_47bb_94cf_03132e99587a");
+</script><iframe src="https://www.alger.com/_layouts/15/appredirect.aspx?redirect_uri=https%3A%2F%2Fwww%2Dsse%2Drem%2Ealger%2Ecom%2FStrategyFinder%2F%3FSPHostUrl%3Dhttps%253A%252F%252Fwww%252Ealger%252Ecom%26SPHostTitle%3DHome%26SPAppWebUrl%3D%26SPLanguage%3Den%252DUS%26SPClientTag%3D14%26SPProductNumber%3D16%252E0%252E20326%252E20190%26client%3DclientValue%26vehicle%3DvehicleValue%26showdoc%3DshowdocValue%26autocomplete%3DautocompleteValue%26SenderId%3DCA13B4431&client_id=i%3A0i%2Et%7Cms%2Esp%2Eext%7Cbf4cd5b7%2Db60a%2D4ad9%2Da171%2D9eb5a66b0d71%400bee1c64%2Dae72%2D43a6%2Da9f9%2D89851655d877&anon=1" id="g_0399ed95_c05e_4553_bc9c_674844a0bdc4" frameborder="0" width="890px" height="750px"></iframe>
+			</div><div class="ms-clear"></div></div>
+		</div><div class="ms-PartSpacingVertical"></div>
+	</div><div id="MSOZoneCell_WebPartctl00_ctl55_g_ea630bee_3c44_4dc3_8001_ca5422563e8a" class="s4-wpcell-plain ms-webpartzone-cell ms-webpart-cell-vertical-inline-table ms-webpart-cell-vertical ms-fullWidth ">
+		<div class="ms-webpart-chrome ms-webpart-chrome-vertical " style="width:200px">
+			<div class="ms-webpart-chrome-title" id="WebPartctl00_ctl55_g_ea630bee_3c44_4dc3_8001_ca5422563e8a_ChromeTitle" style="width:200px;">
+				<span title="RecommendedContent Title - This client webpart will get the data for Recommended Content on page." id="WebPartTitlectl00_ctl55_g_ea630bee_3c44_4dc3_8001_ca5422563e8a" class="js-webpart-titleCell"><h2 style="text-align:justify;" class="ms-webpart-titleText"><a accesskey="W" href="https://www.alger.com/_layouts/15/appredirect.aspx?client_id=i%3A0i%2Et%7Cms%2Esp%2Eext%7C861cde8d%2D56ab%2D494c%2Daec3%2D7c9171314b20%400bee1c64%2Dae72%2D43a6%2Da9f9%2D89851655d877&amp;redirect_uri=https%3A%2F%2Fwww%2Dsse%2Drem%2Ealger%2Ecom%2FAlgerSearchResults%2F%3F%7BStandardTokens%7D">&nbsp;<span>RecommendedContent Title</span><span id="WebPartCaptionctl00_ctl55_g_ea630bee_3c44_4dc3_8001_ca5422563e8a"></span></a></h2></span>
+			</div><div WebPartID="ea630bee-3c44-4dc3-8001-ca5422563e8a" HasPers="false" id="WebPartctl00_ctl55_g_ea630bee_3c44_4dc3_8001_ca5422563e8a" class="ms-WPBody ms-WPBorder noindex ms-wpContentDivSpace " allowDelete="false" allowExport="false" style="width:200px;height:100px;" ><div id="ctl00_ctl55_g_ea630bee_3c44_4dc3_8001_ca5422563e8a">
+				<script type='text/javascript'>spAppIFrameSenderInfo[0] = new Array("8658CE070","g_7cb322c9_585e_4b7f_aca3_c8fce199e6a0","https:\u002f\u002fwww-sse-rem.alger.com","False","False","ctl00_ctl55_g_ea630bee_3c44_4dc3_8001_ca5422563e8a");
+</script><iframe src="https://www.alger.com/_layouts/15/appredirect.aspx?redirect_uri=https%3A%2F%2Fwww%2Dsse%2Drem%2Ealger%2Ecom%2FAlgerSearchResults%2FRecommendedContent%2FIndex%3FSPHostUrl%3Dhttps%253A%252F%252Fwww%252Ealger%252Ecom%26SPHostTitle%3DHome%26SPAppWebUrl%3D%26SPLanguage%3Den%252DUS%26SPClientTag%3D14%26SPProductNumber%3D16%252E0%252E20326%252E20190%26requestingPage%3DrequestingPageValue%26SenderId%3D8658CE070&client_id=i%3A0i%2Et%7Cms%2Esp%2Eext%7C861cde8d%2D56ab%2D494c%2Daec3%2D7c9171314b20%400bee1c64%2Dae72%2D43a6%2Da9f9%2D89851655d877&anon=1" id="g_7cb322c9_585e_4b7f_aca3_c8fce199e6a0" frameborder="0" width="200px" height="100px"></iframe>
+			</div><div class="ms-clear"></div></div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+<div style='display:none' id='hidZone'><menu class="ms-hide">
+	<ie:menuitem id="MSOMenu_Help" iconsrc="/_layouts/15/images/HelpIcon.gif" onmenuclick="MSOWebPartPage_SetNewWindowLocation(MenuWebPart.getAttribute('helpLink'), MenuWebPart.getAttribute('helpMode'))" text="Help" type="option" style="display:none">
+
+	</ie:menuitem>
+</menu></div>
+                    </span>
+                </div>
+                <div id="footer">
+                	<!--<div class="ourcommitment">
+                			<img src="/Style%20Library/Alger/img/ESG-leaf-only.png" alt="PRI" width="32px" height="32px" >
+                			<a target="_blank" href="/Pages/Sustainability.aspx" aria-label="Our Commmitment to PRI">Signatory to the PRI and carbon neutral.</a>
+                    </div> -->
+                    <div class="inner">
+                    	<div>
+	                    <div class="ms-webpart-chrome ms-webpart-chrome-fullWidth ">
+	<div WebPartID="00000000-0000-0000-0000-000000000000" HasPers="true" id="WebPartWPQ3" width="100%" class="noindex " OnlyForMePart="true" allowDelete="false" style="" ><div id="ctl00_g_3b596e10_df91_41de_9480_cc414f371f4e_updatePanelctl00_g_3b596e10_df91_41de_9480_cc414f371f4e">
+		<input id="ctl00_g_3b596e10_df91_41de_9480_cc414f371f4e_ctl01" type="hidden" value="" /><div class="row" xmlns:x="http://www.w3.org/2001/XMLSchema" xmlns:d="http://schemas.microsoft.com/sharepoint/dsp" xmlns:asp="http://schemas.microsoft.com/ASPNET/20" xmlns:__designer="http://schemas.microsoft.com/WebParts/v2/DataView/designer" xmlns:SharePoint="Microsoft.SharePoint.WebControls" xmlns:ddwrt2="urn:frontpage:internal"><div class="col-xs-3" id="fmenu_about"><h3>ABOUT ALGER</h3><ul><li><a href="/Pages/Timeline.aspx" aria-label="ABOUT ALGER_Our History">Our History</a></li><li><a href="/Pages/Approach.aspx" aria-label="ABOUT ALGER_Our Investment Approach">Our Investment Approach</a></li><li><a href="/Pages/InvestmentTeam.aspx" aria-label="ABOUT ALGER_Investment Team">Investment Team</a></li><li><a href="/Pages/Careers.aspx" aria-label="ABOUT ALGER_Careers">Careers</a></li><li><a href="/Pages/Candlelight.aspx" aria-label="ABOUT ALGER_Charitable Giving">Charitable Giving</a></li><li><a href="/Pages/WeRemember.aspx" aria-label="ABOUT ALGER_We Remember">We Remember</a></li><li><a href="/Pages/DocumentsForms.aspx" aria-label="ABOUT ALGER_Documents &amp; Forms">Documents &amp; Forms</a></li><li><a href="https://connect.rightprospectus.com/Alger" aria-label="ABOUT ALGER_Fund Literature">Fund Literature</a></li><li><a href="/Pages/FAQs.aspx" aria-label="ABOUT ALGER_FAQs">FAQs</a></li></ul><h3>ESG</h3><ul><li><a href="/Pages/Sustainability.aspx" aria-label="ESG_Commitment to Sustainability">Commitment to Sustainability</a></li><li><a href="/AlgerDocuments/Alger-Approach-to-ESG-Overview.pdf" aria-label="ESG_Alger's Approach to ESG Investing and Oversight">Alger's Approach to ESG Investing and Oversight</a></li><li><a href="/AlgerDocuments/Weatherbie-Approach-to-ESG-Overview.pdf" aria-label="ESG_Weatherbie’s Approach to ESG Investing and Oversight">Weatherbie’s Approach to ESG Investing and Oversight</a></li><li><a href="/AlgerDocuments/Redwood-Approach-to-Responsible-Investing.pdf" aria-label="ESG_Redwood's Approach to Responsible Investing">Redwood's Approach to Responsible Investing</a></li><li><a href="/AlgerDocuments/Alger-VOICE-Statement.pdf" aria-label="ESG_Commitment to Culture &amp; Employees">Commitment to Culture &amp; Employees</a></li></ul></div><div class="col-xs-3" id="fmenu_assetclasses_vehicles"><h3>ASSET CLASSES</h3><ul><li><a href="/Pages/AlgerStrategies.aspx?AssetClass=Large%20Cap" aria-label="ASSET CLASSES_Large Cap">Large Cap</a></li><li><a href="/Pages/AlgerStrategies.aspx?AssetClass=Mid%20Cap" aria-label="ASSET CLASSES_Mid Cap">Mid Cap</a></li><li><a href="/Pages/AlgerStrategies.aspx?AssetClass=Small/SMid%20Cap" aria-label="ASSET CLASSES_Small/SMid Cap">Small/SMid Cap</a></li><li><a href="/Pages/AlgerStrategies.aspx?AssetClass=International" aria-label="ASSET CLASSES_International">International</a></li><li><a href="/Pages/AlgerStrategies.aspx?AssetClass=Alternatives" aria-label="ASSET CLASSES_Alternatives">Alternatives</a></li><li><a href="/Pages/AlgerStrategies.aspx?AssetClass=Specialty" aria-label="ASSET CLASSES_Specialty">Specialty</a></li><li><a href="/Pages/AlgerStrategies.aspx?AssetClass=Focus" aria-label="ASSET CLASSES_Focus">Focus</a></li></ul><h3>VEHICLES</h3><ul><li><a href="/Pages/StrategyFinder.aspx?vehicle=mf" aria-label="VEHICLES_Mutual Funds">Mutual Funds</a></li><li><a href="/Pages/ETFs.aspx" aria-label="VEHICLES_ETFs">ETFs</a></li><li><a href="/Pages/StrategyFinder.aspx?vehicle=sma" aria-label="VEHICLES_SMAs">SMAs</a></li><li><a href="/Pages/StrategyFinder.aspx?vehicle=isa" aria-label="VEHICLES_Institutional Separate Accounts">Institutional Separate Accounts</a></li><li><a href="/Pages/StrategyFinder.aspx?vehicle=ucits" aria-label="VEHICLES_UCITS">UCITS</a></li><li><a href="/Pages/Article.aspx?pageLabel=cit" aria-label="VEHICLES_Collective Investment Trusts">Collective Investment Trusts</a></li></ul><h3>TOOLS</h3><ul><li><a href="/Pages/StrategyFinder.aspx?client=any" aria-label="TOOLS_Strategy Finder">Strategy Finder</a></li><li><a href="/Pages/TenYearEstimator.aspx" aria-label="TOOLS_10 Year Estimator">10 Year Estimator</a></li><li><a href="/Pages/QuarterlyEstimator.aspx" aria-label="TOOLS_Quarterly Expense Estimator">Quarterly Expense Estimator</a></li></ul></div><div class="col-xs-3" id="fmenu_insights_news_literature"><h3>INSIGHTS</h3><ul><li><a href="/Pages/Search.aspx" aria-label="INSIGHTS_Featured Insights">Featured Insights</a></li><li><a href="/pages/Search.aspx#Default=%7B%22k%22:%22%22%2C%22r%22:%5B%7B%22n%22:%22MP-TxKeywords%22%2C%22t%22:%5B%22%5C%22%C7%82%C7%824361706974616c204d61726b657473204f75746c6f6f6b%5C%22%22%5D%2C%22o%22:%22and%22%2C%22k%22:false%2C%22m%22:null%7D%5D%7D" aria-label="INSIGHTS_Capital Markets Outlook">Capital Markets Outlook</a></li><li><a href="/Pages/Search.aspx#Default=%7B&quot;k&quot;%3A&quot;&quot;%2C&quot;r&quot;%3A%5B%7B&quot;n&quot;%3A&quot;MP-TxKeywords&quot;%2C&quot;t&quot;%3A%5B&quot;%5C&quot;ǂǂ416c676572204f6e20546865204d6f6e6579%5C&quot;&quot;%5D%2C&quot;o&quot;%3A&quot;and&quot;%2C&quot;k&quot;%3Afalse%2C&quot;m&quot;%3Anull%7D%5D%7D" aria-label="INSIGHTS_Alger On the Money">Alger On the Money</a></li><li><a href="/Pages/Search.aspx#Default=%7B&quot;k&quot;%3A&quot;&quot;%2C&quot;r&quot;%3A%5B%7B&quot;n&quot;%3A&quot;MP-TxKeywords&quot;%2C&quot;t&quot;%3A%5B&quot;%5C&quot;ǂǂ416c676572204f6e20546865205265636f7264%5C&quot;&quot;%5D%2C&quot;o&quot;%3A&quot;and&quot;%2C&quot;k&quot;%3Afalse%2C&quot;m&quot;%3Anull%7D%5D%7D" aria-label="INSIGHTS_Alger On the Record">Alger On the Record</a></li><li><a href="/Pages/Search.aspx#Default=%7B%22k%22%3A%22%22%2C%22r%22%3A%5B%7B%22n%22%3A%22MP-TxFormat%22%2C%22t%22%3A%5B%22%5C%22%C7%82%C7%82417564696f%5C%22%22%5D%2C%22o%22%3A%22and%22%2C%22k%22%3Afalse%2C%22m%22%3Anull%7D%5D%7D" aria-label="INSIGHTS_The Alger Podcast">The Alger Podcast</a></li><li><a href="/Pages/Search.aspx#" aria-label="INSIGHTS_Search All Insights">Search All Insights</a></li></ul><h3>NEWSROOM</h3><ul><li><a href="/Pages/Press.aspx" aria-label="NEWSROOM_Press Releases">Press Releases</a></li><li><a href="/Pages/IntheNews.aspx" aria-label="NEWSROOM_In the News">In the News</a></li></ul><h3>LITERATURE</h3><ul><li><a href="/Pages/StrategyFinder.aspx?vehicle=mf&amp;showdoc=true" aria-label="LITERATURE_Mutual Funds">Mutual Funds</a></li><li><a href="/Pages/StrategyFinder.aspx?vehicle=sma&amp;showdoc=true" aria-label="LITERATURE_SMAs">SMAs</a></li><li><a href="/Pages/StrategyFinder.aspx?vehicle=isa&amp;showdoc=true" aria-label="LITERATURE_Institutional Separate Accounts">Institutional Separate Accounts</a></li><li><a href="/Pages/StrategyFinder.aspx?vehicle=ucits&amp;showdoc=true" aria-label="LITERATURE_UCITS">UCITS</a></li></ul></div><div class="col-xs-3" id="fmenu_contact_legal"><h3>CONTACT US</h3><ul><li><a href="/Pages/Contacts.aspx" aria-label="CONTACT US_All Inquiries">All Inquiries</a></li></ul><h3>LEGAL NOTICES</h3><ul><li><a href="/Pages/Archive.aspx?listType=Notices" aria-label="LEGAL NOTICES_Proxy Information">Proxy Information</a></li><li><a href="/Pages/Page.aspx?pageLabel=DividendsDistributions" aria-label="LEGAL NOTICES_2026 Estimated Dividends &amp; Distribution Information">2026 Estimated Dividends &amp; Distribution Information</a></li><li><a href="/AlgerDocuments/SalesChargesPage.pdf" aria-label="LEGAL NOTICES_Sales Charges">Sales Charges</a></li><li><a href="/Pages/Page.aspx?pageLabel=Relationship_Summaries" aria-label="LEGAL NOTICES_Customer Relationship Summaries">Customer Relationship Summaries</a></li><li><a href="/AlgerDocuments/SICAV_UKInvestorReport.pdf" aria-label="LEGAL NOTICES_UK Investor Report">UK Investor Report</a></li><li><a href="/Pages/Page.aspx?pageLabel=Form_ADV" aria-label="LEGAL NOTICES_Form ADVs">Form ADVs</a></li></ul></div></div>
+	</div><div class="ms-clear"></div></div>
+</div>
+	                    </div>
+	                    <div id="viewMobileSite" class="row desktop-only text-center" style="margin: 10px 0;">
+                        	<a style="color:white" onclick="redirectPage()"><strong>View Mobile Site</strong></a>
+						</div>
+						<!--BrightEdge Autopilot Target Div-->
+						<div class="be-ix-link-block"></div>
+                        <div class="row">
+                        	<hr />
+                            <div class="col-xs-8" id="bottom_menu">
+                            Copyright Alger <span id="year"></span> All Rights Reserved
+                                <a href="/AlgerDocuments/PrivacyPolicy.pdf" target="_blank">
+                                Privacy  Policy
+                                </a>
+                                <a href="/AlgerDocuments/Alger_BCP_Public_Statement.pdf" target="_blank">
+                                Business Continuity
+                                </a>
+                                <a href="/Pages/TermsOfUse.aspx">
+                                Terms and Conditions
+                                </a>
+                                <div id="teconsent"></div>
+                            </div>
+                            <!--#bottom_menu-->
+                            <div class="col-xs-4" id="social_media">
+                                <a href="https://www.youtube.com/user/AlgerInvest" target="_blank">
+                                    <img src="/Style%20Library/Alger/img/yt.png" alt="youtube channel" />
+                                </a>
+                                <!-- Remove twitter
+                                <a href="https://twitter.com/algerinvest" target="_blank">
+                                    <img src="/Style%20Library/Alger/img/tw.png" alt="twitter" />
+                                </a> -->
+                                <a href="https://www.linkedin.com/company/alger" target="_blank">
+                                    <img src="/Style%20Library/Alger/img/li.png" alt="LinkedIn" />
+                                </a>
+                                <a href="https://www.instagram.com/algerinvest/" target="_blank">
+									<img src="/Style%20Library/Alger/img/ig.png" alt="Instagram">
+								</a>
+                            </div>
+                            <!--#social_link-->
+                        </div>
+                        <!--.row-->
+                    </div>
+                    <!--.inner-->
+                </div>
+                <!-- #footer-->
+            </div>
+            <div id="consent-banner"></div>
+        </div>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/Style%20Library/Alger/js/jquery-1.11.2.min.js"></script>
+        <script src="/Style%20Library/Alger/js/bootstrap.min.js"></script>
+        <script src="/Style%20Library/Alger/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Browser detect -->
+        <script src="/Style%20Library/Alger/plugins/detect.min.js"></script>
+        <!--<script src="js/docs.min.js">//<![CDATA[//]]></script>-->
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <!--<script src="js/ie10-viewport-bug-workaround.js">//<![CDATA[//]]></script> -->
+        <!-- Front slider js -->
+        <script src="/Style%20Library/Alger/plugins/swiper/swiper.min.js"></script>
+        <!-- Custom Select -->
+        <script src="/Style%20Library/Alger/plugins/selectIt/selectIt.js"></script>
+        <!-- Custom Js fns -->
+        <script src="/Style%20Library/Alger/js/ActiveTab.js"></script>
+        <script src="/Style%20Library/Alger/plugins/multiselect/jquery.multiselect.js"></script>
+        <script src="/Style%20Library/Alger/plugins/cool-share/plugin.js"></script>
+		<script src="/Style%20Library/Alger/plugins/hamburger/hamburger.js"></script>
+        <script src="/Style%20Library/Alger/js/core-mobile.js"></script>
+        <script src="/Style%20Library/Alger/js/Alger.js"></script>
+        <script src="/Style%20Library/Alger/js/eloqua.js"></script>
+        <script async src="https://siteimproveanalytics.com/js/siteanalyze_6051445.js"></script>
+        <noscript><img alt="FBPixel" height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=517472182705791&ev=PageView&noscript=1"/></noscript>
+        <script type="text/javascript" src="https://attbeacon.vettafi.com/alger.js"></script>
+		<noscript><img src="//beacon.etfflows.com/piwik.php?idsite=38" style="border:0;" alt="" /></noscript>
+        <style>
+            #main_nav > ul > li > a {
+                -webkit-transform: skew(-32deg); 
+                -moz-transform: skew(-32deg); 
+                 -ms-transform: skew(-32deg); 
+                  -o-transform: skew(-32deg); 
+                     transform: skew(-32deg); 
+            }
+            
+            #main_nav > ul > li > a > span {
+                display: inline-block;
+                -webkit-transform: skew(32deg); 
+                -moz-transform: skew(32deg); 
+                 -ms-transform: skew(32deg); 
+                  -o-transform: skew(32deg); 
+                     transform: skew(32deg); 
+            }
+            #main_nav > ul > li.activeNew {
+                background-color: unset;
+            }
+            
+            #main_nav > ul > .activeNew > a {
+                background-color: #63b1e2;
+            }
+        </style>
+        <!-- 1st Party Cookie Alger -->
+        <script type="text/javascript">
+		    var _elqQ = _elqQ || [];
+		    _elqQ.push(['elqSetSiteId', '2778554']);
+		    _elqQ.push(['elqUseFirstPartyCookie', 'trk.alger.com']);
+		    _elqQ.push(['elqTrackPageView', window.location.href]);
+			
+		    (function() {
+		        function async_load() {
+		            var s = document.createElement('script'); s.type = 'text/javascript';
+		            s.async = true;
+		            s.src = '//img.en25.com/i/elqCfg.min.js';
+		            var x = document.getElementsByTagName('script')[0];
+		            x.parentNode.insertBefore(s, x);
+		        }
+		        if(window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+		        else if (window.attachEvent) window.attachEvent('onload', async_load);
+		    })();
+		</script>
+        
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" type="text/javascript"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js" type="text/javascript"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/MotionPathPlugin.min.js" type="text/javascript"></script>
+	
+	<script src="https://www.alger.com/Style Library/Alger/plugins/tablesort/js/jquery.tablesorter.js"></script>
+    <script src="/Style%20Library/Alger/js/jquery.flexslider-min.js" type="text/javascript"></script>
+
+  	<script src="/Style%20Library/Alger/js/alg21-etf.js"></script>
+	<link rel="stylesheet" href="/Style%20Library/Alger/css/flexslider.css" />
+    <link rel="stylesheet" href="/Style%20Library/Alger/css/alg21-global.css" />
+	<link rel="stylesheet" href="/Style%20Library/Alger/css/alg21-etf.css">
+	
+	<meta name="title" content="Alger’s ETFs" />
+	<meta name="description" content="Explore Alger’s diverse suite of exchange-traded funds (ETFs), designed to support your investment strategy and goals." />
+	<meta property="og:title" content="Alger’s ETFs" />
+	<meta property="og:description" content="Explore Alger’s diverse suite of exchange-traded funds (ETFs), designed to support your investment strategy and goals." />
+	<meta property="og:image" content="https://www.alger.com/AlgerImages/alger_open-graph.jpg" />
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:site" content="@AlgerInvest" />
+	<meta property="twitter:creator" content="@AlgerInvest" />
+	<meta property="twitter:title" content="Alger’s ETFs" />
+	<meta property="twitter:description" content="Explore Alger’s diverse suite of exchange-traded funds (ETFs), designed to support your investment strategy and goals." />
+	<meta property="twitter:image" content="https://www.alger.com/AlgerImages/alger_open-graph.jpg" />
+
+
+    <div id="DeltaFormDigest">
+	
+	    
+			<script type="text/javascript">//<![CDATA[
+        var formDigestElement = document.getElementsByName('__REQUESTDIGEST')[0];
+        if (!((formDigestElement == null) || (formDigestElement.tagName.toLowerCase() != 'input') || (formDigestElement.type.toLowerCase() != 'hidden') ||
+            (formDigestElement.value == null) || (formDigestElement.value.length <= 0)))
+        {
+            formDigestElement.value = '0xC6BB96858C3A2A6EE950DCFD01BE40EF8BC4E025CBF3B6C131DDA600C0E7B8D233159245037368D053FC3C8EFCB12E6C0B87061339DD88139EA91BA6B1B56A20,30 Oct 2026 00:52:10 -0000';_spPageContextInfo.updateFormDigestPageLoaded = new Date();
+        }
+        //]]>
+        </script>
+	    
+    
+</div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+var _spFormDigestRefreshInterval = 1440000;
+var callBackFrameUrl='/WebResource.axd?d=beToSAE3vdsL1QUQUxjWdTGffnsjQ0oSuXaXV44JU8pczIgeHCDxva8VEX5jbrIRtamj4IOemnjTkAdeoNr-nA2&t=639256253503738887';
+WebForm_InitCallback();window.SPThemeUtils && SPThemeUtils.ApplyCurrentTheme(true); IsSPSocialSwitchEnabled = function() { return true; };var _fV4UI = true;
+function _RegisterWebPartPageCUI()
+{
+    var initInfo = {editable: false,isEditMode: false,allowWebPartAdder: false,listId: "{abb3b483-c9ec-4798-a44f-026b4c0a4479}",itemId: 12,recycleBinEnabled: true,enableMinorVersioning: true,enableModeration: false,forceCheckout: true,rootFolderUrl: "\u002fPages",itemPermissions:{High:16,Low:196673}};
+    SP.Ribbon.WebPartComponent.registerWithPageManager(initInfo);
+    var wpcomp = SP.Ribbon.WebPartComponent.get_instance();
+    var hid;
+    hid = document.getElementById("_wpSelected");
+    if (hid != null)
+    {
+        var wpid = hid.value;
+        if (wpid.length > 0)
+        {
+            var zc = document.getElementById(wpid);
+            if (zc != null)
+                wpcomp.selectWebPart(zc, false);
+        }
+    }
+    hid = document.getElementById("_wzSelected");
+    if (hid != null)
+    {
+        var wzid = hid.value;
+        if (wzid.length > 0)
+        {
+            wpcomp.selectWebPartZone(null, wzid);
+        }
+    }
+};
+function __RegisterWebPartPageCUI() {
+ExecuteOrDelayUntilScriptLoaded(_RegisterWebPartPageCUI, "sp.ribbon.js");}
+_spBodyOnLoadFunctionNames.push("__RegisterWebPartPageCUI");var __wpmExportWarning='This Web Part Page has been personalized. As a result, one or more Web Part properties may contain confidential information. Make sure the properties contain information that is safe for others to read. After exporting this Web Part, view properties in the Web Part description file (.WebPart) by using a text editor such as Microsoft Notepad.';var __wpmCloseProviderWarning='You are about to close this Web Part.  It is currently providing data to other Web Parts, and these connections will be deleted if this Web Part is closed.  To close this Web Part, click OK.  To keep this Web Part, click Cancel.';var __wpmDeleteWarning='You are about to permanently delete this Web Part.  Are you sure you want to do this?  To delete this Web Part, click OK.  To keep this Web Part, click Cancel.';var onLoadEvent=window.onload;
+function onLoadEventHandlerForDFWP()
+{
+if(onLoadEvent)  { onLoadEvent(); }
+if (typeof(_spBodyOnLoadWrapper) != 'undefined' && typeof(_spBodyOnLoadCalled) != 'undefined' && !_spBodyOnLoadCalled) _spBodyOnLoadWrapper();
+}
+window.onload = onLoadEventHandlerForDFWP;
+var g_clientIdDeltaPlaceHolderMain = "DeltaPlaceHolderMain";
+var g_clientIdDeltaPlaceHolderUtilityContent = "DeltaPlaceHolderUtilityContent";
+//]]>
+</script>
+</form>
+    <span id="DeltaPlaceHolderUtilityContent">
+    	
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+    </body>
+</html>
