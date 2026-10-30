@@ -26,7 +26,7 @@ CANDIDATES = {
              "https://am.jpmorgan.com/us/en/asset-management/adv/products/jpmorgan-active-small-cap-value-etf-etf-shares-46654q708"],
     "FRTY": ["https://www.alger.com/pages/Products.aspx?productCode=2490", "https://www.alger.com/Pages/ETFs.aspx"],
 }
-LINK = re.compile(r"""["'(]((?:https?://|/)[^"'()\s<>]*(?:holding|Holding|HOLDING|portfolio|Portfolio|download|Download|excel|Excel|\.csv|\.xlsx|/api/)[^"'()\s<>]*)["')]""")
+LINK = re.compile(r"""["'(]((?:https?://|/)[^"'()\s<>]*(?:holding|Holding|HOLDING|download|Download|excel|Excel|\.csv|\.xlsx|/api/)[^"'()\s<>]*)["')]""")
 SKIP = re.compile(r"\.(css|js|png|jpg|svg|gif|woff2?|ico)(\?|$)|#|apple\.com|google|facebook|linkedin|twitter")
 
 
@@ -63,6 +63,9 @@ def main():
             except Exception as e:
                 lines.append(f"{etf} {u} -> {type(e).__name__} {str(e)[:80]}"); continue
             res = try_parse(raw, today)
+            if u in urls:                                     # keep the issuer pages for offline inspection (uploaded as a workflow artifact)
+                (ROOT / "probe_pages").mkdir(exist_ok=True)
+                (ROOT / "probe_pages" / f"{etf}_{urls.index(u)}.html").write_bytes(raw)
             lines.append(f"{etf} {u} -> {len(raw)} bytes, parsed: {res}")
             if res and etf not in found:
                 fmt, n, w, asof = res

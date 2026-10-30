@@ -12,6 +12,8 @@ jobs:
         with: { python-version: "3.11" }
       - run: pip install -r requirements-refresh.txt
       - run: python fund_probe.py
+      - uses: actions/upload-artifact@v4
+        with: { name: probe-pages, path: probe_pages, retention-days: 3 }
       - name: Save the report (no rankings change)
         run: |
           git config user.name "conviction-bot"; git config user.email "bot@users.noreply.github.com"
