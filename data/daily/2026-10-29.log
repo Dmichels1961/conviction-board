@@ -1,4 +1,4 @@
-holdings BAI: 38 rows, 82.8% of weight, as of 2026-10-27
+holdings BAI: 38 rows, 82.5% of weight, as of 2026-10-28
 holdings ILDR: daily file failed (no holdings table found); using SEC filing instead
 holdings ILDR: 81 rows, 99.8% of weight, as of 2026-08-31
 holdings CGGR: 95 rows, 98.5% of weight, as of 2026-10-28
@@ -21,7 +21,7 @@ holdings ATFV: 32 rows, 96.2% of weight, as of 2026-06-30
 holdings ANCFX: 229 rows, 96.5% of weight, as of 2026-06-30
 holdings MFSV: 61 rows, 99.0% of weight, as of 2026-08-31
 holdings TDVG: 97 rows, 99.1% of weight, as of 2026-06-30
-holdings OAKM: FAILED (The read operation timed out); keeping previous list
+holdings OAKM: 38 rows, 99.3% of weight, as of 2026-06-30
 holdings RFNGX: 229 rows, 96.5% of weight, as of 2026-06-30
 holdings RICGX: 157 rows, 97.8% of weight, as of 2026-06-30
 holdings FCLKX: 170 rows, 95.4% of weight, as of 2026-07-31
@@ -51,13 +51,12 @@ regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads FAILED (FRED did not answer after 3 tries)
-market regime: normal ({'asof': '2026-10-29', 'spy': 769.29, 'spy_200d': 725.63, 'spy_below_200d': False, 'risk_off': False})
+market regime: normal ({'asof': '2026-10-29', 'spy': 769.36, 'spy_200d': 725.63, 'spy_below_200d': False, 'risk_off': False})
 AI capex gauge: $475.8bn trailing 12 months, 1.008 year on year
 prices: updated 644 names
 consensus ADTTF: 'current'
 consensus ASMXF: 'current'
 consensus BESVF: 'current'
-consensus BME: 'current'
 consensus BN: 'current'
 consensus GDERF: 'current'
 consensus IDRSF: 'current'
@@ -79,14 +78,16 @@ short interest / beta / P/E (Yahoo): 0 names refreshed
 sec ATZAF: HTTP Error 404: Not Found
 sec BYDDF: HTTP Error 404: Not Found
 sec GDERF: HTTP Error 404: Not Found
-SEC fundamentals: 268 names refreshed, 29 not SEC filers
+sec KATJF: HTTP Error 404: Not Found
+sec KXHCF: HTTP Error 404: Not Found
+SEC fundamentals: 272 names refreshed, 23 not SEC filers
 insiders: time budget reached, rest continue tomorrow
-insiders (SEC Form 4): 87 names checked today, 329 covered, 32 with open-market buying
+insiders (SEC Form 4): 87 names checked today, 416 covered, 40 with open-market buying
 ivol: 653 names
 resmom: 648 names
 customer_mom: 32 names
-options skew (Yahoo): 192 names refreshed
-filing text similarity (SEC): 137 new comparisons
+options skew (Yahoo): 58 names refreshed
+filing text similarity (SEC): 158 new comparisons
 coverage of 724 candidates (has value / updated within 7 days):
   momentum: 644 / 644
   EPS growth: 663 / 661
@@ -96,14 +97,13 @@ coverage of 724 candidates (has value / updated within 7 days):
   reaction: 658 / 658
   short interest: 641 / 720
   beta: 605 / 720
-  gross profitability: 303 / 532
-  accruals: 501 / 532
-  asset growth: 504 / 532
-  net issuance: 441 / 532
-  insider buying: 329 / 329
-ranked 399 names; top 10: MU, WDC, INTC, MRVL, FLEX, LRCX, STX, SPCX, TSM, BE
+  gross profitability: 310 / 540
+  accruals: 509 / 540
+  asset growth: 511 / 540
+  net issuance: 448 / 540
+  insider buying: 416 / 416
+ranked 399 names; top 10: MU, WDC, INTC, MRVL, FLEX, LRCX, STX, SPCX, TSM, SNOW
 point-in-time backtest: 83 months; out of sample 0.014 per month vs pool, t = 1.21
-paper portfolio: rebalanced on 2026-10-29, 5 trades, holdings MU, WDC, INTC, MRVL, FLEX
-paper portfolio: $99,900 (-0.1%); S&P 100000.0 QQQ 100000.0; next rebalance 2026-12-28
-emerging winners: 220 names with 3+ signals; top 5: AMD, AVGO, ADI, ALGM, BFLY
-track record: 3 boards tracked; concentration: 5.6 effective bets, avg correlation 0.279
+paper portfolio: $99,900 (-0.1%); S&P 99983.11 QQQ 100000.0; next rebalance 2026-12-28
+emerging winners: 453 names with 3+ signals; top 5: AMD, NVDA, AVGO, ADI, LSCC
+track record: 3 boards tracked; concentration: 5.6 effective bets, avg correlation 0.278
