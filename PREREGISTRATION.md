@@ -60,3 +60,7 @@ no trading costs, estimate revisions and guidance have no history and are untest
   Active Small Cap Value, benchmark IWN). Further small/mid ETFs join as their daily files are confirmed. Weights, signals and
   construction are unchanged. The 12-month test runs from the first board built with v2 (30 October 2026) to 30 October 2027.
   Boards from 15-29 October stay in the track record, labelled pre-v2.
+- **29 October 2026: stale holdings handled (part of v2).** Manager flow now uses only funds whose holdings are at most 10 days old
+  (daily issuer files); funds read from quarterly SEC filings no longer feed it, because a new filing would report months-old trades
+  as this week's buying. A fund whose list changes by more than half in one week is skipped that week (a data-source switch, not
+  trading). In overlap, holdings count fully up to 45 days old and fade linearly to half weight at 120 days.

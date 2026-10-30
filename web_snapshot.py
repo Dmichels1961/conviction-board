@@ -24,6 +24,9 @@ class WebSnapshotProvider:
         self.h = pd.concat([h, b])
         if not include_stale:
             self.h = self.h[self.h["fresh"].astype(str) == "True"]
+        ad = pd.to_datetime(self.h.get("asof"), errors="coerce") if "asof" in self.h.columns else pd.Series(dtype="datetime64[ns]")
+        self._asof = ad.groupby(self.h["etf"]).max() if len(ad) else pd.Series(dtype="datetime64[ns]")
+        self._ref = self._asof.max() if len(self._asof) else None      # newest file in the set stands in for "today"
         self.returns = pd.read_csv(self.folder / "returns.csv")
         e = self.folder / "earnings.csv"
         self.e = pd.read_csv(e).set_index("ticker") if e.exists() else pd.DataFrame()
@@ -38,6 +41,11 @@ class WebSnapshotProvider:
         cov = d["weight"].sum()
         d.attrs["source"] = "url" if cov >= 85 else "web_top_n"   # >=85% of net assets listed: absence means not held
         return d
+
+    def holdings_age(self, fund: str):
+        """Days between this fund's holdings date and the newest holdings date in the set (None if unknown)."""
+        d = self._asof.get(fund)
+        return None if d is None or pd.isna(d) or self._ref is None else int((self._ref - d).days)
 
     def skill_table(self, universe: pd.DataFrame, cfg) -> pd.DataFrame:
         rows = []

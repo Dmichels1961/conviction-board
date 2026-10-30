@@ -89,6 +89,11 @@ class Config(S.Config):
     flow_min_rel: float = 0.08       # ...and changes under 8% of the position
     flow_full: float = 2.0           # a 2-pt weight change = full-strength signal
     flow_partial_certainty: float = 0.5   # entering/leaving a top-10 list is ambiguous
+    flow_max_age: int = 10           # flow only from funds whose holdings are at most this many days old (daily files);
+                                     # quarterly SEC filings would report months-old trades as this week's buying
+    stale_full_days: int = 45        # overlap: holdings up to this age count fully...
+    stale_half_days: int = 120       # ...fading linearly to half weight at this age (older still: half)
+    flow_min_kept: float = 0.5       # a fund whose list changed by more than half in a week is treated as a data-source switch, not trades
     weights: dict = field(default_factory=lambda: {k: w for k, _, _, w, _ in SIGNALS})
 
     def __post_init__(self):
@@ -137,6 +142,12 @@ def build_holdings_long(skilled, holdings, stock_px, etf_px) -> pd.DataFrame:
     return pd.DataFrame(rows, columns=HOLD_COLS)
 
 
+def age_factor(age_days, cfg: Config) -> float:
+    """Overlap weight for holdings of a given age: 1 up to stale_full_days, falling linearly to 0.5 at stale_half_days."""
+    if age_days is None or age_days != age_days or age_days <= cfg.stale_full_days: return 1.0
+    return max(0.5, 1.0 - 0.5 * (age_days - cfg.stale_full_days) / max(1, cfg.stale_half_days - cfg.stale_full_days))
+
+
 def compute_flow(skilled: pd.DataFrame, cur: pd.DataFrame, prev: pd.DataFrame, cfg: Config):
     """Compare this week's holdings with last week's. Returns (events, per-stock aggregate)."""
     ir = skilled.set_index("etf")["ir"].clip(lower=0.1)
@@ -147,6 +158,8 @@ def compute_flow(skilled: pd.DataFrame, cur: pd.DataFrame, prev: pd.DataFrame, c
         c, p = cur[cur["etf"] == etf], prev[prev["etf"] == etf]
         if c.empty or p.empty:
             continue                                   # no baseline for this ETF
+        if len(set(c["ticker"]) & set(p["ticker"])) < cfg.flow_min_kept * min(len(set(c["ticker"])), len(set(p["ticker"]))):
+            continue                                   # most of the list changed at once: a source switch, not trading
         partial = (c["source"].iloc[0] not in FULL_SOURCES) or (p["source"].iloc[0] not in FULL_SOURCES)
         pe, ce = p["etf_price"].iloc[0], c["etf_price"].iloc[0]
         r_f = (ce / pe - 1) if pd.notna(pe) and pd.notna(ce) and pe else 0.0
@@ -403,22 +416,30 @@ def run_week(provider, universe, cfg: Config, themes: pd.DataFrame, prev_hold, l
     px = provider.last_prices(held + list(skilled["etf"]) + ["SPY"])
     cur = build_holdings_long(skilled, holdings, px, px)
 
+    ages = {e: provider.holdings_age(e) for e in skilled["etf"]} if hasattr(provider, "holdings_age") else {}
+    flow_funds = skilled[[ages.get(e) is None or ages[e] <= cfg.flow_max_age for e in skilled["etf"]]] if ages else skilled
+    skilled_ov = skilled.copy()
+    if ages: skilled_ov["ir"] = [float(r) * age_factor(ages.get(e), cfg) for e, r in zip(skilled_ov["etf"], skilled_ov["ir"])]
+    if ages:
+        old_n = sum(1 for e in skilled["etf"] if (ages.get(e) or 0) > cfg.stale_full_days)
+        log(f"      flow uses {len(flow_funds)} funds with daily holdings; {old_n} funds older than {cfg.stale_full_days} days count less in overlap")
+
     log("[3/6] Manager flow vs last week's snapshot...")
     flow_available = prev_hold is not None and len(prev_hold) > 0
     if flow_available:
-        events, fagg = compute_flow(skilled, cur, prev_hold, cfg)
-        flow_available = (len(events) > 0) or (prev_hold["etf"].isin(skilled["etf"]).any())
+        events, fagg = compute_flow(flow_funds, cur, prev_hold, cfg)
+        flow_available = (len(events) > 0) or (prev_hold["etf"].isin(flow_funds["etf"]).any())
         log(f"      {len(events)} position changes ({(events['value'] > 0).sum() if len(events) else 0} adds, "
             f"{(events['value'] < 0).sum() if len(events) else 0} removals)")
     else:
         events, fagg = pd.DataFrame(), pd.DataFrame(columns=["ticker", "flow_raw", "n_adds", "n_removals", "has_init", "flow_notes"])
         log("      no previous snapshot yet: flow is neutral this week (builds from next week)")
 
-    ov = S.overlap_table(skilled, holdings, benches)
+    ov = S.overlap_table(skilled_ov, holdings, benches)
     if ov.empty:
         return dict(skill=skill, cur=cur, events=events, all=pd.DataFrame(), ranking=pd.DataFrame(),
                     flow_available=flow_available, partial=partial, spy=px.get("SPY"))
-    ov = ov.merge(best_ideas(skilled, holdings, cfg), on="ticker", how="left")
+    ov = ov.merge(best_ideas(skilled_ov, holdings, cfg), on="ticker", how="left")
     ov["best_raw"] = ov["best_raw"].fillna(0.0); ov["n_best"] = ov["n_best"].fillna(0).astype(int); ov["active_best"] = ov["active_best"].fillna(0.0)
     ov = ov.merge(fagg, on="ticker", how="left")
     ov["flow_raw"] = ov["flow_raw"].fillna(0.0)
