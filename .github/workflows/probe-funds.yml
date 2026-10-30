@@ -12,8 +12,11 @@ jobs:
         with: { python-version: "3.11" }
       - run: pip install -r requirements-refresh.txt
       - run: python fund_probe.py
-      - uses: actions/upload-artifact@v4
-        with: { name: probe-pages, path: probe_pages, retention-days: 3 }
+      - name: Keep issuer pages on a side branch (not main)
+        run: |
+          git config user.name "conviction-bot"; git config user.email "bot@users.noreply.github.com"
+          git checkout --orphan probe-pages && git rm -rqf --cached . && git add probe_pages && git commit -qm "probe pages" && git push -f origin probe-pages
+          git checkout -f main
       - name: Save the report (no rankings change)
         run: |
           git config user.name "conviction-bot"; git config user.email "bot@users.noreply.github.com"
