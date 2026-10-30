@@ -26,7 +26,8 @@ CANDIDATES = {
              "https://am.jpmorgan.com/us/en/asset-management/adv/products/jpmorgan-active-small-cap-value-etf-etf-shares-46654q708"],
     "FRTY": ["https://www.alger.com/pages/Products.aspx?productCode=2490", "https://www.alger.com/Pages/ETFs.aspx"],
 }
-LINK = re.compile(r"""(?:href|data-url|data-href)\s*=\s*["']([^"']*(?:holding|Holding|HOLDING|download|Download|excel|csv|xlsx)[^"']*)["']""")
+LINK = re.compile(r"""["'(]((?:https?://|/)[^"'()\s<>]*(?:holding|Holding|HOLDING|portfolio|Portfolio|download|Download|excel|Excel|\.csv|\.xlsx|/api/)[^"'()\s<>]*)["')]""")
+SKIP = re.compile(r"\.(css|js|png|jpg|svg|gif|woff2?|ico)(\?|$)|#|apple\.com|google|facebook|linkedin|twitter")
 
 
 def try_parse(raw, today):
@@ -55,7 +56,7 @@ def main():
         seen, queue = set(), list(urls)
         while queue:
             u = queue.pop(0)
-            if u in seen or len(seen) > 14: continue
+            if u in seen or len(seen) > 30: continue
             seen.add(u)
             try:
                 raw = R.get_bytes(u, timeout=40)
@@ -67,11 +68,14 @@ def main():
                 fmt, n, w, asof = res
                 if asof is None or (today - pd.Timestamp(asof).date()).days <= 7:
                     found[etf] = dict(url=u, format=fmt, rows=n, weight=w, asof=asof)
-            if u in urls and not res:                         # one hop: holdings/download links on the issuer page
-                txt = raw.decode("utf-8", "replace")
-                for link in LINK.findall(txt)[:12]:
+            if not res and len(seen) <= 14:                   # follow holdings/download/api links found anywhere in the page, scripts included
+                txt = raw.decode("utf-8", "replace").replace("\\/", "/")
+                links = []
+                for link in LINK.findall(txt):
                     link = urllib.parse.urljoin(u, link.replace("&amp;", "&"))
-                    if link.startswith("http") and link not in seen: queue.append(link)
+                    if link.startswith("http") and not SKIP.search(link) and link not in seen and link not in links: links.append(link)
+                if links: lines.append(f"{etf}   links on page: {links[:25]}")
+                queue += links[:10]
     (ROOT / "data").mkdir(exist_ok=True)
     (ROOT / "data/fund_probe.json").write_text(json.dumps(dict(date=str(today), found=found), indent=1))
     (ROOT / "data/fund_probe.txt").write_text("\n".join(lines))
