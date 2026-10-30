@@ -81,7 +81,7 @@ def rebalance(st, targets, px, day, log=print):
 def update(rk, closes, today, log=print, trade=True):
     """Mark to market; start or rebalance when due. Writes docs/data/paper.json."""
     if closes.empty: log("paper portfolio: no prices"); return None
-    last_day = str(closes.index[-1].date()); px = closes.iloc[-1].dropna().to_dict()
+    last_day = str(closes.index[-1].date()); px = closes.ffill().iloc[-1].dropna().to_dict()   # latest price per name, even if one feed has not printed the last day
     st = load()
     if st is None:
         targets = [t for t in picks(rk) if t in px]
