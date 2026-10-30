@@ -9,6 +9,10 @@ Rules (fixed at the start, 29 October 2026):
   - Costs: 0.10% of every trade's value (spread and slippage). Taxes estimated at 37% on short-term realized gains, shown, not deducted.
   - Starts with $100,000. Compared with the S&P 500 (SPY) and Nasdaq-100 (QQQ) from the same start, dividends included in all three.
 State lives in data/paper/state.json; the daily job marks it to market and rebalances on schedule.
+
+Manual mode (from 30 October 2026, owner's choice): the state carries mode="manual" and the owner's actual trades
+(shares and fill prices). It is only marked to market: no rebalancing, no cash, no modelled costs. Returns are
+measured against the cost of what was bought; SPY and QQQ start from the close on the purchase day.
 """
 import json
 from datetime import date, timedelta
@@ -78,12 +82,33 @@ def rebalance(st, targets, px, day, log=print):
     log(f"paper portfolio: rebalanced on {day}, {len(trades)} trades, holdings {', '.join(targets)}")
 
 
+def _start(st):
+    return st.get("start_value", START_CASH)
+
+
+def _fill_missing(px, tickers, log=print):
+    """Held names outside the scored pool (e.g. ADI) are not in the day's closes: fetch their latest close directly."""
+    miss = [t for t in tickers if t not in px]
+    if not miss: return
+    try:
+        import yfinance as yf
+        d = yf.download(miss, period="5d", interval="1d", auto_adjust=True, progress=False)["Close"]
+        if getattr(d, "ndim", 2) == 1: d = d.to_frame(miss[0])
+        for t in miss:
+            if t in d.columns and d[t].dropna().size: px[t] = float(d[t].dropna().iloc[-1])
+    except Exception as e:
+        log(f"paper portfolio: could not price {', '.join(miss)} ({e})")
+
+
 def update(rk, closes, today, log=print, trade=True):
-    """Mark to market; start or rebalance when due. Writes docs/data/paper.json."""
+    """Mark to market; start or rebalance when due (manual mode: mark only). Writes docs/data/paper.json."""
     if closes.empty: log("paper portfolio: no prices"); return None
     last_day = str(closes.index[-1].date()); px = closes.ffill().iloc[-1].dropna().to_dict()   # latest price per name, even if one feed has not printed the last day
     st = load()
-    if st is None:
+    if st and st.get("mode") == "manual":
+        _fill_missing(px, list(st["positions"]), log)
+        if not st.get("bench_start"): st["bench_start"] = {b: float(px[b]) for b in ("SPY", "QQQ") if b in px}
+    elif st is None:
         targets = [t for t in picks(rk) if t in px]
         st = dict(start=last_day, cash=START_CASH, positions={}, trades=[], nav=[], realized=0.0, costs=0.0,
                   bench_start={b: float(px[b]) for b in ("SPY", "QQQ") if b in px})
@@ -93,15 +118,16 @@ def update(rk, closes, today, log=print, trade=True):
         if len(targets) >= N // 2: rebalance(st, targets, px, last_day, log)
     for t, p in st["positions"].items(): p["last"] = float(px.get(t, p["last"]))
     nav = _value(st, px); bs = st["bench_start"]
-    row = [last_day, round(nav, 2)] + [round(START_CASH * px[b] / bs[b], 2) if b in px and b in bs else None for b in ("SPY", "QQQ")]
+    row = [last_day, round(nav, 2)] + [round(_start(st) * px[b] / bs[b], 2) if b in px and b in bs else None for b in ("SPY", "QQQ")]
     st["nav"] = [r for r in st["nav"] if r[0] != last_day] + [row]
     save(st); write_site(st, rk, last_day)
-    log(f"paper portfolio: ${nav:,.0f} ({nav / START_CASH - 1:+.1%}); S&P {row[2]} QQQ {row[3]}; next rebalance {st['next_rebalance']}")
+    log(f"paper portfolio: ${nav:,.0f} ({nav / _start(st) - 1:+.1%}); S&P {row[2]} QQQ {row[3]}; next rebalance {st.get('next_rebalance') or 'none (manual)'}")
     return st
 
 
 def write_site(st, rk, day):
-    navs = st["nav"]; nav = navs[-1][1]
+    manual = st.get("mode") == "manual"; start = _start(st)
+    navs = st["nav"] or [[day, round(start, 2), None, None]]; nav = navs[-1][1]
     vals = pd.Series([r[1] for r in navs]); dd = float((vals / vals.cummax() - 1).min()) if len(vals) else 0.0
     name = rk.set_index("ticker")["name"].to_dict() if "name" in rk.columns else {}
     sector = rk.set_index("ticker")["sector"].to_dict() if "sector" in rk.columns else {}
@@ -109,22 +135,23 @@ def write_site(st, rk, day):
     hold = []
     for t, p in st["positions"].items():
         v = p["shares"] * p["last"]
-        hold.append(dict(ticker=t, name=name.get(t), sector=sector.get(t) if isinstance(sector.get(t), str) else None, weight=round(v / nav, 4),
+        hold.append(dict(ticker=t, name=name.get(t) or p.get("name"), sector=sector.get(t) if isinstance(sector.get(t), str) else p.get("sector"), weight=round(v / nav, 4),
                          value=round(v, 2), cost=round(p["cost_basis"], 2), price=round(p["last"], 2), ret=round(p["last"] / p["cost_basis"] - 1, 4),
                          since=p["entry_date"], rank_now=int(rcr[t]) if t in rcr and pd.notna(rcr[t]) else None))
     hold.sort(key=lambda h: -h["value"])
     unreal = sum(p["shares"] * (p["last"] - p["cost_basis"]) for p in st["positions"].values())
-    out = dict(asof=day, start=st["start"], nav=round(nav, 2), ret=round(nav / START_CASH - 1, 4),
-               spy=navs[-1][2], qqq=navs[-1][3], ret_spy=round(navs[-1][2] / START_CASH - 1, 4) if navs[-1][2] else None,
-               ret_qqq=round(navs[-1][3] / START_CASH - 1, 4) if navs[-1][3] else None, max_drawdown=round(dd, 4),
-               next_rebalance=st["next_rebalance"], days_to_rebalance=(date.fromisoformat(st["next_rebalance"]) - date.fromisoformat(day)).days,
+    nr = st.get("next_rebalance")
+    out = dict(asof=day, start=st["start"], start_value=round(start, 2), manual=manual, nav=round(nav, 2), ret=round(nav / start - 1, 4),
+               spy=navs[-1][2], qqq=navs[-1][3], ret_spy=round(navs[-1][2] / start - 1, 4) if navs[-1][2] else None,
+               ret_qqq=round(navs[-1][3] / start - 1, 4) if navs[-1][3] else None, max_drawdown=round(dd, 4),
+               next_rebalance=nr, days_to_rebalance=(date.fromisoformat(nr) - date.fromisoformat(day)).days if nr else None,
                cash=round(st["cash"], 2), costs=round(st.get("costs", 0.0), 2), realized=round(st.get("realized", 0.0), 2),
                est_tax=round(max(0.0, st.get("realized", 0.0)) * TAX, 2), unrealized=round(unreal, 2), holdings=hold,
-               trades=st["trades"][-40:][::-1], series=navs,
-               rules="The 5 highest-ranked names on the main board, 20% each, rebalanced every 60 days. "
+               trades=st["trades"][-40:][::-1], series=st["nav"],
+               rules=st.get("rules") if manual else "The 5 highest-ranked names on the main board, 20% each, rebalanced every 60 days. "
                      "0.10% cost per trade. Taxes estimated at 37% on realized short-term gains (shown, not deducted). No real money.")
     p = ROOT / "data/paper/backtest.json"
-    if p.exists(): out["backtest"] = json.loads(p.read_text())
+    if p.exists() and not manual: out["backtest"] = json.loads(p.read_text())
     (ROOT / "docs/data").mkdir(parents=True, exist_ok=True); (ROOT / "docs/data/paper.json").write_text(json.dumps(out))
 
 
@@ -146,6 +173,12 @@ def selftest():
         st = update(rk2, cl.iloc[:30], idx[29].date(), log=lambda *a: None); assert st["last_rebalance"] == str(idx[0].date())   # not due yet
         st = update(rk2, cl.iloc[:45], idx[44].date(), log=lambda *a: None); assert st["last_rebalance"] == str(idx[44].date())  # 60 days passed
         assert set(st["positions"]) == set(picks(rk2)) and len(st["positions"]) == N and len(st["nav"]) == 3
+        save(dict(mode="manual", start=str(idx[0].date()), start_value=300.0, cash=0.0, realized=0.0, costs=0.0, nav=[], trades=[],
+                  bench_start={}, positions={"S0": dict(shares=2, cost_basis=100.0, entry_date=str(idx[0].date()), last=100.0),
+                                             "S13": dict(shares=1, cost_basis=100.0, entry_date=str(idx[0].date()), last=100.0)}))
+        st = update(rk2, cl.iloc[:50], idx[49].date(), log=lambda *a: None)                        # manual: mark only, never trade
+        assert set(st["positions"]) == {"S0", "S13"} and st["positions"]["S0"]["shares"] == 2 and "last_rebalance" not in st
+        assert abs(st["nav"][-1][1] - (2 * cl["S0"].iloc[49] + cl["S13"].iloc[49])) < 1e-6 and st["bench_start"]["SPY"] == 400.0
     finally:
         shutil.rmtree(ROOT); STATE, ROOT = old
     print("paper selftest ok")

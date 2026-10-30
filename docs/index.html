@@ -114,7 +114,7 @@ dl.kv dt{color:var(--mut)}dl.kv dd{margin:0;text-align:right;font-weight:650}
           <div class="big" id="ppnav">–</div>
           <div class="vs" id="ppvs"></div>
         </div>
-        <div class="next"><span class="mut">Next rebalance</span><b id="ppnext">–</b><span class="mut" id="ppnextd"></span></div>
+        <div class="next"><span class="mut" id="ppnextl">Next rebalance</span><b id="ppnext">–</b><span class="mut" id="ppnextd"></span></div>
       </div>
       <div id="ppchart" role="img" aria-label="Portfolio value against the S&amp;P 500 and QQQ since the start"></div>
       <div class="leg"><span style="--c:var(--acc)">Paper portfolio</span><span style="--c:var(--spy)">S&amp;P 500</span><span style="--c:var(--qqq)">QQQ</span></div>
@@ -122,7 +122,7 @@ dl.kv dt{color:var(--mut)}dl.kv dd{margin:0;text-align:right;font-weight:650}
     <div class="grid2">
       <div class="card"><h2>Holdings</h2><div id="pphold"></div></div>
       <div class="card"><h2>How it is run</h2><p class="mut" id="pprules" style="margin:0 0 12px"></p><dl class="kv" id="ppkv"></dl>
-        <h2 style="margin-top:18px">Same rules, 2021 to 2026</h2><dl class="kv" id="ppbt"></dl><p class="mut" id="ppbtnote" style="margin:10px 0 0"></p></div>
+        <h2 style="margin-top:18px" id="ppbth">Same rules, 2021 to 2026</h2><dl class="kv" id="ppbt"></dl><p class="mut" id="ppbtnote" style="margin:10px 0 0"></p></div>
     </div>
     <div class="card"><h2>Trades</h2><div class="tw" style="max-height:360px"><table id="ppt"><thead><tr><th>Date</th><th>Ticker</th><th>Action</th><th>Shares</th><th>Price</th><th>Value</th><th class="hide-s">Gain</th></tr></thead><tbody></tbody></table></div></div>
   </section>
@@ -441,12 +441,13 @@ function money(v){v=N(v);return v==null?'–':'$'+Math.round(v).toLocaleString('
 function niceDate(s){if(!s)return'–';var d=new Date(s+'T12:00:00');return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}
 function drawPaper(){
   var P=D.pp;if(!P){$('#ppsince').textContent='The paper portfolio starts with the next daily run.';return}
-  $('#ppsince').textContent='Paper portfolio, started '+niceDate(P.start)+' with $100,000';
+  $('#ppsince').textContent=(P.manual?'Your holdings, bought ':'Paper portfolio, started ')+niceDate(P.start)+' with '+money(P.start_value||100000);
   $('#ppnav').textContent=money(P.nav);
   var vs=$('#ppvs');vs.textContent='';
   [['you','Portfolio',P.ret],['','S&P 500',P.ret_spy],['','QQQ',P.ret_qqq]].forEach(function(x){var d=el('div',x[0]);d.appendChild(el('span','mut',x[1]));var b=el('b',x[0]?null:(N(x[2])>=0?'up':'dn'),pct(x[2]));if(x[0])b.className='';d.appendChild(b);vs.appendChild(d)});
-  $('#ppnext').textContent=P.days_to_rebalance<=0?'Today':P.days_to_rebalance+(P.days_to_rebalance===1?' day':' days');
-  $('#ppnextd').textContent=niceDate(P.next_rebalance);
+  if(P.manual){$('#ppnextl').textContent='Holdings';$('#ppnext').textContent=(P.holdings||[]).length+' names';$('#ppnextd').textContent='No automatic rebalancing'}
+  else{$('#ppnext').textContent=P.days_to_rebalance<=0?'Today':P.days_to_rebalance+(P.days_to_rebalance===1?' day':' days');
+  $('#ppnextd').textContent=niceDate(P.next_rebalance)}
   var S=P.series||[],c=$('#ppchart');c.textContent='';
   var ns='http://www.w3.org/2000/svg',W=900,H=280,L=52,R=12,T=12,B=26;
   var svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 '+W+' '+H);
@@ -465,12 +466,13 @@ function drawPaper(){
     c.appendChild(svg);
     var dp=svg.querySelector('[data-draw]');if(dp){try{dp.style.setProperty('--len',dp.getTotalLength());dp.classList.add('drawn')}catch(e){}}}
   var hb=$('#pphold');hb.textContent='';
-  (P.holdings||[]).forEach(function(h){var r=el('div','hold');r.appendChild(el('span','tk',h.ticker));var mid=el('div');mid.appendChild(el('div','nm',(h.name||'')+(h.sector?', '+h.sector:'')));r.appendChild(mid);
-    r.appendChild(el('span','r '+(h.ret>=0?'up':'dn'),pct(h.ret)));var wb=el('div','wbar'),i=el('i');i.style.width=Math.min(100,h.weight*100*5)+'%';wb.appendChild(i);r.appendChild(wb);hb.appendChild(r)});
+  (P.holdings||[]).forEach(function(h){var r=el('div','hold');r.appendChild(el('span','tk',h.ticker));var mid=el('div');mid.appendChild(el('div','nm',(h.name||'')+(P.manual?' · '+Math.round(h.value/h.price*100)/100+' sh @ $'+h.cost.toFixed(2)+' · '+(h.rank_now?'board #'+h.rank_now:'not on board'):(h.sector?', '+h.sector:''))));r.appendChild(mid);
+    r.appendChild(el('span','r '+(h.ret>=0?'up':'dn'),pct(h.ret)));var wb=el('div','wbar'),i=el('i');i.style.width=Math.min(100,h.weight*100*(P.manual?2.5:5))+'%';wb.appendChild(i);r.appendChild(wb);hb.appendChild(r)});
   $('#pprules').textContent=P.rules;
   var kv=function(id,rows){var d=$(id);d.textContent='';rows.forEach(function(x){d.appendChild(el('dt',null,x[0]));var dd=el('dd',x[2]||null,x[1]);d.appendChild(dd)})};
-  kv('#ppkv',[['Worst drop from a high',pct(P.max_drawdown)],['Trading costs so far',money(P.costs)],['Realized gains',money(P.realized)],['Estimated tax on them (37%)',money(P.est_tax)],['Unrealized gains',money(P.unrealized),P.unrealized>=0?'up':'dn'],['Cash',money(P.cash)]]);
-  var bt=P.backtest;
+  if(P.manual)kv('#ppkv',[['Cost',money(P.start_value)],['Value now',money(P.nav)],['Unrealized gain',money(P.unrealized),P.unrealized>=0?'up':'dn'],['Worst drop from a high',pct(P.max_drawdown)]]);
+  else kv('#ppkv',[['Worst drop from a high',pct(P.max_drawdown)],['Trading costs so far',money(P.costs)],['Realized gains',money(P.realized)],['Estimated tax on them (37%)',money(P.est_tax)],['Unrealized gains',money(P.unrealized),P.unrealized>=0?'up':'dn'],['Cash',money(P.cash)]]);
+  var bt=P.backtest;$('#ppbth').hidden=!(bt&&bt.ann!=null);$('#ppbt').textContent='';$('#ppbtnote').textContent='';
   if(bt&&bt.ann!=null){kv('#ppbt',[['Portfolio, per year',pct(bt.ann),'up'],['S&P 500, per year',pct(bt.ann_spy)],['QQQ, per year',pct(bt.ann_qqq)],['Beat the S&P in',Math.round(bt.hit_spy*100)+'% of periods'],['Worst drop from a high',pct(bt.max_drawdown),'dn']]);
     $('#ppbtnote').textContent='Backtest of these exact rules over '+bt.periods+' two-month periods. '+bt.note+' The rules were chosen after comparing versions, so the live record above is the real test.'}
   var tb=$('#ppt tbody');tb.textContent='';(P.trades||[]).forEach(function(r){var tr=el('tr');[r.date,r.ticker,r.action,r.shares.toLocaleString('en-US',{maximumFractionDigits:2}),'$'+r.price.toFixed(2),money(r.value),r.gain==null?'–':money(r.gain)].forEach(function(c,i){var td=el('td',i===1?'tk':(i===6?'hide-s':null),c);tr.appendChild(td)});tb.appendChild(tr)});
