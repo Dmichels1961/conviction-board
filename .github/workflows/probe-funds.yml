@@ -15,6 +15,11 @@ jobs:
         with: { python-version: "3.11" }
       - run: pip install -r requirements-refresh.txt
       - run: python fund_probe.py
+      - name: Fresh fund returns and benchmark files for an offline check (kept on the side branch only)
+        run: |
+          mkdir -p probe_pages
+          python -c "import refresh, shutil, datetime as d; t=d.date.today(); refresh.refresh_fund_returns(t); refresh.refresh_benchmarks(t); shutil.copy('data_web/returns.csv','probe_pages/returns.csv'); shutil.copy('data_web/benchmarks.csv','probe_pages/benchmarks.csv')" || true
+          git checkout -- data_web || true
       - name: Save the report (no rankings change)
         run: |
           git config user.name "conviction-bot"; git config user.email "bot@users.noreply.github.com"
