@@ -45,3 +45,4 @@ CGCV,Capital Group,SPY,US conservative equity,xlsx,https://www.capitalgroup.com/
 CGDG,Capital Group,SPY,Dividend growers,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgdg/download/daily-holdings?audience=advisor
 CGMM,Capital Group,SPY,US mid cap,xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgmm/download/daily-holdings?audience=advisor
 CGBL,Capital Group,SPY,Balanced (equity sleeve),xlsx,https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cgbl/download/daily-holdings?audience=advisor
+JPSV,JPMorgan,IWN,US small value,xlsx,https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46654Q708&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false

@@ -54,8 +54,9 @@ no trading costs, estimate revisions and guidance have no history and are untest
   10%+ in the last 30 days but are held by 0 or 1 tracked fund. It feeds nothing in the two frozen boards or the paper portfolio, so the
   clock does not restart. It keeps its own live record (`data/sidedoor/entries.csv`). Promotion rule, written now: it may join the main
   board's scoring only if its entries beat the S&P 500 by 2+ points on average over 90 trading days, across 40+ entries spanning 6+ months.
-- **29 October 2026: fund universe widened to small and mid caps (v2). Clock restarted.** The v1 list was almost all large-cap growth,
-  tech and core funds, so small/mid names could never reach 2+ holders. Added 9 funds via SEC N-PORT holdings, each judged by the same
-  daily skill test against its own style index: VSOIX (IWN), VEVIX (IWS), HWSIX (IWN), HRTVX (IWN), ASVIX (IWN), JVTIX (IWO), LSSIX (IWO),
-  PRDMX (IWP), TMSL (SMMD). Weights, signals and construction are unchanged. The 12-month test now runs from the first board built with
-  these funds (30 October 2026) to 30 October 2027. Boards from 22-29 October stay in the track record, labelled as pre-v2.
+- **29 October 2026: small/mid coverage added from daily-holdings active ETFs (v2). Clock restarted.** The v1 list was almost all
+  large-cap growth, tech and core funds, so small/mid names could rarely reach 2+ holders. Only active ETFs whose issuer publishes a
+  daily holdings file that downloads cleanly are added (mutual funds and SEC filings lag by 1-4 months). Added so far: JPSV (JPMorgan
+  Active Small Cap Value, benchmark IWN). Further small/mid ETFs join as their daily files are confirmed. Weights, signals and
+  construction are unchanged. The 12-month test runs from the first board built with v2 (30 October 2026) to 30 October 2027.
+  Boards from 15-29 October stay in the track record, labelled pre-v2.
