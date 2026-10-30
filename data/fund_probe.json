@@ -10,74 +10,122 @@
   },
   "_sources": {
    "IVV": {
-    "url": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf/1467271812596.ajax?fileType=csv&fileName=IVV_holdings&dataType=fund",
-    "bytes": 2314529,
+    "url": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf/latest-holdings.csv",
+    "bytes": 91562,
     "parsed": null,
-    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+    "head": "iShares Core S&P 500 ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"May 15, 2000\"\nShares Outstanding,\"1,146,600,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,Asset Cla"
    },
    "IWF": {
-    "url": "https://www.ishares.com/us/products/239706/ishares-russell-1000-growth-etf/1467271812596.ajax?fileType=csv&fileName=IWF_holdings&dataType=fund",
-    "bytes": 1518522,
+    "url": "https://www.ishares.com/us/products/239706/ishares-russell-1000-growth-etf/latest-holdings.csv",
+    "bytes": 66858,
     "parsed": null,
-    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+    "head": "iShares Russell 1000 Growth ETF\nFund Holdings as of,\"Oct 27, 2026\"\nInception Date,\"May 22, 2000\"\nShares Outstanding,\"1,019,650,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,As"
    },
    "IWD": {
-    "url": "https://www.ishares.com/us/products/239708/ishares-russell-1000-value-etf/1467271812596.ajax?fileType=csv&fileName=IWD_holdings&dataType=fund",
-    "bytes": 1515148,
+    "url": "https://www.ishares.com/us/products/239708/ishares-russell-1000-value-etf/latest-holdings.csv",
+    "bytes": 152810,
     "parsed": null,
-    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+    "head": "iShares Russell 1000 Value ETF\nFund Holdings as of,\"Oct 27, 2026\"\nInception Date,\"May 22, 2000\"\nShares Outstanding,\"321,100,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,Asset"
    },
    "IWN": {
-    "url": "https://www.ishares.com/us/products/239714/ishares-russell-2000-value-etf/1467271812596.ajax?fileType=csv&fileName=IWN_holdings&dataType=fund",
-    "bytes": 1514487,
-    "parsed": null,
-    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+    "url": "https://www.ishares.com/us/products/239714/ishares-russell-2000-value-etf/latest-holdings.csv",
+    "bytes": 401496,
+    "parsed": [
+     "csv",
+     1172,
+     98.5,
+     "2026-10-28"
+    ],
+    "head": "iShares Russell 3000 ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"May 22, 2000\"\nShares Outstanding,\"47,200,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Sector,Asset Class,Marke"
    },
    "IWO": {
-    "url": "https://www.ishares.com/us/products/239709/ishares-russell-2000-growth-etf/1467271812596.ajax?fileType=csv&fileName=IWO_holdings&dataType=fund",
-    "bytes": 1523863,
-    "parsed": null,
-    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+    "url": "https://www.ishares.com/us/products/239709/ishares-russell-2000-growth-etf/latest-holdings.csv",
+    "bytes": 178951,
+    "parsed": [
+     "csv",
+     966,
+     99.6,
+     "2026-10-27"
+    ],
+    "head": "iShares Russell 2000 Growth ETF\nFund Holdings as of,\"Oct 27, 2026\"\nInception Date,\"Jul 24, 2000\"\nShares Outstanding,\"39,450,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Sector,Asset Clas"
    },
    "IWM": {
-    "url": "https://www.ishares.com/us/products/239710/ishares-russell-2000-etf/1467271812596.ajax?fileType=csv&fileName=IWM_holdings&dataType=fund",
-    "bytes": 1521353,
-    "parsed": null,
-    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+    "url": "https://www.ishares.com/us/products/239710/ishares-russell-2000-etf/latest-holdings.csv",
+    "bytes": 319622,
+    "parsed": [
+     "csv",
+     1745,
+     99.7,
+     "2026-10-28"
+    ],
+    "head": "iShares Russell 2000 ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"May 22, 2000\"\nShares Outstanding,\"269,950,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Sector,Asset Class,Mark"
    },
    "IWR": {
-    "url": "https://www.ishares.com/us/products/239718/ishares-russell-midcap-etf/1467271812596.ajax?fileType=csv&fileName=IWR_holdings&dataType=fund",
-    "bytes": 1508735,
+    "url": "https://www.ishares.com/us/products/239718/ishares-russell-midcap-etf/latest-holdings.csv",
+    "bytes": 146496,
     "parsed": null,
-    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+    "head": "iShares Russell Mid-Cap ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"Jul 17, 2001\"\nShares Outstanding,\"523,450,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,Asset Cl"
    },
    "SOXX": {
-    "url": "https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf/1467271812596.ajax?fileType=csv&fileName=SOXX_holdings&dataType=fund",
-    "bytes": 1491250,
-    "parsed": null,
-    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+    "url": "https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf/latest-holdings.csv",
+    "bytes": 6402,
+    "parsed": [
+     "csv",
+     30,
+     100.0,
+     "2026-10-28"
+    ],
+    "head": "iShares Semiconductor ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"Jul 10, 2001\"\nShares Outstanding,\"95,100,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Sector,Asset Class,Mark"
    },
    "IYW": {
-    "url": "https://www.ishares.com/us/products/239522/ishares-us-technology-etf/1467271812596.ajax?fileType=csv&fileName=IYW_holdings&dataType=fund",
-    "bytes": 1527814,
-    "parsed": null,
-    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+    "url": "https://www.ishares.com/us/products/239522/ishares-us-technology-etf/latest-holdings.csv",
+    "bytes": 25797,
+    "parsed": [
+     "csv",
+     147,
+     100.0,
+     "2026-10-28"
+    ],
+    "head": "iShares U.S. Technology ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"May 15, 2000\"\nShares Outstanding,\"97,600,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Sector,Asset Class,Ma"
    },
    "IYF": {
-    "url": "https://www.ishares.com/us/products/239511/ishares-us-financials-etf/1467271812596.ajax?fileType=csv&fileName=IYF_holdings&dataType=fund",
-    "bytes": 1497129,
-    "parsed": null,
-    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+    "url": "https://www.ishares.com/us/products/239511/ishares-us-financials-etf/latest-holdings.csv",
+    "bytes": 16506,
+    "parsed": [
+     "csv",
+     100,
+     99.8,
+     "2026-10-28"
+    ],
+    "head": "iShares U.S. Healthcare ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"Jun 12, 2000\"\nShares Outstanding,\"59,700,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Sector,Asset Class,Ma"
    },
    "IBB": {
-    "url": "https://www.ishares.com/us/products/239699/ishares-nasdaq-biotechnology-etf/1467271812596.ajax?fileType=csv&fileName=IBB_holdings&dataType=fund",
-    "error": "HTTPError HTTP Error 403: Forbidden"
+    "url": "https://www.ishares.com/us/products/239699/ishares-biotechnology-etf/latest-holdings.csv",
+    "bytes": 39569,
+    "parsed": [
+     "csv",
+     226,
+     99.9,
+     "2026-10-27"
+    ],
+    "head": "iShares Biotechnology ETF\nFund Holdings as of,\"Oct 27, 2026\"\nInception Date,\"Feb 05, 2001\"\nShares Outstanding,\"52,000,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Sector,Asset Class,Mark"
    },
    "ITA": {
-    "url": "https://www.ishares.com/us/products/239502/ishares-us-aerospace-defense-etf/1467271812596.ajax?fileType=csv&fileName=ITA_holdings&dataType=fund",
-    "bytes": 1481621,
+    "url": "https://www.ishares.com/us/products/239502/ishares-us-aerospace-defense-etf/latest-holdings.csv",
+    "bytes": 8911,
+    "parsed": [
+     "csv",
+     50,
+     100.0,
+     "2026-10-28"
+    ],
+    "head": "iShares U.S. Aerospace & Defense ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"May 01, 2006\"\nShares Outstanding,\"58,400,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Sector,Asset"
+   },
+   "IJR": {
+    "url": "https://www.ishares.com/us/products/239774/ishares-core-sp-smallcap-etf/latest-holdings.csv",
+    "bytes": 116047,
     "parsed": null,
-    "head": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-d"
+    "head": "iShares Core S&P Small-Cap ETF\nFund Holdings as of,\"Oct 28, 2026\"\nInception Date,\"May 22, 2000\"\nShares Outstanding,\"749,400,000.00\"\nStock,\"-\"\nBond,\"-\"\nCash,\"-\"\nOther,\"-\"\n\nTicker,Name,Type,Sector,Asset"
    },
    "ILDR": {
     "url": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ILDR",
