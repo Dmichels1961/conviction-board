@@ -1,0 +1,145 @@
+report_date,ticker,eps_act,eps_est,surprise,mcap,holders,beats,quarters,avg_surprise,rev_30d,reaction,consistency,score,signals,rank,why
+2026-10-06,PENG,0.91,0.61,0.4918,3662678530.0,0,4,4,0.28559999999999997,0.3505659195452687,0.1929293767174649,1.0,88.3,4,1,beat by 49% on Oct 06; beat 4 of last 4; estimates +35% in 30d; stock +19% vs SPY on the report; no fund holds it
+2026-10-07,RELL,0.27,0.09,2.0,313899264.0,0,4,4,1.8077,0.4074123628579074,0.05491712441555152,1.0,87.7,4,2,beat by 200% on Oct 07; beat 4 of last 4; estimates +41% in 30d; stock +5% vs SPY on the report; no fund holds it
+2026-10-06,APOG,1.17,0.59,0.9831,934660160.0,0,4,4,0.32655,0.08686008339987583,0.14974783029300154,1.0,87.0,4,3,beat by 98% on Oct 06; beat 4 of last 4; estimates +9% in 30d; stock +15% vs SPY on the report; no fund holds it
+2026-10-20,HAS,2.9,1.86,0.5590999999999999,16739157000.0,0,4,4,0.395525,0.11361397056624878,0.1488540420586173,1.0,84.8,4,4,beat by 56% on Oct 20; beat 4 of last 4; estimates +11% in 30d; stock +15% vs SPY on the report; no fund holds it
+2026-10-27,HRI,3.91,3.08,0.2695,5560612400.0,0,4,4,0.852425,0.1278998982831886,0.29801973429691486,1.0,81.6,4,5,beat by 27% on Oct 27; beat 4 of last 4; estimates +13% in 30d; stock +30% vs SPY on the report; no fund holds it
+2026-10-21,EGBN,0.79,0.35,1.2570999999999999,1007190460.0,0,3,4,6.909000000000001,0.1657924334522235,0.16103034005603467,0.75,81.1,4,6,beat by 126% on Oct 21; beat 3 of last 4; estimates +17% in 30d; stock +16% vs SPY on the report; no fund holds it
+2026-10-22,UVE,1.93,1.34,0.4403,1279639680.0,0,4,4,0.458575,0.24722222222222223,0.04022675621760685,1.0,80.1,4,7,beat by 44% on Oct 22; beat 4 of last 4; estimates +25% in 30d; stock +4% vs SPY on the report; no fund holds it
+2026-10-21,HCSG,0.36,0.22,0.6364,1622414080.0,0,4,4,0.652825,0.04719477355659807,0.1596418094181471,1.0,79.1,4,8,beat by 64% on Oct 21; beat 4 of last 4; estimates +5% in 30d; stock +16% vs SPY on the report; no fund holds it
+2026-10-15,ERIC,0.18,0.14,0.2857,37304009000.0,1,4,4,0.24755,0.060215425583037496,0.10950364632300724,1.0,75.0,4,9,beat by 29% on Oct 15; beat 4 of last 4; estimates +6% in 30d; stock +11% vs SPY on the report; held by 1 fund
+2026-10-19,RLI,0.86,0.58,0.4828,5848834600.0,0,4,4,0.24584999999999999,0.07857825708499555,0.019255352607458587,1.0,74.9,4,10,beat by 48% on Oct 19; beat 4 of last 4; estimates +8% in 30d; no fund holds it
+2026-10-27,RBBN,0.04,0.01,3.0,291482048.0,0,,,,,0.2073503635094991,,74.4,2,11,beat by 300% on Oct 27; stock +21% vs SPY on the report; no fund holds it
+2026-10-19,CLF,0.28,0.24,0.16670000000000001,7953954300.0,0,4,4,0.15295,0.9764712253103549,0.11863853604645347,1.0,74.2,4,12,beat by 17% on Oct 19; beat 4 of last 4; estimates +98% in 30d; stock +12% vs SPY on the report; no fund holds it
+2026-10-08,HELE,0.59,0.32,0.8437,685579520.0,0,4,4,1.66615,0.046832324956901816,0.03583641834174145,1.0,73.0,4,13,beat by 84% on Oct 08; beat 4 of last 4; estimates +5% in 30d; stock +4% vs SPY on the report; no fund holds it
+2026-10-27,GLXY,0.83,0.29,1.8621,7462072800.0,1,3,4,0.879375,,0.2084069627523666,0.75,70.1,3,14,beat by 186% on Oct 27; beat 3 of last 4; stock +21% vs SPY on the report; held by 1 fund
+2026-10-27,UCTT,1.03,0.81,0.2716,2530080260.0,1,3,4,0.17605,0.07382296527654697,0.18725023822376197,0.75,69.2,4,15,beat by 27% on Oct 27; beat 3 of last 4; estimates +7% in 30d; stock +19% vs SPY on the report; held by 1 fund
+2026-10-28,MAX,0.46,0.33,0.39390000000000003,718013820.0,1,,,,,0.20089950029028747,,68.5,2,16,beat by 39% on Oct 28; stock +20% vs SPY on the report; held by 1 fund
+2026-10-27,SXC,0.19,0.11,0.7273000000000001,902219650.0,0,,,,,0.07452062756768951,,68.3,2,17,beat by 73% on Oct 27; stock +7% vs SPY on the report; no fund holds it
+2026-10-22,MXL,0.43,0.32,0.34380000000000005,6837740500.0,1,4,4,0.122925,0.39182324978746785,-0.14571546317441286,1.0,67.3,4,18,beat by 34% on Oct 22; beat 4 of last 4; estimates +39% in 30d; stock -15% vs SPY on the report; held by 1 fund
+2026-10-27,PII,1.08,0.62,0.7419,3338138620.0,1,4,4,1.232775,0.02429815005871394,0.05421440473024153,1.0,66.3,4,19,beat by 74% on Oct 27; beat 4 of last 4; estimates +2% in 30d; stock +5% vs SPY on the report; held by 1 fund
+2026-10-21,HTB,1.11,0.88,0.2614,742887360.0,0,4,4,0.150675,0.05610070480234308,0.027624194054266527,1.0,66.3,4,20,beat by 26% on Oct 21; beat 4 of last 4; estimates +6% in 30d; stock +3% vs SPY on the report; no fund holds it
+2026-10-26,CZWI,0.56,0.44,0.2727,229289488.0,0,3,4,-0.06545,0.0639280074763946,0.09509260492474647,0.75,66.2,4,21,beat by 27% on Oct 26; beat 3 of last 4; estimates +6% in 30d; stock +10% vs SPY on the report; no fund holds it
+2026-10-06,NEOG,0.07,0.04,0.75,2645869060.0,0,4,4,0.5689249999999999,0.06088484621155299,-0.10531353455384318,1.0,65.9,4,22,beat by 75% on Oct 06; beat 4 of last 4; estimates +6% in 30d; stock -11% vs SPY on the report; no fund holds it
+2026-10-23,GRC,0.86,0.67,0.2836,1976806660.0,0,4,4,0.234825,0.037754681305533944,0.06702651232519985,1.0,65.9,4,23,beat by 28% on Oct 23; beat 4 of last 4; estimates +4% in 30d; stock +7% vs SPY on the report; no fund holds it
+2026-10-22,CHMG,2.63,1.93,0.3627,413682304.0,0,3,4,0.137025,0.06957762715622606,0.04428257268110669,0.75,65.8,4,24,beat by 36% on Oct 22; beat 3 of last 4; estimates +7% in 30d; stock +4% vs SPY on the report; no fund holds it
+2026-10-28,STNG,2.49,1.83,0.3607,4592394800.0,0,,,,,0.11453482296269757,,65.8,2,25,beat by 36% on Oct 28; stock +11% vs SPY on the report; no fund holds it
+2026-10-28,RYZ,0.61,0.39,0.5640999999999999,1539833090.0,0,,,,,0.056967811602832596,,65.6,2,26,beat by 56% on Oct 28; stock +6% vs SPY on the report; no fund holds it
+2026-10-28,AM,0.82,0.29,1.8276,9849485300.0,0,,,,,0.03128799217628664,,64.9,2,27,beat by 183% on Oct 28; stock +3% vs SPY on the report; no fund holds it
+2026-10-28,COHU,0.36,0.23,0.5652,2515564290.0,1,,,,,0.04785940191109683,,64.5,2,28,beat by 57% on Oct 28; stock +5% vs SPY on the report; held by 1 fund
+2026-10-20,WFRD,1.66,1.21,0.37189999999999995,6436085800.0,1,3,4,0.215075,0.04259380060040324,0.10033967448155034,0.75,64.5,4,29,beat by 37% on Oct 20; beat 3 of last 4; estimates +4% in 30d; stock +10% vs SPY on the report; held by 1 fund
+2026-10-28,JMKE,0.21,0.16,0.3125,5536446000.0,0,,,,,0.10829082383869804,,64.5,2,30,beat by 31% on Oct 28; stock +11% vs SPY on the report; no fund holds it
+2026-10-28,TENB,0.18,0.13,0.3846,5366020100.0,1,,,,,0.06472680992800217,,64.1,2,31,beat by 38% on Oct 28; stock +6% vs SPY on the report; held by 1 fund
+2026-10-28,DB,1.08,0.82,0.3171,63045714000.0,0,,,,,0.08569492760058084,,64.0,2,32,beat by 32% on Oct 28; stock +9% vs SPY on the report; no fund holds it
+2026-10-28,MBIN,2.06,1.39,0.48200000000000004,2256937730.0,0,,,,,0.046246539046454926,,63.2,2,33,beat by 48% on Oct 28; stock +5% vs SPY on the report; no fund holds it
+2026-10-22,JAKK,2.48,2.21,0.1222,374258560.0,0,4,4,1.7812999999999999,0.17483474031720625,0.05967677074480715,1.0,63.1,4,34,beat by 12% on Oct 22; beat 4 of last 4; estimates +17% in 30d; stock +6% vs SPY on the report; no fund holds it
+2026-10-28,ETSY,1.23,0.84,0.4643,8476044300.0,0,,,,,0.045221987868462654,,62.8,2,35,beat by 46% on Oct 28; stock +5% vs SPY on the report; no fund holds it
+2026-10-28,VFC,0.7,0.54,0.2963,6773708800.0,0,,,,,0.0767255966396937,,62.4,2,36,beat by 30% on Oct 28; stock +8% vs SPY on the report; no fund holds it
+2026-10-28,SCL,0.94,0.73,0.2877,1555133060.0,0,,,,,0.0736913898168653,,61.5,2,37,beat by 29% on Oct 28; stock +7% vs SPY on the report; no fund holds it
+2026-10-28,HAYW,0.18,0.15,0.2,3137248510.0,1,,,,,0.19532453364670943,,59.7,2,38,beat by 20% on Oct 28; stock +20% vs SPY on the report; held by 1 fund
+2026-10-26,CINF,2.86,1.99,0.4372,27538217000.0,0,3,4,0.098025,0.04811542444847139,0.016234181142591675,0.75,59.5,4,39,beat by 44% on Oct 26; beat 3 of last 4; estimates +5% in 30d; no fund holds it
+2026-10-27,ROG,1.39,1.19,0.1681,2515682820.0,0,3,4,0.16952499999999998,0.0689080449438203,0.09326565275597787,0.75,58.7,4,40,beat by 17% on Oct 27; beat 3 of last 4; estimates +7% in 30d; stock +9% vs SPY on the report; no fund holds it
+2026-10-28,F,0.49,0.39,0.2564,46805086000.0,0,,,,,0.05589784662160857,,58.5,2,41,beat by 26% on Oct 28; stock +6% vs SPY on the report; no fund holds it
+2026-10-27,CNC,0.58,0.07,7.2857,33194309600.0,1,,,,,-0.02347285991363013,,58.3,2,42,beat by 729% on Oct 27; stock -2% vs SPY on the report; held by 1 fund
+2026-10-28,HRTG,1.72,1.04,0.6537999999999999,1032606780.0,0,,,,,-0.0015433925995125275,,58.3,2,43,beat by 65% on Oct 28; no fund holds it
+2026-10-27,ITRI,1.94,1.57,0.2357,4061037060.0,0,4,4,0.20272500000000002,0.028084095524418484,0.046329646329934304,1.0,58.3,4,44,beat by 24% on Oct 27; beat 4 of last 4; estimates +3% in 30d; stock +5% vs SPY on the report; no fund holds it
+2026-10-28,MYRG,3.82,3.09,0.23620000000000002,4358144500.0,0,,,,,0.061745843960373636,,57.8,2,45,beat by 24% on Oct 28; stock +6% vs SPY on the report; no fund holds it
+2026-10-28,KREF,0.06,0.03,1.0,329793856.0,0,,,,,-0.018128774162626926,,57.6,2,46,beat by 100% on Oct 28; no fund holds it
+2026-10-26,BSRR,1.18,0.9,0.3111,548997250.0,0,3,4,0.11372499999999999,0.054680195336926585,0.015519652139186269,0.75,57.5,4,47,beat by 31% on Oct 26; beat 3 of last 4; estimates +5% in 30d; no fund holds it
+2026-09-30,PRGS,1.38,1.16,0.18969999999999998,1817266560.0,0,4,4,0.089025,0.08228470648583863,-0.0722403083389963,1.0,56.0,4,48,beat by 19% on Sep 30; beat 4 of last 4; estimates +8% in 30d; stock -7% vs SPY on the report; no fund holds it
+2026-10-21,RS,8.02,6.76,0.1864,22270783500.0,0,3,4,0.069925,0.11826951839458943,0.008176313957699799,0.75,55.6,4,49,beat by 19% on Oct 21; beat 3 of last 4; estimates +12% in 30d; no fund holds it
+2026-10-27,OCFC,0.48,0.4,0.2,1741621250.0,0,,,,,0.06374806921851328,,55.5,2,50,beat by 20% on Oct 27; stock +6% vs SPY on the report; no fund holds it
+2026-10-23,FXNC,0.76,0.63,0.20629999999999998,278965120.0,0,3,4,0.06797500000000001,0.07455752936824289,0.0098796945991797,0.75,55.2,4,51,beat by 21% on Oct 23; beat 3 of last 4; estimates +7% in 30d; no fund holds it
+2026-10-27,CTS,0.77,0.66,0.16670000000000001,1780530690.0,0,,,,,0.1496862269794037,,55.0,2,52,beat by 17% on Oct 27; stock +15% vs SPY on the report; no fund holds it
+2026-10-27,RRC,0.76,0.66,0.1515,13058641900.0,1,4,4,0.149125,0.043068567591001305,0.034248387505585676,1.0,54.6,4,53,beat by 15% on Oct 27; beat 4 of last 4; estimates +4% in 30d; stock +3% vs SPY on the report; held by 1 fund
+2026-10-27,SLDE,1.09,0.65,0.6769,3176110590.0,0,4,4,0.262925,0.02625833173068276,-0.0740606146822489,1.0,54.5,4,54,beat by 68% on Oct 27; beat 4 of last 4; estimates +3% in 30d; stock -7% vs SPY on the report; no fund holds it
+2026-10-22,AVBC,0.47,0.38,0.2368,464509312.0,0,3,4,0.104325,0.04307432432432434,0.03769160802214122,0.75,54.5,4,55,beat by 24% on Oct 22; beat 3 of last 4; estimates +4% in 30d; stock +4% vs SPY on the report; no fund holds it
+2026-10-28,EXTR,0.21,0.15,0.4,3230251780.0,1,,,,,-0.010511710272926078,,54.4,2,56,beat by 40% on Oct 28; held by 1 fund
+2026-10-28,MAS,1.19,1.01,0.1782,14996104200.0,0,,,,,0.06703872579087633,,54.2,2,57,beat by 18% on Oct 28; stock +7% vs SPY on the report; no fund holds it
+2026-10-22,BY,0.94,0.82,0.1463,1747358850.0,0,4,4,0.11855,0.04040486469863647,0.043983557034118936,1.0,53.8,4,58,beat by 15% on Oct 22; beat 4 of last 4; estimates +4% in 30d; stock +4% vs SPY on the report; no fund holds it
+2026-10-28,DINO,11.75,8.17,0.4382,19904679900.0,0,,,,,-0.019923688501807812,,53.7,2,59,beat by 44% on Oct 28; no fund holds it
+2026-10-28,MGPI,0.39,0.34,0.1471,358257504.0,0,,,,,0.12375787548609629,,53.2,2,60,beat by 15% on Oct 28; stock +12% vs SPY on the report; no fund holds it
+2026-10-23,BAH,1.76,1.44,0.22219999999999998,9900948500.0,1,4,4,0.2718,0.01669794343195019,0.0591191455398552,1.0,53.1,4,61,beat by 22% on Oct 23; beat 4 of last 4; estimates +2% in 30d; stock +6% vs SPY on the report; held by 1 fund
+2026-10-28,NI,0.27,0.22,0.2273,21038301200.0,1,,,,,0.026765949363980135,,52.2,2,62,beat by 23% on Oct 28; stock +3% vs SPY on the report; held by 1 fund
+2026-10-22,AMTB,0.65,0.57,0.1404,1161979260.0,0,4,4,0.241475,0.03633026113671278,0.04889679028915994,1.0,52.0,4,63,beat by 14% on Oct 22; beat 4 of last 4; estimates +4% in 30d; stock +5% vs SPY on the report; no fund holds it
+2026-10-21,UNF,2.61,2.09,0.2488,4541659100.0,1,3,4,0.088125,0.02998110184317959,0.052974829234830656,0.75,51.9,4,64,beat by 25% on Oct 21; beat 3 of last 4; estimates +3% in 30d; stock +5% vs SPY on the report; held by 1 fund
+2026-10-28,LFUS,5.79,4.95,0.1697,9833124900.0,1,,,,,0.055428896086176516,,51.7,2,65,beat by 17% on Oct 28; stock +6% vs SPY on the report; held by 1 fund
+2026-10-20,PEBO,1.04,0.92,0.1304,1379825540.0,0,4,4,0.09137500000000001,0.054926744351730505,0.014957141860213685,1.0,51.7,4,66,beat by 13% on Oct 20; beat 4 of last 4; estimates +5% in 30d; no fund holds it
+2026-10-28,MKL,35.07,27.93,0.2556,22856499200.0,0,,,,,0.005000685676085692,,51.5,2,67,beat by 26% on Oct 28; no fund holds it
+2026-10-28,HLI,1.85,1.58,0.1709,9601007600.0,0,,,,,0.05320419742174043,,51.5,2,68,beat by 17% on Oct 28; stock +5% vs SPY on the report; no fund holds it
+2026-10-21,MOH,0.89,0.72,0.2361,10340820000.0,1,3,4,-2.196825,0.06006464093291686,-0.007399338122579979,0.75,51.2,4,69,beat by 24% on Oct 21; beat 3 of last 4; estimates +6% in 30d; held by 1 fund
+2026-10-28,JLL,6.76,6.01,0.12480000000000001,15275879400.0,1,,,,,0.1788981181112005,,50.0,2,70,beat by 12% on Oct 28; stock +18% vs SPY on the report; held by 1 fund
+2026-10-27,ORN,0.08,0.06,0.3333,336110912.0,0,,,,,-0.06373716647756134,,49.3,2,71,beat by 33% on Oct 27; stock -6% vs SPY on the report; no fund holds it
+2026-10-28,MCHB,0.35,0.27,0.2963,3291462140.0,0,,,,,-0.029372125717754605,,49.2,2,72,beat by 30% on Oct 28; stock -3% vs SPY on the report; no fund holds it
+2026-10-28,WHD,0.96,0.78,0.23079999999999998,5158743600.0,0,,,,,-0.0006779529522659145,,48.9,2,73,beat by 23% on Oct 28; no fund holds it
+2026-10-28,MUSA,9.59,8.09,0.18539999999999998,9471025200.0,1,,,,,0.017128323438826087,,48.8,2,74,beat by 19% on Oct 28; held by 1 fund
+2026-10-27,ACGL,2.67,2.15,0.2419,34975986000.0,0,,,,,-0.007504061175731547,,48.7,2,75,beat by 24% on Oct 27; no fund holds it
+2026-10-20,IRDM,0.38,0.29,0.3103,4876920300.0,0,1,4,0.303475,0.05148994171836807,-0.00703947916243286,0.25,48.2,4,76,beat by 31% on Oct 20; beat 1 of last 4; estimates +5% in 30d; no fund holds it
+2026-10-28,CLH,3.93,3.18,0.23579999999999998,16536661000.0,1,,,,,-0.011082899526512757,,47.6,2,77,beat by 24% on Oct 28; held by 1 fund
+2026-10-22,SRCE,2.16,1.83,0.18030000000000002,2104540160.0,0,3,4,0.10265,0.03995366573405834,0.03421837592685817,0.75,47.6,4,78,beat by 18% on Oct 22; beat 3 of last 4; estimates +4% in 30d; stock +3% vs SPY on the report; no fund holds it
+2026-10-27,CR,2.05,1.81,0.1326,11468746800.0,1,4,4,0.104325,0.03384538981161733,0.03261666698924337,1.0,47.2,4,79,beat by 13% on Oct 27; beat 4 of last 4; estimates +3% in 30d; stock +3% vs SPY on the report; held by 1 fund
+2026-10-28,RSI,0.13,0.1,0.3,3506731010.0,0,,,,,-0.11576857076112024,,47.1,2,80,beat by 30% on Oct 28; stock -12% vs SPY on the report; no fund holds it
+2026-10-27,WNEB,0.32,0.26,0.23079999999999998,275630752.0,0,,,,,-0.013412221102238941,,46.9,2,81,beat by 23% on Oct 27; no fund holds it
+2026-10-28,OSW,0.32,0.29,0.10339999999999999,2849068800.0,0,,,,,0.20680257070476593,,46.5,2,82,beat by 10% on Oct 28; stock +21% vs SPY on the report; no fund holds it
+2026-10-21,CACI,7.66,6.45,0.18760000000000002,14798857200.0,0,4,4,0.12425,0.012258656045463945,0.02549135463012364,1.0,46.4,4,83,beat by 19% on Oct 21; beat 4 of last 4; estimates +1% in 30d; stock +3% vs SPY on the report; no fund holds it
+2026-10-28,CLMB,0.43,0.39,0.1026,618226940.0,0,,,,,0.3013848024477078,,46.4,2,84,beat by 10% on Oct 28; stock +30% vs SPY on the report; no fund holds it
+2026-10-19,RBB,0.74,0.57,0.2982,441506656.0,0,4,4,0.262425,-0.012903958349335332,0.0071581820859909495,1.0,46.0,4,85,beat by 30% on Oct 19; beat 4 of last 4; estimates -1% in 30d; no fund holds it
+2026-10-28,BLKB,1.14,0.93,0.22579999999999997,2383433980.0,0,,,,,-0.018046018529710217,,45.8,2,86,beat by 23% on Oct 28; no fund holds it
+2026-10-23,WRLD,1.93,0.78,1.4744,812046140.0,0,2,4,0.386275,0.02124430955993928,-0.015402153672067986,0.5,45.4,4,87,beat by 147% on Oct 23; beat 2 of last 4; estimates +2% in 30d; no fund holds it
+2026-10-16,ATLO,0.8,0.68,0.1765,299196896.0,0,3,4,0.062125,0.04136681268251974,0.011856773775395513,0.75,45.2,4,88,beat by 18% on Oct 16; beat 3 of last 4; estimates +4% in 30d; no fund holds it
+2026-10-22,STBA,1.09,0.99,0.10099999999999999,1780201980.0,0,4,4,0.079325,0.03848183508883596,0.050945547073295794,1.0,44.7,4,89,beat by 10% on Oct 22; beat 4 of last 4; estimates +4% in 30d; stock +5% vs SPY on the report; no fund holds it
+2026-10-22,BHB,1.04,0.93,0.1183,680199870.0,0,4,4,0.055150000000000005,0.025109096706600442,0.06353066138398789,1.0,44.3,4,90,beat by 12% on Oct 22; beat 4 of last 4; estimates +3% in 30d; stock +6% vs SPY on the report; no fund holds it
+2026-10-28,FMNB,0.47,0.41,0.1463,917152380.0,0,,,,,0.016498013602240014,,44.2,2,91,beat by 15% on Oct 28; no fund holds it
+2026-10-21,FULT,0.62,0.55,0.1273,4459764200.0,0,4,4,0.117475,0.025657873651711793,0.038434739364626935,1.0,44.1,4,92,beat by 13% on Oct 21; beat 4 of last 4; estimates +3% in 30d; stock +4% vs SPY on the report; no fund holds it
+2026-10-28,EHC,1.52,1.37,0.10949999999999999,12044592100.0,1,,,,,0.08234489554391955,,44.1,2,93,beat by 11% on Oct 28; stock +8% vs SPY on the report; held by 1 fund
+2026-10-27,CVLT,0.74,0.61,0.21309999999999998,6898862100.0,1,4,4,0.1764,0.01727697466866418,-0.01663914037352421,1.0,43.7,4,94,beat by 21% on Oct 27; beat 4 of last 4; estimates +2% in 30d; held by 1 fund
+2026-10-22,BFH,3.84,3.26,0.1779,3975680770.0,0,4,4,1.045925,0.03157034952674498,-0.06348564889941433,1.0,43.7,4,95,beat by 18% on Oct 22; beat 4 of last 4; estimates +3% in 30d; stock -6% vs SPY on the report; no fund holds it
+2026-10-22,BCML,0.64,0.56,0.1429,333391168.0,0,2,4,0.0073750000000000066,0.11597232733934071,-0.004872900369355615,0.5,43.7,4,96,beat by 14% on Oct 22; beat 2 of last 4; estimates +12% in 30d; no fund holds it
+2026-10-22,FRBA,0.49,0.44,0.11359999999999999,486350688.0,0,2,4,-0.04097499999999999,0.05472675932828297,0.10752203391189497,0.5,43.6,4,97,beat by 11% on Oct 22; beat 2 of last 4; estimates +5% in 30d; stock +11% vs SPY on the report; no fund holds it
+2026-10-27,ACU,0.8,0.71,0.1268,256291072.0,0,,,,,0.042363700334954624,,43.5,2,98,beat by 13% on Oct 27; stock +4% vs SPY on the report; no fund holds it
+2026-10-22,CNOB,0.95,0.85,0.1176,1768400510.0,0,4,4,0.091025,0.019321167185059385,0.07558490318915134,1.0,43.4,4,99,beat by 12% on Oct 22; beat 4 of last 4; estimates +2% in 30d; stock +8% vs SPY on the report; no fund holds it
+2026-10-28,CNXN,1.24,1.04,0.1923,2183095550.0,0,,,,,-0.03302634333952292,,43.0,2,100,beat by 19% on Oct 28; stock -3% vs SPY on the report; no fund holds it
+2026-10-22,CIVB,0.77,0.7,0.1,585981630.0,0,4,4,0.16175,0.026166159503855146,0.07454105693675639,1.0,42.4,4,101,beat by 10% on Oct 22; beat 4 of last 4; estimates +3% in 30d; stock +7% vs SPY on the report; no fund holds it
+2026-10-28,AIN,1.68,1.5,0.12,1774147970.0,0,,,,,0.0364343965435624,,41.1,2,102,beat by 12% on Oct 28; stock +4% vs SPY on the report; no fund holds it
+2026-10-27,ESQ,2.12,1.89,0.1217,1559433470.0,0,,,,,0.031226460117537158,,41.0,2,103,beat by 12% on Oct 27; stock +3% vs SPY on the report; no fund holds it
+2026-10-28,FTV,0.77,0.7,0.1,19362312200.0,0,,,,,0.06887398410282175,,41.0,2,104,beat by 10% on Oct 28; stock +7% vs SPY on the report; no fund holds it
+2026-10-27,ST,1.13,0.96,0.1771,5950591000.0,0,4,4,0.06985,0.011950118704069479,-0.004398000967984705,1.0,40.4,4,105,beat by 18% on Oct 27; beat 4 of last 4; estimates +1% in 30d; no fund holds it
+2026-10-16,LADR,0.35,0.21,0.6667000000000001,1179285120.0,0,2,4,-0.054025000000000004,-0.005587105616343069,0.008013919744643272,0.5,40.3,4,106,beat by 67% on Oct 16; beat 2 of last 4; no fund holds it
+2026-10-28,OBT,0.93,0.82,0.1341,510843392.0,0,,,,,0.0037708086712068267,,39.9,2,107,beat by 13% on Oct 28; no fund holds it
+2026-10-27,RGEN,0.53,0.46,0.1522,10470585300.0,1,4,4,0.1703,0.0044898497401022475,0.016019928328013577,1.0,39.8,4,108,beat by 15% on Oct 27; beat 4 of last 4; held by 1 fund
+2026-10-19,WASH,1.01,0.87,0.1609,743707780.0,0,3,4,0.0396,0.02651777207661099,0.020733345378684653,0.75,39.6,4,109,beat by 16% on Oct 19; beat 3 of last 4; estimates +3% in 30d; stock +2% vs SPY on the report; no fund holds it
+2026-10-28,PBI,0.42,0.36,0.16670000000000001,2390853380.0,0,,,,,-0.04761496365793738,,39.2,2,110,beat by 17% on Oct 28; stock -5% vs SPY on the report; no fund holds it
+2026-10-26,AGYS,0.45,0.38,0.18420000000000003,3248485630.0,0,3,4,0.1554,0.03938386822100548,-0.05318471684100301,0.75,38.6,4,111,beat by 18% on Oct 26; beat 3 of last 4; estimates +4% in 30d; stock -5% vs SPY on the report; no fund holds it
+2026-10-28,EIG,0.71,0.61,0.16390000000000002,923349630.0,0,,,,,-0.05467370795588611,,38.3,2,112,beat by 16% on Oct 28; stock -5% vs SPY on the report; no fund holds it
+2026-10-28,CMRE,0.74,0.66,0.12119999999999999,1782301820.0,0,,,,,0.005267794038882667,,37.7,2,113,beat by 12% on Oct 28; no fund holds it
+2026-10-28,PSN,0.8,0.7,0.1429,5395808300.0,0,,,,,-0.027207271070825323,,37.5,2,114,beat by 14% on Oct 28; stock -3% vs SPY on the report; no fund holds it
+2026-10-28,CSTM,0.84,0.74,0.1351,3310942460.0,0,,,,,-0.021597164123868695,,36.9,2,115,beat by 14% on Oct 28; stock -2% vs SPY on the report; no fund holds it
+2026-10-28,THG,5.15,4.59,0.122,8122164700.0,0,,,,,-0.0026631558007337297,,36.9,2,116,beat by 12% on Oct 28; no fund holds it
+2026-10-19,COSO,0.71,0.59,0.2034,326678304.0,0,1,4,0.0285,0.02640071147249412,0.009286515464923761,0.25,36.8,4,117,beat by 20% on Oct 19; beat 1 of last 4; estimates +3% in 30d; no fund holds it
+2026-10-27,AAT,0.56,0.5,0.12,1328173180.0,0,,,,,0.0012080270849903485,,36.6,2,118,beat by 12% on Oct 27; no fund holds it
+2026-10-28,NWPX,1.86,1.65,0.1273,960539900.0,0,,,,,-0.01803968452102045,,36.1,2,119,beat by 13% on Oct 28; no fund holds it
+2026-10-27,THFF,2.31,2.0,0.155,913654400.0,0,4,4,0.071125,0.00047176743374188757,-0.004228345527708122,1.0,35.6,4,120,beat by 16% on Oct 27; beat 4 of last 4; no fund holds it
+2026-10-21,PLBC,1.61,1.46,0.1027,440088160.0,0,4,4,0.09655000000000001,0.02103826233667483,0.021971188422949428,1.0,35.4,4,121,beat by 10% on Oct 21; beat 4 of last 4; estimates +2% in 30d; stock +2% vs SPY on the report; no fund holds it
+2026-10-28,MGRC,2.0,1.8,0.11109999999999999,2901280260.0,1,,,,,0.0007243343725070739,,35.1,2,122,beat by 11% on Oct 28; held by 1 fund
+2026-10-28,TOWN,0.91,0.82,0.10980000000000001,2692939520.0,0,,,,,-0.0012535519252224736,,34.4,2,123,beat by 11% on Oct 28; no fund holds it
+2026-10-28,OGE,1.52,1.38,0.1014,10095627300.0,0,,,,,0.009794777611691452,,34.4,2,124,beat by 10% on Oct 28; no fund holds it
+2026-10-27,PNR,1.18,1.07,0.10279999999999999,10276971500.0,1,3,4,0.039075,0.017188439847984904,0.15663334392168804,0.75,34.2,4,125,beat by 10% on Oct 27; beat 3 of last 4; estimates +2% in 30d; stock +16% vs SPY on the report; held by 1 fund
+2026-10-27,EXLS,0.49,0.44,0.11359999999999999,6140117000.0,0,4,4,0.086675,0.027233894394342206,-0.03420515314545092,1.0,33.8,4,126,beat by 11% on Oct 27; beat 4 of last 4; estimates +3% in 30d; stock -3% vs SPY on the report; no fund holds it
+2026-10-20,NP,0.15,0.12,0.25,4073304580.0,0,3,4,0.016300000000000002,0.009631937447647565,-0.03968191566537649,0.75,33.2,4,127,beat by 25% on Oct 20; beat 3 of last 4; stock -4% vs SPY on the report; no fund holds it
+2026-10-19,SMBK,1.1,0.96,0.1458,829959870.0,0,4,4,0.07075000000000001,0.003935233465270749,-0.021761167948638582,1.0,32.8,4,128,beat by 15% on Oct 19; beat 4 of last 4; stock -2% vs SPY on the report; no fund holds it
+2026-09-30,CAG,0.41,0.31,0.3226,6645568500.0,0,3,4,0.120675,-0.013280423245196626,-0.06554260490948993,0.75,31.9,4,129,beat by 32% on Sep 30; beat 3 of last 4; estimates -1% in 30d; stock -7% vs SPY on the report; no fund holds it
+2026-10-21,CASH,1.85,1.63,0.135,1578775550.0,0,3,4,0.003349999999999992,0.0038200750885464263,0.04476269718659531,0.75,31.0,4,130,beat by 14% on Oct 21; beat 3 of last 4; stock +4% vs SPY on the report; no fund holds it
+2026-10-28,JMSB,0.55,0.5,0.1,323026752.0,0,,,,,-0.007322328632344721,,30.8,2,131,beat by 10% on Oct 28; no fund holds it
+2026-10-28,CHEF,0.66,0.59,0.1186,4667936300.0,0,,,,,-0.06778162935235088,,30.5,2,132,beat by 12% on Oct 28; stock -7% vs SPY on the report; no fund holds it
+2026-10-22,COCO,0.58,0.51,0.1373,3216689920.0,0,4,4,0.4045500000000001,0.011067955033472465,-0.09279286949773913,1.0,29.9,4,133,beat by 14% on Oct 22; beat 4 of last 4; estimates +1% in 30d; stock -9% vs SPY on the report; no fund holds it
+2026-10-28,PLXS,2.51,2.26,0.1106,6378913300.0,1,,,,,-0.060272816910373006,,29.8,2,134,beat by 11% on Oct 28; stock -6% vs SPY on the report; held by 1 fund
+2026-10-26,HBT,0.86,0.78,0.1026,1323708290.0,0,3,4,-0.06835000000000001,0.034915610002766884,0.0013222937016470482,0.75,29.2,4,135,beat by 10% on Oct 26; beat 3 of last 4; estimates +3% in 30d; no fund holds it
+2026-10-27,UMBF,3.56,3.22,0.1056,10051226600.0,1,4,4,0.14202499999999998,0.013603595487238107,-0.02336811078175749,1.0,27.6,4,136,beat by 11% on Oct 27; beat 4 of last 4; estimates +1% in 30d; stock -2% vs SPY on the report; held by 1 fund
+2026-10-22,NEM,2.2,1.94,0.134,118384886000.0,0,4,4,0.19102499999999997,-0.010577685567802475,-0.05394558838562591,1.0,27.1,4,137,beat by 13% on Oct 22; beat 4 of last 4; estimates -1% in 30d; stock -5% vs SPY on the report; no fund holds it
+2026-10-27,NWFL,1.08,0.95,0.1368,391166400.0,0,1,4,0.0063999999999999994,0.0007194244604316058,0.01960221081316993,0.25,22.9,4,138,beat by 14% on Oct 27; beat 1 of last 4; no fund holds it
+2026-10-01,MKC,0.86,0.75,0.1467,12393109500.0,1,3,4,0.093525,-0.010878302176468346,-0.046476433000292694,0.75,21.2,4,139,beat by 15% on Oct 01; beat 3 of last 4; estimates -1% in 30d; stock -5% vs SPY on the report; held by 1 fund
+2026-10-22,LNN,1.1,0.98,0.12240000000000001,1051265660.0,0,3,4,0.028075000000000006,-0.11742184040899134,0.008058301606608698,0.75,20.3,4,140,beat by 12% on Oct 22; beat 3 of last 4; estimates -12% in 30d; no fund holds it
+2026-10-21,KNX,0.83,0.75,0.1067,9905330200.0,0,2,4,-0.059099999999999986,0.021124581641126405,-0.004922983717387863,0.5,19.7,4,141,beat by 11% on Oct 21; beat 2 of last 4; estimates +2% in 30d; no fund holds it
+2026-10-22,EFSI,0.93,0.83,0.12050000000000001,246228480.0,0,2,4,-0.164325,-0.033828382838283766,0.03941098905863405,0.5,19.6,4,142,beat by 12% on Oct 22; beat 2 of last 4; estimates -3% in 30d; stock +4% vs SPY on the report; no fund holds it
+2026-10-26,MMYT,0.41,0.36,0.1389,3989027840.0,1,2,4,0.0554,-0.027473492913055064,-0.030094283197503402,0.5,14.8,4,143,beat by 14% on Oct 26; beat 2 of last 4; estimates -3% in 30d; stock -3% vs SPY on the report; held by 1 fund
+2026-10-27,LSTR,1.89,1.62,0.16670000000000001,4710445100.0,0,1,4,-0.11435000000000002,-0.021883595626189967,-0.16872117542452225,0.25,14.3,4,144,beat by 17% on Oct 27; beat 1 of last 4; estimates -2% in 30d; stock -17% vs SPY on the report; no fund holds it
