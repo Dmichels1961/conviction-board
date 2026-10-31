@@ -5,14 +5,24 @@
  "cash": 0.0,
  "realized": 0.0,
  "costs": 0.0,
- "nav": [],
- "bench_start": {},
+ "nav": [
+  [
+   "2026-10-30",
+   2700.96,
+   2688.68,
+   2688.68
+  ]
+ ],
+ "bench_start": {
+  "SPY": 755.719970703125,
+  "QQQ": 690.489990234375
+ },
  "positions": {
   "ADI": {
    "shares": 2,
    "cost_basis": 413.38,
    "entry_date": "2026-10-30",
-   "last": 413.38,
+   "last": 417.1099853515625,
    "name": "Analog Devices, Inc.",
    "sector": "Technology"
   },
@@ -20,7 +30,7 @@
    "shares": 1,
    "cost_basis": 878.47,
    "entry_date": "2026-10-30",
-   "last": 878.47,
+   "last": 884.739990234375,
    "name": "Micron Technology, Inc.",
    "sector": "Technology"
   },
@@ -28,7 +38,7 @@
    "shares": 5,
    "cost_basis": 196.69,
    "entry_date": "2026-10-30",
-   "last": 196.69,
+   "last": 196.39999389648438,
    "name": "Marvell Technology, Inc.",
    "sector": "Technology"
   }

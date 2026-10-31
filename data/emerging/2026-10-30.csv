@@ -1,613 +1,650 @@
 ticker,score,signals,rd_intensity,rd_growth,rev_accel,gm_change,theme_level,theme_change,initiations,fwd_rev_growth,name,sector,rank,top_theme,why
 NVDA,83.7,7,0.87657,5.01223,0.08674,7.78262,78.54,27.45,,0.6815,NVIDIA Corporation,Technology,1,AI infrastructure,revenue growth up 9 pts; R&D 88% of sales; R&D +501%
-AMD,78.3,7,0.22743,0.34778,0.12374,0.05583,46.23,4.66,,0.7507,"Advanced Micro Devices, Inc.",,2,AI infrastructure,revenue growth up 12 pts; R&D 23% of sales; R&D +35%
-VRDN,77.7,5,3.01884,43.91004,0.14954,0.15041,,,,8.7845,"Viridian Therapeutics, Inc.",Healthcare,3,,revenue growth up 15 pts; R&D 302% of sales; R&D +4391%
-MU,76.4,7,0.04242,0.48763,2.07476,0.40925,29.27,8.61,,0.1603,"Micron Technology, Inc.",Technology,4,AI,revenue growth up 207 pts; R&D +49%; gross margin +40.9 pts
-AVGO,74.6,7,0.13283,0.15699,0.20684,0.01943,41.47,24.24,,0.6439,Broadcom Inc.,,5,AI,revenue growth up 21 pts; R&D 13% of sales; AI mentions rising
+AMD,78.4,7,0.22743,0.34778,0.12374,0.05583,46.23,4.66,,0.7507,"Advanced Micro Devices, Inc.",,2,AI infrastructure,revenue growth up 12 pts; R&D 23% of sales; R&D +35%
+MU,76.4,7,0.04242,0.48763,2.07476,0.40925,29.27,8.61,,0.1603,"Micron Technology, Inc.",Technology,3,AI,revenue growth up 207 pts; R&D +49%; gross margin +40.9 pts
+AVGO,74.7,7,0.13283,0.15699,0.20684,0.01943,41.47,24.24,,0.6439,Broadcom Inc.,,4,AI,revenue growth up 21 pts; R&D 13% of sales; AI mentions rising
+VRDN,74.0,7,3.01884,43.91004,0.14954,0.15041,2.76,-0.1,,8.7845,"Viridian Therapeutics, Inc.",Healthcare,5,AI,revenue growth up 15 pts; R&D 302% of sales; R&D +4391%
 RR,74.0,7,0.94804,1.18427,0.8532,-0.17201,34.85,9.14,,0.2275,Richtech Robotics Inc.,Industrials,6,AI,revenue growth up 85 pts; R&D 95% of sales; R&D +118%
-ADI,73.8,7,0.14243,0.1784,0.26572,0.05648,9.18,7.17,,0.2159,"Analog Devices, Inc.",,7,AI,revenue growth up 27 pts; R&D 14% of sales; gross margin +5.6 pts
-ALGM,72.8,7,0.22673,0.18529,0.43038,0.02784,6.57,2.63,,0.1743,"Allegro MicroSystems, Inc.",,8,AI,revenue growth up 43 pts; R&D 23% of sales; gross margin +2.8 pts
-PLTR,72.7,7,0.10417,0.14714,0.40131,0.04766,13.3,2.37,,0.5045,Palantir Technologies Inc.,Technology,9,AI,revenue growth up 40 pts; gross margin +4.8 pts; AI mentions rising
-BFLY,72.7,7,0.32105,0.10636,0.23314,0.27016,2.3,2.3,,0.2381,"Butterfly Network, Inc.",Healthcare,10,AI,revenue growth up 23 pts; R&D 32% of sales; gross margin +27.0 pts
-ARGX,71.8,4,8.93805,9.314,0.32839,,,,,0.2201,argenx SE,,11,,revenue growth up 33 pts; R&D 894% of sales; R&D +931%
-ACHR,71.2,5,90.65217,0.52375,,,4.81,4.81,,8.1201,Archer Aviation Inc.,,12,AI,R&D 9065% of sales; R&D +52%; AI mentions rising
-LSCC,70.5,7,0.33501,0.32286,0.55403,0.02324,16.45,-1.73,,0.4693,Lattice Semiconductor Corporati,Technology,13,AI,revenue growth up 55 pts; R&D 34% of sales; R&D +32%
-FROG,70.4,7,0.35031,0.17628,0.04403,0.02334,24.24,8.2,,0.1798,JFrog Ltd.,Technology,14,AI,R&D 35% of sales; gross margin +2.3 pts; AI mentions rising
-HPE,70.3,6,0.08849,0.71211,0.12621,,22.62,15.81,,0.1748,Hewlett Packard Enterprise Comp,Technology,15,AI,revenue growth up 13 pts; R&D +71%; AI mentions rising
-LUNR,69.8,4,,,0.70144,,18.7,10.5,,0.2694,"Intuitive Machines, Inc.",Industrials,16,Space & defense tech,revenue growth up 70 pts; Space & defense tech mentions rising
-CRSP,69.5,6,20.77016,-0.06117,0.1638,,35.07,5.61,,2.8075,CRISPR Therapeutics AG,Healthcare,17,Biotech breakthroughs,revenue growth up 16 pts; R&D 2077% of sales; Biotech breakthroughs mentions rising
-BBIO,69.3,7,0.70873,0.06742,1.94773,-0.01756,6.05,5.57,,0.6044,"BridgeBio Pharma, Inc.",,18,AI,revenue growth up 195 pts; R&D 71% of sales; AI mentions rising
-BETA,69.3,5,7.98575,0.73069,1.9885,-0.09999,,,,6.7132,"Beta Technologies, Inc.",,19,,revenue growth up 199 pts; R&D 799% of sales; R&D +73%
-SITM,68.9,5,0.27179,0.09233,0.17913,0.07193,,,,0.5541,SiTime Corporation,Technology,20,,revenue growth up 18 pts; R&D 27% of sales; gross margin +7.2 pts
-META,68.9,7,0.31681,0.46029,0.06253,-0.00963,31.49,9.98,,0.216,"Meta Platforms, Inc.",Communication Services,21,AI,revenue growth up 6 pts; R&D 32% of sales; R&D +46%
-RKLB,68.7,7,0.40618,0.43824,-0.01836,0.08222,17.01,1.62,,0.3816,Rocket Lab Corporation,Industrials,22,Space & defense tech,R&D 41% of sales; R&D +44%; gross margin +8.2 pts
-CRCL,68.4,4,,,0.57725,,9.33,6.97,,0.2736,"Circle Internet Group, Inc.",,23,AI,revenue growth up 58 pts; AI mentions rising
-MRVL,68.3,7,0.25839,0.21228,-0.06432,0.07569,24.37,13.59,,0.6335,"Marvell Technology, Inc.",Technology,24,AI,R&D 26% of sales; R&D +21%; gross margin +7.6 pts
-TSHA,68.1,4,22.45068,0.86644,0.04826,,,,,10.23,"Taysha Gene Therapies, Inc.",Healthcare,25,,R&D 2245% of sales; R&D +87%
-JOBY,68.1,6,5.8692,0.31464,1186.59335,,0.0,0.0,,0.7768,"Joby Aviation, Inc.",Industrials,26,AI,revenue growth up 118659 pts; R&D 587% of sales; R&D +31%
-P,68.0,7,0.24691,0.19742,0.159,0.00566,7.74,0.44,,0.3764,"Everpure, Inc.",Technology,27,AI infrastructure,revenue growth up 16 pts; R&D 25% of sales
-FORM,67.8,7,0.13408,0.02221,0.09703,0.04445,15.12,13.04,,0.242,"FormFactor, Inc.",Technology,28,Quantum & next compute,revenue growth up 10 pts; R&D 13% of sales; gross margin +4.4 pts
-CORZ,67.8,7,0.02687,0.0,0.65796,0.23224,22.68,2.33,,0.6997,"Core Scientific, Inc.",,29,AI,revenue growth up 66 pts; gross margin +23.2 pts; AI mentions rising
-CIEN,67.5,7,0.15362,0.13435,0.19604,0.02506,4.51,0.52,,0.3115,Ciena Corporation,,30,AI infrastructure,revenue growth up 20 pts; R&D 15% of sales; gross margin +2.5 pts
-XENE,67.5,3,1133.39228,16.77713,,,,,,20.457,Xenon Pharmaceuticals Inc.,Healthcare,31,,R&D 113339% of sales; R&D +1678%
-LRCX,67.4,7,0.09438,0.13242,0.07703,0.01741,20.92,16.23,,0.2036,Lam Research Corporation,Technology,32,AI,revenue growth up 8 pts; AI mentions rising
-CBIO,67.4,5,12.84793,5.19194,,,0.99,0.99,,1.7736,"Crescent Biopharma, Inc.",,33,AI,R&D 1285% of sales; R&D +519%
-AUR,67.3,6,114.71429,0.11219,,1.64286,2.16,0.08,,18.1359,"Aurora Innovation, Inc.",,34,AI,R&D 11471% of sales; gross margin +164.3 pts
-SNDK,67.1,5,0.06559,0.17314,1.6491,0.41399,,,,0.1858,Sandisk Corporation,Technology,35,,revenue growth up 165 pts; gross margin +41.4 pts
-KYMR,67.1,7,4.20583,0.41184,1.83813,0.0,7.15,4.57,,-0.612,"Kymera Therapeutics, Inc.",Healthcare,36,AI,revenue growth up 184 pts; R&D 421% of sales; R&D +41%
-RBRK,66.5,7,0.28594,0.32053,-0.05272,0.02249,27.07,11.34,,0.2152,"Rubrik, Inc.",Technology,37,AI,R&D 29% of sales; R&D +32%; gross margin +2.2 pts
-ELF,66.5,5,,,0.12616,0.03766,17.31,5.96,,0.0885,"e.l.f. Beauty, Inc.",Consumer Defensive,38,AI,revenue growth up 13 pts; gross margin +3.8 pts; AI mentions rising
-CRDO,66.4,7,0.21461,1.02158,-0.10697,0.01083,43.55,35.37,,0.5499,Credo Technology Group Holding ,,39,Quantum & next compute,R&D 21% of sales; R&D +102%; Quantum & next compute mentions rising
-DOCN,66.4,7,0.18665,0.21115,0.08124,-0.03181,47.97,14.85,,0.547,"DigitalOcean Holdings, Inc.",,40,AI,revenue growth up 8 pts; R&D 19% of sales; R&D +21%
-INTC,66.4,7,0.23133,-0.13483,0.11187,0.08842,15.72,9.18,,0.1537,Intel Corporation,Technology,41,Robotics & autonomy,revenue growth up 11 pts; R&D 23% of sales; gross margin +8.8 pts
-CLS,66.2,7,0.00926,0.51616,0.19879,-0.00582,13.56,7.61,,0.9104,"Celestica, Inc.",,42,AI,revenue growth up 20 pts; R&D +52%; AI mentions rising
-AAPL,66.2,7,0.0919,0.28258,0.08272,0.01975,7.1,7.1,,0.1036,Apple Inc.,,43,AI,revenue growth up 8 pts; R&D +28%; AI mentions rising
-LITE,66.1,7,0.11828,0.17308,0.62195,0.13711,15.7,-8.36,,0.565,Lumentum Holdings Inc.,Technology,44,Robotics & autonomy,revenue growth up 62 pts; gross margin +13.7 pts
-MDB,66.1,7,0.2803,0.19565,0.03548,0.0036,23.9,6.33,,0.1926,"MongoDB, Inc.",Technology,45,AI,R&D 28% of sales; AI mentions rising
-RVMD,65.6,4,,1.18893,,,4.59,3.75,,5.2664,"Revolution Medicines, Inc.",Healthcare,46,AI,R&D +119%; AI mentions rising
-PANW,65.6,7,0.2223,0.28629,0.09624,-0.03062,38.85,17.74,,0.1449,"Palo Alto Networks, Inc.",Technology,47,AI,revenue growth up 10 pts; R&D 22% of sales; R&D +29%
-IDYA,65.2,6,1.71006,0.26923,30.94495,,0.0,-1.11,,1.8845,"IDEAYA Biosciences, Inc.",Healthcare,48,AI,revenue growth up 3094 pts; R&D 171% of sales; R&D +27%
-GKOS,65.1,7,0.09693,0.34695,0.16556,-0.12091,12.74,9.81,,0.3006,Glaukos Corporation,Healthcare,49,AI,revenue growth up 17 pts; R&D +35%; AI mentions rising
-TEAM,64.7,5,0.49743,0.22476,0.06364,0.01991,,,,0.1487,Atlassian Corporation,Technology,50,,revenue growth up 6 pts; R&D 50% of sales; R&D +22%
-DDOG,64.3,7,0.43693,0.29665,0.05521,-0.00411,9.6,1.1,,0.2264,"Datadog, Inc.",,51,AI,revenue growth up 6 pts; R&D 44% of sales; R&D +30%
-RIVN,64.1,7,0.28287,0.13288,-0.1716,0.05842,16.03,9.74,,0.5779,"Rivian Automotive, Inc.",Consumer Cyclical,52,Robotics & autonomy,R&D 28% of sales; gross margin +5.8 pts; Robotics & autonomy mentions rising
-DASH,64.1,6,0.10742,0.37329,0.09817,,4.54,1.31,,0.2076,"DoorDash, Inc.",,53,AI,revenue growth up 10 pts; R&D +37%
-EQIX,63.7,5,,,0.057,0.01327,58.2,8.89,,0.1119,"Equinix, Inc.",,54,AI infrastructure,revenue growth up 6 pts; AI infrastructure mentions rising
-TSM,63.7,5,0.07055,0.1196,0.38401,0.01763,,,,0.3764,Taiwan Semiconductor Manufactur,Technology,55,,revenue growth up 38 pts
-ABSI,63.6,6,19.07521,0.7993,-0.20202,,13.27,2.13,,3.1091,Absci Corporation,,56,AI,R&D 1908% of sales; R&D +80%; AI mentions rising
-WPM,63.6,3,,,0.5374,0.09746,,,,0.098,Wheaton Precious Metals Corp,Basic Materials,57,,revenue growth up 54 pts; gross margin +9.7 pts
-OKLO,63.6,3,,,,,44.66,10.47,,1.9755,Oklo Inc.,Utilities,58,Energy transition & power,Energy transition & power mentions rising
-COHR,63.3,7,0.10156,0.24235,-0.00904,0.02328,13.19,4.29,,0.3813,Coherent Corp.,,59,AI,R&D +24%; gross margin +2.3 pts; AI mentions rising
-PI,63.3,7,0.29801,0.137,0.03478,0.01249,4.61,2.09,,0.1974,"Impinj, Inc.",Technology,60,AI,R&D 30% of sales; AI mentions rising
-FN,63.2,5,,,0.17127,-0.00098,5.69,4.13,,0.2001,Fabrinet,Technology,61,AI infrastructure,revenue growth up 17 pts; AI infrastructure mentions rising
-SHOP,63.2,5,0.23329,0.09581,0.04645,0.40595,,,,0.2598,Shopify Inc.,Technology,62,,R&D 23% of sales; gross margin +40.6 pts
-NET,63.1,7,0.22819,0.19246,0.0621,-0.03564,10.56,7.38,,0.289,"Cloudflare, Inc.",Technology,63,AI,revenue growth up 6 pts; R&D 23% of sales; AI mentions rising
-TSLA,63.1,5,0.08556,0.50085,0.09861,0.02279,,,,0.1349,"Tesla, Inc.",Consumer Cyclical,64,,revenue growth up 10 pts; R&D +50%; gross margin +2.3 pts
-BE,63.1,7,0.06186,0.39033,0.64497,0.00925,11.88,-13.91,,0.5598,Bloom Energy Corporation,,65,AI,revenue growth up 64 pts; R&D +39%
-RBLX,63.1,7,0.28601,0.11481,-0.00607,0.02982,22.74,6.07,,0.1285,Roblox Corporation,Communication Services,66,AI,R&D 29% of sales; gross margin +3.0 pts; AI mentions rising
-B,63.0,3,,,0.17837,0.12864,,,,0.1241,Barrick Mining Corporation,,67,,revenue growth up 18 pts; gross margin +12.9 pts
-STRL,62.9,3,,,0.86943,0.00724,,,,0.2177,"Sterling Infrastructure, Inc.",Industrials,68,,revenue growth up 87 pts
-INSM,62.5,7,0.62143,0.35706,2.09623,-0.20683,7.04,-1.16,,0.5929,Insmed Incorporated,Healthcare,69,AI,revenue growth up 210 pts; R&D 62% of sales; R&D +36%
-ASML,62.3,5,0.14384,0.0918,0.13028,0.01554,,,,0.2869,ASML Holding N.V. - New York Re,,70,,revenue growth up 13 pts; R&D 14% of sales
-NKTR,62.2,7,2.41391,0.06147,-0.07589,0.16564,9.3,2.46,,0.2772,Nektar Therapeutics,Healthcare,71,AI,R&D 241% of sales; gross margin +16.6 pts; AI mentions rising
-ANET,61.9,7,0.12962,0.26077,0.06603,-0.01233,23.22,1.58,,0.2903,"Arista Networks, Inc.",,72,AI,revenue growth up 7 pts; R&D 13% of sales; R&D +26%
-PODD,61.9,7,0.32336,1.12862,-0.05555,1.26365,0.83,0.83,,0.1357,Insulet Corporation,Healthcare,73,AI,R&D 32% of sales; R&D +113%; gross margin +126.4 pts
-AKAM,61.8,7,0.21567,2.09906,0.02394,-0.36962,22.93,16.11,,0.1614,"Akamai Technologies, Inc.",,74,AI,R&D 22% of sales; R&D +210%; AI mentions rising
-STX,61.8,5,0.05573,0.05487,0.12809,0.13492,,,,0.3708,Seagate Technology Holdings PLC,Technology,75,,revenue growth up 13 pts; gross margin +13.5 pts
-GOOGL,61.8,7,0.20701,0.62363,0.01283,-0.0838,25.56,15.96,,0.266,Alphabet Inc.,Communication Services,76,AI,R&D 21% of sales; R&D +62%; AI mentions rising
-PONY,61.7,5,2.41574,-0.09476,0.15614,0.00535,,,,1.0798,Pony AI Inc.,Technology,77,,revenue growth up 16 pts; R&D 242% of sales
-XYZ,61.7,3,0.95755,8.53572,,,,,,0.1134,"Block, Inc.",Technology,78,,R&D 96% of sales; R&D +854%
-VIA,61.6,5,0.20115,0.11145,0.0996,0.01048,,,,0.2226,"Via Transportation, Inc.",Technology,79,,revenue growth up 10 pts; R&D 20% of sales
-WELL,61.4,3,,,0.10867,0.04583,,,,0.1534,Welltower Inc.,Real Estate,80,,revenue growth up 11 pts; gross margin +4.6 pts
-TER,61.4,5,0.2539,0.73429,-0.07807,0.60005,,,,0.2382,"Teradyne, Inc.",Technology,81,,R&D 25% of sales; R&D +73%; gross margin +60.0 pts
-NUE,61.3,5,,,0.22965,0.05041,4.98,2.59,,0.0102,Nucor Corporation,Basic Materials,82,Energy transition & power,revenue growth up 23 pts; gross margin +5.0 pts; Energy transition & power mentions rising
-U,61.2,5,0.5062,0.18212,0.27728,-0.09536,,,,0.2113,Unity Software Inc.,Technology,83,,revenue growth up 28 pts; R&D 51% of sales
-AMAT,61.0,7,0.12881,0.1313,0.01222,0.00896,14.03,3.28,,0.3534,"Applied Materials, Inc.",,84,AI,R&D 13% of sales; AI mentions rising
-NBIS,61.0,5,0.12872,0.42493,0.06895,-0.00293,,,,2.6596,Nebius Group N.V.,Communication Services,85,,revenue growth up 7 pts; R&D 13% of sales; R&D +42%
-ADSK,61.0,7,0.22092,0.09062,0.0416,0.00632,17.57,4.37,,0.1102,"Autodesk, Inc.",,86,AI,R&D 22% of sales; AI mentions rising
-WDC,60.9,5,0.07941,0.12086,0.04968,0.11985,,,,0.4049,Western Digital Corporation,Technology,87,,gross margin +12.0 pts
-DELL,60.8,7,0.02408,0.17036,0.38568,-0.01317,15.54,2.88,,0.1924,Dell Technologies Inc.,,88,AI,revenue growth up 39 pts; AI mentions rising
-ESTC,60.7,7,0.25264,0.18091,-0.01244,0.00315,16.76,7.66,,0.147,Elastic N.V.,,89,AI,R&D 25% of sales; AI mentions rising
-MTSI,60.6,7,0.23422,0.17929,-0.0514,0.01778,13.44,1.29,,0.3632,MACOM Technology Solutions Hold,Technology,90,AI infrastructure,R&D 23% of sales
-NVT,60.6,7,0.01843,0.27468,0.18878,-0.02226,5.18,2.5,,0.3065,nVent Electric plc,Industrials,91,AI infrastructure,revenue growth up 19 pts; R&D +27%; AI infrastructure mentions rising
-AAOI,60.5,7,0.18057,0.56899,-0.16093,0.00034,21.04,4.43,,1.5648,"Applied Optoelectronics, Inc.",,92,AI,R&D 18% of sales; R&D +57%; AI mentions rising
-SNPS,60.4,5,0.30603,0.25986,0.38329,-0.06741,,,,0.1318,"Synopsys, Inc.",Technology,93,,revenue growth up 38 pts; R&D 31% of sales; R&D +26%
-WWD,60.4,5,0.04109,0.20263,0.16821,0.03592,,,,0.0876,"Woodward, Inc.",Industrials,94,,revenue growth up 17 pts; R&D +20%; gross margin +3.6 pts
-NTRA,60.4,7,0.29086,0.56881,-0.06559,0.02226,1.18,1.18,,0.2089,"Natera, Inc.",Healthcare,95,AI,R&D 29% of sales; R&D +57%; gross margin +2.2 pts
-JBL,60.4,7,0.00083,0.15385,0.17461,0.00347,10.37,4.77,,0.1628,Jabil Inc.,Technology,96,Robotics & autonomy,revenue growth up 17 pts; Robotics & autonomy mentions rising
-WULF,60.3,5,0.03366,-0.24212,0.34118,3.79734,,,,2.5036,TeraWulf Inc.,Financial Services,97,,revenue growth up 34 pts; gross margin +379.7 pts
-VRT,60.3,5,0.03367,0.20158,0.06519,0.0239,,,,0.2986,"Vertiv Holdings, LLC",Industrials,98,,revenue growth up 7 pts; R&D +20%; gross margin +2.4 pts
-AJG,60.1,5,,,0.12481,0.02,2.32,1.16,,0.0862,Arthur J. Gallagher & Co.,,99,AI,revenue growth up 12 pts
-SANM,60.1,7,0.00263,0.09537,0.52686,0.00362,5.5,3.22,,0.1806,Sanmina Corporation,Technology,100,AI,revenue growth up 53 pts; AI mentions rising
-ARM,60.0,5,0.56423,0.34042,-0.01155,0.0056,,,,0.3642,Arm Holdings plc,,101,,R&D 56% of sales; R&D +34%
-IOT,59.9,7,0.20344,0.17779,-0.00814,-0.00491,30.52,30.52,,0.2002,Samsara Inc.,Technology,102,AI,R&D 20% of sales; AI mentions rising
-VICR,59.9,5,0.15595,0.16574,0.29827,-0.02562,,,,0.4687,Vicor Corporation,Technology,103,,revenue growth up 30 pts; R&D 16% of sales
-ASND,59.8,5,0.42162,-0.01102,0.61695,-0.01009,,,,0.4619,Ascendis Pharma A/S,,104,,revenue growth up 62 pts; R&D 42% of sales
-RMBS,59.8,6,0.65786,0.36857,-0.46522,,11.48,5.75,,0.205,"Rambus, Inc.",Technology,105,AI,R&D 66% of sales; R&D +37%; AI mentions rising
-MELI,59.7,7,0.10543,0.20853,0.09161,-0.03107,2.91,2.91,,0.2917,"MercadoLibre, Inc.",Consumer Cyclical,106,AI,revenue growth up 9 pts; R&D +21%; AI mentions rising
-HOOD,59.6,3,,,,,8.48,4.11,,0.2901,"Robinhood Markets, Inc.",Financial Services,107,AI,AI mentions rising
-BEAM,59.6,6,2.61905,0.03126,2.4179,,9.23,-4.81,,0.1448,Beam Therapeutics Inc.,,108,Biotech breakthroughs,revenue growth up 242 pts; R&D 262% of sales
-APH,59.5,7,0.0223,0.42826,0.1366,0.0377,2.48,-0.63,,0.2201,Amphenol Corporation,,109,AI,revenue growth up 14 pts; R&D +43%; gross margin +3.8 pts
-ALNY,59.5,7,0.31093,0.24928,0.02932,-0.06692,3.63,3.46,,0.2631,"Alnylam Pharmaceuticals, Inc.",,110,AI,R&D 31% of sales; R&D +25%; AI mentions rising
-ESLT,59.4,5,0.08781,0.1928,0.05875,0.03523,,,,0.1221,Elbit Systems Ltd.,,111,,revenue growth up 6 pts; gross margin +3.5 pts
-SWKS,59.4,5,0.21091,0.16612,0.08297,-0.00755,,,,0.9233,"Skyworks Solutions, Inc.",Technology,112,,revenue growth up 8 pts; R&D 21% of sales
-RDDT,59.4,7,0.30005,0.12185,-0.03373,0.00403,12.57,2.67,,0.3202,"Reddit, Inc.",Communication Services,113,AI,R&D 30% of sales; AI mentions rising
-DE,59.3,7,0.04968,0.05627,0.28618,0.04106,2.05,1.02,,0.0856,Deere & Company,,114,AI infrastructure,revenue growth up 29 pts; gross margin +4.1 pts
-FIG,59.3,7,0.94971,2.85489,-0.33526,-0.11626,50.27,24.73,,0.2393,"Figma, Inc.",Technology,115,AI,R&D 95% of sales; R&D +285%; AI mentions rising
-SNOW,59.2,5,0.38779,0.10959,0.03675,0.0043,,,,0.2864,Snowflake Inc.,Technology,116,,R&D 39% of sales
-IAG,59.2,3,,,0.09263,0.08607,,,,0.0909,Iamgold Corporation,Basic Materials,117,,revenue growth up 9 pts; gross margin +8.6 pts
-CBOE,59.0,5,,,2.11118,0.42232,0.69,0.03,,0.0322,"Cboe Global Markets, Inc.",,118,AI,revenue growth up 211 pts; gross margin +42.2 pts
-TTMI,58.9,5,0.00844,0.07588,0.19675,0.02017,,,,0.4722,"TTM Technologies, Inc.",Technology,119,,revenue growth up 20 pts; gross margin +2.0 pts
-AER,58.7,3,,,0.84146,31.0117,,,,-0.0602,AerCap Holdings N.V.,,120,,revenue growth up 84 pts; gross margin +3101.2 pts
-RXRX,58.7,7,7.19177,-0.08509,-0.4522,0.06995,20.38,9.02,,0.2691,"Recursion Pharmaceuticals, Inc.",Healthcare,121,AI,R&D 719% of sales; gross margin +7.0 pts; AI mentions rising
-NUVB,58.7,7,0.75839,0.1822,1.83211,-0.19002,0.58,-0.16,,0.416,Nuvation Bio Inc.,Healthcare,122,AI,revenue growth up 183 pts; R&D 76% of sales
-TRGP,58.5,3,,,0.36341,-0.00823,,,,0.26,"Targa Resources, Inc.",Energy,123,,revenue growth up 36 pts
-AGI,58.4,3,,,0.0267,0.11012,,,,0.2395,Alamos Gold Inc.,Basic Materials,124,,gross margin +11.0 pts
-NRIX,58.4,6,0.47593,0.1095,6.90445,,6.99,0.3,,-0.8346,"Nurix Therapeutics, Inc.",Healthcare,125,AI,revenue growth up 690 pts; R&D 48% of sales
-ALAB,58.4,7,0.3613,0.82106,-0.65314,-0.00389,7.85,2.38,,0.5591,"Astera Labs, Inc.",,126,AI,R&D 36% of sales; R&D +82%; AI mentions rising
-APO,58.4,4,,,0.46032,,0.25,0.25,,0.1685,"Apollo Global Management, Inc. ",,127,AI,revenue growth up 46 pts
-KEYS,58.4,3,,,,,10.06,4.86,,0.1539,Keysight Technologies Inc.,Technology,128,AI,AI mentions rising
-FFIV,58.3,7,0.17927,0.12491,0.00471,0.00837,23.17,23.17,,0.0669,"F5, Inc.",,129,AI,R&D 18% of sales; AI mentions rising
-AMZN,58.3,5,,,0.04894,-0.00112,17.46,2.96,,0.1464,"Amazon.com, Inc.",,130,AI,AI mentions rising
-REGN,58.1,7,0.40401,0.15526,0.03915,0.00241,6.75,2.15,,0.0558,"Regeneron Pharmaceuticals, Inc.",Healthcare,131,AI,R&D 40% of sales; AI mentions rising
-PFGC,58.1,5,,,0.05927,0.30419,5.24,2.16,,0.0298,Performance Food Group Company,Consumer Defensive,132,AI,revenue growth up 6 pts; gross margin +30.4 pts; AI mentions rising
-FCFS,58.1,5,,,0.15315,0.01804,0.89,0.89,,0.0692,"FirstCash Holdings, Inc.",Financial Services,133,AI,revenue growth up 15 pts
-ORCL,58.0,7,0.14186,0.01364,0.11949,-0.07322,9.65,4.26,,0.4571,Oracle Corporation,Technology,134,AI,revenue growth up 12 pts; R&D 14% of sales; AI mentions rising
-MKSI,58.0,7,0.07154,0.11071,0.11702,-0.00388,16.08,0.63,,0.2055,MKS Inc.,Technology,135,AI,revenue growth up 12 pts
-FCNCA,57.8,4,,,0.50245,,1.22,1.22,,0.0625,"First Citizens BancShares, Inc.",,136,AI,revenue growth up 50 pts
-AMKR,57.8,7,0.02119,-0.08531,0.15561,0.03062,5.32,3.47,,0.1414,"Amkor Technology, Inc.",,137,AI,revenue growth up 16 pts; gross margin +3.1 pts; AI mentions rising
-ONC,57.8,7,0.37406,0.12108,-0.12978,0.03375,5.05,2.22,,0.1491,BeOne Medicines Ltd.,Healthcare,138,AI,R&D 37% of sales; gross margin +3.4 pts; AI mentions rising
-TXN,57.8,5,0.10093,0.02094,0.10374,0.0276,,,,0.1716,Texas Instruments Incorporated,Technology,139,,revenue growth up 10 pts; gross margin +2.8 pts
-AVIR,57.8,5,0.44241,3.08829,,,2.27,2.11,,0.0,"Atea Pharmaceuticals, Inc.",,140,AI,R&D 44% of sales; R&D +309%; AI mentions rising
-NOW,57.7,7,0.22468,0.21436,0.00767,-0.04973,16.81,6.22,,0.1883,"ServiceNow, Inc.",Technology,141,AI,R&D 22% of sales; R&D +21%; AI mentions rising
-PLD,57.7,4,,,0.04612,,8.25,4.34,,0.1039,"Prologis, Inc.",Real Estate,142,AI infrastructure,AI infrastructure mentions rising
-KRMN,57.7,5,,,0.10432,0.02173,7.45,-4.48,,0.2834,Karman Holdings Inc.,Industrials,143,Space & defense tech,revenue growth up 10 pts; gross margin +2.2 pts
-MSI,57.5,7,0.08319,0.07839,0.03864,0.0066,14.98,10.21,,0.0891,"Motorola Solutions, Inc.",Technology,144,AI,AI mentions rising
-GH,57.5,7,0.31763,0.05317,-0.04232,0.02173,2.79,1.59,,0.3518,"Guardant Health, Inc.",Healthcare,145,AI,R&D 32% of sales; gross margin +2.2 pts
-ZS,57.5,5,0.26947,0.34337,0.02105,-0.0007,,,,0.1647,"Zscaler, Inc.",Technology,146,,R&D 27% of sales; R&D +34%
-FIGR,57.5,4,0.08837,-0.00021,0.45275,,,,,0.3672,"Figure Technology Solutions, In",Financial Services,147,,revenue growth up 45 pts
-HUBS,57.4,7,0.26342,0.05356,0.02152,-0.01305,33.55,10.83,,0.1389,"HubSpot, Inc.",Technology,148,AI,R&D 26% of sales; AI mentions rising
-STLD,57.4,3,,,0.27493,0.02835,,,,0.0326,"Steel Dynamics, Inc.",Basic Materials,149,,revenue growth up 27 pts; gross margin +2.8 pts
-MDGL,57.2,7,0.38175,1.5443,-32.72933,0.01247,1.39,0.4,,0.3883,"Madrigal Pharmaceuticals, Inc.",Healthcare,150,Biotech breakthroughs,R&D 38% of sales; R&D +154%
-CRM,57.2,7,0.14489,0.11352,0.02901,-0.00368,29.68,7.98,,0.0969,"Salesforce, Inc.",,151,AI,R&D 14% of sales; AI mentions rising
-LMT,57.1,7,0.03344,0.53846,0.03643,0.01989,1.95,1.95,,0.0704,Lockheed Martin Corporation,Industrials,152,AI,R&D +54%
-MSFT,57.1,7,0.10525,0.10193,0.02326,-0.01107,40.3,9.93,,0.1966,Microsoft Corporation,Technology,153,AI,AI mentions rising
-KVYO,56.8,7,0.23126,0.19718,-0.04286,-0.01625,20.74,7.34,,0.1948,"Klaviyo, Inc. Series A",Technology,154,AI,R&D 23% of sales; AI mentions rising
-XMTR,56.8,5,0.0607,0.17015,0.13564,-0.00398,,,,0.2174,"Xometry, Inc.",Industrials,155,,revenue growth up 14 pts
-FE,56.7,4,,,0.04803,,6.78,4.14,,0.0836,FirstEnergy Corp.,,156,AI infrastructure,AI infrastructure mentions rising
-WAT,56.7,5,0.06862,0.71911,0.50413,-0.1426,,,,0.1044,Waters Corporation,Healthcare,157,,revenue growth up 50 pts; R&D +72%
-NTNX,56.5,7,0.27716,0.07338,-0.05672,-0.00012,30.17,13.69,,0.1363,"Nutanix, Inc.",Technology,158,AI,R&D 28% of sales; AI mentions rising
-AMGN,56.3,7,0.20026,0.19129,-0.03774,0.05031,6.16,4.99,,0.0363,Amgen Inc.,,159,AI,R&D 20% of sales; gross margin +5.0 pts; AI mentions rising
-SNX,56.3,3,,,0.17166,-0.00026,,,,0.1071,TD SYNNEX Corporation,Technology,160,,revenue growth up 17 pts
-NXT,56.3,7,0.03963,0.7038,0.03715,-0.00486,12.24,0.65,,0.1933,Nextpower Inc.,Technology,161,Energy transition & power,R&D +70%
-GLW,56.3,3,,,,,3.11,2.0,,0.2113,Corning Incorporated,Technology,162,AI,
-MC,56.2,3,,,,,2.59,2.59,,0.1773,Moelis & Company,Financial Services,163,AI,AI mentions rising
-CAH,56.1,5,,,0.16102,0.00175,8.37,0.43,,0.0605,"Cardinal Health, Inc.",,164,Energy transition & power,revenue growth up 16 pts
-SPGI,56.1,3,,,0.19277,0.00923,,,,0.0553,S&P Global Inc.,Financial Services,165,,revenue growth up 19 pts
-AXP,56.1,4,,,0.04016,,6.47,3.81,,0.0906,American Express Company,,166,AI,AI mentions rising
-EE,56.1,4,,,0.39112,,0.49,-0.43,,0.3045,"Excelerate Energy, Inc.",Energy,167,AI,revenue growth up 39 pts
-CADL,56.0,6,393.04,2.23692,0.0,,4.01,0.73,,0.0,"Candel Therapeutics, Inc.",,168,AI,R&D 39304% of sales; R&D +224%
-WGS,55.8,5,0.18447,0.64666,-0.2328,0.02191,,,,0.2431,GeneDx Holdings Corp.,Healthcare,169,,R&D 18% of sales; R&D +65%; gross margin +2.2 pts
-EBAY,55.8,7,0.14467,0.07045,0.11316,-0.0021,3.07,2.63,,0.0676,eBay Inc.,,170,AI,revenue growth up 11 pts; R&D 14% of sales; AI mentions rising
-HON,55.8,7,0.04936,0.66637,1.18205,-0.20925,4.9,3.25,,0.0175,Honeywell International Inc.,Industrials,171,AI,revenue growth up 118 pts; R&D +67%; AI mentions rising
-SMTC,55.7,5,0.18936,0.16714,0.00392,0.00428,,,,0.3587,Semtech Corporation,Technology,172,,R&D 19% of sales
-INGM,55.7,5,,,0.07774,-0.00241,12.27,11.41,,0.0322,Ingram Micro Holding Corporatio,Technology,173,AI,revenue growth up 8 pts; AI mentions rising
-CSGP,55.7,5,,,0.05617,-0.00968,7.7,4.18,,0.1086,"CoStar Group, Inc.",,174,AI,revenue growth up 6 pts; AI mentions rising
-ADBE,55.7,5,,,0.01366,0.00115,35.9,5.23,,0.0914,Adobe Inc.,,175,AI,AI mentions rising
-VCYT,55.6,5,0.16617,0.31789,-0.02633,0.03457,,,,0.1116,"Veracyte, Inc.",Healthcare,176,,R&D 17% of sales; R&D +32%; gross margin +3.5 pts
-CRWD,55.6,3,,,,,15.36,0.39,,0.2282,"CrowdStrike Holdings, Inc.",,177,AI,
-PWR,55.6,5,,,0.18413,0.00606,2.44,-0.28,,0.1564,"Quanta Services, Inc.",Industrials,178,AI infrastructure,revenue growth up 18 pts
-ESI,55.5,7,0.02293,0.23839,0.35751,-0.0545,6.14,2.06,,0.0819,Element Solutions Inc.,Basic Materials,179,Space & defense tech,revenue growth up 36 pts; R&D +24%; Space & defense tech mentions rising
-WAB,55.5,5,0.02137,0.26699,0.08845,0.01908,,,,0.0689,Westinghouse Air Brake Technolo,Industrials,180,,revenue growth up 9 pts; R&D +27%
-ON,55.4,7,0.09048,-0.08679,0.14789,-0.00169,8.27,3.92,,0.13,ON Semiconductor Corporation,Technology,181,AI infrastructure,revenue growth up 15 pts; AI infrastructure mentions rising
-HTFL,55.4,7,0.39535,0.57902,-0.27623,0.04744,5.51,-1.65,,0.2411,"Heartflow, Inc.",Healthcare,182,AI,R&D 40% of sales; R&D +58%; gross margin +4.7 pts
-NXPI,55.4,7,0.17916,0.07152,0.21362,0.01742,0.65,-0.59,,0.1196,NXP Semiconductors N.V.,Technology,183,AI,revenue growth up 21 pts; R&D 18% of sales
-TRMB,55.3,5,0.17328,0.00475,0.09525,0.02241,,,,0.0787,Trimble Inc.,Technology,184,,revenue growth up 10 pts; R&D 17% of sales; gross margin +2.2 pts
-TTAN,55.3,5,0.32782,0.22816,-0.18129,0.0323,,,,0.145,"ServiceTitan, Inc.",Technology,185,,R&D 33% of sales; R&D +23%; gross margin +3.2 pts
-NTAP,55.2,7,0.13841,0.02096,0.08815,0.00626,5.8,2.24,,0.0597,"NetApp, Inc.",Technology,186,AI,revenue growth up 9 pts; R&D 14% of sales; AI mentions rising
-INTU,55.2,6,0.1574,0.15301,-0.01737,,17.69,4.75,,0.0907,Intuit Inc.,Technology,187,AI,R&D 16% of sales; AI mentions rising
-FTNT,55.2,7,0.11244,0.07616,0.0431,-0.01084,22.59,5.11,,0.1135,"Fortinet, Inc.",Technology,188,AI,AI mentions rising
-CSCO,55.1,7,0.15101,0.02828,0.06476,-0.00414,21.08,6.48,,0.0672,"Cisco Systems, Inc.",,189,AI,revenue growth up 6 pts; R&D 15% of sales; AI mentions rising
-FLEX,55.0,7,0.00267,0.0,0.11329,0.00701,5.49,1.58,,0.3105,Flex Ltd.,Technology,190,Space & defense tech,revenue growth up 11 pts
-GEV,54.9,7,0.0309,0.24066,0.07465,0.02254,9.79,-2.68,,0.1386,GE Vernova Inc.,Industrials,191,Energy transition & power,revenue growth up 7 pts; R&D +24%; gross margin +2.3 pts
-KNSA,54.9,7,0.14352,0.39309,0.02513,0.02641,0.0,-0.32,,0.2387,Kiniksa Pharmaceuticals Interna,Healthcare,192,AI,R&D 14% of sales; R&D +39%; gross margin +2.6 pts
-PAYX,54.9,5,,,0.04714,0.01541,3.31,2.05,,0.0547,"Paychex, Inc.",Technology,193,AI,AI mentions rising
-BIRK,54.8,3,,,0.00924,0.06639,,,,0.1375,Birkenstock Holding plc,,194,,gross margin +6.6 pts
-LIVN,54.8,7,0.14479,0.20251,0.04154,0.00073,2.67,1.06,,0.071,LivaNova PLC,Healthcare,195,AI,R&D 14% of sales; R&D +20%
-ROP,54.7,7,0.10296,0.13955,-0.02718,0.00658,38.43,35.36,,0.0629,"Roper Technologies, Inc.",Technology,196,AI,AI mentions rising
-DXCM,54.6,7,0.12155,0.06282,0.0624,0.03707,0.6,0.03,,0.1082,"DexCom, Inc.",,197,AI,revenue growth up 6 pts; R&D 12% of sales; gross margin +3.7 pts
-CRBG,54.6,4,,,0.45418,,0.31,0.01,,0.0769,Corebridge Financial Inc.,,198,AI infrastructure,revenue growth up 45 pts
-BWXT,54.5,7,0.00443,0.37716,0.12538,0.01346,44.89,-4.18,,0.0958,"BWX Technologies, Inc.",,199,Biotech breakthroughs,revenue growth up 13 pts; R&D +38%
-TNGX,54.4,4,2.48369,-0.02051,1.64326,,,,,0.0,"Tango Therapeutics, Inc.",Healthcare,200,,revenue growth up 164 pts; R&D 248% of sales
-DOCU,54.4,7,0.19608,0.03687,0.00301,0.00147,23.06,9.28,,0.0796,"DocuSign, Inc.",Technology,201,AI,R&D 20% of sales; AI mentions rising
-ISRG,54.3,7,0.12901,0.19153,-0.01729,0.00815,11.47,0.8,,0.1186,"Intuitive Surgical, Inc.",Healthcare,202,Robotics & autonomy,R&D 13% of sales
-ALC,54.2,5,0.10405,0.12331,0.07206,0.01503,,,,0.0604,Alcon Inc.,,203,,revenue growth up 7 pts
-GENI,54.2,5,0.04643,0.26493,0.07333,-0.02213,,,,0.28,Genius Sports Limited,Communication Services,204,,revenue growth up 7 pts; R&D +26%
-HIG,54.1,4,,,1.67636,,0.73,0.02,,0.0486,"The Hartford Insurance Group, I",Financial Services,205,AI,revenue growth up 168 pts
-TEL,54.0,5,0.03618,0.1256,0.11668,0.01128,,,,0.0677,TE Connectivity plc,Technology,206,,revenue growth up 12 pts
-MOD,54.0,7,0.00869,-0.16046,0.23016,-0.02652,34.04,24.78,,0.1938,Modine Manufacturing Company,Consumer Cyclical,207,AI infrastructure,revenue growth up 23 pts; AI infrastructure mentions rising
-ALB,54.0,7,0.00638,-0.45343,0.51364,0.16055,17.7,2.66,,0.0155,Albemarle Corporation,,208,Energy transition & power,revenue growth up 51 pts; gross margin +16.1 pts; Energy transition & power mentions rising
-CAI,53.9,6,0.11837,0.13878,0.10986,,3.85,-2.68,,0.1927,"Caris Life Sciences, Inc.",,209,AI infrastructure,revenue growth up 11 pts
-GE,53.9,7,0.01572,0.78635,0.12006,-0.01892,1.05,0.56,,0.1169,GE Aerospace,Industrials,210,AI,revenue growth up 12 pts; R&D +79%
-ACN,53.8,7,0.01363,0.23732,-0.00886,0.02649,23.63,5.2,,0.0508,Accenture plc,,211,AI,R&D +24%; gross margin +2.6 pts; AI mentions rising
-TSEM,53.8,5,0.05523,0.0889,0.08106,-0.00403,,,,0.3792,Tower Semiconductor Ltd.,Technology,212,,revenue growth up 8 pts
-TRU,53.8,3,,,0.05145,0.02333,,,,0.0599,TransUnion,Financial Services,213,,revenue growth up 5 pts; gross margin +2.3 pts
-LLY,53.7,7,0.09415,0.0,0.00097,0.00604,11.62,8.06,,0.1548,Eli Lilly and Company,Healthcare,214,Biotech breakthroughs,Biotech breakthroughs mentions rising
-NBIX,53.6,7,0.05199,0.0,0.16004,-0.00175,6.23,0.58,,0.1687,"Neurocrine Biosciences, Inc.",Healthcare,215,Biotech breakthroughs,revenue growth up 16 pts
-ABNB,53.6,7,0.18892,0.10982,0.03402,-0.00328,1.57,1.57,,0.1156,"Airbnb, Inc.",,216,AI,R&D 19% of sales
-AXON,53.6,7,0.23869,0.3656,0.02188,-0.01058,12.86,-2.06,,0.2947,"Axon Enterprise, Inc.",,217,Robotics & autonomy,R&D 24% of sales; R&D +37%
-KLAC,53.5,7,0.10801,0.12099,-0.06286,0.0017,9.58,4.19,,0.1899,KLA Corporation,Technology,218,AI,AI mentions rising
-ETR,53.5,4,,,-0.02633,,35.1,5.29,,0.0969,Entergy Corporation,,219,AI infrastructure,AI infrastructure mentions rising
-IMNM,53.4,5,,0.26978,-1.16738,,3.21,1.52,,188.0397,"Immunome, Inc.",Healthcare,220,AI,R&D +27%
-HWM,53.3,7,0.00391,0.11765,0.12321,0.43185,0.0,0.0,,0.1415,Howmet Aerospace Inc.,Industrials,221,AI,revenue growth up 12 pts; gross margin +43.2 pts
-ALKS,53.3,7,0.23449,0.46319,0.10959,-0.00568,0.0,0.0,,0.0658,Alkermes plc,,222,AI,revenue growth up 11 pts; R&D 23% of sales; R&D +46%
-SGI,53.3,5,0.00432,0.06818,0.04021,0.03471,,,,0.3036,Somnigroup International Inc.,Consumer Cyclical,223,,gross margin +3.5 pts
-MNDY,53.1,5,0.26039,0.5011,-0.06456,-0.00136,,,,0.1514,monday.com Ltd.,Technology,224,,R&D 26% of sales; R&D +50%
-MCD,53.1,4,,,0.05128,,5.16,4.1,,0.0279,McDonald's Corporation,Consumer Cyclical,225,AI,revenue growth up 5 pts; AI mentions rising
-FSLR,53.1,7,0.05512,0.29162,-0.3188,0.09204,3.45,0.69,,0.181,"First Solar, Inc.",Technology,226,AI infrastructure,R&D +29%; gross margin +9.2 pts
-GFS,53.0,5,0.07628,0.04435,0.09292,0.00427,,,,0.1254,GlobalFoundries Inc.,Technology,227,,revenue growth up 9 pts
-CELH,52.9,7,0.00079,1.4,0.71003,-0.01773,0.37,0.37,,0.085,"Celsius Holdings, Inc.",,228,AI,revenue growth up 71 pts; R&D +140%
-URI,52.8,3,,,-0.00312,0.05292,,,,0.1027,"United Rentals, Inc.",Industrials,229,,gross margin +5.3 pts
-ROST,52.6,5,,,0.12101,0.02055,0.0,0.0,,0.0696,"Ross Stores, Inc.",Consumer Cyclical,230,AI,revenue growth up 12 pts; gross margin +2.1 pts
-GILD,52.6,7,0.30042,0.0,0.01718,0.01058,2.74,1.81,,0.0692,"Gilead Sciences, Inc.",Healthcare,231,AI,R&D 30% of sales
-CERS,52.5,5,,,0.16015,-0.01761,0.8,0.64,,0.0902,Cerus Corporation,Healthcare,232,AI,revenue growth up 16 pts
-SE,52.4,5,0.05896,-0.04055,0.04563,0.03295,,,,0.2269,Sea Limited,Consumer Cyclical,233,,gross margin +3.3 pts
-HRMY,52.4,7,0.2301,0.52588,0.06511,-0.02915,0.0,0.0,,0.1344,"Harmony Biosciences Holdings, I",Healthcare,234,AI,revenue growth up 7 pts; R&D 23% of sales; R&D +53%
-HBAN,52.3,4,,,0.08889,,0.71,0.45,,0.0685,Huntington Bancshares Incorpora,Financial Services,235,AI,revenue growth up 9 pts
-TEM,52.2,4,0.13708,0.46003,-0.09419,,,,,0.2337,"Tempus AI, Inc.",Healthcare,236,,R&D 14% of sales; R&D +46%
-OLLI,52.2,5,,,0.04296,0.00886,0.76,0.07,,0.1114,Ollie's Bargain Outlet Holdings,Consumer Defensive,237,AI,
-CVX,52.2,7,0.00205,0.20963,0.15879,0.0547,1.01,0.52,,-0.0458,Chevron Corporation,,238,AI,revenue growth up 16 pts; R&D +21%; gross margin +5.5 pts
-OCUL,52.2,7,4.29371,0.29961,-0.00878,-0.02303,0.0,0.0,,0.9313,"Ocular Therapeutix, Inc.",Healthcare,239,AI,R&D 429% of sales; R&D +30%
-PBR,52.0,4,0.00658,0.45815,0.51075,,,,,-0.0513,Petroleo Brasileiro S.A. Petrob,Energy,240,,revenue growth up 51 pts; R&D +46%
-RNG,52.0,7,0.12595,0.01792,8e-05,0.01057,30.25,7.48,,0.0482,"Ringcentral, Inc.",Technology,241,AI,R&D 13% of sales; AI mentions rising
-DNTH,52.0,6,86.24656,1.11297,-1.87975,,4.46,4.46,,-0.0497,"Dianthus Therapeutics, Inc.",,242,Energy transition & power,R&D 8625% of sales; R&D +111%; Energy transition & power mentions rising
-SYNA,51.9,5,0.31891,0.10092,-0.00536,4e-05,,,,0.1384,Synaptics Incorporated,Technology,243,,R&D 32% of sales
-FICO,51.9,7,0.0871,0.14805,0.07428,0.03354,3.63,-0.89,,0.0634,Fair Isaac Corporation,Technology,244,AI infrastructure,revenue growth up 7 pts; gross margin +3.4 pts
-BMNR,51.9,5,,,10.74828,-0.29361,0.45,-2.98,,4.2175,"BitMine Immersion Technologies,",,245,AI infrastructure,revenue growth up 1075 pts
-VIST,51.9,3,,,0.42573,-0.0096,,,,0.0433,Vista Energy S.A.B. de C.V.,Energy,246,,revenue growth up 43 pts
-RELY,51.8,6,0.17474,0.08887,-0.11333,,5.07,2.91,,0.1942,"Remitly Global, Inc.",Technology,247,AI,R&D 17% of sales; AI mentions rising
-AFRM,51.7,4,,,-0.05241,,6.2,1.12,,0.2468,"Affirm Holdings, Inc.",,248,AI,
-GSK,51.7,5,0.23035,0.1756,0.00659,0.01235,,,,0.0476,GSK plc,Healthcare,249,,R&D 23% of sales
-IBM,51.7,7,0.12953,0.11784,0.02316,0.00157,12.89,2.37,,0.0377,International Business Machines,Technology,250,AI,R&D 13% of sales; AI mentions rising
-DLR,51.7,4,,,0.09624,,18.83,-12.8,,0.1102,"Digital Realty Trust, Inc.",,251,AI infrastructure,revenue growth up 10 pts
-MA,51.6,4,,,0.06155,,0.5,0.01,,0.1262,Mastercard Incorporated,Financial Services,252,AI,revenue growth up 6 pts
-AIR,51.6,3,,,,,2.22,1.61,,0.068,AAR Corp.,,253,AI,
-EVR,51.5,4,,,0.22442,,0.0,0.0,,0.0757,Evercore Inc.,,254,AI,revenue growth up 22 pts
-FTI,51.4,7,0.00947,0.24845,-0.02195,0.06405,2.54,2.54,,0.0636,TechnipFMC plc,Energy,255,AI,R&D +25%; gross margin +6.4 pts; AI mentions rising
-AZO,51.4,5,,,0.04966,-0.00286,2.29,1.26,,0.0703,"AutoZone, Inc.",Consumer Cyclical,256,AI,
-APP,51.4,7,0.04687,0.11495,-0.80256,0.02128,13.58,2.15,,0.2506,Applovin Corporation,,257,AI,gross margin +2.1 pts; AI mentions rising
-EWBC,51.3,4,,,0.17174,,0.0,0.0,,0.0832,"East West Bancorp, Inc.",,258,AI,revenue growth up 17 pts
-MNST,51.3,5,,,0.16664,0.00363,0.49,-0.4,,0.0962,Monster Beverage Corporation,Consumer Defensive,259,Biotech breakthroughs,revenue growth up 17 pts
-XPO,51.2,3,,,0.09766,-0.00133,,,,0.0558,"XPO, Inc.",Industrials,260,,revenue growth up 10 pts
-CHRW,51.2,5,,,0.0246,-7e-05,3.82,1.57,,0.0709,"C.H. Robinson Worldwide, Inc.",,261,AI,
-BMEA,51.1,3,,,,,12.35,4.21,,0.0,"Biomea Fusion, Inc.",,262,AI,AI mentions rising
-RGLD,51.0,5,,,0.63361,-0.02958,0.0,0.0,,0.147,"Royal Gold, Inc.",Basic Materials,263,AI,revenue growth up 63 pts
-CAT,50.9,7,0.03038,0.08977,0.23222,-0.02056,1.82,0.27,,0.1139,"Caterpillar, Inc.",,264,AI infrastructure,revenue growth up 23 pts
-CME,50.9,4,,,0.03148,,3.46,2.06,,0.052,CME Group Inc.,,265,AI,AI mentions rising
-W,50.8,3,,,0.06588,-0.00219,,,,0.0744,Wayfair Inc.,Consumer Cyclical,266,,revenue growth up 7 pts
-CVNA,50.8,5,,,0.04739,-0.02332,0.58,0.58,,0.2481,Carvana Co.,,267,AI,
-CMI,50.7,3,,,,,3.0,0.25,,0.0974,Cummins Inc.,,268,AI,
-KTOS,50.7,7,0.02897,0.08354,0.17741,-0.00607,12.27,-1.74,,0.241,Kratos Defense & Security Solut,Industrials,269,AI,revenue growth up 18 pts
-TWLO,50.7,5,0.18984,0.05438,0.0626,-0.01421,,,,0.1166,Twilio Inc.,Technology,270,,revenue growth up 6 pts; R&D 19% of sales
-SPXC,50.6,5,0.02181,0.17647,0.11731,-0.03826,,,,0.1457,"SPX Technologies, Inc.",Industrials,271,,revenue growth up 12 pts
-COMP,50.6,6,0.02329,0.18344,0.46568,,1.87,-1.36,,0.0701,"Compass, Inc.",,272,AI,revenue growth up 47 pts
-RL,50.6,5,,,0.05066,0.0124,0.42,0.42,,0.0514,Ralph Lauren Corporation,Consumer Cyclical,273,AI,revenue growth up 5 pts
-D,50.6,4,,,0.10165,,16.3,-1.49,,0.0676,"Dominion Energy, Inc.",,274,Energy transition & power,revenue growth up 10 pts
-VEEV,50.5,5,0.23768,0.12492,0.01173,-0.00632,,,,0.1227,Veeva Systems Inc.,Healthcare,275,,R&D 24% of sales
-WMB,50.5,3,,,-0.04073,0.02081,,,,0.1467,"Williams Companies, Inc. (The)",Energy,276,,gross margin +2.1 pts
-WST,50.5,5,0.02226,0.06479,0.07632,0.02015,,,,0.063,"West Pharmaceutical Services, I",Healthcare,277,,revenue growth up 8 pts; gross margin +2.0 pts
-EFX,50.4,4,,,0.04562,,1.84,0.55,,0.0637,"Equifax, Inc.",,278,AI,
-COST,50.4,5,,,0.01976,-0.00551,4.09,3.05,,0.0737,Costco Wholesale Corporation,,279,AI,AI mentions rising
-IONS,50.4,7,1.04751,0.01563,-0.23464,-0.00718,4.26,2.16,,0.4744,"Ionis Pharmaceuticals, Inc.",Healthcare,280,AI,R&D 105% of sales; AI mentions rising
-URBN,50.4,3,,,0.01383,0.01813,,,,0.0695,"Urban Outfitters, Inc.",Consumer Cyclical,281,,
-TDG,50.4,5,0.01486,0.12381,-0.00716,0.16731,,,,0.1161,Transdigm Group Incorporated,Industrials,282,,gross margin +16.7 pts
-TARS,50.3,4,0.14461,0.486,-1.49279,,,,,0.2486,"Tarsus Pharmaceuticals, Inc.",Healthcare,283,,R&D 14% of sales; R&D +49%
-CSX,50.3,4,,,0.096,,0.66,0.05,,0.0552,CSX Corporation,,284,AI,revenue growth up 10 pts
-LYV,50.3,4,,,0.11069,,0.0,0.0,,0.0927,"Live Nation Entertainment, Inc.",Communication Services,285,AI,revenue growth up 11 pts
-BDX,50.3,7,0.05786,0.29067,0.22783,-0.0623,2.01,0.71,,0.0227,"Becton, Dickinson and Company",,286,Biotech breakthroughs,revenue growth up 23 pts; R&D +29%
-FLUT,50.3,3,,,,,1.08,0.77,,0.0795,Flutter Entertainment plc,Consumer Cyclical,287,AI,
-BURL,50.1,5,,,0.03322,0.00962,0.57,0.06,,0.0887,"Burlington Stores, Inc.",,288,AI,
-CEG,50.1,4,,,0.17494,,46.63,-9.01,,0.0346,Constellation Energy Corporatio,,289,AI infrastructure,revenue growth up 17 pts
-MSCI,50.1,7,0.05369,0.05329,0.03321,0.0112,1.71,1.15,,0.0905,MSCI Inc.,Financial Services,290,AI,
-TOST,50.1,5,0.05952,0.13445,-0.03,0.01561,,,,0.1847,"Toast, Inc.",Technology,291,,
-NVCR,50.1,7,0.3154,0.06488,0.01772,0.01646,0.0,0.0,,0.1083,NovoCure Limited,Healthcare,292,AI,R&D 32% of sales
-RBC,50.0,3,,,,,1.55,0.05,,0.1058,RBC Bearings Incorporated,Industrials,293,Space & defense tech,
-JBLU,50.0,4,,,0.12361,,1.13,-1.2,,0.0903,JetBlue Airways Corporation,Industrials,294,AI,revenue growth up 12 pts
-HAL,50.0,7,0.01953,0.26462,0.46591,0.00608,0.85,-2.14,,0.0527,Halliburton Company,Energy,295,AI infrastructure,revenue growth up 47 pts; R&D +26%
-STM,50.0,5,0.17322,-0.01589,0.12168,-0.0545,,,,0.1942,STMicroelectronics N.V.,Technology,296,,revenue growth up 12 pts; R&D 17% of sales
-FDX,50.0,5,,,0.11607,0.02035,1.51,-0.15,,0.0311,FedEx Corporation,,297,AI,revenue growth up 12 pts; gross margin +2.0 pts
-CRS,49.9,7,0.00869,0.0613,0.07814,0.03265,0.53,0.01,,0.1017,Carpenter Technology Corporatio,,298,AI,revenue growth up 8 pts; gross margin +3.3 pts
-FISV,49.9,5,,,0.04533,-0.00092,2.24,2.24,,0.0352,"Fiserv, Inc.",,299,AI,AI mentions rising
-WDAY,49.8,5,0.27651,0.06243,-0.00589,0.00209,,,,0.1044,"Workday, Inc.",Technology,300,,R&D 28% of sales
-JHX,49.7,5,0.01183,0.31959,0.4103,-0.02932,,,,0.046,James Hardie Industries plc.,Basic Materials,301,,revenue growth up 41 pts; R&D +32%
-HEI,49.7,7,0.02649,0.17474,0.0723,0.00893,0.0,0.0,,0.1139,Heico Corporation,Industrials,302,AI,revenue growth up 7 pts
-QURE,49.7,3,,,,,1.7,-10.16,,3.5614,uniQure N.V.,Healthcare,303,Biotech breakthroughs,
-LUV,49.7,4,,,0.13861,,0.0,0.0,,0.0653,Southwest Airlines Company,Industrials,304,AI,revenue growth up 14 pts
-ELAN,49.6,7,0.0739,0.04802,0.12132,0.00631,0.71,0.08,,0.0542,Elanco Animal Health Incorporat,,305,AI,revenue growth up 12 pts
-CMG,49.6,4,,,0.00551,,1.01,1.01,,0.1064,"Chipotle Mexican Grill, Inc.",,306,AI,
-DNLI,49.6,5,111.18757,-0.03892,,,0.0,-0.61,,1.5792,Denali Therapeutics Inc.,,307,AI,R&D 11119% of sales
-NDAQ,49.6,5,,,-0.05413,0.01207,4.54,1.06,,0.0906,"Nasdaq, Inc.",Financial Services,308,AI,
-CBRE,49.6,5,,,0.00633,-0.00384,4.01,1.24,,0.1075,CBRE Group Inc,,309,AI infrastructure,
-ITT,49.5,3,,,,,0.54,0.54,,0.0896,ITT Inc.,Industrials,310,AI,
-IBKR,49.3,4,,,-0.09368,,3.02,1.22,,0.1986,"Interactive Brokers Group, Inc.",Financial Services,311,AI,
-NU,49.2,3,,,-0.24098,0.02131,,,,0.2395,Nu Holdings Ltd.,Financial Services,312,,gross margin +2.1 pts
-BRO,49.2,4,,,0.08266,,0.91,0.05,,0.0411,"Brown & Brown, Inc.",,313,AI,revenue growth up 8 pts
-BRK-B,49.1,4,,,0.0923,,0.0,0.0,,0.0842,Berkshire Hathaway Inc. New,Financial Services,314,AI,revenue growth up 9 pts
-CPAY,49.1,3,,,,,0.74,0.37,,0.0864,"Corpay, Inc.",,315,AI,
-ROIV,49.1,6,97.04049,0.25408,-0.89353,,0.47,-6.16,,6.4885,Roivant Sciences Ltd.,Healthcare,316,AI,R&D 9704% of sales; R&D +25%
-CGON,49.0,3,,,,,0.0,-0.55,,17.7476,"CG Oncology, Inc.",,317,AI,
-JBIO,49.0,3,,,,,2.87,2.87,,0.0,"Jade Biosciences, Inc.",Healthcare,318,AI,AI mentions rising
-SOFI,48.9,5,1.17826,0.20413,-0.1299,-0.17578,,,,0.2652,"SoFi Technologies, Inc.",Financial Services,319,,R&D 118% of sales; R&D +20%
-LOAR,48.9,7,0.02235,0.48864,0.03608,0.00653,0.0,0.0,,0.1116,Loar Holdings Inc.,Industrials,320,AI,R&D +49%
-DTE,48.9,4,,,0.02219,,16.8,0.52,,0.0382,DTE Energy Company,Utilities,321,AI infrastructure,
-ABBV,48.8,7,0.15883,-0.24056,0.04855,-0.00021,3.02,1.43,,0.088,AbbVie Inc.,,322,Biotech breakthroughs,R&D 16% of sales
-AVAV,48.8,7,0.05918,0.0851,0.32939,-0.04131,4.97,-0.61,,0.1534,"AeroVironment, Inc.",,323,Robotics & autonomy,revenue growth up 33 pts
-BKNG,48.7,3,,,,,0.64,0.06,,0.0924,Booking Holdings Inc. Common St,,324,AI,
-ONB,48.7,4,,,0.15523,,0.0,0.0,,0.0513,Old National Bancorp,Financial Services,325,AI,revenue growth up 16 pts
-BX,48.6,4,,,-0.16139,,1.78,1.25,,0.2539,Blackstone Inc.,Financial Services,326,AI,
-C,48.5,3,,,0.02176,0.01145,,,,0.044,"Citigroup, Inc.",,327,,
-EL,48.5,7,0.01049,0.0,0.13261,0.0153,3.13,0.63,,0.0428,"Estee Lauder Companies, Inc. (T",,328,AI,revenue growth up 13 pts
-ORKA,48.4,4,,73.62695,,,0.25,0.01,,0.0,"Oruka Therapeutics, Inc.",Healthcare,329,AI,R&D +7363%
-PCG,48.4,4,,,-0.07955,,26.93,5.65,,0.0414,Pacific Gas & Electric Co.,Utilities,330,Energy transition & power,Energy transition & power mentions rising
-RH,48.4,5,,,-0.00089,0.13284,0.0,0.0,,0.0926,RH,Consumer Cyclical,331,AI,gross margin +13.3 pts
-COF,48.3,4,,,0.44944,,0.16,-5.46,,0.0538,Capital One Financial Corporati,,332,AI,revenue growth up 45 pts
-IRON,48.3,3,,,,,4.92,1.48,,0.0,"Disc Medicine, Inc.",Healthcare,333,AI,
-NEE,48.3,4,,,0.01876,,20.6,-0.45,,0.1191,"NextEra Energy, Inc.",Utilities,334,AI,
-GRMN,48.2,7,0.15313,0.10794,-0.02968,0.02387,0.93,0.0,,0.1155,Garmin Ltd.,Technology,335,AI infrastructure,R&D 15% of sales; gross margin +2.4 pts
-SBUX,48.2,3,,,0.03909,0.01005,,,,0.0134,Starbucks Corporation,Consumer Cyclical,336,,
-EXR,48.2,5,,,0.04598,0.18545,0.0,0.0,,0.0265,Extra Space Storage Inc,,337,AI,gross margin +18.5 pts
-SLB,48.2,5,0.01838,-0.05042,0.06731,0.0324,,,,0.0804,SLB Limited,Energy,338,,revenue growth up 7 pts; gross margin +3.2 pts
-FWONK,48.1,4,,,,0.03437,0.0,-0.74,,0.1091,Liberty Media Corporation - Ser,Communication Services,339,AI,gross margin +3.4 pts
-GPN,48.1,5,,,0.12321,-0.09839,0.92,0.92,,0.0521,Global Payments Inc.,Industrials,340,AI,revenue growth up 12 pts
-WING,47.8,3,,,-0.08654,0.00866,,,,0.151,Wingstop Inc.,Consumer Cyclical,341,,
-KKR,47.8,4,,,0.14843,,0.0,0.0,,0.037,KKR & Co. Inc.,Financial Services,342,AI,revenue growth up 15 pts
-EW,47.8,7,0.16747,0.03345,0.04717,-0.01034,1.01,0.49,,0.0991,Edwards Lifesciences Corporatio,,343,AI,R&D 17% of sales
-RAPP,47.7,3,,,,,5.97,1.59,,-1.0,"Rapport Therapeutics, Inc.",Healthcare,344,AI,
-SN,47.7,5,0.05778,0.16991,-0.04987,0.00772,,,,0.1328,"SharkNinja, Inc.",Consumer Cyclical,345,,
-MAZE,47.7,5,0.64986,0.24639,,,4.69,-0.62,,-0.6258,"Maze Therapeutics, Inc.",Healthcare,346,AI,R&D 65% of sales; R&D +25%
-PRAX,47.7,5,,0.90736,-3.4953,,0.0,0.0,,414.4259,"Praxis Precision Medicines, Inc",Healthcare,347,AI,R&D +91%
-AAL,47.6,4,,,0.06033,,0.38,-0.0,,0.0677,"American Airlines Group, Inc.",,348,AI,revenue growth up 6 pts
-BROS,47.6,5,,,-0.00147,-0.01628,0.65,0.65,,0.2433,Dutch Bros Inc.,,349,Biotech breakthroughs,
-ZM,47.5,5,0.18094,0.06041,0.01403,0.00919,,,,0.0441,"Zoom Communications, Inc.",Technology,350,,R&D 18% of sales
-FHTX,47.5,6,2.14568,-0.11042,0.83281,,0.0,0.0,,-0.6242,Foghorn Therapeutics Inc.,Healthcare,351,AI,revenue growth up 83 pts; R&D 215% of sales
-AIT,47.5,5,,,0.04421,-0.00039,0.89,0.09,,0.0583,Applied Industrial Technologies,Industrials,352,Robotics & autonomy,
-ENTG,47.4,7,0.09561,-0.04072,0.05056,-0.00039,0.67,0.67,,0.1318,"Entegris, Inc.",,353,AI,revenue growth up 5 pts
-NTLA,47.4,7,5.82682,-0.22209,-0.0241,0.0,24.63,-5.51,,1.4336,"Intellia Therapeutics, Inc.",Healthcare,354,AI,R&D 583% of sales
-CDNS,47.3,5,,,-0.02084,0.00211,2.2,0.04,,0.1441,"Cadence Design Systems, Inc.",,355,AI,
-ICE,47.3,4,,,0.02217,,1.9,0.3,,0.0566,Intercontinental Exchange Inc.,Financial Services,356,AI infrastructure,
-GPCR,47.3,3,,,,,10.81,1.05,,-0.9989,Structure Therapeutics Inc.,Healthcare,357,Biotech breakthroughs,
-ARES,47.2,4,,,-0.25841,,2.13,1.54,,0.1729,Ares Management Corporation,,358,AI infrastructure,
-ACLS,47.1,7,0.12962,0.03712,0.1603,-0.01885,0.0,0.0,,0.1191,"Axcelis Technologies, Inc.",,359,AI,revenue growth up 16 pts; R&D 13% of sales
-DYN,47.1,3,,,,,2.48,1.15,,0.0,"Dyne Therapeutics, Inc.",,360,Biotech breakthroughs,
-FIX,47.1,5,,,-0.21291,0.31627,1.1,-0.43,,0.2425,"Comfort Systems USA, Inc.",Industrials,361,AI infrastructure,gross margin +31.6 pts
-KDP,47.0,7,0.00348,0.0,0.22855,-0.05541,1.51,1.51,,0.1382,Keurig Dr Pepper Inc.,Consumer Defensive,362,AI,revenue growth up 23 pts
-BHVN,47.0,3,,,,,5.3,1.13,,-0.4672,Biohaven Ltd.,,363,Biotech breakthroughs,
-RPRX,47.0,6,0.0941,-0.32204,0.06988,,2.23,0.3,,0.091,Royalty Pharma plc,Healthcare,364,AI,revenue growth up 7 pts
-SANA,47.0,3,,,,,3.44,0.78,,0.0,"Sana Biotechnology, Inc.",Healthcare,365,AI,
-CFR,47.0,4,,,0.01395,,0.63,0.63,,0.0641,"Cullen/Frost Bankers, Inc.",,366,AI,
-CPRT,46.8,5,,,-0.10976,-0.00701,5.07,2.32,,0.1328,"Copart, Inc.",Industrials,367,AI,AI mentions rising
-MDLN,46.8,5,0.00267,0.19403,0.07578,-0.01146,,,,0.0784,Medline Inc.,Healthcare,368,,revenue growth up 8 pts
-RYTM,46.8,7,0.72196,0.09365,-0.48337,-0.00246,19.75,-3.35,,0.7925,"Rhythm Pharmaceuticals, Inc.",Healthcare,369,AI,R&D 72% of sales
-RKT,46.7,3,,,,,0.73,0.04,,0.0592,"Rocket Companies, Inc.",Financial Services,370,AI,
-MTN,46.7,4,,,-0.06999,,5.08,4.79,,0.0371,"Vail Resorts, Inc.",Consumer Cyclical,371,AI,AI mentions rising
-TT,46.6,5,0.01497,0.12274,0.01757,0.00416,,,,0.0988,Trane Technologies plc,Industrials,372,,
-EOG,46.6,4,,,0.27246,,0.0,0.0,,-0.1002,"EOG Resources, Inc.",,373,AI,revenue growth up 27 pts
-ATI,46.6,7,0.00425,0.08673,0.01642,0.03029,0.44,0.44,,0.099,ATI Inc.,,374,Energy transition & power,gross margin +3.0 pts
-MRK,46.6,7,0.45747,0.68109,0.02824,-0.03637,0.84,-0.05,,0.0433,"Merck & Company, Inc.",Healthcare,375,Energy transition & power,R&D 46% of sales; R&D +68%
-DOW,46.5,5,,,0.09405,-0.00507,0.68,0.68,,-0.0196,Dow Inc.,,376,AI,revenue growth up 9 pts
-RCL,46.5,5,,,0.01143,0.02494,0.0,0.0,,0.0741,Royal Caribbean Cruises Ltd.,Consumer Cyclical,377,AI,gross margin +2.5 pts
-VRTX,46.5,5,0.25408,0.0,-0.00229,-0.00111,,,,0.0995,Vertex Pharmaceuticals Incorpor,Healthcare,378,,R&D 25% of sales
-FRNM,46.4,3,,,,,0.0,0.0,,0.1116,"Freenome, Inc.",Healthcare,379,AI,
-EXE,46.4,3,,,,,0.45,0.45,,0.0455,Expand Energy Corporation,Energy,380,AI infrastructure,
-TMUS,46.4,3,,,0.01982,0.00286,,,,0.044,"T-Mobile US, Inc.",Communication Services,381,,
-ONTO,46.4,7,0.12734,0.15415,-0.07424,-0.01184,0.59,0.59,,0.3079,Onto Innovation Inc.,Technology,382,AI,R&D 13% of sales
-COIN,46.3,6,0.34517,0.26021,-0.72854,,0.52,-2.61,,0.2987,"Coinbase Global, Inc.",,383,AI,R&D 35% of sales; R&D +26%
-WMT,46.3,3,,,0.0193,0.00299,,,,0.0434,Walmart Inc.,Consumer Defensive,384,,
-Z,46.2,5,0.21744,0.02517,0.02365,-0.02871,,,,0.1177,"Zillow Group, Inc.",Communication Services,385,,R&D 22% of sales
-OVV,46.2,4,,,0.19441,,0.0,0.0,,-0.0926,Ovintiv Inc. (DE),Energy,386,AI,revenue growth up 19 pts
-AEE,46.1,4,,,-0.13563,,17.01,1.27,,0.064,Ameren Corporation,,387,Energy transition & power,
-LHX,46.1,5,,,0.02015,-0.00398,2.13,0.07,,0.0735,"L3Harris Technologies, Inc.",Industrials,388,Robotics & autonomy,
-MCO,46.1,7,0.00625,0.0,0.00226,0.00883,7.16,6.47,,0.0672,Moody's Corporation,Financial Services,389,AI,AI mentions rising
-PCOR,46.1,7,0.25644,0.05247,-0.0067,-0.00208,15.98,-4.2,,0.174,"Procore Technologies, Inc.",Technology,390,AI infrastructure,R&D 26% of sales
-ARWR,46.1,6,1.08047,0.42994,-27.9936,,2.61,0.92,,-0.2928,"Arrowhead Pharmaceuticals, Inc.",,391,Biotech breakthroughs,R&D 108% of sales; R&D +43%
-NAMS,46.0,6,20.95871,0.04468,-8.51024,,0.0,0.0,,3.8412,NewAmsterdam Pharma Company N.V,Healthcare,392,AI,R&D 2096% of sales
-NRG,45.9,7,0.00025,0.0,0.10015,0.051,1.64,0.4,,0.0206,"NRG Energy, Inc.",Utilities,393,AI infrastructure,revenue growth up 10 pts; gross margin +5.1 pts
-TTWO,45.9,5,0.01041,0.0,0.07969,0.00239,,,,0.0901,"Take-Two Interactive Software, ",Communication Services,394,,revenue growth up 8 pts
-QCOM,45.9,7,0.22449,0.10241,-0.13941,-0.01455,12.29,6.72,,0.0464,QUALCOMM Incorporated,Technology,395,AI,R&D 22% of sales; AI mentions rising
-WCN,45.8,3,,,-0.01274,0.0052,,,,0.0601,"Waste Connections, Inc.",Industrials,396,,
-FIVE,45.8,5,,,0.11682,-0.05651,1.32,-0.15,,0.0927,"Five Below, Inc.",Consumer Cyclical,397,AI,revenue growth up 12 pts
-DAL,45.8,4,,,0.0978,,0.0,0.0,,0.0297,"Delta Air Lines, Inc.",,398,AI,revenue growth up 10 pts
-STZ,45.8,3,,,0.01247,0.00951,,,,0.0147,"Constellation Brands, Inc.",Consumer Defensive,399,,
-ADP,45.8,7,0.04688,0.04066,-0.0033,0.00389,18.68,1.27,,0.0575,"Automatic Data Processing, Inc.",,400,AI,
-ALGN,45.7,7,0.09107,0.0087,0.03851,-0.01741,12.17,3.27,,0.0327,"Align Technology, Inc.",,401,AI,AI mentions rising
-PACB,45.6,7,1.13433,-0.15502,-0.2403,0.33047,1.22,-0.03,,0.1601,Pacific Biosciences of Californ,Healthcare,402,AI,R&D 113% of sales; gross margin +33.0 pts
-AON,45.5,4,,,-0.10248,,0.35,0.35,,0.2065,Aon plc,,403,AI,
-PRTA,45.5,6,1.19107,-0.66212,5.22558,,0.0,-0.2,,-0.7457,Prothena Corporation plc,Healthcare,404,AI,revenue growth up 523 pts; R&D 119% of sales
-ADTTF,45.5,4,0.2248,-0.01409,-0.47341,0.19298,,,,,Advantest Corp.,,405,,R&D 22% of sales; gross margin +19.3 pts
-IP,45.4,5,,,0.2125,-0.1006,0.0,0.0,,0.0672,International Paper Company,Consumer Cyclical,406,AI,revenue growth up 21 pts
-SAP,45.4,5,0.18024,0.01827,-0.01836,-0.00088,,,,0.1194,SAP  SE,Technology,407,,R&D 18% of sales
-WSO,45.4,3,,,-0.03966,-0.00027,,,,0.1033,"Watsco, Inc.",Industrials,408,,
-TMO,45.4,5,0.03026,-0.00919,0.05184,0.01431,,,,0.0527,Thermo Fisher Scientific Inc,Healthcare,409,,revenue growth up 5 pts
-FERG,45.3,3,,,-0.017,8e-05,,,,0.0733,Ferguson Enterprises Inc.,,410,,
-PCVX,45.3,3,,,,,3.32,0.07,,0.0,"Vaxcyte, Inc.",Healthcare,411,AI,
-TGT,45.2,3,,,0.03502,-0.00377,,,,0.033,Target Corporation,Consumer Defensive,412,,
-CYTK,45.2,6,5.9252,0.03703,-26.56811,,0.0,0.0,,1.7414,"Cytokinetics, Incorporated",,413,AI,R&D 593% of sales
-NKE,45.2,5,,,0.0596,0.01134,0.0,0.0,,0.0098,"Nike, Inc.",Consumer Cyclical,414,AI,revenue growth up 6 pts
-ODFL,45.1,3,,,,,0.0,0.0,,0.08,"Old Dominion Freight Line, Inc.",Industrials,415,AI,
-OMF,45.0,3,,,,,0.0,0.0,,0.0795,"OneMain Holdings, Inc.",Financial Services,416,AI,
-CRWV,45.0,5,0.05573,1.28649,-13.23955,-0.07052,,,,1.0562,"CoreWeave, Inc.",,417,,R&D +129%
-MRNA,45.0,7,1.29084,-0.24613,0.11434,-0.29117,0.57,-0.58,,0.1626,"Moderna, Inc.",Healthcare,418,AI,revenue growth up 11 pts; R&D 129% of sales
-GWW,45.0,5,,,0.03451,0.00147,0.98,-0.02,,0.0716,"W.W. Grainger, Inc.",Industrials,419,AI,
-DIS,44.9,4,,,-0.0043,,2.09,0.48,,0.0442,Walt Disney Company (The),,420,AI,
-AZN,44.8,5,0.24229,0.04778,-0.09406,0.00774,,,,0.0639,AstraZeneca PLC,,421,,R&D 24% of sales
-CTAS,44.8,5,,,0.01301,0.00893,0.0,0.0,,0.0753,Cintas Corporation,,422,AI,
-TSCO,44.7,3,,,0.01018,0.00052,,,,0.0388,Tractor Supply Company,Consumer Cyclical,423,,
-CTVA,44.7,7,0.08382,0.04919,0.02064,0.03886,0.29,0.02,,0.031,"Corteva, Inc.",,424,Biotech breakthroughs,gross margin +3.9 pts
-IMRX,44.7,5,,0.50599,-0.15238,,1.49,1.49,,0.0,Immuneering Corporation,Healthcare,425,AI,R&D +51%
-TXG,44.7,5,0.36764,-0.123,-0.06291,0.00535,,,,0.1011,"10x Genomics, Inc.",Healthcare,426,,R&D 37% of sales
-TDY,44.7,5,0.05071,0.06132,0.01186,0.00865,,,,0.0589,Teledyne Technologies Incorpora,Technology,427,,
-SYK,44.7,5,0.06417,0.07175,-0.0288,0.0084,,,,0.0854,Stryker Corporation,Healthcare,428,,
-XEL,44.7,3,,,-0.02474,-0.00339,,,,0.0985,Xcel Energy Inc.,Utilities,429,,
-ARMK,44.6,5,,,0.03393,-0.07426,0.58,0.58,,0.0898,Aramark,Industrials,430,AI,
-IEX,44.6,7,0.01913,0.03858,-0.00162,0.00478,3.71,3.1,,0.0549,IDEX Corporation,Industrials,431,AI,AI mentions rising
-HIMS,44.6,5,,,-0.60647,-0.07774,10.85,1.7,,0.2459,"Hims & Hers Health, Inc.",Healthcare,432,AI,
-OWL,44.6,4,,,-0.17616,,1.73,0.77,,0.1012,Blue Owl Capital Inc.,Financial Services,433,AI,
-APG,44.5,5,,,0.0567,-0.00033,0.0,-0.38,,0.0786,APi Group Corporation,Industrials,434,AI,revenue growth up 6 pts
-PCAR,44.5,7,0.01508,-0.03542,0.13692,-0.00521,0.84,0.41,,0.0918,PACCAR Inc.,Industrials,435,AI,revenue growth up 14 pts
-LEGN,44.4,5,0.66115,0.08503,-0.23727,-0.12738,,,,0.2342,Legend Biotech Corporation,Healthcare,436,,R&D 66% of sales
-COR,44.4,5,,,-0.06475,0.00494,3.52,0.85,,0.0435,"Cencora, Inc.",,437,AI,
-BJ,44.2,5,,,0.06608,-0.00406,0.7,-0.03,,0.0567,"BJ's Wholesale Club Holdings, I",,438,AI,revenue growth up 7 pts
-NCLH,44.2,4,,,0.01627,,0.52,0.03,,0.049,Norwegian Cruise Line Holdings ,Consumer Cyclical,439,AI,
-CMS,44.2,4,,,0.02218,,5.6,-0.69,,0.0596,CMS Energy Corporation,,440,AI,
-DECK,44.2,7,0.01235,0.21566,-0.06274,0.01261,1.31,0.64,,0.0581,Deckers Outdoor Corporation,,441,AI,R&D +22%
-BMRN,44.2,7,0.28992,0.45573,-0.07163,-0.03441,1.91,-1.76,,0.1491,BioMarin Pharmaceutical Inc.,,442,AI,R&D 29% of sales; R&D +46%
-CL,44.1,7,0.01739,0.03099,0.052,-0.00144,3.3,1.86,,0.031,Colgate-Palmolive Company,,443,AI,revenue growth up 5 pts
-CNP,44.1,5,,,-0.00595,-9e-05,1.97,0.4,,0.0485,"CenterPoint Energy, Inc (Holdin",,444,AI,
-OKTA,44.1,7,0.21185,0.03498,-0.01464,0.01223,3.99,-5.84,,0.1005,"Okta, Inc.",Technology,445,AI,R&D 21% of sales
-RVTY,44.1,7,0.07412,0.05173,0.00719,-0.02768,4.92,4.92,,0.0544,"Revvity, Inc.",Healthcare,446,AI,AI mentions rising
-CORT,44.1,7,0.30555,0.01202,-0.09692,0.00026,0.0,0.0,,0.4623,Corcept Therapeutics Incorporat,,447,AI,R&D 31% of sales
-CCJ,44.0,5,0.01105,0.05274,-0.10138,0.02909,,,,0.1537,Cameco Corporation,,448,,gross margin +2.9 pts
-BKR,44.0,7,0.01997,-0.06818,0.02208,-0.00573,10.03,2.69,,0.0993,Baker Hughes Company,,449,AI infrastructure,AI infrastructure mentions rising
-ORLY,44.0,5,,,0.03324,0.00238,0.0,0.0,,0.0612,"O'Reilly Automotive, Inc.",Consumer Cyclical,450,AI,
-VRSK,44.0,5,0.01318,0.15864,-0.01347,0.0083,,,,0.0675,"Verisk Analytics, Inc.",Industrials,451,,
-HPQ,43.9,7,0.02723,0.0094,0.05529,-0.01019,7.01,2.99,,0.0047,HP Inc.,Technology,452,AI,revenue growth up 6 pts; AI mentions rising
-CFG,43.9,4,,,0.00611,,0.27,-0.0,,0.0869,"Citizens Financial Group, Inc.",,453,AI infrastructure,
-EMR,43.9,7,0.04137,-0.0128,-2e-05,0.00662,2.87,2.87,,0.0558,Emerson Electric Company,,454,AI,AI mentions rising
-TRP,43.8,3,,,0.01221,-0.00953,,,,0.0583,TC Energy Corporation,Energy,455,,
-HLT,43.8,4,,,0.01456,,0.0,0.0,,0.0851,Hilton Worldwide Holdings Inc.,Consumer Cyclical,456,AI,
-FND,43.7,5,,,-0.02452,0.01208,0.82,0.03,,0.0484,"Floor & Decor Holdings, Inc.",Consumer Cyclical,457,AI,
-EQH,43.7,4,,,-0.40801,,1.0,1.0,,0.1033,"Equitable Holdings, Inc.",,458,AI,
-ILMN,43.6,7,0.21362,-0.04762,0.08176,-0.00173,0.0,0.0,,0.0646,"Illumina, Inc.",Healthcare,459,AI,revenue growth up 8 pts; R&D 21% of sales
-AIG,43.5,4,,,-0.06724,,1.04,0.19,,0.0805,"American International Group, I",,460,AI,
-TVTX,43.5,5,0.01268,0.0,-0.10824,0.01712,,,,0.4873,"Travere Therapeutics, Inc.",Healthcare,461,,
-ETN,43.4,7,0.02811,0.05632,0.07874,-0.0226,9.14,-0.8,,0.1227,"Eaton Corporation, PLC",,462,AI,revenue growth up 8 pts
-PNC,43.4,4,,,-0.09034,,1.33,1.15,,0.0556,"PNC Financial Services Group, I",Financial Services,463,AI,
-GEHC,43.4,7,0.06059,0.02342,0.03358,-0.00867,4.1,1.25,,0.0469,GE HealthCare Technologies Inc.,Healthcare,464,Biotech breakthroughs,
-MSTR,43.4,7,0.18688,-0.13356,0.11602,-0.02498,4.75,0.07,,0.0247,Strategy Inc,Technology,465,Quantum & next compute,revenue growth up 12 pts; R&D 19% of sales
-WVE,43.4,4,2.89604,0.17628,-0.32526,,,,,-0.4541,"Wave Life Sciences, Inc.",Healthcare,466,,R&D 290% of sales
-VTRS,43.3,5,0.05493,0.02424,0.11925,-0.0181,,,,0.0299,Viatris Inc.,Healthcare,467,,revenue growth up 12 pts
-SRRK,43.3,3,,-0.0131,-1.0,,,,,23.9726,Scholar Rock Holding Corporatio,Healthcare,468,,
-USFD,43.2,3,,,-0.01487,0.00158,,,,0.0402,US Foods Holding Corp.,Consumer Defensive,469,,
-LOW,43.2,5,,,0.08646,-0.00382,0.0,0.0,,0.0243,"Lowe's Companies, Inc.",Consumer Cyclical,470,AI,revenue growth up 9 pts
-SIMO,43.2,5,1.34893,0.0,-0.1551,-0.36762,,,,0.307,Silicon Motion Technology Corpo,Technology,471,,R&D 135% of sales
-NOC,43.2,7,0.02523,0.0,0.06646,0.01972,2.23,-1.56,,0.0647,Northrop Grumman Corporation,Industrials,472,AI,revenue growth up 7 pts
-SPOT,43.1,5,0.08105,-0.06258,-0.0866,0.01839,,,,0.1492,Spotify Technology S.A.,Communication Services,473,,
-HUM,42.9,4,,,0.03998,,0.0,0.0,,0.0365,Humana Inc.,Healthcare,474,AI,
-BLSH,42.9,3,,,-1.16934,-7e-05,,,,0.1438,Bullish,,475,,
-NTRS,42.8,4,,,0.01561,,0.24,0.24,,0.0217,Northern Trust Corporation,Financial Services,476,AI,
-EXC,42.8,4,,,-0.02132,,2.42,0.41,,0.031,Exelon Corporation,,477,Energy transition & power,
-MPWR,42.7,7,0.01392,0.0,-0.05634,-0.00117,3.38,1.17,,0.2798,"Monolithic Power Systems, Inc.",Technology,478,AI,
-EPAM,42.7,5,,,0.01034,-0.00616,4.18,0.07,,0.0359,"EPAM Systems, Inc.",Technology,479,AI,
-HCA,42.7,4,,,-0.01003,,1.51,0.09,,0.0318,"HCA Healthcare, Inc.",Healthcare,480,AI,
-IMO,42.5,6,0.00259,0.13559,0.10323,,1.45,-0.05,,0.0334,Imperial Oil Limited,Energy,481,AI,revenue growth up 10 pts
-LPLA,42.4,4,,,-0.04154,,0.0,0.0,,0.1356,LPL Financial Holdings Inc.,Financial Services,482,AI,
-IMCR,42.4,7,0.66032,0.18969,-0.2183,-0.00356,0.0,0.0,,0.0803,Immunocore Holdings plc,Healthcare,483,AI,R&D 66% of sales
-PFE,42.3,7,0.21705,-0.03299,-0.69192,0.03862,5.01,2.27,,-0.0375,"Pfizer, Inc.",Healthcare,484,Biotech breakthroughs,R&D 22% of sales; gross margin +3.9 pts; Biotech breakthroughs mentions rising
-KR,42.2,5,,,0.03714,0.00773,0.71,-0.5,,0.0159,Kroger Company (The),Consumer Defensive,485,AI,
-UNH,42.2,3,,,-0.03238,0.00327,,,,0.0312,UnitedHealth Group Incorporated,Healthcare,486,,
-KO,42.2,5,,,0.04317,0.00686,0.0,0.0,,-0.0301,Coca-Cola Company (The),Consumer Defensive,487,AI,
-JAZZ,42.1,6,0.06514,0.0,0.08072,,0.0,0.0,,0.056,Jazz Pharmaceuticals plc,Healthcare,488,AI,revenue growth up 8 pts
-ROK,42.1,7,0.07979,0.08815,0.19627,-0.04549,1.22,-13.03,,0.058,"Rockwell Automation, Inc.",Industrials,489,AI infrastructure,revenue growth up 20 pts
-PYPL,42.0,6,0.05865,0.0,-0.00242,,3.3,1.36,,0.0415,"PayPal Holdings, Inc.",Financial Services,490,AI,
-PR,42.0,4,,,-0.03556,,0.94,0.94,,0.0182,Permian Resources Corporation,Energy,491,AI,
-BLDR,41.9,5,,,-0.01808,-0.02492,4.29,2.58,,0.0114,"Builders FirstSource, Inc.",,492,AI,AI mentions rising
-EAT,41.9,3,,,,,0.99,-0.05,,0.0303,"Brinker International, Inc.",,493,AI,
-NFLX,41.9,7,0.07823,0.18709,-0.00756,-0.00484,0.0,0.0,,0.1071,"Netflix, Inc.",Communication Services,494,AI,
-FTAI,41.8,5,,,-0.10687,-0.09666,0.27,0.27,,0.6893,FTAI Aviation Ltd.,Industrials,495,AI,
-VLTO,41.8,5,0.04827,0.05058,0.01248,-0.00056,,,,0.0582,Veralto Corp,Industrials,496,,
-CCL,41.7,5,,,-0.01957,0.02989,0.0,0.0,,0.0316,Carnival Corporation Ltd.,,497,AI,gross margin +3.0 pts
-KEY,41.6,4,,,-0.07798,,0.45,0.03,,0.0748,KeyCorp,Financial Services,498,AI infrastructure,
-SCI,41.6,3,,,-0.00434,-0.00547,,,,0.0356,Service Corporation Internation,Consumer Cyclical,499,,
-CVS,41.5,5,,,0.2762,-0.03819,0.0,-0.7,,0.0287,CVS Health Corporation,,500,AI,revenue growth up 28 pts
-LULU,41.4,5,,,-0.07416,-0.02989,9.01,8.23,,-0.0121,lululemon athletica inc.,Consumer Cyclical,501,AI,AI mentions rising
-BG,41.3,7,0.00141,-0.06667,0.23247,0.0237,0.0,0.0,,0.0272,Bunge Limited,,502,AI,revenue growth up 23 pts; gross margin +2.4 pts
-RTX,41.2,7,0.02972,0.00955,0.02841,0.03844,0.0,-0.67,,0.0771,RTX Corporation,Industrials,503,AI,gross margin +3.8 pts
-DHI,41.2,5,,,0.03768,-0.02186,0.0,0.0,,0.0703,"D.R. Horton, Inc.",,504,AI,
-PRU,41.2,3,,,,,0.0,0.0,,0.0178,"Prudential Financial, Inc.",Financial Services,505,AI,
-NOK,41.2,5,0.20975,-0.02842,-0.90314,0.01353,,,,0.0831,Nokia Corporation Sponsored,Technology,506,,R&D 21% of sales
-CB,41.0,4,,,-0.01521,,0.31,0.02,,0.0416,Chubb Limited,,507,Energy transition & power,
-RJF,40.9,4,,,-0.00892,,0.0,0.0,,0.0643,"Raymond James Financial, Inc.",Financial Services,508,AI,
-MAR,40.9,4,,,-0.00401,,0.0,0.0,,0.0595,Marriott International,Consumer Cyclical,509,AI,
-PSA,40.9,5,,,0.02856,-0.02082,0.0,0.0,,0.0792,Public Storage,Real Estate,510,AI,
-GPC,40.8,5,,,0.0203,0.00058,0.0,0.0,,0.036,Genuine Parts Company,Consumer Cyclical,511,AI,
-CPRI,40.8,5,,,0.01555,0.00582,0.0,0.0,,0.0229,Capri Holdings Limited,,512,AI,
-BRBR,40.8,3,,,,,0.85,-0.13,,0.0073,"BellRing Brands, Inc.",Consumer Defensive,513,AI infrastructure,
-WM,40.8,3,,,-0.10695,-0.00034,,,,0.0536,"Waste Management, Inc.",Industrials,514,,
-MTD,40.7,7,0.05032,0.07886,0.03806,0.0032,0.0,0.0,,0.0474,"Mettler-Toledo International, I",Healthcare,515,AI,
-ABT,40.7,7,0.06631,0.04068,0.01585,0.00449,0.0,0.0,,0.0713,Abbott Laboratories,,516,AI,
-DLTR,40.7,5,,,-0.70754,-0.00617,2.23,2.23,,0.0605,"Dollar Tree, Inc.",,517,AI,AI mentions rising
-AVBP,40.5,3,,,,,0.0,0.0,,0.0,"ArriVent BioPharma, Inc.",,518,AI,
-MIRM,40.5,4,,,-0.18312,,0.85,-0.25,,0.174,"Mirum Pharmaceuticals, Inc.",Healthcare,519,AI,
-IMVT,40.5,3,,,,,0.0,0.0,,0.0,"Immunovant, Inc.",Healthcare,520,AI,
-DMRA,40.5,3,,,,,0.0,0.0,,0.0,"Damora Therapeutics, Inc.",,521,AI,
-DFTX,40.5,3,,,,,0.0,0.0,,0.0,"Definium Therapeutics, Inc.",,522,AI,
-ERAS,40.5,3,,,,,0.0,0.0,,0.0,"Erasca, Inc.",,523,AI,
-NG,40.5,3,,,,,0.0,0.0,,0.0,Novagold Resources Inc.,Basic Materials,524,AI,
-MLTX,40.5,3,,,,,0.0,0.0,,0.0,MoonLake Immunotherapeutics,Healthcare,525,AI,
-UTHR,40.4,5,0.17483,0.05997,-0.15129,-0.02842,,,,0.1342,United Therapeutics Corporation,Healthcare,526,,R&D 17% of sales
-SFM,40.4,3,,,-0.11347,-0.00234,,,,0.0589,"Sprouts Farmers Market, Inc.",Consumer Defensive,527,,
-AMRZ,40.4,5,,,0.0565,-0.00739,0.44,-1.55,,0.0437,Amrize Ltd,,528,AI infrastructure,revenue growth up 6 pts
-CAVA,40.2,5,,,-0.01422,-0.04489,0.0,0.0,,0.2082,"CAVA Group, Inc.",,529,AI,
-PM,40.2,7,0.01753,-0.00395,0.00416,0.00733,3.05,0.76,,0.0476,Philip Morris International Inc,Consumer Defensive,530,AI,
-KRYS,40.1,6,0.13446,0.06321,-0.93456,,2.92,-2.14,,0.2769,"Krystal Biotech, Inc.",Healthcare,531,Biotech breakthroughs,R&D 13% of sales
-JANX,40.1,3,,,,,1.33,-0.01,,-0.7248,"Janux Therapeutics, Inc.",Healthcare,532,Biotech breakthroughs,
-HSY,39.9,7,0.00503,0.10497,0.01978,0.04205,0.0,0.0,,0.0245,The Hershey Company,Consumer Defensive,533,AI,gross margin +4.2 pts
-MKTX,39.9,4,,,-0.03745,,1.66,-0.56,,0.0686,"MarketAxess Holdings, Inc.",Financial Services,534,AI,
-PSX,39.8,7,4e-05,-0.6,0.38148,0.04285,0.0,0.0,,-0.0957,Phillips 66,Energy,535,AI,revenue growth up 38 pts; gross margin +4.3 pts
-AVY,39.8,7,0.01477,-0.00871,0.04181,0.00408,0.68,0.68,,0.0315,Avery Dennison Corporation,,536,AI,
-ELV,39.7,5,,,-0.08228,0.00164,1.15,0.39,,0.0246,"Elevance Health, Inc.",,537,AI,
-LXRX,39.7,6,9.76823,-0.01573,,-0.00537,2.61,-0.04,,-0.5446,"Lexicon Pharmaceuticals, Inc.",Healthcare,538,Biotech breakthroughs,R&D 977% of sales
-BIDU,39.6,5,0.1583,-0.07681,-0.01945,-0.00152,,,,0.0642,"Baidu, Inc.",,539,,R&D 16% of sales
-CAMP,39.6,3,,,,,0.0,0.0,,-0.2836,CAMP4 THERAPEUTICS CORPORATION,,540,AI,
-PGR,39.4,4,,,-0.11,,0.43,0.05,,0.0533,Progressive Corporation (The),Financial Services,541,AI infrastructure,
-MRSH,39.3,4,,,-0.02891,,1.58,-0.01,,0.0487,Marsh,Financial Services,542,AI,
-CASY,39.2,5,,,0.05045,-0.01583,0.0,0.0,,0.0024,"Caseys General Stores, Inc.",,543,AI,revenue growth up 5 pts
-SHEL,39.2,4,0.00438,0.0646,0.04075,,,,,-0.0935,Shell PLC,Energy,544,,
-OTIS,39.2,6,0.01044,0.06757,0.05033,,0.0,0.0,,0.0473,Otis Worldwide Corporation,Industrials,545,AI,revenue growth up 5 pts
-LYFT,39.2,7,0.08023,0.19114,-0.20474,-0.00377,6.01,-5.21,,0.1213,"Lyft, Inc.",Technology,546,AI,
-SHW,39.2,5,0.00208,0.0,0.06068,-0.00272,,,,0.0415,Sherwin-Williams Company (The),Basic Materials,547,,revenue growth up 6 pts
-DHR,38.9,7,0.06521,0.04245,0.03306,-0.00936,1.11,-0.15,,0.077,Danaher Corporation,,548,AI,
-BTI,38.9,4,0.01398,-0.05789,0.04197,,,,,0.0356,British American Tobacco  Indus,,549,,
-BSX,38.8,7,0.1025,0.17275,-0.07911,0.01667,0.0,0.0,,0.0088,Boston Scientific Corporation,,550,AI,
-ITW,38.7,7,0.01814,0.03425,0.05218,0.00427,0.0,0.0,,0.0362,Illinois Tool Works Inc.,Industrials,551,AI,revenue growth up 5 pts
-MTB,38.4,4,,,-0.01671,,0.0,0.0,,0.0354,M&T Bank Corporation,Financial Services,552,AI,
-FCX,38.0,5,,,-0.07302,-0.03995,0.66,-0.06,,0.2135,"Freeport-McMoRan, Inc.",,553,AI,
-AMLX,37.6,5,,-0.1118,-0.22945,,6.75,4.08,,0.0,"Amylyx Pharmaceuticals, Inc.",,554,AI,AI mentions rising
-SW,37.6,3,,,-1.53054,-0.01166,,,,0.0698,Smurfit WestRock plc,Consumer Cyclical,555,,
-GD,37.6,7,0.02987,0.0,-0.04765,0.04676,3.29,-0.11,,0.0476,General Dynamics Corporation,Industrials,556,Energy transition & power,gross margin +4.7 pts
-RSG,37.5,5,,,-0.01918,-0.00272,0.0,0.0,,0.0491,"Republic Services, Inc.",Industrials,557,AI,
-ATO,37.4,5,,,-0.0645,-0.02333,0.0,0.0,,0.1204,Atmos Energy Corporation,,558,AI,
-BIIB,37.3,7,0.12268,0.0,-0.02472,-0.02598,4.96,1.36,,0.0186,Biogen Inc.,,559,AI,R&D 12% of sales
-CRL,37.2,4,,,0.0047,,0.0,-0.51,,0.0253,Charles River Laboratories Inte,Healthcare,560,AI,
-DGX,37.2,5,,,-0.0461,-0.02802,1.18,0.06,,0.0445,Quest Diagnostics Incorporated,,561,AI,
-BP,37.1,4,0.00142,-0.0897,0.0757,,,,,-0.0593,BP p.l.c.,,562,,revenue growth up 8 pts
-LEN,37.1,4,,,-0.03381,,0.0,0.0,,0.0298,Lennar Corporation,Consumer Cyclical,563,AI,
-ASB,37.0,4,,,-0.32612,,0.28,-0.01,,0.0864,Associated Banc-Corp,Financial Services,564,Energy transition & power,
-ZBH,36.9,5,0.0258,0.0,0.0451,-0.03355,,,,0.0354,"Zimmer Biomet Holdings, Inc.",Healthcare,565,,
-PEP,36.8,7,0.00854,0.03198,0.05875,0.00207,0.0,0.0,,0.0249,"Pepsico, Inc.",Consumer Defensive,566,AI,revenue growth up 6 pts
-IQV,36.7,6,0.00019,0.0,0.05001,,2.54,-1.1,,0.0636,"IQVIA Holdings, Inc.",Healthcare,567,AI,revenue growth up 5 pts
-CMCSA,36.7,4,,,-0.00444,,0.53,-0.1,,-0.028,Comcast Corporation,,568,Space & defense tech,
-EVO,36.7,5,0.06381,-0.25788,-0.02001,-0.07987,,,,0.2047,Evotec SE,,569,,
-MDLZ,36.5,7,0.01003,0.0,0.01852,0.03207,0.0,0.0,,0.0276,"Mondelez International, Inc.",Consumer Defensive,570,AI,gross margin +3.2 pts
-SWK,36.5,5,0.02108,-0.02251,0.0328,-0.0016,,,,0.0121,"Stanley Black & Decker, Inc.",Industrials,571,,
-KVUE,36.2,7,0.02401,-0.05852,0.03922,0.00196,0.4,0.02,,0.0238,Kenvue Inc.,Consumer Defensive,572,AI,
-LIN,36.2,6,0.00406,-0.02649,0.0671,,0.0,0.0,,0.0485,Linde plc,Basic Materials,573,AI,revenue growth up 7 pts
-CARR,36.1,7,0.02654,-0.03509,0.01462,0.0241,0.0,-0.47,,0.0564,Carrier Global Corporation,,574,AI,gross margin +2.4 pts
-RNR,36.0,4,,,-0.17137,,0.24,0.24,,-0.0087,RenaissanceRe Holdings Ltd.,Financial Services,575,AI,
-MO,35.7,7,0.00829,-0.0625,0.03018,0.01339,0.27,0.03,,0.0082,"Altria Group, Inc.",Consumer Defensive,576,AI,
-HD,35.6,5,,,-0.06027,-0.00142,0.0,0.0,,0.0333,"Home Depot, Inc. (The)",Consumer Cyclical,577,AI,
-TTE,35.6,5,0.00543,-0.22857,0.27356,-0.12772,,,,-0.0586,TotalEnergies SE,Energy,578,,revenue growth up 27 pts
-CHD,35.5,7,0.02288,-0.0186,0.01562,0.01178,0.0,0.0,,0.0427,"Church & Dwight Company, Inc.",,579,AI,
-JNJ,35.3,7,0.0011,-0.94079,0.0272,-0.00515,1.07,0.74,,0.0645,Johnson & Johnson,Healthcare,580,Biotech breakthroughs,
-PHM,35.0,4,,,-0.19067,,0.61,-0.0,,0.0122,"PulteGroup, Inc.",Consumer Cyclical,581,AI,
-CI,34.5,5,,,-0.12457,-0.03708,0.95,0.07,,0.0408,The Cigna Group,,582,AI,
-PG,34.5,7,0.02388,0.0,0.02294,-0.01203,0.74,0.04,,0.0313,Procter & Gamble Company (The),Consumer Defensive,583,AI,
-NVO,34.4,5,0.16838,0.08275,-0.18607,-0.0369,,,,0.0139,Novo Nordisk A/S,Healthcare,584,,R&D 17% of sales
-BRKR,34.4,7,0.11244,-0.01576,-0.08707,-0.01835,3.2,0.63,,0.0416,Bruker Corporation,,585,Energy transition & power,
-GM,34.4,7,0.0424,0.0,-0.02441,-0.00271,1.21,0.45,,0.0193,General Motors Company,Consumer Cyclical,586,Robotics & autonomy,
-AMT,34.2,5,,,-0.37286,-0.00418,19.35,-0.77,,0.0344,American Tower Corporation (REI,,587,AI infrastructure,
-EQT,34.1,5,,,-0.34589,-0.10379,0.0,0.0,,0.149,EQT Corporation,,588,AI,
-BMY,34.0,7,0.21104,0.00028,0.02901,-0.02559,1.96,-3.64,,-0.0279,Bristol-Myers Squibb Company,,589,Biotech breakthroughs,R&D 21% of sales
-KNSL,34.0,4,,,-0.09752,,0.0,0.0,,-0.0002,"Kinsale Capital Group, Inc.",Financial Services,590,AI,
-IR,34.0,7,0.01439,-0.01973,0.03177,-0.00915,0.4,0.02,,0.0499,Ingersoll Rand Inc.,Industrials,591,AI,
-TTD,33.9,5,0.18125,0.05798,-0.11574,-0.02533,,,,-0.0545,"The Trade Desk, Inc.",Communication Services,592,,R&D 18% of sales
-MCK,33.8,7,0.00023,0.0,-0.11506,0.00077,0.93,0.93,,0.0685,McKesson Corporation,Healthcare,593,Biotech breakthroughs,
-APD,33.5,7,0.00721,-0.00329,0.04898,-0.01074,0.0,0.0,,0.057,"Air Products and Chemicals, Inc",,594,AI,
-CNM,33.2,5,,,-0.11558,0.00379,0.0,-2.34,,0.0403,"Core & Main, Inc.",Industrials,595,AI,
-LII,33.1,7,0.01898,0.1047,-0.01851,-0.01174,0.0,0.0,,0.061,"Lennox International, Inc.",Industrials,596,AI,
-AMS,32.7,4,,,-0.22633,-0.07289,0.0,0.0,,,American Shared Hospital Servic,,597,AI,
-QSR,32.2,5,,,-0.11306,-0.00466,0.0,0.0,,0.0031,Restaurant Brands International,Consumer Cyclical,598,AI,
-BA,32.0,7,0.04726,0.10676,-0.3187,-0.07742,1.41,-0.32,,0.1319,Boeing Company (The),,599,Space & defense tech,
-REXR,31.7,4,,,-0.56851,,0.0,0.0,,-0.0676,"Rexford Industrial Realty, Inc.",Real Estate,600,AI,
-FANG,31.4,4,,,-1.1957,,0.0,0.0,,-0.0542,"Diamondback Energy, Inc.",,601,AI,
-MMM,30.8,7,0.02773,0.0,0.0065,-0.01417,1.13,-0.58,,0.0461,3M Company,Industrials,602,AI infrastructure,
-ENPH,29.5,7,0.15019,-0.05854,-0.40868,-0.02706,3.94,0.53,,-0.0561,"Enphase Energy, Inc.",,603,AI,R&D 15% of sales
-COP,29.2,7,0.00139,-0.03704,0.07175,-0.01786,0.0,0.0,,-0.0541,ConocoPhillips,,604,AI,revenue growth up 7 pts
-KMB,29.2,7,0.01966,-0.0061,-0.06386,0.00474,0.0,0.0,,0.0252,Kimberly-Clark Corporation,Consumer Defensive,605,AI,
-YUM,29.0,5,0.00321,0.0,-0.01009,-0.02397,,,,-0.0038,"Yum! Brands, Inc.",Consumer Cyclical,606,,
-CVE,28.8,4,0.0004,0.0,-0.12411,,,,,-0.0842,Cenovus Energy Inc,,607,,
-OKE,28.7,5,,,-0.21527,-0.0178,0.0,0.0,,-0.1048,"ONEOK, Inc.",Energy,608,AI,
-LYB,27.9,7,0.00439,-0.01439,-0.08407,0.01918,0.0,0.0,,-0.0267,LyondellBasell Industries NV,Basic Materials,609,AI,
-ECHO,27.8,7,0.00437,-0.09859,-0.00326,-0.0007,36.04,-6.12,,-0.0596,EchoStar Corporation,,610,Space & defense tech,
-LW,26.3,7,0.00286,-0.14091,0.02748,-0.02264,0.0,0.0,,0.0205,"Lamb Weston Holdings, Inc.",Consumer Defensive,611,AI,
-AA,23.1,6,0.00154,-0.63158,-0.12924,,0.0,0.0,,0.0154,Alcoa Corporation,Basic Materials,612,AI,
+SITM,73.9,7,0.27179,0.09233,0.17913,0.07193,5.23,3.99,,0.5541,SiTime Corporation,Technology,7,AI,revenue growth up 18 pts; R&D 27% of sales; gross margin +7.2 pts
+ADI,73.8,7,0.14243,0.1784,0.26572,0.05648,9.18,7.17,,0.2159,"Analog Devices, Inc.",,8,AI,revenue growth up 27 pts; R&D 14% of sales; gross margin +5.6 pts
+ALGM,72.9,7,0.22673,0.18529,0.43038,0.02784,6.57,2.63,,0.1785,"Allegro MicroSystems, Inc.",,9,AI,revenue growth up 43 pts; R&D 23% of sales; gross margin +2.8 pts
+TEAM,72.9,7,0.49743,0.22476,0.06364,0.01991,31.56,12.87,,0.1487,Atlassian Corporation,Technology,10,AI,revenue growth up 6 pts; R&D 50% of sales; R&D +22%
+PLTR,72.8,7,0.10417,0.14714,0.40131,0.04766,13.3,2.37,,0.5078,Palantir Technologies Inc.,Technology,11,AI,revenue growth up 40 pts; gross margin +4.8 pts; AI mentions rising
+BFLY,72.4,7,0.32105,0.10636,0.23314,0.27016,2.3,2.3,,0.2119,"Butterfly Network, Inc.",Healthcare,12,AI,revenue growth up 23 pts; R&D 32% of sales; gross margin +27.0 pts
+ARGX,71.8,4,8.93805,9.314,0.32839,,,,,0.2201,argenx SE,,13,,revenue growth up 33 pts; R&D 894% of sales; R&D +931%
+SNDK,71.4,7,0.06559,0.17314,1.6491,0.41399,5.44,2.52,,0.1858,Sandisk Corporation,Technology,14,AI,revenue growth up 165 pts; gross margin +41.4 pts; AI mentions rising
+ACHR,71.3,5,90.65217,0.52375,,,4.81,4.81,,8.1201,Archer Aviation Inc.,,15,AI,R&D 9065% of sales; R&D +52%; AI mentions rising
+HUT,70.9,5,,,1.25282,0.1885,13.87,0.25,,0.9514,Hut 8 Corp.,Financial Services,16,AI,revenue growth up 125 pts; gross margin +18.9 pts
+LSCC,70.5,7,0.33501,0.32286,0.55403,0.02324,16.45,-1.73,,0.4693,Lattice Semiconductor Corporati,Technology,17,AI,revenue growth up 55 pts; R&D 34% of sales; R&D +32%
+FROG,70.3,7,0.35031,0.17628,0.04403,0.02334,24.24,8.2,,0.1798,JFrog Ltd.,Technology,18,AI,R&D 35% of sales; gross margin +2.3 pts; AI mentions rising
+HPE,70.2,6,0.08849,0.71211,0.12621,,22.62,15.81,,0.1748,Hewlett Packard Enterprise Comp,Technology,19,AI,revenue growth up 13 pts; R&D +71%; AI mentions rising
+XENE,69.7,5,1133.39228,16.77713,,,1.79,1.56,,20.457,Xenon Pharmaceuticals Inc.,Healthcare,20,AI,R&D 113339% of sales; R&D +1678%
+LUNR,69.7,4,,,0.70144,,18.7,10.5,,0.2694,"Intuitive Machines, Inc.",Industrials,21,Space & defense tech,revenue growth up 70 pts; Space & defense tech mentions rising
+BBIO,69.5,7,0.70873,0.06742,1.94773,-0.01756,6.05,5.57,,0.6044,"BridgeBio Pharma, Inc.",,22,AI,revenue growth up 195 pts; R&D 71% of sales; AI mentions rising
+CRSP,69.5,6,20.77016,-0.06117,0.1638,,35.07,5.61,,2.8075,CRISPR Therapeutics AG,Healthcare,23,Biotech breakthroughs,revenue growth up 16 pts; R&D 2077% of sales; Biotech breakthroughs mentions rising
+BETA,69.3,5,7.98575,0.73069,1.9885,-0.09999,,,,6.7132,"Beta Technologies, Inc.",,24,,revenue growth up 199 pts; R&D 799% of sales; R&D +73%
+META,68.9,7,0.31681,0.46029,0.06253,-0.00963,31.49,9.98,,0.2162,"Meta Platforms, Inc.",Communication Services,25,AI,revenue growth up 6 pts; R&D 32% of sales; R&D +46%
+RKLB,68.8,7,0.40618,0.43824,-0.01836,0.08222,17.01,1.62,,0.3816,Rocket Lab Corporation,Industrials,26,Space & defense tech,R&D 41% of sales; R&D +44%; gross margin +8.2 pts
+XYZ,68.8,5,0.95755,8.53572,,,13.53,8.87,,0.1134,"Block, Inc.",Technology,27,AI,R&D 96% of sales; R&D +854%; AI mentions rising
+MRVL,68.4,7,0.25839,0.21228,-0.06432,0.07569,24.37,13.59,,0.6335,"Marvell Technology, Inc.",Technology,28,AI,R&D 26% of sales; R&D +21%; gross margin +7.6 pts
+JOBY,68.3,6,5.8692,0.31464,1186.59335,,0.0,0.0,,0.7768,"Joby Aviation, Inc.",Industrials,29,AI,revenue growth up 118659 pts; R&D 587% of sales; R&D +31%
+CRCL,68.2,4,,,0.57725,,9.33,6.97,,0.2736,"Circle Internet Group, Inc.",,30,AI,revenue growth up 58 pts; AI mentions rising
+P,68.1,7,0.24691,0.19742,0.159,0.00566,7.74,0.44,,0.3764,"Everpure, Inc.",Technology,31,AI infrastructure,revenue growth up 16 pts; R&D 25% of sales
+FORM,67.8,7,0.13408,0.02221,0.09703,0.04445,15.12,13.04,,0.2417,"FormFactor, Inc.",Technology,32,Quantum & next compute,revenue growth up 10 pts; R&D 13% of sales; gross margin +4.4 pts
+CORZ,67.8,7,0.02687,0.0,0.65796,0.23224,22.68,2.33,,0.6997,"Core Scientific, Inc.",,33,AI,revenue growth up 66 pts; gross margin +23.2 pts; AI mentions rising
+AUR,67.5,6,114.71429,0.11219,,1.64286,2.16,0.08,,17.4101,"Aurora Innovation, Inc.",,34,AI,R&D 11471% of sales; gross margin +164.3 pts
+CIEN,67.5,7,0.15362,0.13435,0.19604,0.02506,4.51,0.52,,0.3115,Ciena Corporation,,35,AI infrastructure,revenue growth up 20 pts; R&D 15% of sales; gross margin +2.5 pts
+LRCX,67.4,7,0.09438,0.13242,0.07703,0.01741,20.92,16.23,,0.2036,Lam Research Corporation,Technology,36,AI,revenue growth up 8 pts; AI mentions rising
+SNOW,67.4,7,0.38779,0.10959,0.03675,0.0043,32.33,11.81,,0.2864,Snowflake Inc.,Technology,37,AI,R&D 39% of sales; AI mentions rising
+CBIO,67.4,5,12.84793,5.19194,,,0.99,0.99,,1.7736,"Crescent Biopharma, Inc.",,38,AI,R&D 1285% of sales; R&D +519%
+KYMR,67.2,7,4.20583,0.41184,1.83813,0.0,7.15,4.57,,-0.5073,"Kymera Therapeutics, Inc.",Healthcare,39,AI,revenue growth up 184 pts; R&D 421% of sales; R&D +41%
+TSHA,66.9,6,22.45068,0.86644,0.04826,,5.38,0.0,,10.23,"Taysha Gene Therapies, Inc.",Healthcare,40,Biotech breakthroughs,R&D 2245% of sales; R&D +87%
+DOCN,66.6,7,0.18665,0.21115,0.08124,-0.03181,47.97,14.85,,0.547,"DigitalOcean Holdings, Inc.",,41,AI,revenue growth up 8 pts; R&D 19% of sales; R&D +21%
+ELF,66.5,5,,,0.12616,0.03766,17.31,5.96,,0.0885,"e.l.f. Beauty, Inc.",Consumer Defensive,42,AI,revenue growth up 13 pts; gross margin +3.8 pts; AI mentions rising
+RBRK,66.4,7,0.28594,0.32053,-0.05272,0.02249,27.07,11.34,,0.2153,"Rubrik, Inc.",Technology,43,AI,R&D 29% of sales; R&D +32%; gross margin +2.2 pts
+INTC,66.4,7,0.23133,-0.13483,0.11187,0.08842,15.72,9.18,,0.1525,Intel Corporation,Technology,44,Robotics & autonomy,revenue growth up 11 pts; R&D 23% of sales; gross margin +8.8 pts
+CRDO,66.4,7,0.21461,1.02158,-0.10697,0.01083,43.55,35.37,,0.5499,Credo Technology Group Holding ,,45,Quantum & next compute,R&D 21% of sales; R&D +102%; Quantum & next compute mentions rising
+MDB,66.2,7,0.2803,0.19565,0.03548,0.0036,23.9,6.33,,0.1926,"MongoDB, Inc.",Technology,46,AI,R&D 28% of sales; AI mentions rising
+AAPL,66.2,7,0.0919,0.28258,0.08272,0.01975,7.1,7.1,,0.1029,Apple Inc.,,47,AI,revenue growth up 8 pts; R&D +28%; AI mentions rising
+CLS,66.2,7,0.00926,0.51616,0.19879,-0.00582,13.56,7.61,,0.9104,"Celestica, Inc.",,48,AI,revenue growth up 20 pts; R&D +52%; AI mentions rising
+LITE,66.1,7,0.11828,0.17308,0.62195,0.13711,15.7,-8.36,,0.5647,Lumentum Holdings Inc.,Technology,49,Robotics & autonomy,revenue growth up 62 pts; gross margin +13.7 pts
+SHOP,65.9,7,0.23329,0.09581,0.04645,0.40595,5.86,1.04,,0.2598,Shopify Inc.,Technology,50,AI,R&D 23% of sales; gross margin +40.6 pts
+ZS,65.8,7,0.26947,0.34337,0.02105,-0.0007,38.62,14.25,,0.1647,"Zscaler, Inc.",Technology,51,AI,R&D 27% of sales; R&D +34%; AI mentions rising
+TER,65.8,7,0.2539,0.73429,-0.07807,0.60005,58.73,0.99,,0.2382,"Teradyne, Inc.",Technology,52,AI,R&D 25% of sales; R&D +73%; gross margin +60.0 pts
+RVMD,65.8,4,,1.18893,,,4.59,3.75,,5.2664,"Revolution Medicines, Inc.",Healthcare,53,AI,R&D +119%; AI mentions rising
+PANW,65.7,7,0.2223,0.28629,0.09624,-0.03062,38.85,17.74,,0.1449,"Palo Alto Networks, Inc.",Technology,54,AI,revenue growth up 10 pts; R&D 22% of sales; R&D +29%
+WDC,65.7,7,0.07941,0.12086,0.04968,0.11985,6.29,2.71,,0.4049,Western Digital Corporation,Technology,55,AI,gross margin +12.0 pts; AI mentions rising
+IDYA,65.3,6,1.71006,0.26923,30.94495,,0.0,-1.11,,1.8845,"IDEAYA Biosciences, Inc.",Healthcare,56,AI,revenue growth up 3094 pts; R&D 171% of sales; R&D +27%
+GKOS,65.1,7,0.09693,0.34695,0.16556,-0.12091,12.74,9.81,,0.287,Glaukos Corporation,Healthcare,57,AI,revenue growth up 17 pts; R&D +35%; AI mentions rising
+DDOG,64.3,7,0.43693,0.29665,0.05521,-0.00411,9.6,1.1,,0.2264,"Datadog, Inc.",,58,AI,revenue growth up 6 pts; R&D 44% of sales; R&D +30%
+RIVN,64.2,7,0.28287,0.13288,-0.1716,0.05842,16.03,9.74,,0.5779,"Rivian Automotive, Inc.",Consumer Cyclical,59,Robotics & autonomy,R&D 28% of sales; gross margin +5.8 pts; Robotics & autonomy mentions rising
+DASH,64.0,6,0.10742,0.37329,0.09817,,4.54,1.31,,0.2073,"DoorDash, Inc.",,60,AI,revenue growth up 10 pts; R&D +37%
+ABSI,63.8,6,19.07521,0.7993,-0.20202,,13.27,2.13,,2.9401,Absci Corporation,,61,AI,R&D 1908% of sales; R&D +80%; AI mentions rising
+OKLO,63.7,3,,,,,44.66,10.47,,1.9755,Oklo Inc.,Utilities,62,Energy transition & power,Energy transition & power mentions rising
+TSM,63.7,5,0.07055,0.1196,0.38401,0.01763,,,,0.3764,Taiwan Semiconductor Manufactur,Technology,63,,revenue growth up 38 pts
+EQIX,63.6,5,,,0.057,0.01327,58.2,8.89,,0.1134,"Equinix, Inc.",,64,AI infrastructure,revenue growth up 6 pts; AI infrastructure mentions rising
+COHR,63.5,7,0.10156,0.24235,-0.00904,0.02328,13.19,4.29,,0.3813,Coherent Corp.,,65,AI,R&D +24%; gross margin +2.3 pts; AI mentions rising
+WPM,63.5,3,,,0.5374,0.09746,,,,0.098,Wheaton Precious Metals Corp,Basic Materials,66,,revenue growth up 54 pts; gross margin +9.7 pts
+TTAN,63.5,7,0.32782,0.22816,-0.18129,0.0323,27.93,11.45,,0.145,"ServiceTitan, Inc.",Technology,67,AI,R&D 33% of sales; R&D +23%; gross margin +3.2 pts
+PI,63.3,7,0.29801,0.137,0.03478,0.01249,4.61,2.09,,0.1949,"Impinj, Inc.",Technology,68,AI,R&D 30% of sales; AI mentions rising
+FN,63.3,5,,,0.17127,-0.00098,5.69,4.13,,0.2001,Fabrinet,Technology,69,AI infrastructure,revenue growth up 17 pts; AI infrastructure mentions rising
+NET,63.2,7,0.22819,0.19246,0.0621,-0.03564,10.56,7.38,,0.289,"Cloudflare, Inc.",Technology,70,AI,revenue growth up 6 pts; R&D 23% of sales; AI mentions rising
+RBLX,63.2,7,0.28601,0.11481,-0.00607,0.02982,22.74,6.07,,0.1285,Roblox Corporation,Communication Services,71,AI,R&D 29% of sales; gross margin +3.0 pts; AI mentions rising
+STX,63.1,7,0.05573,0.05487,0.12809,0.13492,11.2,0.07,,0.3708,Seagate Technology Holdings PLC,Technology,72,AI,revenue growth up 13 pts; gross margin +13.5 pts
+BE,63.0,7,0.06186,0.39033,0.64497,0.00925,11.88,-13.91,,0.5598,Bloom Energy Corporation,,73,AI,revenue growth up 64 pts; R&D +39%
+B,62.9,3,,,0.17837,0.12864,,,,0.1241,Barrick Mining Corporation,,74,,revenue growth up 18 pts; gross margin +12.9 pts
+SPGI,62.6,5,,,0.19277,0.00923,11.07,7.35,,0.0553,S&P Global Inc.,Financial Services,75,AI,revenue growth up 19 pts; AI mentions rising
+INSM,62.6,7,0.62143,0.35706,2.09623,-0.20683,7.04,-1.16,,0.5907,Insmed Incorporated,Healthcare,76,AI,revenue growth up 210 pts; R&D 62% of sales; R&D +36%
+NKTR,62.3,7,2.41391,0.06147,-0.07589,0.16564,9.3,2.46,,0.2772,Nektar Therapeutics,Healthcare,77,AI,R&D 241% of sales; gross margin +16.6 pts; AI mentions rising
+ASML,62.2,5,0.14384,0.0918,0.13028,0.01554,,,,0.2869,ASML Holding N.V. - New York Re,,78,,revenue growth up 13 pts; R&D 14% of sales
+TRMB,62.0,7,0.17328,0.00475,0.09525,0.02241,9.75,8.96,,0.0787,Trimble Inc.,Technology,79,AI,revenue growth up 10 pts; R&D 17% of sales; gross margin +2.2 pts
+ANET,62.0,7,0.12962,0.26077,0.06603,-0.01233,23.22,1.58,,0.2903,"Arista Networks, Inc.",,80,AI,revenue growth up 7 pts; R&D 13% of sales; R&D +26%
+AKAM,61.9,7,0.21567,2.09906,0.02394,-0.36962,22.93,16.11,,0.1614,"Akamai Technologies, Inc.",,81,AI,R&D 22% of sales; R&D +210%; AI mentions rising
+GOOGL,61.9,7,0.20701,0.62363,0.01283,-0.0838,25.56,15.96,,0.2706,Alphabet Inc.,Communication Services,82,AI,R&D 21% of sales; R&D +62%; AI mentions rising
+PODD,61.8,7,0.32336,1.12862,-0.05555,1.26365,0.83,0.83,,0.1357,Insulet Corporation,Healthcare,83,AI,R&D 32% of sales; R&D +113%; gross margin +126.4 pts
+VICR,61.7,7,0.15595,0.16574,0.29827,-0.02562,6.03,0.47,,0.4687,Vicor Corporation,Technology,84,AI,revenue growth up 30 pts; R&D 16% of sales
+STLD,61.6,5,,,0.27493,0.02835,5.2,2.64,,0.0326,"Steel Dynamics, Inc.",Basic Materials,85,Space & defense tech,revenue growth up 27 pts; gross margin +2.8 pts; Space & defense tech mentions rising
+PONY,61.6,5,2.41574,-0.09476,0.15614,0.00535,,,,1.0798,Pony AI Inc.,Technology,86,,revenue growth up 16 pts; R&D 242% of sales
+VIA,61.5,5,0.20115,0.11145,0.0996,0.01048,,,,0.2226,"Via Transportation, Inc.",Technology,87,,revenue growth up 10 pts; R&D 20% of sales
+SWKS,61.4,7,0.21091,0.16612,0.08297,-0.00755,1.51,1.51,,0.9263,"Skyworks Solutions, Inc.",Technology,88,AI infrastructure,revenue growth up 8 pts; R&D 21% of sales
+NUE,61.3,5,,,0.22965,0.05041,4.98,2.59,,0.0137,Nucor Corporation,Basic Materials,89,Energy transition & power,revenue growth up 23 pts; gross margin +5.0 pts; Energy transition & power mentions rising
+AMAT,61.2,7,0.12881,0.1313,0.01222,0.00896,14.03,3.28,,0.3534,"Applied Materials, Inc.",,90,AI,R&D 13% of sales; AI mentions rising
+ADSK,61.2,7,0.22092,0.09062,0.0416,0.00632,17.57,4.37,,0.1102,"Autodesk, Inc.",,91,AI,R&D 22% of sales; AI mentions rising
+NBIS,61.0,5,0.12872,0.42493,0.06895,-0.00293,,,,2.6596,Nebius Group N.V.,Communication Services,92,,revenue growth up 7 pts; R&D 13% of sales; R&D +42%
+DELL,61.0,7,0.02408,0.17036,0.38568,-0.01317,15.54,2.88,,0.1924,Dell Technologies Inc.,,93,AI,revenue growth up 39 pts; AI mentions rising
+ESTC,60.9,7,0.25264,0.18091,-0.01244,0.00315,16.76,7.66,,0.147,Elastic N.V.,,94,AI,R&D 25% of sales; AI mentions rising
+SMTC,60.9,7,0.18936,0.16714,0.00392,0.00428,6.76,3.42,,0.3587,Semtech Corporation,Technology,95,AI infrastructure,R&D 19% of sales; AI infrastructure mentions rising
+MTSI,60.7,7,0.23422,0.17929,-0.0514,0.01778,13.44,1.29,,0.3632,MACOM Technology Solutions Hold,Technology,96,AI infrastructure,R&D 23% of sales
+AAOI,60.6,7,0.18057,0.56899,-0.16093,0.00034,21.04,4.43,,1.5648,"Applied Optoelectronics, Inc.",,97,AI,R&D 18% of sales; R&D +57%; AI mentions rising
+NVT,60.5,7,0.01843,0.27468,0.18878,-0.02226,5.18,2.5,,0.3065,nVent Electric plc,Industrials,98,AI infrastructure,revenue growth up 19 pts; R&D +27%; AI infrastructure mentions rising
+JBL,60.5,7,0.00083,0.15385,0.17461,0.00347,10.37,4.77,,0.1628,Jabil Inc.,Technology,99,Robotics & autonomy,revenue growth up 17 pts; Robotics & autonomy mentions rising
+TXN,60.4,7,0.10093,0.02094,0.10374,0.0276,2.09,2.09,,0.1716,Texas Instruments Incorporated,Technology,100,AI infrastructure,revenue growth up 10 pts; gross margin +2.8 pts; AI infrastructure mentions rising
+NTRA,60.3,7,0.29086,0.56881,-0.06559,0.02226,1.18,1.18,,0.2089,"Natera, Inc.",Healthcare,101,AI,R&D 29% of sales; R&D +57%; gross margin +2.2 pts
+SMMT,60.3,4,,0.52236,,,1.51,0.41,,13.2843,Summit Therapeutics Inc.,Healthcare,102,Space & defense tech,R&D +52%
+SANM,60.1,7,0.00263,0.09537,0.52686,0.00362,5.5,3.22,,0.1806,Sanmina Corporation,Technology,103,AI,revenue growth up 53 pts; AI mentions rising
+AJG,60.0,5,,,0.12481,0.02,2.32,1.16,,0.0862,Arthur J. Gallagher & Co.,,104,AI,revenue growth up 12 pts
+ARM,60.0,5,0.56423,0.34042,-0.01155,0.0056,,,,0.3642,Arm Holdings plc,,105,,R&D 56% of sales; R&D +34%
+RMBS,59.9,6,0.65786,0.36857,-0.46522,,11.48,5.75,,0.205,"Rambus, Inc.",Technology,106,AI,R&D 66% of sales; R&D +37%; AI mentions rising
+IOT,59.9,7,0.20344,0.17779,-0.00814,-0.00491,30.52,30.52,,0.2002,Samsara Inc.,Technology,107,AI,R&D 20% of sales; AI mentions rising
+WELL,59.9,5,,,0.10867,0.04583,0.32,0.32,,0.1534,Welltower Inc.,Real Estate,108,AI,revenue growth up 11 pts; gross margin +4.6 pts
+MELI,59.8,7,0.10543,0.20853,0.09161,-0.03107,2.91,2.91,,0.2917,"MercadoLibre, Inc.",Consumer Cyclical,109,AI,revenue growth up 9 pts; R&D +21%; AI mentions rising
+ASND,59.8,5,0.42162,-0.01102,0.61695,-0.01009,,,,0.4619,Ascendis Pharma A/S,,110,,revenue growth up 62 pts; R&D 42% of sales
+HOOD,59.7,3,,,,,8.48,4.11,,0.2901,"Robinhood Markets, Inc.",Financial Services,111,AI,AI mentions rising
+BEAM,59.6,6,2.61905,0.03126,2.4179,,9.23,-4.81,,0.1448,Beam Therapeutics Inc.,,112,Biotech breakthroughs,revenue growth up 242 pts; R&D 262% of sales
+RDDT,59.5,7,0.30005,0.12185,-0.03373,0.00403,12.57,2.67,,0.3202,"Reddit, Inc.",Communication Services,113,AI,R&D 30% of sales; AI mentions rising
+WWD,59.4,7,0.04109,0.20263,0.16821,0.03592,0.46,0.46,,0.0876,"Woodward, Inc.",Industrials,114,AI infrastructure,revenue growth up 17 pts; R&D +20%; gross margin +3.6 pts
+APH,59.4,7,0.0223,0.42826,0.1366,0.0377,2.48,-0.63,,0.2201,Amphenol Corporation,,115,AI,revenue growth up 14 pts; R&D +43%; gross margin +3.8 pts
+ESLT,59.4,5,0.08781,0.1928,0.05875,0.03523,,,,0.1221,Elbit Systems Ltd.,,116,,revenue growth up 6 pts; gross margin +3.5 pts
+ALNY,59.3,7,0.31093,0.24928,0.02932,-0.06692,3.63,3.46,,0.2319,"Alnylam Pharmaceuticals, Inc.",,117,AI,R&D 31% of sales; R&D +25%; AI mentions rising
+DE,59.3,7,0.04968,0.05627,0.28618,0.04106,2.05,1.02,,0.0856,Deere & Company,,118,AI infrastructure,revenue growth up 29 pts; gross margin +4.1 pts
+FIG,59.2,7,0.94971,2.85489,-0.33526,-0.11626,50.27,24.73,,0.2393,"Figma, Inc.",Technology,119,AI,R&D 95% of sales; R&D +285%; AI mentions rising
+IAG,59.2,3,,,0.09263,0.08607,,,,0.0909,Iamgold Corporation,Basic Materials,120,,revenue growth up 9 pts; gross margin +8.6 pts
+CBOE,59.0,5,,,2.11118,0.42232,0.69,0.03,,0.0322,"Cboe Global Markets, Inc.",,121,AI,revenue growth up 211 pts; gross margin +42.2 pts
+NUVB,58.9,7,0.75839,0.1822,1.83211,-0.19002,0.58,-0.16,,0.416,Nuvation Bio Inc.,Healthcare,122,AI,revenue growth up 183 pts; R&D 76% of sales
+SYNA,58.8,7,0.31891,0.10092,-0.00536,4e-05,17.01,5.35,,0.1384,Synaptics Incorporated,Technology,123,AI,R&D 32% of sales; AI mentions rising
+TSLA,58.8,7,0.08556,0.50085,0.09861,0.02279,8.79,-7.61,,0.1344,"Tesla, Inc.",Consumer Cyclical,124,Robotics & autonomy,revenue growth up 10 pts; R&D +50%; gross margin +2.3 pts
+NRIX,58.7,6,0.47593,0.1095,6.90445,,6.99,0.3,,-0.8346,"Nurix Therapeutics, Inc.",Healthcare,125,AI,revenue growth up 690 pts; R&D 48% of sales
+RXRX,58.7,7,7.19177,-0.08509,-0.4522,0.06995,20.38,9.02,,0.2691,"Recursion Pharmaceuticals, Inc.",Healthcare,126,AI,R&D 719% of sales; gross margin +7.0 pts; AI mentions rising
+STRL,58.6,5,,,0.86943,0.00724,3.38,-0.73,,0.2182,"Sterling Infrastructure, Inc.",Industrials,127,AI infrastructure,revenue growth up 87 pts
+SNX,58.6,5,,,0.17166,-0.00026,3.14,1.25,,0.1071,TD SYNNEX Corporation,Technology,128,AI infrastructure,revenue growth up 17 pts
+AER,58.6,3,,,0.84146,31.0117,,,,-0.0602,AerCap Holdings N.V.,,129,,revenue growth up 84 pts; gross margin +3101.2 pts
+KEYS,58.5,3,,,,,10.06,4.86,,0.1539,Keysight Technologies Inc.,Technology,130,AI,AI mentions rising
+AGI,58.5,3,,,0.0267,0.11012,,,,0.2544,Alamos Gold Inc.,Basic Materials,131,,gross margin +11.0 pts
+ALAB,58.5,7,0.3613,0.82106,-0.65314,-0.00389,7.85,2.38,,0.5591,"Astera Labs, Inc.",,132,AI,R&D 36% of sales; R&D +82%; AI mentions rising
+APO,58.5,4,,,0.46032,,0.25,0.25,,0.1685,"Apollo Global Management, Inc. ",,133,AI,revenue growth up 46 pts
+AMZN,58.4,5,,,0.04894,-0.00112,17.46,2.96,,0.1464,"Amazon.com, Inc.",,134,AI,AI mentions rising
+FFIV,58.4,7,0.17927,0.12491,0.00471,0.00837,23.17,23.17,,0.0669,"F5, Inc.",,135,AI,R&D 18% of sales; AI mentions rising
+REGN,58.3,7,0.40401,0.15526,0.03915,0.00241,6.75,2.15,,0.0558,"Regeneron Pharmaceuticals, Inc.",Healthcare,136,AI,R&D 40% of sales; AI mentions rising
+TEL,58.3,7,0.03618,0.1256,0.11668,0.01128,4.95,2.52,,0.0706,TE Connectivity plc,Technology,137,AI infrastructure,revenue growth up 12 pts; AI infrastructure mentions rising
+PFGC,58.1,5,,,0.05927,0.30419,5.24,2.16,,0.0298,Performance Food Group Company,Consumer Defensive,138,AI,revenue growth up 6 pts; gross margin +30.4 pts; AI mentions rising
+MKSI,58.1,7,0.07154,0.11071,0.11702,-0.00388,16.08,0.63,,0.2055,MKS Inc.,Technology,139,AI,revenue growth up 12 pts
+ORCL,58.1,7,0.14186,0.01364,0.11949,-0.07322,9.65,4.26,,0.4571,Oracle Corporation,Technology,140,AI,revenue growth up 12 pts; R&D 14% of sales; AI mentions rising
+FCFS,57.9,5,,,0.15315,0.01804,0.89,0.89,,0.0692,"FirstCash Holdings, Inc.",Financial Services,141,AI,revenue growth up 15 pts
+AVIR,57.9,5,0.44241,3.08829,,,2.27,2.11,,0.0,"Atea Pharmaceuticals, Inc.",,142,AI,R&D 44% of sales; R&D +309%; AI mentions rising
+ONC,57.9,7,0.37406,0.12108,-0.12978,0.03375,5.05,2.22,,0.1491,BeOne Medicines Ltd.,Healthcare,143,AI,R&D 37% of sales; gross margin +3.4 pts; AI mentions rising
+AMKR,57.9,7,0.02119,-0.08531,0.15561,0.03062,5.32,3.47,,0.1414,"Amkor Technology, Inc.",,144,AI,revenue growth up 16 pts; gross margin +3.1 pts; AI mentions rising
+NOW,57.8,7,0.22468,0.21436,0.00767,-0.04973,16.81,6.22,,0.1872,"ServiceNow, Inc.",Technology,145,AI,R&D 22% of sales; R&D +21%; AI mentions rising
+PLD,57.8,4,,,0.04612,,8.25,4.34,,0.1039,"Prologis, Inc.",Real Estate,146,AI infrastructure,AI infrastructure mentions rising
+TWLO,57.8,7,0.18984,0.05438,0.0626,-0.01421,17.86,6.82,,0.1166,Twilio Inc.,Technology,147,AI,revenue growth up 6 pts; R&D 19% of sales; AI mentions rising
+WDAY,57.7,7,0.27651,0.06243,-0.00589,0.00209,28.36,9.59,,0.1044,"Workday, Inc.",Technology,148,AI,R&D 28% of sales; AI mentions rising
+FCNCA,57.7,4,,,0.50245,,1.22,1.22,,0.0625,"First Citizens BancShares, Inc.",,149,AI,revenue growth up 50 pts
+TLN,57.7,4,,,1.50477,,20.51,-7.13,,0.1804,Talen Energy Corporation,Utilities,150,AI infrastructure,revenue growth up 150 pts
+KRMN,57.6,5,,,0.10432,0.02173,7.45,-4.48,,0.2834,Karman Holdings Inc.,Industrials,151,Space & defense tech,revenue growth up 10 pts; gross margin +2.2 pts
+GH,57.6,7,0.31763,0.05317,-0.04232,0.02173,2.79,1.59,,0.3518,"Guardant Health, Inc.",Healthcare,152,AI,R&D 32% of sales; gross margin +2.2 pts
+MSI,57.5,7,0.08319,0.07839,0.03864,0.0066,14.98,10.21,,0.0891,"Motorola Solutions, Inc.",Technology,153,AI,AI mentions rising
+FIGR,57.4,4,0.08837,-0.00021,0.45275,,,,,0.3672,"Figure Technology Solutions, In",Financial Services,154,,revenue growth up 45 pts
+CRM,57.4,7,0.14489,0.11352,0.02901,-0.00368,29.68,7.98,,0.0969,"Salesforce, Inc.",,155,AI,R&D 14% of sales; AI mentions rising
+HUBS,57.4,7,0.26342,0.05356,0.02152,-0.01305,33.55,10.83,,0.1389,"HubSpot, Inc.",Technology,156,AI,R&D 26% of sales; AI mentions rising
+VRT,57.2,7,0.03367,0.20158,0.06519,0.0239,9.37,-0.68,,0.3073,"Vertiv Holdings, LLC",Industrials,157,Energy transition & power,revenue growth up 7 pts; R&D +20%; gross margin +2.4 pts
+MSFT,57.2,7,0.10525,0.10193,0.02326,-0.01107,40.3,9.93,,0.1998,Microsoft Corporation,Technology,158,AI,AI mentions rising
+MDGL,57.2,7,0.38175,1.5443,-32.72933,0.01247,1.39,0.4,,0.3883,"Madrigal Pharmaceuticals, Inc.",Healthcare,159,Biotech breakthroughs,R&D 38% of sales; R&D +154%
+SNPS,57.1,7,0.30603,0.25986,0.38329,-0.06741,10.27,-1.54,,0.1318,"Synopsys, Inc.",Technology,160,AI,revenue growth up 38 pts; R&D 31% of sales; R&D +26%
+KVYO,57.0,7,0.23126,0.19718,-0.04286,-0.01625,20.74,7.34,,0.1948,"Klaviyo, Inc. Series A",Technology,161,AI,R&D 23% of sales; AI mentions rising
+LMT,57.0,7,0.03344,0.53846,0.03643,0.01989,1.95,1.95,,0.0704,Lockheed Martin Corporation,Industrials,162,AI,R&D +54%
+TWST,56.9,3,,,,,2.76,2.76,,0.2024,Twist Bioscience Corporation,Healthcare,163,AI,AI mentions rising
+WTW,56.7,4,,,0.04604,,15.43,14.66,,0.0493,Willis Towers Watson Public Lim,Financial Services,164,AI,AI mentions rising
+WULF,56.6,7,0.03366,-0.24212,0.34118,3.79734,10.15,-2.71,,2.5036,TeraWulf Inc.,Financial Services,165,AI,revenue growth up 34 pts; gross margin +379.7 pts
+NTNX,56.5,7,0.27716,0.07338,-0.05672,-0.00012,30.17,13.69,,0.1363,"Nutanix, Inc.",Technology,166,AI,R&D 28% of sales; AI mentions rising
+AMGN,56.5,7,0.20026,0.19129,-0.03774,0.05031,6.16,4.99,,0.0363,Amgen Inc.,,167,AI,R&D 20% of sales; gross margin +5.0 pts; AI mentions rising
+VEEV,56.4,7,0.23768,0.12492,0.01173,-0.00632,11.42,4.0,,0.1229,Veeva Systems Inc.,Healthcare,168,AI,R&D 24% of sales; AI mentions rising
+NXT,56.3,7,0.03963,0.7038,0.03715,-0.00486,12.24,0.65,,0.1921,Nextpower Inc.,Technology,169,Energy transition & power,R&D +70%
+GLW,56.3,3,,,,,3.11,2.0,,0.2113,Corning Incorporated,Technology,170,AI,
+AXP,56.2,4,,,0.04016,,6.47,3.81,,0.0906,American Express Company,,171,AI,AI mentions rising
+MC,56.2,3,,,,,2.59,2.59,,0.1773,Moelis & Company,Financial Services,172,AI,AI mentions rising
+CAH,56.1,5,,,0.16102,0.00175,8.37,0.43,,0.0605,"Cardinal Health, Inc.",,173,Energy transition & power,revenue growth up 16 pts
+INGM,56.0,5,,,0.07774,-0.00241,12.27,11.41,,0.0361,Ingram Micro Holding Corporatio,Technology,174,AI,revenue growth up 8 pts; AI mentions rising
+EE,56.0,4,,,0.39112,,0.49,-0.43,,0.3045,"Excelerate Energy, Inc.",Energy,175,AI,revenue growth up 39 pts
+CADL,56.0,6,393.04,2.23692,0.0,,4.01,0.73,,0.0,"Candel Therapeutics, Inc.",,176,AI,R&D 39304% of sales; R&D +224%
+EBAY,55.8,7,0.14467,0.07045,0.11316,-0.0021,3.07,2.63,,0.0675,eBay Inc.,,177,AI,revenue growth up 11 pts; R&D 14% of sales; AI mentions rising
+CRWD,55.8,3,,,,,15.36,0.39,,0.2282,"CrowdStrike Holdings, Inc.",,178,AI,
+ADBE,55.8,5,,,0.01366,0.00115,35.9,5.23,,0.0914,Adobe Inc.,,179,AI,AI mentions rising
+CSGP,55.8,5,,,0.05617,-0.00968,7.7,4.18,,0.1086,"CoStar Group, Inc.",,180,AI,revenue growth up 6 pts; AI mentions rising
+UBER,55.7,3,,,,,12.73,0.99,,0.1534,"Uber Technologies, Inc.",Technology,181,Robotics & autonomy,
+U,55.7,7,0.5062,0.18212,0.27728,-0.09536,3.05,-13.43,,0.2113,Unity Software Inc.,Technology,182,AI infrastructure,revenue growth up 28 pts; R&D 51% of sales
+APLD,55.7,5,,,0.30539,-0.02408,38.93,-3.08,,1.0109,Applied Digital Corporation,Technology,183,AI infrastructure,revenue growth up 31 pts
+HON,55.7,7,0.04936,0.66637,1.18205,-0.20925,4.9,3.25,,0.0175,Honeywell International Inc.,Industrials,184,AI,revenue growth up 118 pts; R&D +67%; AI mentions rising
+ESI,55.6,7,0.02293,0.23839,0.35751,-0.0545,6.14,2.06,,0.0819,Element Solutions Inc.,Basic Materials,185,Space & defense tech,revenue growth up 36 pts; R&D +24%; Space & defense tech mentions rising
+NXPI,55.5,7,0.17916,0.07152,0.21362,0.01742,0.65,-0.59,,0.1196,NXP Semiconductors N.V.,Technology,186,AI,revenue growth up 21 pts; R&D 18% of sales
+INTU,55.4,6,0.1574,0.15301,-0.01737,,17.69,4.75,,0.0907,Intuit Inc.,Technology,187,AI,R&D 16% of sales; AI mentions rising
+WGS,55.4,7,0.18447,0.64666,-0.2328,0.02191,2.05,0.08,,0.2431,GeneDx Holdings Corp.,Healthcare,188,AI,R&D 18% of sales; R&D +65%; gross margin +2.2 pts
+TRU,55.4,5,,,0.05145,0.02333,1.97,1.17,,0.0594,TransUnion,Financial Services,189,AI,revenue growth up 5 pts; gross margin +2.3 pts
+ON,55.4,7,0.09048,-0.08679,0.14789,-0.00169,8.27,3.92,,0.13,ON Semiconductor Corporation,Technology,190,AI infrastructure,revenue growth up 15 pts; AI infrastructure mentions rising
+HTFL,55.4,7,0.39535,0.57902,-0.27623,0.04744,5.51,-1.65,,0.2411,"Heartflow, Inc.",Healthcare,191,AI,R&D 40% of sales; R&D +58%; gross margin +4.7 pts
+VERA,55.3,3,,,,,1.46,0.29,,8.4144,"Vera Therapeutics, Inc.",Healthcare,192,Energy transition & power,
+PWR,55.3,5,,,0.18413,0.00606,2.44,-0.28,,0.1468,"Quanta Services, Inc.",Industrials,193,AI infrastructure,revenue growth up 18 pts
+FTNT,55.3,7,0.11244,0.07616,0.0431,-0.01084,22.59,5.11,,0.1134,"Fortinet, Inc.",Technology,194,AI,AI mentions rising
+TTMI,55.3,7,0.00844,0.07588,0.19675,0.02017,10.87,-2.91,,0.4722,"TTM Technologies, Inc.",Technology,195,Robotics & autonomy,revenue growth up 20 pts; gross margin +2.0 pts
+NTAP,55.2,7,0.13841,0.02096,0.08815,0.00626,5.8,2.24,,0.0597,"NetApp, Inc.",Technology,196,AI,revenue growth up 9 pts; R&D 14% of sales; AI mentions rising
+TPG,55.2,4,,,0.09726,,0.2,0.2,,0.1884,TPG Inc.,Financial Services,197,AI,revenue growth up 10 pts
+CSCO,55.2,7,0.15101,0.02828,0.06476,-0.00414,21.08,6.48,,0.0672,"Cisco Systems, Inc.",,198,AI,revenue growth up 6 pts; R&D 15% of sales; AI mentions rising
+FE,55.1,4,,,0.04803,,6.78,4.14,,0.0569,FirstEnergy Corp.,,199,AI infrastructure,AI infrastructure mentions rising
+WST,55.1,7,0.02226,0.06479,0.07632,0.02015,4.57,3.32,,0.063,"West Pharmaceutical Services, I",Healthcare,200,Biotech breakthroughs,revenue growth up 8 pts; gross margin +2.0 pts; Biotech breakthroughs mentions rising
+KNSA,55.0,7,0.14352,0.39309,0.02513,0.02641,0.0,-0.32,,0.2387,Kiniksa Pharmaceuticals Interna,Healthcare,201,AI,R&D 14% of sales; R&D +39%; gross margin +2.6 pts
+ZM,55.0,7,0.18094,0.06041,0.01403,0.00919,26.6,7.1,,0.0441,"Zoom Communications, Inc.",Technology,202,AI,R&D 18% of sales; AI mentions rising
+GEV,54.9,7,0.0309,0.24066,0.07465,0.02254,9.79,-2.68,,0.1385,GE Vernova Inc.,Industrials,203,Energy transition & power,revenue growth up 7 pts; R&D +24%; gross margin +2.3 pts
+LIVN,54.9,7,0.14479,0.20251,0.04154,0.00073,2.67,1.06,,0.071,LivaNova PLC,Healthcare,204,AI,R&D 14% of sales; R&D +20%
+PAYX,54.9,5,,,0.04714,0.01541,3.31,2.05,,0.0547,"Paychex, Inc.",Technology,205,AI,AI mentions rising
+FLEX,54.9,7,0.00267,0.0,0.11329,0.00701,5.49,1.58,,0.3036,Flex Ltd.,Technology,206,Space & defense tech,revenue growth up 11 pts
+ROP,54.8,7,0.10296,0.13955,-0.02718,0.00658,38.43,35.36,,0.0629,"Roper Technologies, Inc.",Technology,207,AI,AI mentions rising
+BIRK,54.8,3,,,0.00924,0.06639,,,,0.1375,Birkenstock Holding plc,,208,,gross margin +6.6 pts
+DXCM,54.7,7,0.12155,0.06282,0.0624,0.03707,0.6,0.03,,0.1082,"DexCom, Inc.",,209,AI,revenue growth up 6 pts; R&D 12% of sales; gross margin +3.7 pts
+URBN,54.7,5,,,0.01383,0.01813,3.86,3.07,,0.0695,"Urban Outfitters, Inc.",Consumer Cyclical,210,AI,AI mentions rising
+CRBG,54.6,4,,,0.45418,,0.31,0.01,,0.0769,Corebridge Financial Inc.,,211,AI infrastructure,revenue growth up 45 pts
+DOCU,54.4,7,0.19608,0.03687,0.00301,0.00147,23.06,9.28,,0.0796,"DocuSign, Inc.",Technology,212,AI,R&D 20% of sales; AI mentions rising
+BWXT,54.4,7,0.00443,0.37716,0.12538,0.01346,44.89,-4.18,,0.0958,"BWX Technologies, Inc.",,213,Biotech breakthroughs,revenue growth up 13 pts; R&D +38%
+ISRG,54.4,7,0.12901,0.19153,-0.01729,0.00815,11.47,0.8,,0.1186,"Intuitive Surgical, Inc.",Healthcare,214,Robotics & autonomy,R&D 13% of sales
+HIG,54.2,4,,,1.67636,,0.73,0.02,,0.0486,"The Hartford Insurance Group, I",Financial Services,215,AI,revenue growth up 168 pts
+ALC,54.2,5,0.10405,0.12331,0.07206,0.01503,,,,0.0604,Alcon Inc.,,216,,revenue growth up 7 pts
+GENI,54.1,5,0.04643,0.26493,0.07333,-0.02213,,,,0.28,Genius Sports Limited,Communication Services,217,,revenue growth up 7 pts; R&D +26%
+ALB,54.0,7,0.00638,-0.45343,0.51364,0.16055,17.7,2.66,,0.0155,Albemarle Corporation,,218,Energy transition & power,revenue growth up 51 pts; gross margin +16.1 pts; Energy transition & power mentions rising
+ACN,54.0,7,0.01363,0.23732,-0.00886,0.02649,23.63,5.2,,0.0508,Accenture plc,,219,AI,R&D +24%; gross margin +2.6 pts; AI mentions rising
+CAI,53.9,6,0.11837,0.13878,0.10986,,3.85,-2.68,,0.1927,"Caris Life Sciences, Inc.",,220,AI infrastructure,revenue growth up 11 pts
+XPO,53.8,5,,,0.09766,-0.00133,4.17,1.29,,0.0558,"XPO, Inc.",Industrials,221,AI,revenue growth up 10 pts
+AXON,53.8,7,0.23869,0.3656,0.02188,-0.01058,12.86,-2.06,,0.2947,"Axon Enterprise, Inc.",,222,Robotics & autonomy,R&D 24% of sales; R&D +37%
+GE,53.8,7,0.01572,0.78635,0.12006,-0.01892,1.05,0.56,,0.1169,GE Aerospace,Industrials,223,AI,revenue growth up 12 pts; R&D +79%
+TSEM,53.8,5,0.05523,0.0889,0.08106,-0.00403,,,,0.3792,Tower Semiconductor Ltd.,Technology,224,,revenue growth up 8 pts
+TRGP,53.8,5,,,0.36341,-0.00823,0.0,0.0,,0.26,"Targa Resources, Inc.",Energy,225,AI,revenue growth up 36 pts
+ABNB,53.7,7,0.18892,0.10982,0.03402,-0.00328,1.57,1.57,,0.1156,"Airbnb, Inc.",,226,AI,R&D 19% of sales
+KLAC,53.6,7,0.10801,0.12099,-0.06286,0.0017,9.58,4.19,,0.1885,KLA Corporation,Technology,227,AI,AI mentions rising
+ETR,53.6,4,,,-0.02633,,35.1,5.29,,0.0969,Entergy Corporation,,228,AI infrastructure,AI infrastructure mentions rising
+NBIX,53.5,7,0.05199,0.0,0.16004,-0.00175,6.23,0.58,,0.1669,"Neurocrine Biosciences, Inc.",Healthcare,229,Biotech breakthroughs,revenue growth up 16 pts
+URI,53.5,5,,,-0.00312,0.05292,0.98,0.98,,0.1027,"United Rentals, Inc.",Industrials,230,AI,gross margin +5.3 pts
+IMNM,53.5,5,,0.26978,-1.16738,,3.21,1.52,,188.0397,"Immunome, Inc.",Healthcare,231,AI,R&D +27%
+ALKS,53.4,7,0.23449,0.46319,0.10959,-0.00568,0.0,0.0,,0.0658,Alkermes plc,,232,AI,revenue growth up 11 pts; R&D 23% of sales; R&D +46%
+LLY,53.3,7,0.09415,0.0,0.00097,0.00604,11.62,8.06,,0.1404,Eli Lilly and Company,Healthcare,233,Biotech breakthroughs,Biotech breakthroughs mentions rising
+MCD,53.2,4,,,0.05128,,5.16,4.1,,0.027,McDonald's Corporation,Consumer Cyclical,234,AI,revenue growth up 5 pts; AI mentions rising
+HWM,53.2,7,0.00391,0.11765,0.12321,0.43185,0.0,0.0,,0.132,Howmet Aerospace Inc.,Industrials,235,AI,revenue growth up 12 pts; gross margin +43.2 pts
+FSLR,53.1,7,0.05512,0.29162,-0.3188,0.09204,3.45,0.69,,0.181,"First Solar, Inc.",Technology,236,AI infrastructure,R&D +29%; gross margin +9.2 pts
+GFS,53.0,5,0.07628,0.04435,0.09292,0.00427,,,,0.1254,GlobalFoundries Inc.,Technology,237,,revenue growth up 9 pts
+CHTR,53.0,4,,,-0.02526,,9.77,4.58,,0.115,"Charter Communications, Inc.",Communication Services,238,Energy transition & power,Energy transition & power mentions rising
+SLB,53.0,7,0.01838,-0.05042,0.06731,0.0324,5.83,3.08,,0.0816,SLB Limited,Energy,239,AI infrastructure,revenue growth up 7 pts; gross margin +3.2 pts; AI infrastructure mentions rising
+CELH,52.9,7,0.00079,1.4,0.71003,-0.01773,0.37,0.37,,0.085,"Celsius Holdings, Inc.",,240,AI,revenue growth up 71 pts; R&D +140%
+MOD,52.9,7,0.00869,-0.16046,0.23016,-0.02652,34.04,24.78,,0.1419,Modine Manufacturing Company,Consumer Cyclical,241,AI infrastructure,revenue growth up 23 pts; AI infrastructure mentions rising
+W,52.8,5,,,0.06588,-0.00219,1.57,1.57,,0.0744,Wayfair Inc.,Consumer Cyclical,242,AI,revenue growth up 7 pts
+TOST,52.7,7,0.05952,0.13445,-0.03,0.01561,1.98,1.98,,0.1847,"Toast, Inc.",Technology,243,AI,
+ROST,52.6,5,,,0.12101,0.02055,0.0,0.0,,0.0696,"Ross Stores, Inc.",Consumer Cyclical,244,AI,revenue growth up 12 pts; gross margin +2.1 pts
+XMTR,52.6,7,0.0607,0.17015,0.13564,-0.00398,5.57,-2.79,,0.2174,"Xometry, Inc.",Industrials,245,Robotics & autonomy,revenue growth up 14 pts
+GILD,52.6,7,0.30042,0.0,0.01718,0.01058,2.74,1.81,,0.0692,"Gilead Sciences, Inc.",Healthcare,246,AI,R&D 30% of sales
+HRMY,52.5,7,0.2301,0.52588,0.06511,-0.02915,0.0,0.0,,0.1371,"Harmony Biosciences Holdings, I",Healthcare,247,AI,revenue growth up 7 pts; R&D 23% of sales; R&D +53%
+CERS,52.5,5,,,0.16015,-0.01761,0.8,0.64,,0.0902,Cerus Corporation,Healthcare,248,AI,revenue growth up 16 pts
+SE,52.4,5,0.05896,-0.04055,0.04563,0.03295,,,,0.2269,Sea Limited,Consumer Cyclical,249,,gross margin +3.3 pts
+OCUL,52.4,7,4.29371,0.29961,-0.00878,-0.02303,0.0,0.0,,0.9313,"Ocular Therapeutix, Inc.",Healthcare,250,AI,R&D 429% of sales; R&D +30%
+HBAN,52.3,4,,,0.08889,,0.71,0.45,,0.0685,Huntington Bancshares Incorpora,Financial Services,251,AI,revenue growth up 9 pts
+CVX,52.2,7,0.00205,0.20963,0.15879,0.0547,1.01,0.52,,-0.0422,Chevron Corporation,,252,AI,revenue growth up 16 pts; R&D +21%; gross margin +5.5 pts
+OLLI,52.2,5,,,0.04296,0.00886,0.76,0.07,,0.1114,Ollie's Bargain Outlet Holdings,Consumer Defensive,253,AI,
+DNTH,52.1,6,86.24656,1.11297,-1.87975,,4.46,4.46,,-0.0497,"Dianthus Therapeutics, Inc.",,254,Energy transition & power,R&D 8625% of sales; R&D +111%; Energy transition & power mentions rising
+TARS,52.1,6,0.14461,0.486,-1.49279,,1.44,1.44,,0.2486,"Tarsus Pharmaceuticals, Inc.",Healthcare,255,AI,R&D 14% of sales; R&D +49%
+FICO,52.0,7,0.0871,0.14805,0.07428,0.03354,3.63,-0.89,,0.0634,Fair Isaac Corporation,Technology,256,AI infrastructure,revenue growth up 7 pts; gross margin +3.4 pts
+RELY,51.9,6,0.17474,0.08887,-0.11333,,5.07,2.91,,0.1942,"Remitly Global, Inc.",Technology,257,AI,R&D 17% of sales; AI mentions rising
+PBR,51.9,4,0.00658,0.45815,0.51075,,,,,-0.0513,Petroleo Brasileiro S.A. Petrob,Energy,258,,revenue growth up 51 pts; R&D +46%
+IBM,51.9,7,0.12953,0.11784,0.02316,0.00157,12.89,2.37,,0.0377,International Business Machines,Technology,259,AI,R&D 13% of sales; AI mentions rising
+BMNR,51.9,5,,,10.74828,-0.29361,0.45,-2.98,,4.2175,"BitMine Immersion Technologies,",,260,AI infrastructure,revenue growth up 1075 pts
+WAT,51.9,7,0.06862,0.71911,0.50413,-0.1426,1.25,-0.42,,0.1044,Waters Corporation,Healthcare,261,AI,revenue growth up 50 pts; R&D +72%
+RNG,51.9,7,0.12595,0.01792,8e-05,0.01057,30.25,7.48,,0.0482,"Ringcentral, Inc.",Technology,262,AI,R&D 13% of sales; AI mentions rising
+VIST,51.8,3,,,0.42573,-0.0096,,,,0.0433,Vista Energy S.A.B. de C.V.,Energy,263,,revenue growth up 43 pts
+EVR,51.8,4,,,0.22442,,0.0,0.0,,0.0805,Evercore Inc.,,264,AI,revenue growth up 22 pts
+DLR,51.7,4,,,0.09624,,18.83,-12.8,,0.1102,"Digital Realty Trust, Inc.",,265,AI infrastructure,revenue growth up 10 pts
+MA,51.7,4,,,0.06155,,0.5,0.01,,0.1244,Mastercard Incorporated,Financial Services,266,AI,revenue growth up 6 pts
+AFRM,51.7,4,,,-0.05241,,6.2,1.12,,0.2468,"Affirm Holdings, Inc.",,267,AI,
+GSK,51.6,5,0.23035,0.1756,0.00659,0.01235,,,,0.0465,GSK plc,Healthcare,268,,R&D 23% of sales
+AIR,51.6,3,,,,,2.22,1.61,,0.068,AAR Corp.,,269,AI,
+APP,51.5,7,0.04687,0.11495,-0.80256,0.02128,13.58,2.15,,0.2506,Applovin Corporation,,270,AI,gross margin +2.1 pts; AI mentions rising
+FTI,51.5,7,0.00947,0.24845,-0.02195,0.06405,2.54,2.54,,0.0636,TechnipFMC plc,Energy,271,AI,R&D +25%; gross margin +6.4 pts; AI mentions rising
+EWBC,51.4,4,,,0.17174,,0.0,0.0,,0.0832,"East West Bancorp, Inc.",,272,AI,revenue growth up 17 pts
+AZO,51.4,5,,,0.04966,-0.00286,2.29,1.26,,0.0703,"AutoZone, Inc.",Consumer Cyclical,273,AI,
+BMEA,51.3,3,,,,,12.35,4.21,,0.0,"Biomea Fusion, Inc.",,274,AI,AI mentions rising
+MNST,51.3,5,,,0.16664,0.00363,0.49,-0.4,,0.0962,Monster Beverage Corporation,Consumer Defensive,275,Biotech breakthroughs,revenue growth up 17 pts
+VCYT,51.1,7,0.16617,0.31789,-0.02633,0.03457,0.0,0.0,,0.1116,"Veracyte, Inc.",Healthcare,276,AI,R&D 17% of sales; R&D +32%; gross margin +3.5 pts
+RGLD,51.0,5,,,0.63361,-0.02958,0.0,0.0,,0.147,"Royal Gold, Inc.",Basic Materials,277,AI,revenue growth up 63 pts
+CME,50.9,4,,,0.03148,,3.46,2.06,,0.052,CME Group Inc.,,278,AI,AI mentions rising
+WAB,50.8,7,0.02137,0.26699,0.08845,0.01908,0.0,0.0,,0.0689,Westinghouse Air Brake Technolo,Industrials,279,AI,revenue growth up 9 pts; R&D +27%
+TFC,50.8,3,,,,,1.72,1.72,,0.0603,Truist Financial Corporation,Financial Services,280,AI,
+CVNA,50.8,5,,,0.04739,-0.02332,0.58,0.58,,0.2559,Carvana Co.,,281,AI,
+SYF,50.8,3,,,,,2.49,2.12,,0.0522,Synchrony Financial,Financial Services,282,AI,AI mentions rising
+CHRW,50.8,5,,,0.0246,-7e-05,3.82,1.57,,0.0658,"C.H. Robinson Worldwide, Inc.",,283,AI,
+CMI,50.8,3,,,,,3.0,0.25,,0.0974,Cummins Inc.,,284,AI,
+KTOS,50.7,7,0.02897,0.08354,0.17741,-0.00607,12.27,-1.74,,0.241,Kratos Defense & Security Solut,Industrials,285,AI,revenue growth up 18 pts
+CAT,50.7,7,0.03038,0.08977,0.23222,-0.02056,1.82,0.27,,0.1082,"Caterpillar, Inc.",,286,AI infrastructure,revenue growth up 23 pts
+RL,50.6,5,,,0.05066,0.0124,0.42,0.42,,0.0514,Ralph Lauren Corporation,Consumer Cyclical,287,AI,revenue growth up 5 pts
+D,50.6,4,,,0.10165,,16.3,-1.49,,0.0676,"Dominion Energy, Inc.",,288,Energy transition & power,revenue growth up 10 pts
+CSX,50.5,4,,,0.096,,0.66,0.05,,0.0558,CSX Corporation,,289,AI,revenue growth up 10 pts
+IONS,50.4,7,1.04751,0.01563,-0.23464,-0.00718,4.26,2.16,,0.4744,"Ionis Pharmaceuticals, Inc.",Healthcare,290,AI,R&D 105% of sales; AI mentions rising
+COMP,50.4,6,0.02329,0.18344,0.46568,,1.87,-1.36,,0.0679,"Compass, Inc.",,291,AI,revenue growth up 47 pts
+LYV,50.4,4,,,0.11069,,0.0,0.0,,0.0927,"Live Nation Entertainment, Inc.",Communication Services,292,AI,revenue growth up 11 pts
+COST,50.4,5,,,0.01976,-0.00551,4.09,3.05,,0.0737,Costco Wholesale Corporation,,293,AI,AI mentions rising
+SBUX,50.3,5,,,0.03909,0.01005,0.9,0.9,,0.0478,Starbucks Corporation,Consumer Cyclical,294,AI,
+CEG,50.2,4,,,0.17494,,46.63,-9.01,,0.0366,Constellation Energy Corporatio,,295,AI infrastructure,revenue growth up 17 pts
+BDX,50.2,7,0.05786,0.29067,0.22783,-0.0623,2.01,0.71,,0.0227,"Becton, Dickinson and Company",,296,Biotech breakthroughs,revenue growth up 23 pts; R&D +29%
+NVCR,50.2,7,0.3154,0.06488,0.01772,0.01646,0.0,0.0,,0.1083,NovoCure Limited,Healthcare,297,AI,R&D 32% of sales
+FLUT,50.2,3,,,,,1.08,0.77,,0.0795,Flutter Entertainment plc,Consumer Cyclical,298,AI,
+FDX,50.2,5,,,0.11607,0.02035,1.51,-0.15,,0.0356,FedEx Corporation,,299,AI,revenue growth up 12 pts; gross margin +2.0 pts
+BURL,50.1,5,,,0.03322,0.00962,0.57,0.06,,0.0887,"Burlington Stores, Inc.",,300,AI,
+EFX,50.1,4,,,0.04562,,1.84,0.55,,0.0596,"Equifax, Inc.",,301,AI,
+JBLU,50.1,4,,,0.12361,,1.13,-1.2,,0.0912,JetBlue Airways Corporation,Industrials,302,AI,revenue growth up 12 pts
+CRS,50.0,7,0.00869,0.0613,0.07814,0.03265,0.53,0.01,,0.1017,Carpenter Technology Corporatio,,303,AI,revenue growth up 8 pts; gross margin +3.3 pts
+RBC,50.0,3,,,,,1.55,0.05,,0.1058,RBC Bearings Incorporated,Industrials,304,Space & defense tech,
+MSCI,50.0,7,0.05369,0.05329,0.03321,0.0112,1.71,1.15,,0.0905,MSCI Inc.,Financial Services,305,AI,
+TECX,50.0,3,,,,,4.62,3.51,,0.0,"Tectonic Therapeutic, Inc.",Healthcare,306,AI,AI mentions rising
+TMUS,49.9,5,,,0.01982,0.00286,3.19,2.37,,0.044,"T-Mobile US, Inc.",Communication Services,307,Space & defense tech,Space & defense tech mentions rising
+TNGX,49.8,6,2.48369,-0.02051,1.64326,,0.0,0.0,,0.0,"Tango Therapeutics, Inc.",Healthcare,308,AI,revenue growth up 164 pts; R&D 248% of sales
+STM,49.8,5,0.17322,-0.01589,0.12168,-0.0545,,,,0.1904,STMicroelectronics N.V.,Technology,309,,revenue growth up 12 pts; R&D 17% of sales
+LUV,49.8,4,,,0.13861,,0.0,0.0,,0.0653,Southwest Airlines Company,Industrials,310,AI,revenue growth up 14 pts
+HEI,49.8,7,0.02649,0.17474,0.0723,0.00893,0.0,0.0,,0.1139,Heico Corporation,Industrials,311,AI,revenue growth up 7 pts
+SAIA,49.8,4,,,0.07379,,0.96,0.0,,0.0799,"Saia, Inc.",Industrials,312,AI,revenue growth up 7 pts
+FISV,49.8,5,,,0.04533,-0.00092,2.24,2.24,,0.0352,"Fiserv, Inc.",,313,AI,AI mentions rising
+JHX,49.7,5,0.01183,0.31959,0.4103,-0.02932,,,,0.046,James Hardie Industries plc.,Basic Materials,314,,revenue growth up 41 pts; R&D +32%
+SOFI,49.7,7,1.17826,0.20413,-0.1299,-0.17578,1.4,0.86,,0.2652,"SoFi Technologies, Inc.",Financial Services,315,AI,R&D 118% of sales; R&D +20%
+DNLI,49.7,5,111.18757,-0.03892,,,0.0,-0.61,,1.5792,Denali Therapeutics Inc.,,316,AI,R&D 11119% of sales
+CBRE,49.6,5,,,0.00633,-0.00384,4.01,1.24,,0.1075,CBRE Group Inc,,317,AI infrastructure,
+ELAN,49.6,7,0.0739,0.04802,0.12132,0.00631,0.71,0.08,,0.0542,Elanco Animal Health Incorporat,,318,AI,revenue growth up 12 pts
+NDAQ,49.6,5,,,-0.05413,0.01207,4.54,1.06,,0.0906,"Nasdaq, Inc.",Financial Services,319,AI,
+CMG,49.6,4,,,0.00551,,1.01,1.01,,0.1064,"Chipotle Mexican Grill, Inc.",,320,AI,
+QURE,49.6,3,,,,,1.7,-10.16,,3.5614,uniQure N.V.,Healthcare,321,Biotech breakthroughs,
+ITT,49.6,3,,,,,0.54,0.54,,0.0896,ITT Inc.,Industrials,322,AI,
+TEM,49.5,6,0.13708,0.46003,-0.09419,,9.87,-0.49,,0.2337,"Tempus AI, Inc.",Healthcare,323,AI,R&D 14% of sales; R&D +46%
+BRO,49.4,4,,,0.08266,,0.91,0.05,,0.0416,"Brown & Brown, Inc.",,324,AI,revenue growth up 8 pts
+VST,49.3,4,,,0.0769,,27.68,-3.84,,0.0652,Vistra Corp.,Utilities,325,AI,revenue growth up 8 pts
+STT,49.3,4,,,0.04963,,0.86,0.46,,0.0558,State Street Corporation,Financial Services,326,AI,
+CPAY,49.2,3,,,,,0.74,0.37,,0.0864,"Corpay, Inc.",,327,AI,
+ROIV,49.2,6,97.04049,0.25408,-0.89353,,0.47,-6.16,,6.4848,Roivant Sciences Ltd.,Healthcare,328,AI,R&D 9704% of sales; R&D +25%
+BRK-B,49.2,4,,,0.0923,,0.0,0.0,,0.0842,Berkshire Hathaway Inc. New,Financial Services,329,AI,revenue growth up 9 pts
+IBKR,49.2,4,,,-0.09368,,3.02,1.22,,0.1986,"Interactive Brokers Group, Inc.",Financial Services,330,AI,
+JBIO,49.1,3,,,,,2.87,2.87,,0.0,"Jade Biosciences, Inc.",Healthcare,331,AI,AI mentions rising
+NU,49.1,3,,,-0.24098,0.02131,,,,0.2395,Nu Holdings Ltd.,Financial Services,332,,gross margin +2.1 pts
+CGON,49.1,3,,,,,0.0,-0.55,,17.7476,"CG Oncology, Inc.",,333,AI,
+DTE,49.0,4,,,0.02219,,16.8,0.52,,0.0382,DTE Energy Company,Utilities,334,AI infrastructure,
+LOAR,48.9,7,0.02235,0.48864,0.03608,0.00653,0.0,0.0,,0.1116,Loar Holdings Inc.,Industrials,335,AI,R&D +49%
+TT,48.9,7,0.01497,0.12274,0.01757,0.00416,4.25,1.14,,0.0966,Trane Technologies plc,Industrials,336,AI infrastructure,
+XEL,48.9,5,,,-0.02474,-0.00339,15.16,1.35,,0.0985,Xcel Energy Inc.,Utilities,337,AI infrastructure,
+ABBV,48.8,7,0.15883,-0.24056,0.04855,-0.00021,3.02,1.43,,0.0872,AbbVie Inc.,,338,Biotech breakthroughs,R&D 16% of sales
+BKNG,48.8,3,,,,,0.64,0.06,,0.0924,Booking Holdings Inc. Common St,,339,AI,
+AVAV,48.8,7,0.05918,0.0851,0.32939,-0.04131,4.97,-0.61,,0.1534,"AeroVironment, Inc.",,340,Robotics & autonomy,revenue growth up 33 pts
+ONB,48.8,4,,,0.15523,,0.0,0.0,,0.0513,Old National Bancorp,Financial Services,341,AI,revenue growth up 16 pts
+WVE,48.6,6,2.89604,0.17628,-0.32526,,10.18,2.69,,-0.4541,"Wave Life Sciences, Inc.",Healthcare,342,Biotech breakthroughs,R&D 290% of sales; Biotech breakthroughs mentions rising
+SGI,48.6,7,0.00432,0.06818,0.04021,0.03471,0.0,0.0,,0.3036,Somnigroup International Inc.,Consumer Cyclical,343,AI,gross margin +3.5 pts
+RH,48.5,5,,,-0.00089,0.13284,0.0,0.0,,0.0926,RH,Consumer Cyclical,344,AI,gross margin +13.3 pts
+ORKA,48.5,4,,73.62695,,,0.25,0.01,,0.0,"Oruka Therapeutics, Inc.",Healthcare,345,AI,R&D +7363%
+NEE,48.4,4,,,0.01876,,20.6,-0.45,,0.1191,"NextEra Energy, Inc.",Utilities,346,AI,
+PCG,48.4,4,,,-0.07955,,26.93,5.65,,0.0414,Pacific Gas & Electric Co.,Utilities,347,Energy transition & power,Energy transition & power mentions rising
+EL,48.4,7,0.01049,0.0,0.13261,0.0153,3.13,0.63,,0.0428,"Estee Lauder Companies, Inc. (T",,348,AI,revenue growth up 13 pts
+C,48.4,3,,,0.02176,0.01145,,,,0.044,"Citigroup, Inc.",,349,,
+GRMN,48.3,7,0.15313,0.10794,-0.02968,0.02387,0.93,0.0,,0.1155,Garmin Ltd.,Technology,350,AI infrastructure,R&D 15% of sales; gross margin +2.4 pts
+IRON,48.3,3,,,,,4.92,1.48,,0.0,"Disc Medicine, Inc.",Healthcare,351,AI,
+QXO,48.3,5,,,-29.01326,0.02532,1.8,0.03,,0.3226,"QXO, Inc.",Industrials,352,AI,gross margin +2.5 pts
+COF,48.2,4,,,0.44944,,0.16,-5.46,,0.0538,Capital One Financial Corporati,,353,AI,revenue growth up 45 pts
+EXR,48.2,5,,,0.04598,0.18545,0.0,0.0,,0.0265,Extra Space Storage Inc,,354,AI,gross margin +18.5 pts
+TW,48.1,4,,,-0.07741,,2.78,1.21,,0.1267,Tradeweb Markets Inc.,Financial Services,355,AI,
+UAL,48.1,4,,,0.0807,,0.0,0.0,,0.0702,"United Airlines Holdings, Inc.",Industrials,356,AI,revenue growth up 8 pts
+GPN,48.1,5,,,0.12321,-0.09839,0.92,0.92,,0.0521,Global Payments Inc.,Industrials,357,AI,revenue growth up 12 pts
+FWONK,48.1,4,,,,0.03437,0.0,-0.74,,0.1091,Liberty Media Corporation - Ser,Communication Services,358,AI,gross margin +3.4 pts
+SYK,48.0,7,0.06417,0.07175,-0.0288,0.0084,2.27,2.27,,0.0896,Stryker Corporation,Healthcare,359,Robotics & autonomy,Robotics & autonomy mentions rising
+PRAX,47.9,5,,0.90736,-3.4953,,0.0,0.0,,414.4259,"Praxis Precision Medicines, Inc",Healthcare,360,AI,R&D +91%
+EW,47.9,7,0.16747,0.03345,0.04717,-0.01034,1.01,0.49,,0.0991,Edwards Lifesciences Corporatio,,361,AI,R&D 17% of sales
+ENTG,47.8,7,0.09561,-0.04072,0.05056,-0.00039,0.67,0.67,,0.1488,"Entegris, Inc.",,362,AI,revenue growth up 5 pts
+MAZE,47.8,5,0.64986,0.24639,,,4.69,-0.62,,-0.6258,"Maze Therapeutics, Inc.",Healthcare,363,AI,R&D 65% of sales; R&D +25%
+KKR,47.8,4,,,0.14843,,0.0,0.0,,0.037,KKR & Co. Inc.,Financial Services,364,AI,revenue growth up 15 pts
+RAPP,47.8,3,,,,,5.97,1.59,,-1.0,"Rapport Therapeutics, Inc.",Healthcare,365,AI,
+GNRC,47.7,7,0.05621,0.04572,-0.0908,-0.0041,15.48,1.96,,0.3834,Generac Holdlings Inc.,Industrials,366,AI infrastructure,
+AAL,47.7,4,,,0.06033,,0.38,-0.0,,0.0684,"American Airlines Group, Inc.",,367,AI,revenue growth up 6 pts
+SN,47.7,5,0.05778,0.16991,-0.04987,0.00772,,,,0.1328,"SharkNinja, Inc.",Consumer Cyclical,368,,
+BROS,47.5,5,,,-0.00147,-0.01628,0.65,0.65,,0.2433,Dutch Bros Inc.,,369,Biotech breakthroughs,
+FHTX,47.5,6,2.14568,-0.11042,0.83281,,0.0,0.0,,-0.6242,Foghorn Therapeutics Inc.,Healthcare,370,AI,revenue growth up 83 pts; R&D 215% of sales
+CDNS,47.5,5,,,-0.02084,0.00211,2.2,0.04,,0.1441,"Cadence Design Systems, Inc.",,371,AI,
+NTLA,47.4,7,5.82682,-0.22209,-0.0241,0.0,24.63,-5.51,,1.4336,"Intellia Therapeutics, Inc.",Healthcare,372,AI,R&D 583% of sales
+GPCR,47.4,3,,,,,10.81,1.05,,-0.9989,Structure Therapeutics Inc.,Healthcare,373,Biotech breakthroughs,
+AIT,47.3,5,,,0.04421,-0.00039,0.89,0.09,,0.0561,Applied Industrial Technologies,Industrials,374,Robotics & autonomy,
+ARES,47.3,4,,,-0.25841,,2.13,1.54,,0.1729,Ares Management Corporation,,375,AI infrastructure,
+FIX,47.2,5,,,-0.21291,0.31627,1.1,-0.43,,0.2667,"Comfort Systems USA, Inc.",Industrials,376,AI infrastructure,gross margin +31.6 pts
+ICE,47.2,4,,,0.02217,,1.9,0.3,,0.0553,Intercontinental Exchange Inc.,Financial Services,377,AI infrastructure,
+ACLS,47.2,7,0.12962,0.03712,0.1603,-0.01885,0.0,0.0,,0.1191,"Axcelis Technologies, Inc.",,378,AI,revenue growth up 16 pts; R&D 13% of sales
+DYN,47.1,3,,,,,2.48,1.15,,0.0,"Dyne Therapeutics, Inc.",,379,Biotech breakthroughs,
+VKTX,47.1,4,,1.63466,,,3.69,-0.45,,0.0,"Viking Therapeutics, Inc.",Healthcare,380,Biotech breakthroughs,R&D +163%
+SPXC,47.1,7,0.02181,0.17647,0.11731,-0.03826,8.48,-1.48,,0.1457,"SPX Technologies, Inc.",Industrials,381,AI infrastructure,revenue growth up 12 pts
+SANA,47.0,3,,,,,3.44,0.78,,0.0,"Sana Biotechnology, Inc.",Healthcare,382,AI,
+RPRX,47.0,6,0.0941,-0.32204,0.06988,,2.23,0.3,,0.091,Royalty Pharma plc,Healthcare,383,AI,revenue growth up 7 pts
+BHVN,47.0,3,,,,,5.3,1.13,,-0.4672,Biohaven Ltd.,,384,Biotech breakthroughs,
+KDP,46.9,7,0.00348,0.0,0.22855,-0.05541,1.51,1.51,,0.1382,Keurig Dr Pepper Inc.,Consumer Defensive,385,AI,revenue growth up 23 pts
+RYTM,46.9,7,0.72196,0.09365,-0.48337,-0.00246,19.75,-3.35,,0.7925,"Rhythm Pharmaceuticals, Inc.",Healthcare,386,AI,R&D 72% of sales
+CPRT,46.8,5,,,-0.10976,-0.00701,5.07,2.32,,0.1328,"Copart, Inc.",Industrials,387,AI,AI mentions rising
+MTN,46.8,4,,,-0.06999,,5.08,4.79,,0.0371,"Vail Resorts, Inc.",Consumer Cyclical,388,AI,AI mentions rising
+RKT,46.8,3,,,,,0.73,0.04,,0.0592,"Rocket Companies, Inc.",Financial Services,389,AI,
+MDLN,46.8,5,0.00267,0.19403,0.07578,-0.01146,,,,0.0784,Medline Inc.,Healthcare,390,,revenue growth up 8 pts
+EOG,46.7,4,,,0.27246,,0.0,0.0,,-0.1002,"EOG Resources, Inc.",,391,AI,revenue growth up 27 pts
+SCHW,46.6,4,,,0.03412,,0.27,-0.02,,0.1256,Charles Schwab Corporation (The,Financial Services,392,AI,
+RCL,46.6,5,,,0.01143,0.02494,0.0,0.0,,0.0741,Royal Caribbean Cruises Ltd.,Consumer Cyclical,393,AI,gross margin +2.5 pts
+USB,46.6,4,,,0.05002,,0.0,0.0,,0.073,U.S. Bancorp,Financial Services,394,AI,revenue growth up 5 pts
+FRNM,46.5,3,,,,,0.0,0.0,,0.1116,"Freenome, Inc.",Healthcare,395,AI,
+PCOR,46.5,7,0.25644,0.05247,-0.0067,-0.00208,15.98,-4.2,,0.1925,"Procore Technologies, Inc.",Technology,396,AI infrastructure,R&D 26% of sales
+DOW,46.5,5,,,0.09405,-0.00507,0.68,0.68,,-0.0196,Dow Inc.,,397,AI,revenue growth up 9 pts
+ONTO,46.5,7,0.12734,0.15415,-0.07424,-0.01184,0.59,0.59,,0.3079,Onto Innovation Inc.,Technology,398,AI,R&D 13% of sales
+EXE,46.4,3,,,,,0.45,0.45,,0.0455,Expand Energy Corporation,Energy,399,AI infrastructure,
+MRK,46.4,7,0.45747,0.68109,0.02824,-0.03637,0.84,-0.05,,0.0385,"Merck & Company, Inc.",Healthcare,400,Energy transition & power,R&D 46% of sales; R&D +68%
+SYRE,46.4,4,,0.0,,,5.26,2.68,,0.0,"Spyre Therapeutics, Inc.",Healthcare,401,AI,AI mentions rising
+COIN,46.3,6,0.34517,0.26021,-0.72854,,0.52,-2.61,,0.2987,"Coinbase Global, Inc.",,402,AI,R&D 35% of sales; R&D +26%
+CFR,46.3,4,,,0.01395,,0.63,0.63,,0.0568,"Cullen/Frost Bankers, Inc.",,403,AI,
+OVV,46.2,4,,,0.19441,,0.0,0.0,,-0.0926,Ovintiv Inc. (DE),Energy,404,AI,revenue growth up 19 pts
+NAMS,46.2,6,20.95871,0.04468,-8.51024,,0.0,0.0,,3.8412,NewAmsterdam Pharma Company N.V,Healthcare,405,AI,R&D 2096% of sales
+QCOM,46.1,7,0.22449,0.10241,-0.13941,-0.01455,12.29,6.72,,0.0464,QUALCOMM Incorporated,Technology,406,AI,R&D 22% of sales; AI mentions rising
+UNP,46.1,4,,,0.0634,,0.64,-0.01,,0.0573,Union Pacific Corporation,Industrials,407,AI,revenue growth up 6 pts
+ARWR,46.1,6,1.08047,0.42994,-27.9936,,2.61,0.92,,-0.2928,"Arrowhead Pharmaceuticals, Inc.",,408,Biotech breakthroughs,R&D 108% of sales; R&D +43%
+AEE,46.1,4,,,-0.13563,,17.01,1.27,,0.064,Ameren Corporation,,409,Energy transition & power,
+LHX,46.1,5,,,0.02015,-0.00398,2.13,0.07,,0.0719,"L3Harris Technologies, Inc.",Industrials,410,Robotics & autonomy,
+MCO,46.0,7,0.00625,0.0,0.00226,0.00883,7.16,6.47,,0.0668,Moody's Corporation,Financial Services,411,AI,AI mentions rising
+DAL,45.9,4,,,0.0978,,0.0,0.0,,0.0297,"Delta Air Lines, Inc.",,412,AI,revenue growth up 10 pts
+NRG,45.9,7,0.00025,0.0,0.10015,0.051,1.64,0.4,,0.0206,"NRG Energy, Inc.",Utilities,413,AI infrastructure,revenue growth up 10 pts; gross margin +5.1 pts
+ADP,45.9,7,0.04688,0.04066,-0.0033,0.00389,18.68,1.27,,0.0576,"Automatic Data Processing, Inc.",,414,AI,
+FIVE,45.8,5,,,0.11682,-0.05651,1.32,-0.15,,0.0927,"Five Below, Inc.",Consumer Cyclical,415,AI,revenue growth up 12 pts
+TDG,45.8,7,0.01486,0.12381,-0.00716,0.16731,0.0,0.0,,0.1161,Transdigm Group Incorporated,Industrials,416,AI,gross margin +16.7 pts
+ALGN,45.7,7,0.09107,0.0087,0.03851,-0.01741,12.17,3.27,,0.0323,"Align Technology, Inc.",,417,AI,AI mentions rising
+AON,45.6,4,,,-0.10248,,0.35,0.35,,0.2065,Aon plc,,418,AI,
+PRTA,45.6,6,1.19107,-0.66212,5.22558,,0.0,-0.2,,-0.7457,Prothena Corporation plc,Healthcare,419,AI,revenue growth up 523 pts; R&D 119% of sales
+PACB,45.6,7,1.13433,-0.15502,-0.2403,0.33047,1.22,-0.03,,0.1601,Pacific Biosciences of Californ,Healthcare,420,AI,R&D 113% of sales; gross margin +33.0 pts
+TSCO,45.6,5,,,0.01018,0.00052,1.63,0.84,,0.0388,Tractor Supply Company,Consumer Cyclical,421,Energy transition & power,
+ADTTF,45.5,4,0.2248,-0.01409,-0.47341,0.19298,,,,,Advantest Corp.,,422,,R&D 22% of sales; gross margin +19.3 pts
+ATI,45.4,7,0.00425,0.08673,0.01642,0.03029,0.44,0.44,,0.071,ATI Inc.,,423,Energy transition & power,gross margin +3.0 pts
+PCVX,45.4,3,,,,,3.32,0.07,,0.0,"Vaxcyte, Inc.",Healthcare,424,AI,
+SAP,45.4,5,0.18024,0.01827,-0.01836,-0.00088,,,,0.1194,SAP  SE,Technology,425,,R&D 18% of sales
+CYTK,45.4,6,5.9252,0.03703,-26.56811,,0.0,0.0,,1.7414,"Cytokinetics, Incorporated",,426,AI,R&D 593% of sales
+IP,45.4,5,,,0.2125,-0.1006,0.0,0.0,,0.0671,International Paper Company,Consumer Cyclical,427,AI,revenue growth up 21 pts
+NKE,45.3,5,,,0.0596,0.01134,0.0,0.0,,0.0098,"Nike, Inc.",Consumer Cyclical,428,AI,revenue growth up 6 pts
+FERG,45.3,3,,,-0.017,8e-05,,,,0.0733,Ferguson Enterprises Inc.,,429,,
+ODFL,45.2,3,,,,,0.0,0.0,,0.081,"Old Dominion Freight Line, Inc.",Industrials,430,AI,
+RACE,45.1,5,0.12859,0.0277,-0.04808,0.01546,,,,0.082,Ferrari N.V.,Consumer Cyclical,431,,R&D 13% of sales
+IEX,45.1,7,0.01913,0.03858,-0.00162,0.00478,3.71,3.1,,0.0583,IDEX Corporation,Industrials,432,AI,AI mentions rising
+OMF,45.1,3,,,,,0.0,0.0,,0.0795,"OneMain Holdings, Inc.",Financial Services,433,AI,
+MRNA,45.0,7,1.29084,-0.24613,0.11434,-0.29117,0.57,-0.58,,0.1626,"Moderna, Inc.",Healthcare,434,AI,revenue growth up 11 pts; R&D 129% of sales
+GWW,45.0,5,,,0.03451,0.00147,0.98,-0.02,,0.0716,"W.W. Grainger, Inc.",Industrials,435,AI,
+CRWV,45.0,5,0.05573,1.28649,-13.23955,-0.07052,,,,1.0562,"CoreWeave, Inc.",,436,,R&D +129%
+DIS,45.0,4,,,-0.0043,,2.09,0.48,,0.0442,Walt Disney Company (The),,437,AI,
+WMB,44.9,5,,,-0.04073,0.02081,0.32,-0.3,,0.1467,"Williams Companies, Inc. (The)",Energy,438,Energy transition & power,gross margin +2.1 pts
+CTAS,44.8,5,,,0.01301,0.00893,0.0,0.0,,0.0753,Cintas Corporation,,439,AI,
+CTVA,44.8,7,0.08382,0.04919,0.02064,0.03886,0.29,0.02,,0.031,"Corteva, Inc.",,440,Biotech breakthroughs,gross margin +3.9 pts
+AZN,44.8,5,0.24229,0.04778,-0.09406,0.00774,,,,0.0639,AstraZeneca PLC,,441,,R&D 24% of sales
+IMRX,44.7,5,,0.50599,-0.15238,,1.49,1.49,,0.0,Immuneering Corporation,Healthcare,442,AI,R&D +51%
+ARMK,44.6,5,,,0.03393,-0.07426,0.58,0.58,,0.0898,Aramark,Industrials,443,AI,
+HIMS,44.6,5,,,-0.60647,-0.07774,10.85,1.7,,0.2459,"Hims & Hers Health, Inc.",Healthcare,444,AI,
+WING,44.6,5,,,-0.08654,0.00866,0.78,-0.0,,0.1508,Wingstop Inc.,Consumer Cyclical,445,AI,
+V,44.6,4,,,0.04177,,0.0,-1.33,,0.1069,Visa Inc.,Financial Services,446,AI,
+PCAR,44.5,7,0.01508,-0.03542,0.13692,-0.00521,0.84,0.41,,0.0918,PACCAR Inc.,Industrials,447,AI,revenue growth up 14 pts
+APG,44.5,5,,,0.0567,-0.00033,0.0,-0.38,,0.0799,APi Group Corporation,Industrials,448,AI,revenue growth up 6 pts
+LEGN,44.4,5,0.66115,0.08503,-0.23727,-0.12738,,,,0.2342,Legend Biotech Corporation,Healthcare,449,,R&D 66% of sales
+BMRN,44.3,7,0.28992,0.45573,-0.07163,-0.03441,1.91,-1.76,,0.1491,BioMarin Pharmaceutical Inc.,,450,AI,R&D 29% of sales; R&D +46%
+COR,44.3,5,,,-0.06475,0.00494,3.52,0.85,,0.0435,"Cencora, Inc.",,451,AI,
+NCLH,44.3,4,,,0.01627,,0.52,0.03,,0.0483,Norwegian Cruise Line Holdings ,Consumer Cyclical,452,AI,
+RVTY,44.2,7,0.07412,0.05173,0.00719,-0.02768,4.92,4.92,,0.0544,"Revvity, Inc.",Healthcare,453,AI,AI mentions rising
+CORT,44.2,7,0.30555,0.01202,-0.09692,0.00026,0.0,0.0,,0.4623,Corcept Therapeutics Incorporat,,454,AI,R&D 31% of sales
+CMS,44.2,4,,,0.02218,,5.6,-0.69,,0.0596,CMS Energy Corporation,,455,AI,
+BJ,44.2,5,,,0.06608,-0.00406,0.7,-0.03,,0.0567,"BJ's Wholesale Club Holdings, I",,456,AI,revenue growth up 7 pts
+WSBC,44.2,3,,,,,0.0,0.0,,0.0645,"WesBanco, Inc.",Financial Services,457,AI,
+CCJ,44.1,5,0.01105,0.05274,-0.10138,0.02909,,,,0.1537,Cameco Corporation,,458,,gross margin +2.9 pts
+CL,44.1,7,0.01739,0.03099,0.052,-0.00144,3.3,1.86,,0.031,Colgate-Palmolive Company,,459,AI,revenue growth up 5 pts
+DECK,44.1,7,0.01235,0.21566,-0.06274,0.01261,1.31,0.64,,0.0581,Deckers Outdoor Corporation,,460,AI,R&D +22%
+CNP,44.1,5,,,-0.00595,-9e-05,1.97,0.4,,0.0485,"CenterPoint Energy, Inc (Holdin",,461,AI,
+OKTA,44.1,7,0.21185,0.03498,-0.01464,0.01223,3.99,-5.84,,0.1005,"Okta, Inc.",Technology,462,AI,R&D 21% of sales
+ORLY,44.1,5,,,0.03324,0.00238,0.0,0.0,,0.0622,"O'Reilly Automotive, Inc.",Consumer Cyclical,463,AI,
+OWL,44.0,4,,,-0.17616,,1.73,0.77,,0.089,Blue Owl Capital Inc.,Financial Services,464,AI,
+HPQ,44.0,7,0.02723,0.0094,0.05529,-0.01019,7.01,2.99,,0.0047,HP Inc.,Technology,465,AI,revenue growth up 6 pts; AI mentions rising
+BKR,44.0,7,0.01997,-0.06818,0.02208,-0.00573,10.03,2.69,,0.0982,Baker Hughes Company,,466,AI infrastructure,AI infrastructure mentions rising
+CFG,44.0,4,,,0.00611,,0.27,-0.0,,0.0869,"Citizens Financial Group, Inc.",,467,AI infrastructure,
+EMR,43.9,7,0.04137,-0.0128,-2e-05,0.00662,2.87,2.87,,0.0558,Emerson Electric Company,,468,AI,AI mentions rising
+VLTO,43.9,7,0.04827,0.05058,0.01248,-0.00056,1.58,1.58,,0.0582,Veralto Corp,Industrials,469,AI,
+HLT,43.9,4,,,0.01456,,0.0,0.0,,0.086,Hilton Worldwide Holdings Inc.,Consumer Cyclical,470,AI,
+TDY,43.9,7,0.05071,0.06132,0.01186,0.00865,1.99,0.04,,0.0589,Teledyne Technologies Incorpora,Technology,471,Space & defense tech,
+TRP,43.8,3,,,0.01221,-0.00953,,,,0.0583,TC Energy Corporation,Energy,472,,
+FND,43.8,5,,,-0.02452,0.01208,0.82,0.03,,0.0484,"Floor & Decor Holdings, Inc.",Consumer Cyclical,473,AI,
+EQH,43.7,4,,,-0.40801,,1.0,1.0,,0.1033,"Equitable Holdings, Inc.",,474,AI,
+ILMN,43.7,7,0.21362,-0.04762,0.08176,-0.00173,0.0,0.0,,0.0646,"Illumina, Inc.",Healthcare,475,AI,revenue growth up 8 pts; R&D 21% of sales
+AIG,43.6,4,,,-0.06724,,1.04,0.19,,0.0826,"American International Group, I",,476,AI,
+STZ,43.6,5,,,0.01247,0.00951,0.45,0.03,,0.0147,"Constellation Brands, Inc.",Consumer Defensive,477,AI,
+ETN,43.5,7,0.02811,0.05632,0.07874,-0.0226,9.14,-0.8,,0.1227,"Eaton Corporation, PLC",,478,AI,revenue growth up 8 pts
+LOW,43.4,5,,,0.08646,-0.00382,0.0,0.0,,0.0243,"Lowe's Companies, Inc.",Consumer Cyclical,479,AI,revenue growth up 9 pts
+MSTR,43.4,7,0.18688,-0.13356,0.11602,-0.02498,4.75,0.07,,0.0247,Strategy Inc,Technology,480,Quantum & next compute,revenue growth up 12 pts; R&D 19% of sales
+GEHC,43.4,7,0.06059,0.02342,0.03358,-0.00867,4.1,1.25,,0.0475,GE HealthCare Technologies Inc.,Healthcare,481,Biotech breakthroughs,
+SIMO,43.3,5,1.34893,0.0,-0.1551,-0.36762,,,,0.368,Silicon Motion Technology Corpo,Technology,482,,R&D 135% of sales
+PNC,43.3,4,,,-0.09034,,1.33,1.15,,0.0556,"PNC Financial Services Group, I",Financial Services,483,AI,
+USFD,43.2,5,,,-0.01487,0.00158,0.71,0.71,,0.0402,US Foods Holding Corp.,Consumer Defensive,484,AI,
+SPOT,43.1,5,0.08105,-0.06258,-0.0866,0.01839,,,,0.1492,Spotify Technology S.A.,Communication Services,485,,
+NOC,43.0,7,0.02523,0.0,0.06646,0.01972,2.23,-1.56,,0.0647,Northrop Grumman Corporation,Industrials,486,AI,revenue growth up 7 pts
+NTRS,42.9,4,,,0.01561,,0.24,0.24,,0.0217,Northern Trust Corporation,Financial Services,487,AI,
+BLSH,42.9,3,,,-1.16934,-7e-05,,,,0.1438,Bullish,,488,,
+EXC,42.9,4,,,-0.02132,,2.42,0.41,,0.031,Exelon Corporation,,489,Energy transition & power,
+HUM,42.9,4,,,0.03998,,0.0,0.0,,0.0365,Humana Inc.,Healthcare,490,AI,
+WMT,42.8,5,,,0.0193,0.00299,0.57,0.0,,0.0434,Walmart Inc.,Consumer Defensive,491,AI,
+DHI,42.8,5,,,0.03768,-0.02186,0.0,0.0,,0.1019,"D.R. Horton, Inc.",,492,AI,
+HCA,42.7,4,,,-0.01003,,1.51,0.09,,0.0319,"HCA Healthcare, Inc.",Healthcare,493,AI,
+EPAM,42.7,5,,,0.01034,-0.00616,4.18,0.07,,0.0359,"EPAM Systems, Inc.",Technology,494,AI,
+IMCR,42.6,7,0.66032,0.18969,-0.2183,-0.00356,0.0,0.0,,0.0803,Immunocore Holdings plc,Healthcare,495,AI,R&D 66% of sales
+MPWR,42.6,7,0.01392,0.0,-0.05634,-0.00117,3.38,1.17,,0.2798,"Monolithic Power Systems, Inc.",Technology,496,AI,
+LPLA,42.5,4,,,-0.04154,,0.0,0.0,,0.1356,LPL Financial Holdings Inc.,Financial Services,497,AI,
+IMO,42.5,6,0.00259,0.13559,0.10323,,1.45,-0.05,,0.0334,Imperial Oil Limited,Energy,498,AI,revenue growth up 10 pts
+VRTX,42.5,7,0.25408,0.0,-0.00229,-0.00111,11.88,-9.15,,0.0995,Vertex Pharmaceuticals Incorpor,Healthcare,499,Biotech breakthroughs,R&D 25% of sales
+PFE,42.4,7,0.21705,-0.03299,-0.69192,0.03862,5.01,2.27,,-0.0375,"Pfizer, Inc.",Healthcare,500,Biotech breakthroughs,R&D 22% of sales; gross margin +3.9 pts; Biotech breakthroughs mentions rising
+JAZZ,42.4,6,0.06514,0.0,0.08072,,0.0,0.0,,0.0589,Jazz Pharmaceuticals plc,Healthcare,501,AI,revenue growth up 8 pts
+UNH,42.3,5,,,-0.03238,0.00327,0.75,0.75,,0.0312,UnitedHealth Group Incorporated,Healthcare,502,AI,
+KO,42.2,5,,,0.04317,0.00686,0.0,0.0,,-0.0322,Coca-Cola Company (The),Consumer Defensive,503,AI,
+KR,42.1,5,,,0.03714,0.00773,0.71,-0.5,,0.0159,Kroger Company (The),Consumer Defensive,504,AI,
+NFLX,42.1,7,0.07823,0.18709,-0.00756,-0.00484,0.0,0.0,,0.1071,"Netflix, Inc.",Communication Services,505,AI,
+ROK,42.0,7,0.07979,0.08815,0.19627,-0.04549,1.22,-13.03,,0.058,"Rockwell Automation, Inc.",Industrials,506,AI infrastructure,revenue growth up 20 pts
+TJX,42.0,4,,,0.00679,,0.0,0.0,,0.0621,"TJX Companies, Inc. (The)",Consumer Cyclical,507,AI,
+PR,42.0,4,,,-0.03556,,0.94,0.94,,0.0182,Permian Resources Corporation,Energy,508,AI,
+PYPL,41.9,6,0.05865,0.0,-0.00242,,3.3,1.36,,0.0415,"PayPal Holdings, Inc.",Financial Services,509,AI,
+EAT,41.9,3,,,,,0.99,-0.05,,0.0298,"Brinker International, Inc.",,510,AI,
+FTAI,41.9,5,,,-0.10687,-0.09666,0.27,0.27,,0.6893,FTAI Aviation Ltd.,Industrials,511,AI,
+CCL,41.8,5,,,-0.01957,0.02989,0.0,0.0,,0.0316,Carnival Corporation Ltd.,,512,AI,gross margin +3.0 pts
+KEY,41.7,4,,,-0.07798,,0.45,0.03,,0.0748,KeyCorp,Financial Services,513,AI infrastructure,
+SO,41.6,4,,,-0.01239,,12.26,-2.33,,0.0575,Southern Company (The),Utilities,514,AI infrastructure,
+SIGI,41.6,4,,,-0.06875,,2.29,1.41,,-0.0197,"Selective Insurance Group, Inc.",Financial Services,515,AI,
+CVS,41.5,5,,,0.2762,-0.03819,0.0,-0.7,,0.0287,CVS Health Corporation,,516,AI,revenue growth up 28 pts
+RJF,41.4,4,,,-0.00892,,0.0,0.0,,0.069,"Raymond James Financial, Inc.",Financial Services,517,AI,
+LULU,41.4,5,,,-0.07416,-0.02989,9.01,8.23,,-0.0121,lululemon athletica inc.,Consumer Cyclical,518,AI,AI mentions rising
+PRU,41.3,3,,,,,0.0,0.0,,0.0178,"Prudential Financial, Inc.",Financial Services,519,AI,
+TTWO,41.3,7,0.01041,0.0,0.07969,0.00239,0.0,0.0,,0.0901,"Take-Two Interactive Software, ",Communication Services,520,AI,revenue growth up 8 pts
+BLDR,41.2,5,,,-0.01808,-0.02492,4.29,2.58,,-0.0034,"Builders FirstSource, Inc.",,521,AI,AI mentions rising
+WCN,41.2,5,,,-0.01274,0.0052,0.0,0.0,,0.0601,"Waste Connections, Inc.",Industrials,522,AI,
+MAR,41.1,4,,,-0.00401,,0.0,0.0,,0.0595,Marriott International,Consumer Cyclical,523,AI,
+Z,41.1,7,0.21744,0.02517,0.02365,-0.02871,0.49,-0.05,,0.1177,"Zillow Group, Inc.",Communication Services,524,AI,R&D 22% of sales
+RTX,41.1,7,0.02972,0.00955,0.02841,0.03844,0.0,-0.67,,0.0771,RTX Corporation,Industrials,525,AI,gross margin +3.8 pts
+TOL,41.1,3,,,,,0.0,0.0,,0.0098,"Toll Brothers, Inc.",Consumer Cyclical,526,AI,
+CB,41.1,4,,,-0.01521,,0.31,0.02,,0.0416,Chubb Limited,,527,Energy transition & power,
+NOK,41.1,5,0.20975,-0.02842,-0.90314,0.01353,,,,0.0831,Nokia Corporation Sponsored,Technology,528,,R&D 21% of sales
+TXRH,41.0,4,,,-0.04701,,0.0,0.0,,0.0951,"Texas Roadhouse, Inc.",Consumer Cyclical,529,AI,
+PSA,41.0,5,,,0.02856,-0.02082,0.0,0.0,,0.0792,Public Storage,Real Estate,530,AI,
+THC,41.0,4,,,0.06895,,0.0,-2.31,,0.0045,Tenet Healthcare Corporation,Healthcare,531,AI,revenue growth up 7 pts
+CPRI,40.9,5,,,0.01555,0.00582,0.0,0.0,,0.0229,Capri Holdings Limited,,532,AI,
+GPC,40.9,5,,,0.0203,0.00058,0.0,0.0,,0.036,Genuine Parts Company,Consumer Cyclical,533,AI,
+ABT,40.8,7,0.06631,0.04068,0.01585,0.00449,0.0,0.0,,0.0713,Abbott Laboratories,,534,AI,
+MTD,40.8,7,0.05032,0.07886,0.03806,0.0032,0.0,0.0,,0.0474,"Mettler-Toledo International, I",Healthcare,535,AI,
+DLTR,40.8,5,,,-0.70754,-0.00617,2.23,2.23,,0.0605,"Dollar Tree, Inc.",,536,AI,AI mentions rising
+BRBR,40.8,3,,,,,0.85,-0.13,,0.0073,"BellRing Brands, Inc.",Consumer Defensive,537,AI infrastructure,
+SHEL,40.7,4,0.00438,0.0646,0.04075,,,,,0.0191,Shell PLC,Energy,538,,
+TMO,40.7,7,0.03026,-0.00919,0.05184,0.01431,0.0,0.0,,0.0527,Thermo Fisher Scientific Inc,Healthcare,539,AI,revenue growth up 5 pts
+TTD,40.7,7,0.18125,0.05798,-0.11574,-0.02533,10.61,7.87,,-0.0545,"The Trade Desk, Inc.",Communication Services,540,AI,R&D 18% of sales; AI mentions rising
+WSO,40.7,5,,,-0.03966,-0.00027,0.0,0.0,,0.1021,"Watsco, Inc.",Industrials,541,AI,
+DFTX,40.6,3,,,,,0.0,0.0,,0.0,"Definium Therapeutics, Inc.",,542,AI,
+DMRA,40.6,3,,,,,0.0,0.0,,0.0,"Damora Therapeutics, Inc.",,543,AI,
+AVBP,40.6,3,,,,,0.0,0.0,,0.0,"ArriVent BioPharma, Inc.",,544,AI,
+ERAS,40.6,3,,,,,0.0,0.0,,0.0,"Erasca, Inc.",,545,AI,
+IMVT,40.6,3,,,,,0.0,0.0,,0.0,"Immunovant, Inc.",Healthcare,546,AI,
+MLTX,40.6,3,,,,,0.0,0.0,,0.0,MoonLake Immunotherapeutics,Healthcare,547,AI,
+NG,40.6,3,,,,,0.0,0.0,,0.0,Novagold Resources Inc.,Basic Materials,548,AI,
+TGT,40.5,5,,,0.03502,-0.00377,0.0,0.0,,0.033,Target Corporation,Consumer Defensive,549,AI,
+MIRM,40.5,4,,,-0.18312,,0.85,-0.25,,0.174,"Mirum Pharmaceuticals, Inc.",Healthcare,550,AI,
+TVTX,40.4,7,0.01268,0.0,-0.10824,0.01712,5.28,-0.29,,0.4873,"Travere Therapeutics, Inc.",Healthcare,551,AI,
+UTHR,40.3,7,0.17483,0.05997,-0.15129,-0.02842,2.14,0.12,,0.1342,United Therapeutics Corporation,Healthcare,552,AI infrastructure,R&D 17% of sales
+AMRZ,40.3,5,,,0.0565,-0.00739,0.44,-1.55,,0.0436,Amrize Ltd,,553,AI infrastructure,revenue growth up 6 pts
+MOH,40.3,5,,,-0.146,0.00053,1.26,0.03,,0.0645,Molina Healthcare Inc,Healthcare,554,AI,
+JANX,40.2,3,,,,,1.33,-0.01,,-0.7248,"Janux Therapeutics, Inc.",Healthcare,555,Biotech breakthroughs,
+PM,40.2,7,0.01753,-0.00395,0.00416,0.00733,3.05,0.76,,0.0476,Philip Morris International Inc,Consumer Defensive,556,AI,
+KRYS,40.2,6,0.13446,0.06321,-0.93456,,2.92,-2.14,,0.2769,"Krystal Biotech, Inc.",Healthcare,557,Biotech breakthroughs,R&D 13% of sales
+CAVA,40.2,5,,,-0.01422,-0.04489,0.0,0.0,,0.2082,"CAVA Group, Inc.",,558,AI,
+TXG,40.1,7,0.36764,-0.123,-0.06291,0.00535,0.0,0.0,,0.1011,"10x Genomics, Inc.",Healthcare,559,AI,R&D 37% of sales
+PSX,40.0,7,4e-05,-0.6,0.38148,0.04285,0.0,0.0,,-0.0911,Phillips 66,Energy,560,AI,revenue growth up 38 pts; gross margin +4.3 pts
+HSY,40.0,7,0.00503,0.10497,0.01978,0.04205,0.0,0.0,,0.0215,The Hershey Company,Consumer Defensive,561,AI,gross margin +4.2 pts
+WFC,39.9,4,,,-0.12337,,0.32,0.32,,0.0541,Wells Fargo & Company,Financial Services,562,AI,
+MKTX,39.9,4,,,-0.03745,,1.66,-0.56,,0.0686,"MarketAxess Holdings, Inc.",Financial Services,563,AI,
+BG,39.9,7,0.00141,-0.06667,0.23247,0.0237,0.0,0.0,,-0.0213,Bunge Limited,,564,AI,revenue growth up 23 pts; gross margin +2.4 pts
+CAMP,39.8,3,,,,,0.0,0.0,,-0.2836,CAMP4 THERAPEUTICS CORPORATION,,565,AI,
+VLO,39.8,3,,,,,0.0,0.0,,-0.1191,Valero Energy Corporation,Energy,566,AI,
+SRRK,39.8,5,,-0.0131,-1.0,,5.03,-0.59,,23.9726,Scholar Rock Holding Corporatio,Healthcare,567,AI,
+LXRX,39.7,6,9.76823,-0.01573,,-0.00537,2.61,-0.04,,-0.5446,"Lexicon Pharmaceuticals, Inc.",Healthcare,568,Biotech breakthroughs,R&D 977% of sales
+ELV,39.7,5,,,-0.08228,0.00164,1.15,0.39,,0.0246,"Elevance Health, Inc.",,569,AI,
+BIDU,39.6,5,0.1583,-0.07681,-0.01945,-0.00152,,,,0.0642,"Baidu, Inc.",,570,,R&D 16% of sales
+AVY,39.5,7,0.01477,-0.00871,0.04181,0.00408,0.68,0.68,,0.0282,Avery Dennison Corporation,,571,AI,
+PGR,39.5,4,,,-0.11,,0.43,0.05,,0.0533,Progressive Corporation (The),Financial Services,572,AI infrastructure,
+MRSH,39.4,4,,,-0.02891,,1.58,-0.01,,0.0487,Marsh,Financial Services,573,AI,
+CASY,39.3,5,,,0.05045,-0.01583,0.0,0.0,,0.0024,"Caseys General Stores, Inc.",,574,AI,revenue growth up 5 pts
+LYFT,39.3,7,0.08023,0.19114,-0.20474,-0.00377,6.01,-5.21,,0.1213,"Lyft, Inc.",Technology,575,AI,
+OTIS,39.2,6,0.01044,0.06757,0.05033,,0.0,0.0,,0.0444,Otis Worldwide Corporation,Industrials,576,AI,revenue growth up 5 pts
+DHR,38.9,7,0.06521,0.04245,0.03306,-0.00936,1.11,-0.15,,0.077,Danaher Corporation,,577,AI,
+BSX,38.9,7,0.1025,0.17275,-0.07911,0.01667,0.0,0.0,,0.003,Boston Scientific Corporation,,578,AI,
+BTI,38.8,4,0.01398,-0.05789,0.04197,,,,,0.0356,British American Tobacco  Indus,,579,,
+ITW,38.7,7,0.01814,0.03425,0.05218,0.00427,0.0,0.0,,0.0362,Illinois Tool Works Inc.,Industrials,580,AI,revenue growth up 5 pts
+VTRS,38.6,7,0.05493,0.02424,0.11925,-0.0181,0.0,0.0,,0.0299,Viatris Inc.,Healthcare,581,AI,revenue growth up 12 pts
+MTB,38.5,4,,,-0.01671,,0.0,0.0,,0.0354,M&T Bank Corporation,Financial Services,582,AI,
+WM,38.5,5,,,-0.10695,-0.00034,0.49,0.02,,0.0534,"Waste Management, Inc.",Industrials,583,AI,
+FCX,38.0,5,,,-0.07302,-0.03995,0.66,-0.06,,0.2135,"Freeport-McMoRan, Inc.",,584,AI,
+TRVI,38.0,3,,,,,0.0,-1.28,,0.0,"Trevi Therapeutics, Inc.",Healthcare,585,AI,
+AMLX,37.9,5,,-0.1118,-0.22945,,6.75,4.08,,0.0,"Amylyx Pharmaceuticals, Inc.",,586,AI,AI mentions rising
+GD,37.6,7,0.02987,0.0,-0.04765,0.04676,3.29,-0.11,,0.0476,General Dynamics Corporation,Industrials,587,Energy transition & power,gross margin +4.7 pts
+ATO,37.5,5,,,-0.0645,-0.02333,0.0,0.0,,0.1204,Atmos Energy Corporation,,588,AI,
+CRL,37.3,4,,,0.0047,,0.0,-0.51,,0.0253,Charles River Laboratories Inte,Healthcare,589,AI,
+BIIB,37.3,7,0.12268,0.0,-0.02472,-0.02598,4.96,1.36,,0.0189,Biogen Inc.,,590,AI,R&D 12% of sales
+LEN,37.2,4,,,-0.03381,,0.0,0.0,,0.0298,Lennar Corporation,Consumer Cyclical,591,AI,
+VRSK,37.2,7,0.01318,0.15864,-0.01347,0.0083,0.0,-0.6,,0.0675,"Verisk Analytics, Inc.",Industrials,592,AI,
+DGX,37.2,5,,,-0.0461,-0.02802,1.18,0.06,,0.0445,Quest Diagnostics Incorporated,,593,AI,
+BP,37.1,4,0.00142,-0.0897,0.0757,,,,,-0.0593,BP p.l.c.,,594,,revenue growth up 8 pts
+SCI,37.0,5,,,-0.00434,-0.00547,0.0,0.0,,0.0356,Service Corporation Internation,Consumer Cyclical,595,AI,
+ASB,37.0,4,,,-0.32612,,0.28,-0.01,,0.0864,Associated Banc-Corp,Financial Services,596,Energy transition & power,
+PEP,36.9,7,0.00854,0.03198,0.05875,0.00207,0.0,0.0,,0.0249,"Pepsico, Inc.",Consumer Defensive,597,AI,revenue growth up 6 pts
+CMCSA,36.8,4,,,-0.00444,,0.53,-0.1,,-0.028,Comcast Corporation,,598,Space & defense tech,
+EVO,36.7,5,0.06381,-0.25788,-0.02001,-0.07987,,,,0.2047,Evotec SE,,599,,
+UPS,36.7,4,,,-0.0133,,0.0,-0.34,,0.033,"United Parcel Service, Inc.",Industrials,600,AI,
+IQV,36.7,6,0.00019,0.0,0.05001,,2.54,-1.1,,0.0639,"IQVIA Holdings, Inc.",Healthcare,601,AI,revenue growth up 5 pts
+MDLZ,36.6,7,0.01003,0.0,0.01852,0.03207,0.0,0.0,,0.0276,"Mondelez International, Inc.",Consumer Defensive,602,AI,gross margin +3.2 pts
+TRV,36.5,4,,,-0.05685,,0.97,-0.01,,0.0204,"The Travelers Companies, Inc.",Financial Services,603,AI,
+EQT,36.4,5,,,-0.34589,-0.10379,0.0,0.0,,0.3107,EQT Corporation,,604,AI,
+KVUE,36.3,7,0.02401,-0.05852,0.03922,0.00196,0.4,0.02,,0.0238,Kenvue Inc.,Consumer Defensive,605,AI,
+RNR,36.1,4,,,-0.17137,,0.24,0.24,,-0.0087,RenaissanceRe Holdings Ltd.,Financial Services,606,AI,
+LIN,35.9,6,0.00406,-0.02649,0.0671,,0.0,0.0,,0.0428,Linde plc,Basic Materials,607,AI,revenue growth up 7 pts
+MO,35.8,7,0.00829,-0.0625,0.03018,0.01339,0.27,0.03,,0.0104,"Altria Group, Inc.",Consumer Defensive,608,AI,
+CARR,35.8,7,0.02654,-0.03509,0.01462,0.0241,0.0,-0.47,,0.0529,Carrier Global Corporation,,609,AI,gross margin +2.4 pts
+TTE,35.8,5,0.00543,-0.22857,0.27356,-0.12772,,,,-0.017,TotalEnergies SE,Energy,610,,revenue growth up 27 pts
+HD,35.6,5,,,-0.06027,-0.00142,0.0,0.0,,0.0333,"Home Depot, Inc. (The)",Consumer Cyclical,611,AI,
+CHD,35.5,7,0.02288,-0.0186,0.01562,0.01178,0.0,0.0,,0.0427,"Church & Dwight Company, Inc.",,612,AI,
+PHM,35.1,4,,,-0.19067,,0.61,-0.0,,0.0122,"PulteGroup, Inc.",Consumer Cyclical,613,AI,
+JNJ,35.1,7,0.0011,-0.94079,0.0272,-0.00515,1.07,0.74,,0.0645,Johnson & Johnson,Healthcare,614,Biotech breakthroughs,
+SFM,35.1,5,,,-0.11347,-0.00234,0.0,0.0,,0.049,"Sprouts Farmers Market, Inc.",Consumer Defensive,615,AI,
+SHW,34.5,7,0.00208,0.0,0.06068,-0.00272,0.0,0.0,,0.0415,Sherwin-Williams Company (The),Basic Materials,616,AI,revenue growth up 6 pts
+PG,34.5,7,0.02388,0.0,0.02294,-0.01203,0.74,0.04,,0.0313,Procter & Gamble Company (The),Consumer Defensive,617,AI,
+CI,34.5,5,,,-0.12457,-0.03708,0.95,0.07,,0.0408,The Cigna Group,,618,AI,
+BRKR,34.4,7,0.11244,-0.01576,-0.08707,-0.01835,3.2,0.63,,0.0416,Bruker Corporation,,619,Energy transition & power,
+NVO,34.4,5,0.16838,0.08275,-0.18607,-0.0369,,,,0.0139,Novo Nordisk A/S,Healthcare,620,,R&D 17% of sales
+GM,34.4,7,0.0424,0.0,-0.02441,-0.00271,1.21,0.45,,0.0193,General Motors Company,Consumer Cyclical,621,Robotics & autonomy,
+WYNN,34.2,4,,,-0.29012,,0.0,0.0,,0.0321,"Wynn Resorts, Limited",Consumer Cyclical,622,AI,
+KNSL,34.2,4,,,-0.09752,,0.0,0.0,,-0.0002,"Kinsale Capital Group, Inc.",Financial Services,623,AI,
+AMT,34.2,5,,,-0.37286,-0.00418,19.35,-0.77,,0.0353,American Tower Corporation (REI,,624,AI infrastructure,
+IR,34.1,7,0.01439,-0.01973,0.03177,-0.00915,0.4,0.02,,0.0499,Ingersoll Rand Inc.,Industrials,625,AI,
+BMY,33.9,7,0.21104,0.00028,0.02901,-0.02559,1.96,-3.64,,-0.029,Bristol-Myers Squibb Company,,626,Biotech breakthroughs,R&D 21% of sales
+MCK,33.7,7,0.00023,0.0,-0.11506,0.00077,0.93,0.93,,0.0685,McKesson Corporation,Healthcare,627,Biotech breakthroughs,
+APD,33.6,7,0.00721,-0.00329,0.04898,-0.01074,0.0,0.0,,0.057,"Air Products and Chemicals, Inc",,628,AI,
+ZBH,33.4,7,0.0258,0.0,0.0451,-0.03355,3.58,-0.12,,0.0354,"Zimmer Biomet Holdings, Inc.",Healthcare,629,Biotech breakthroughs,
+LII,33.3,7,0.01898,0.1047,-0.01851,-0.01174,0.0,0.0,,0.0607,"Lennox International, Inc.",Industrials,630,AI,
+CNM,33.2,5,,,-0.11558,0.00379,0.0,-2.34,,0.0403,"Core & Main, Inc.",Industrials,631,AI,
+SW,33.0,5,,,-1.53054,-0.01166,0.0,0.0,,0.0698,Smurfit WestRock plc,Consumer Cyclical,632,AI,
+AMS,32.8,4,,,-0.22633,-0.07289,0.0,0.0,,,American Shared Hospital Servic,,633,AI,
+QSR,32.4,5,,,-0.11306,-0.00466,0.0,0.0,,0.0027,Restaurant Brands International,Consumer Cyclical,634,AI,
+BA,32.0,7,0.04726,0.10676,-0.3187,-0.07742,1.41,-0.32,,0.1319,Boeing Company (The),,635,Space & defense tech,
+REXR,31.8,4,,,-0.56851,,0.0,0.0,,-0.0676,"Rexford Industrial Realty, Inc.",Real Estate,636,AI,
+SWK,31.7,7,0.02108,-0.02251,0.0328,-0.0016,0.74,-0.05,,0.0121,"Stanley Black & Decker, Inc.",Industrials,637,Robotics & autonomy,
+FANG,31.5,4,,,-1.1957,,0.0,0.0,,-0.0542,"Diamondback Energy, Inc.",,638,AI,
+MMM,30.7,7,0.02773,0.0,0.0065,-0.01417,1.13,-0.58,,0.0461,3M Company,Industrials,639,AI infrastructure,
+ENPH,29.5,7,0.15019,-0.05854,-0.40868,-0.02706,3.94,0.53,,-0.063,"Enphase Energy, Inc.",,640,AI,R&D 15% of sales
+OKE,29.2,5,,,-0.21527,-0.0178,0.0,0.0,,-0.0299,"ONEOK, Inc.",Energy,641,AI,
+COP,29.2,7,0.00139,-0.03704,0.07175,-0.01786,0.0,0.0,,-0.0541,ConocoPhillips,,642,AI,revenue growth up 7 pts
+KMB,29.2,7,0.01966,-0.0061,-0.06386,0.00474,0.0,0.0,,0.0245,Kimberly-Clark Corporation,Consumer Defensive,643,AI,
+CVE,28.8,4,0.0004,0.0,-0.12411,,,,,-0.0842,Cenovus Energy Inc,,644,,
+LYB,28.0,7,0.00439,-0.01439,-0.08407,0.01918,0.0,0.0,,-0.0267,LyondellBasell Industries NV,Basic Materials,645,AI,
+ECHO,27.8,7,0.00437,-0.09859,-0.00326,-0.0007,36.04,-6.12,,-0.0596,EchoStar Corporation,,646,Space & defense tech,
+LW,26.4,7,0.00286,-0.14091,0.02748,-0.02264,0.0,0.0,,0.0205,"Lamb Weston Holdings, Inc.",Consumer Defensive,647,AI,
+YUM,24.5,7,0.00321,0.0,-0.01009,-0.02397,0.0,0.0,,-0.0038,"Yum! Brands, Inc.",Consumer Cyclical,648,AI,
+AA,23.2,6,0.00154,-0.63158,-0.12924,,0.0,0.0,,0.0154,Alcoa Corporation,Basic Materials,649,AI,

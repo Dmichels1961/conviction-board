@@ -1,9 +1,9 @@
-holdings BAI: 38 rows, 82.5% of weight, as of 2026-10-28
-holdings ILDR: 79 rows, 98.1% of weight, as of 2026-10-30
-holdings CGGR: 95 rows, 98.5% of weight, as of 2026-10-28
-holdings CGUS: 67 rows, 100.0% of weight, as of 2026-10-28
-holdings CGDV: 54 rows, 100.2% of weight, as of 2026-10-28
-holdings AGTHX: 278 rows, 89.2% of weight, as of 2026-05-31
+holdings BAI: 38 rows, 81.4% of weight, as of 2026-10-29
+holdings ILDR: 79 rows, 98.0% of weight, as of 2026-10-30
+holdings CGGR: 95 rows, 98.5% of weight, as of 2026-10-29
+holdings CGUS: 67 rows, 100.0% of weight, as of 2026-10-29
+holdings CGDV: 54 rows, 98.3% of weight, as of 2026-10-29
+holdings AGTHX: 263 rows, 88.6% of weight, as of 2026-08-31
 holdings TCHP: 65 rows, 99.7% of weight, as of 2026-06-30
 holdings TGRW: 80 rows, 99.8% of weight, as of 2026-06-30
 holdings TCAF: 86 rows, 96.9% of weight, as of 2026-06-30
@@ -13,7 +13,7 @@ holdings FDGRX: 372 rows, 94.2% of weight, as of 2026-08-31
 holdings FFLG: 93 rows, 97.1% of weight, as of 2026-07-31
 holdings JGRO: 128 rows, 97.9% of weight, as of 2026-06-30
 holdings HFGO: 46 rows, 98.9% of weight, as of 2026-07-31
-holdings FDG: 44 rows, 99.5% of weight, as of 2026-05-31
+holdings FDG: 43 rows, 99.7% of weight, as of 2026-08-31
 holdings POGRX: 173 rows, 97.6% of weight, as of 2026-07-31
 holdings ATFV: 32 rows, 96.2% of weight, as of 2026-06-30
 holdings ANCFX: 215 rows, 90.1% of weight, as of 2026-06-30
@@ -31,19 +31,19 @@ holdings PRSCX: 97 rows, 86.4% of weight, as of 2026-06-30
 holdings SLMCX: 62 rows, 94.0% of weight, as of 2026-08-31
 holdings FBIOX: 170 rows, 97.5% of weight, as of 2026-08-31
 holdings FIDSX: 63 rows, 99.6% of weight, as of 2026-08-31
-holdings ARKW: 36 rows, 91.1% of weight, as of 2026-10-29
-holdings ARKQ: 35 rows, 95.7% of weight, as of 2026-10-29
-holdings ARKF: 34 rows, 90.3% of weight, as of 2026-10-29
-holdings ARKX: 28 rows, 88.6% of weight, as of 2026-10-29
+holdings ARKW: 36 rows, 91.6% of weight, as of 2026-10-30
+holdings ARKQ: 36 rows, 99.9% of weight, as of 2026-10-30
+holdings ARKF: 34 rows, 90.3% of weight, as of 2026-10-30
+holdings ARKX: 29 rows, 94.5% of weight, as of 2026-10-30
 holdings GTEK: 35 rows, 53.3% of weight, as of 2026-08-31
-holdings ARKK: 41 rows, 92.6% of weight, as of 2026-10-29
-holdings ARKG: 33 rows, 98.1% of weight, as of 2026-10-29
-holdings CGGO: 94 rows, 93.1% of weight, as of 2026-10-28
-holdings CGCV: 73 rows, 99.9% of weight, as of 2026-10-28
-holdings CGDG: 93 rows, 91.0% of weight, as of 2026-10-28
-holdings CGMM: 118 rows, 99.4% of weight, as of 2026-10-28
-holdings CGBL: 77 rows, 99.8% of weight, as of 2026-10-28
-holdings JPSV: 117 rows, 99.1% of weight, as of 2026-10-30
+holdings ARKK: 42 rows, 94.7% of weight, as of 2026-10-30
+holdings ARKG: 33 rows, 98.0% of weight, as of 2026-10-30
+holdings CGGO: 94 rows, 93.9% of weight, as of 2026-10-29
+holdings CGCV: 73 rows, 99.9% of weight, as of 2026-10-29
+holdings CGDG: 91 rows, 90.8% of weight, as of 2026-10-29
+holdings CGMM: 118 rows, 99.4% of weight, as of 2026-10-29
+holdings CGBL: 77 rows, 101.0% of weight, as of 2026-10-29
+holdings JPSV: 117 rows, 100.1% of weight, as of 2026-10-30
 funds in the overlap analysis: 46 (17 on daily issuer files)
 benchmarks refreshed: SPY, IWF, IWD, IWN, IWO, IWM, IWR, IWS, SOXX, IYW, IBB, ITA, IYF
 fund returns (Yahoo): 56 funds and benchmarks
@@ -51,12 +51,13 @@ regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads from FRED FAILED (FRED did not answer after 3 tries); using high-yield vs Treasury bond prices instead
-market regime: normal ({'asof': '2026-10-30', 'spy': 772.31, 'spy_200d': 725.23, 'spy_below_200d': False, 'credit_proxy': 'HYG/IEF', 'hy_vs_tsy_3m': 0.006, 'spreads_widening': False, 'risk_off': False})
+market regime: normal ({'asof': '2026-10-30', 'spy': 755.72, 'spy_200d': 725.98, 'spy_below_200d': False, 'credit_proxy': 'HYG/IEF', 'hy_vs_tsy_3m': -0.0096, 'spreads_widening': False, 'risk_off': False})
 AI capex gauge: $475.8bn trailing 12 months, 1.008 year on year
-prices: updated 680 names
+prices: updated 683 names
 consensus ADTTF: 'current'
 consensus ASMXF: 'current'
 consensus BESVF: 'current'
+consensus BME: 'current'
 consensus BN: 'current'
 consensus GDERF: 'current'
 consensus IDRSF: 'current'
@@ -66,47 +67,45 @@ consensus RYCEF: 'current'
 consensus SSNLF: 'current'
 consensus UCBJF: 'current'
 consensus ZLDPF: 'current'
-consensus: 1398 rows for 738 names; history spans 2 days
-revisions: 697 names (0 from our own history); consensus growth: 699 names
-earnings (Yahoo): 179 names refreshed, 0 failed, 179 due of 738
-market reaction to reports: 694 names
-short interest / beta / P/E (Yahoo): 38 names refreshed
+consensus: 1404 rows for 741 names; history spans 2 days
+revisions: 701 names (0 from our own history); consensus growth: 702 names
+earnings (Yahoo): 30 names refreshed, 0 failed, 30 due of 741
+market reaction to reports: 697 names
+short interest / beta / P/E (Yahoo): 9 names refreshed
 sec ATZAF: HTTP Error 404: Not Found
 sec BYDDF: HTTP Error 404: Not Found
 sec GDERF: HTTP Error 404: Not Found
 sec KATJF: HTTP Error 404: Not Found
 sec KXHCF: HTTP Error 404: Not Found
 sec ZLDPF: HTTP Error 404: Not Found
-SEC fundamentals: 159 names refreshed, 33 not SEC filers
+SEC fundamentals: 9 names refreshed, 33 not SEC filers
 insiders: time budget reached, rest continue tomorrow
-insiders (SEC Form 4): 69 names checked today, 466 covered, 42 with open-market buying
-ivol: 689 names
-resmom: 684 names
-customer_mom: 0 names
-options skew (Yahoo): 30 names refreshed
-filing text similarity (SEC): 170 new comparisons
-coverage of 738 candidates (has value / updated within 7 days):
-  momentum: 680 / 680
-  EPS growth: 697 / 695
-  revisions: 695 / 695
-  sales growth: 698 / 695
-  surprises: 682 / 738
-  reaction: 694 / 694
-  short interest: 675 / 738
-  beta: 639 / 738
-  gross profitability: 400 / 699
-  accruals: 659 / 699
-  asset growth: 663 / 699
-  net issuance: 575 / 699
-  insider buying: 466 / 466
-ranked 417 names; top 10: MU, WDC, FLEX, MRVL, LLY, INTC, STX, TSM, SPCX, LRCX
-point-in-time backtest: 83 months; out of sample 0.0134 per month vs pool, t = 1.15
-paper portfolio: $99,900 (-0.1%); S&P None QQQ None; next rebalance 2026-12-28
-emerging winners: 612 names with 3+ signals; top 5: NVDA, AMD, VRDN, MU, AVGO
-side door universe IWM: 1745 names
-side door universe IWR: 816 names
-side door calendar: 24 days read, 0 failed, 1330 reports on file
-side door: 144 names reported a 10%+ beat in the last 30 days and are held by 0-1 funds
+insiders (SEC Form 4): 100 names checked today, 563 covered, 50 with open-market buying
+ivol: 692 names
+resmom: 687 names
+customer_mom: 32 names
+options skew (Yahoo): 9 names refreshed
+filing text similarity (SEC): 135 new comparisons
+coverage of 741 candidates (has value / updated within 7 days):
+  momentum: 683 / 683
+  EPS growth: 700 / 698
+  revisions: 698 / 698
+  sales growth: 701 / 698
+  surprises: 685 / 741
+  reaction: 697 / 697
+  short interest: 678 / 741
+  beta: 641 / 741
+  gross profitability: 404 / 702
+  accruals: 662 / 702
+  asset growth: 666 / 702
+  net issuance: 578 / 702
+  insider buying: 563 / 563
+ranked 419 names; top 10: MU, WDC, FLEX, MRVL, TSM, LRCX, STX, INTC, SPCX, BE
+point-in-time backtest: 83 months; out of sample 0.0137 per month vs pool, t = 1.18
+paper portfolio: $2,701 (+0.5%); S&P 2688.68 QQQ 2688.68; next rebalance none (manual)
+emerging winners: 649 names with 3+ signals; top 5: NVDA, AMD, MU, AVGO, VRDN
+side door calendar: 3 days read, 0 failed, 1365 reports on file
+side door: 217 names reported a 10%+ beat in the last 30 days and are held by 0-1 funds
 side door: enriched 80 names from Yahoo
-side door: top 5 PENG, RELL, APOG, HAS, HRI; live record 0 measured entries
-track record: 3 boards tracked; concentration: 5.2 effective bets, avg correlation 0.296
+side door: top 5 RELL, PENG, APOG, HAS, STNG; live record 0 measured entries
+track record: 3 boards tracked; concentration: 4.8 effective bets, avg correlation 0.332
