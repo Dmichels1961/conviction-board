@@ -51,7 +51,7 @@ regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads from FRED FAILED (FRED did not answer after 3 tries); using high-yield vs Treasury bond prices instead
-market regime: normal ({'asof': '2026-11-02', 'spy': 762.06, 'spy_200d': 726.36, 'spy_below_200d': False, 'credit_proxy': 'HYG/IEF', 'hy_vs_tsy_3m': -0.0075, 'spreads_widening': False, 'risk_off': False})
+market regime: normal ({'asof': '2026-11-02', 'spy': 752.1, 'spy_200d': 726.31, 'spy_below_200d': False, 'credit_proxy': 'HYG/IEF', 'hy_vs_tsy_3m': -0.0121, 'spreads_widening': False, 'risk_off': False})
 AI capex gauge: $475.8bn trailing 12 months, 1.008 year on year
 prices: updated 683 names
 consensus ADTTF: 'current'
@@ -68,9 +68,9 @@ consensus UCBJF: 'current'
 consensus ZLDPF: 'current'
 consensus: 1404 rows for 741 names; history spans 3 days
 revisions: 700 names (0 from our own history); consensus growth: 702 names
-earnings (Yahoo): 47 names refreshed, 0 failed, 47 due of 741
+earnings (Yahoo): 26 names refreshed, 0 failed, 26 due of 741
 market reaction to reports: 697 names
-short interest / beta / P/E (Yahoo): 420 names refreshed
+short interest / beta / P/E (Yahoo): 321 names refreshed
 sec ATZAF: HTTP Error 404: Not Found
 sec BYDDF: HTTP Error 404: Not Found
 sec GDERF: HTTP Error 404: Not Found
@@ -79,11 +79,11 @@ sec KXHCF: HTTP Error 404: Not Found
 sec ZLDPF: HTTP Error 404: Not Found
 SEC fundamentals: 0 names refreshed, 33 not SEC filers
 insiders: time budget reached, rest continue tomorrow
-insiders (SEC Form 4): 73 names checked today, 636 covered, 50 with open-market buying
+insiders (SEC Form 4): 70 names checked today, 706 covered, 56 with open-market buying
 ivol: 692 names
 resmom: 687 names
 customer_mom: 32 names
-options skew (Yahoo): 177 names refreshed
+options skew (Yahoo): 180 names refreshed
 filing text similarity (SEC): 0 new comparisons
 coverage of 741 candidates (has value / updated within 7 days):
   momentum: 683 / 683
@@ -93,18 +93,17 @@ coverage of 741 candidates (has value / updated within 7 days):
   surprises: 685 / 741
   reaction: 697 / 697
   short interest: 678 / 741
-  beta: 658 / 741
+  beta: 665 / 741
   gross profitability: 404 / 702
   accruals: 662 / 702
   asset growth: 666 / 702
   net issuance: 578 / 702
-  insider buying: 636 / 636
-ranked 418 names; top 10: MU, WDC, FLEX, LRCX, MRVL, STX, SPCX, TSM, BE, SNDK
+  insider buying: 706 / 706
+ranked 416 names; top 10: WDC, MU, FLEX, MRVL, STX, LRCX, TSM, SPCX, BE, AVGO
 point-in-time backtest: 83 months; out of sample 0.0137 per month vs pool, t = 1.18
-paper portfolio: $2,694 (+0.2%); S&P 2716.89 QQQ 2723.26; next rebalance none (manual)
+paper portfolio: $2,516 (-6.4%); S&P 2675.8 QQQ 2652.08; next rebalance none (manual)
 emerging winners: 649 names with 3+ signals; top 5: NVDA, AMD, MU, AVGO, RR
 side door calendar: 1 days read, 0 failed, 1512 reports on file
 side door: 214 names reported a 10%+ beat in the last 30 days and are held by 0-1 funds
-side door: enriched 58 names from Yahoo
 side door: top 5 GDYN, PENG, APOG, RELL, CDNA; live record 31 measured entries
-track record: 3 boards tracked; concentration: 4.7 effective bets, avg correlation 0.335
+track record: 3 boards tracked; concentration: 4.5 effective bets, avg correlation 0.364
