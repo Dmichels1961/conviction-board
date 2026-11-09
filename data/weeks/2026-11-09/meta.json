@@ -1,0 +1,211 @@
+{
+  "week": "2026-11-09",
+  "created": "2026-11-09T15:52:17",
+  "spy_price": 749.4910278320312,
+  "flow_available": true,
+  "benchmarks_partial": [
+    "QQQ"
+  ],
+  "n_ranked": 25,
+  "top_n": 25,
+  "weights": {
+    "flow": 5,
+    "earn_growth": 11,
+    "earn_dispersion": 1,
+    "earn_surprise": 10,
+    "earn_consistency": 6,
+    "earn_revisions": 14,
+    "earn_accel": 5,
+    "earn_sales": 5,
+    "earn_reaction": 4,
+    "earn_guidance": 4,
+    "breadth": 16,
+    "active_weight": 4,
+    "momentum": 5,
+    "profitability": 2,
+    "accruals": 1.5,
+    "issuance": 1,
+    "crowding": 1,
+    "insider": 0.5,
+    "asset_growth": 0,
+    "filing_sim": 1.5,
+    "put_skew": 1,
+    "customer_mom": 0.5,
+    "ivol": 1,
+    "valuation": 0,
+    "theme": 0,
+    "quality": 0,
+    "beta": 0,
+    "analyst_drift": 0
+  },
+  "signals": [
+    {
+      "key": "flow",
+      "label": "Manager flow",
+      "group": "Manager flow",
+      "desc": "Net adds/initiations minus trims/exits by skilled active ETFs since last week (drift-adjusted, skill-weighted)"
+    },
+    {
+      "key": "earn_growth",
+      "label": "Fwd EPS growth",
+      "group": "Earnings",
+      "desc": "Consensus EPS growth, next fiscal year (Yahoo, daily)"
+    },
+    {
+      "key": "earn_dispersion",
+      "label": "Analyst agreement",
+      "group": "Earnings",
+      "desc": "Narrow range of analysts' next-year EPS estimates scores higher (Diether, Malloy & Scherbina 2002)"
+    },
+    {
+      "key": "earn_surprise",
+      "label": "Beat size",
+      "group": "Earnings",
+      "desc": "Average EPS surprise over the last 4 quarters (capped at 50%), blended with a standardized surprise (average beat / its variability)"
+    },
+    {
+      "key": "earn_consistency",
+      "label": "Beat consistency",
+      "group": "Earnings",
+      "desc": "Share of last 4 quarters that beat consensus"
+    },
+    {
+      "key": "earn_revisions",
+      "label": "Estimate revisions",
+      "group": "Earnings",
+      "desc": "30-day change in consensus EPS (current and next fiscal year, Yahoo)"
+    },
+    {
+      "key": "earn_accel",
+      "label": "Growth acceleration",
+      "group": "Earnings",
+      "desc": "Next-year EPS growth minus this year's: is growth speeding up?"
+    },
+    {
+      "key": "earn_sales",
+      "label": "Sales strength",
+      "group": "Earnings",
+      "desc": "Consensus revenue growth next year, blended with the average revenue beat over 4 quarters"
+    },
+    {
+      "key": "earn_reaction",
+      "label": "Market reaction",
+      "group": "Earnings",
+      "desc": "Average 2-day move vs SPY after the last 4 reports: did the market believe the beat?"
+    },
+    {
+      "key": "earn_guidance",
+      "label": "Guidance",
+      "group": "Earnings",
+      "desc": "Raised / maintained / lowered guidance at the last report, adjusted for guide vs consensus"
+    },
+    {
+      "key": "breadth",
+      "label": "Best-ideas overlap",
+      "group": "Overlap",
+      "desc": "Distinct managers holding it as one of a fund's 15 largest positions (most = 100); managers that have not beaten their benchmark count at half"
+    },
+    {
+      "key": "active_weight",
+      "label": "Active weight",
+      "group": "Overlap",
+      "desc": "Average weight above the benchmark (an active bet, not index beta)"
+    },
+    {
+      "key": "momentum",
+      "label": "Momentum 12-1",
+      "group": "Momentum",
+      "desc": "12-month price return excluding the latest month"
+    },
+    {
+      "key": "profitability",
+      "label": "Gross profitability",
+      "group": "Fundamentals",
+      "desc": "Trailing-12-month gross profit / total assets (Novy-Marx 2013; SEC filings)"
+    },
+    {
+      "key": "accruals",
+      "label": "Earnings quality",
+      "group": "Fundamentals",
+      "desc": "Low accruals: net income backed by operating cash flow, scaled by assets (Sloan 1996; SEC filings)"
+    },
+    {
+      "key": "issuance",
+      "label": "Net share issuance",
+      "group": "Fundamentals",
+      "desc": "Share count shrinking (buybacks) scores higher, dilution lower (Pontiff & Woodgate 2008; SEC filings)"
+    },
+    {
+      "key": "crowding",
+      "label": "Short interest",
+      "group": "Fundamentals",
+      "desc": "Lower short interest and falling short interest score higher"
+    },
+    {
+      "key": "insider",
+      "label": "Insider buying",
+      "group": "Fundamentals",
+      "desc": "Distinct insiders making open-market purchases in the last 90 days (SEC Form 4, code P); 3 or more = full score"
+    },
+    {
+      "key": "asset_growth",
+      "label": "Asset growth",
+      "group": "Fundamentals",
+      "desc": "Slower balance-sheet growth scores higher (Cooper, Gulen & Schill 2008; off: weak lately)"
+    },
+    {
+      "key": "filing_sim",
+      "label": "Filing changes",
+      "group": "Market signals",
+      "desc": "Latest 10-K/10-Q worded much like a year earlier scores higher; big rewrites score lower (Cohen, Malloy & Nguyen 2020)"
+    },
+    {
+      "key": "put_skew",
+      "label": "Options skew",
+      "group": "Market signals",
+      "desc": "Cheap downside protection (low put skew) scores higher (Xing, Zhang & Zhao 2010)"
+    },
+    {
+      "key": "customer_mom",
+      "label": "Customer momentum",
+      "group": "Market signals",
+      "desc": "Main customers' last-month return and capital-spending growth, for suppliers (Cohen & Frazzini 2008)"
+    },
+    {
+      "key": "ivol",
+      "label": "Low volatility",
+      "group": "Market signals",
+      "desc": "Lower idiosyncratic volatility scores higher (Ang, Hodrick, Xing & Zhang 2006)"
+    },
+    {
+      "key": "valuation",
+      "label": "Valuation",
+      "group": "Other",
+      "desc": "Forward P/E relative to growth (PEG) and free-cash-flow yield (off)"
+    },
+    {
+      "key": "theme",
+      "label": "Structural theme",
+      "group": "Other",
+      "desc": "Tailwind score (0-3) from themes.csv (off: shown on the board, not scored)"
+    },
+    {
+      "key": "quality",
+      "label": "Quality",
+      "group": "Other",
+      "desc": "Retired: replaced by gross profitability, accruals and issuance"
+    },
+    {
+      "key": "beta",
+      "label": "Beta",
+      "group": "Other",
+      "desc": "Beta 1.0 or below scores 100, falling to 0 at beta 2.0 (off)"
+    },
+    {
+      "key": "analyst_drift",
+      "label": "Analyst drift",
+      "group": "Other",
+      "desc": "Change in mean price target over 3 months (off: targets follow prices)"
+    }
+  ]
+}
