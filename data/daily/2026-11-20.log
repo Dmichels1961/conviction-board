@@ -1,0 +1,115 @@
+holdings BAI: 41 rows, 84.0% of weight, as of 2026-11-19
+holdings ILDR: 71 rows, 96.8% of weight, as of 2026-11-20
+holdings CGGR: 94 rows, 100.3% of weight, as of 2026-11-19
+holdings CGUS: 68 rows, 100.1% of weight, as of 2026-11-19
+holdings CGDV: 61 rows, 97.8% of weight, as of 2026-11-19
+holdings AGTHX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings TCHP: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings TGRW: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings TCAF: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FBCG: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FCNTX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FDGRX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FFLG: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings JGRO: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings HFGO: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FDG: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings POGRX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings ATFV: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings ANCFX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings MFSV: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings TDVG: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings OAKM: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings RFNGX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings RICGX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FCLKX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings NESNX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FDTX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FSPTX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FSELX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings PRSCX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings SLMCX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FBIOX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FIDSX: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings ARKW: 36 rows, 93.2% of weight, as of 2026-11-20
+holdings ARKQ: 36 rows, 99.6% of weight, as of 2026-11-20
+holdings ARKF: 34 rows, 88.0% of weight, as of 2026-11-20
+holdings ARKX: 28 rows, 94.2% of weight, as of 2026-11-20
+holdings GTEK: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings ARKK: 39 rows, 91.3% of weight, as of 2026-11-20
+holdings ARKG: 32 rows, 97.3% of weight, as of 2026-11-20
+holdings CGGO: 95 rows, 94.7% of weight, as of 2026-11-19
+holdings CGCV: 73 rows, 99.9% of weight, as of 2026-11-19
+holdings CGDG: 91 rows, 92.1% of weight, as of 2026-11-19
+holdings CGMM: 117 rows, 101.2% of weight, as of 2026-11-19
+holdings CGBL: 78 rows, 100.1% of weight, as of 2026-11-19
+holdings JPSV: 119 rows, 99.7% of weight, as of 2026-11-20
+funds in the overlap analysis: 46 (17 on daily issuer files)
+benchmarks refreshed: SPY, IWF, IWD, IWN, IWO, IWM, IWR, IWS, SOXX, IYW, IBB, ITA, IYF
+fund returns (Yahoo): 56 funds and benchmarks
+regime: credit spreads try failed (The read operation timed out)
+regime: credit spreads try failed (The read operation timed out)
+regime: credit spreads try failed (The read operation timed out)
+regime: credit spreads from FRED FAILED (FRED did not answer after 3 tries); using high-yield vs Treasury bond prices instead
+market regime: STRESS ({'asof': '2026-11-20', 'spy': 689.81, 'spy_200d': 730.29, 'spy_below_200d': True, 'credit_proxy': 'HYG/IEF', 'hy_vs_tsy_3m': -0.0235, 'spreads_widening': False, 'risk_off': True})
+AI capex gauge: $475.8bn trailing 12 months, 1.008 year on year
+prices: updated 682 names
+consensus ADTTF: 'current'
+consensus ASMXF: 'current'
+consensus BESVF: 'current'
+consensus BME: 'current'
+consensus BN: 'current'
+consensus GDERF: 'current'
+consensus IDRSF: 'current'
+consensus KXHCF: 'current'
+consensus MHVYF: 'current'
+consensus RYCEF: 'current'
+consensus SSNLF: 'current'
+consensus UCBJF: 'current'
+consensus ZLDPF: 'current'
+consensus: 1404 rows for 741 names; history spans 17 days
+revisions: 705 names (0 from our own history); consensus growth: 702 names
+earnings (Yahoo): 239 names refreshed, 0 failed, 239 due of 741
+market reaction to reports: 697 names
+short interest / beta / P/E (Yahoo): 321 names refreshed
+sec ATZAF: HTTP Error 404: Not Found
+sec BYDDF: HTTP Error 404: Not Found
+sec GDERF: HTTP Error 404: Not Found
+sec KATJF: HTTP Error 404: Not Found
+sec KXHCF: HTTP Error 404: Not Found
+sec ZLDPF: HTTP Error 404: Not Found
+SEC fundamentals: 260 names refreshed, 34 not SEC filers
+form4 IRON: HTTP Error 503: Service Unavailable
+form4 KEYS: HTTP Error 503: Service Unavailable
+form4 MC: HTTP Error 503: Service Unavailable
+insiders (SEC Form 4): 137 names checked today, 741 covered, 68 with open-market buying
+ivol: 693 names
+resmom: 688 names
+customer_mom: 32 names
+options skew (Yahoo): 176 names refreshed
+filing text similarity (SEC): 6 new comparisons
+coverage of 741 candidates (has value / updated within 7 days):
+  momentum: 683 / 683
+  EPS growth: 700 / 700
+  revisions: 700 / 700
+  sales growth: 702 / 700
+  surprises: 698 / 741
+  reaction: 698 / 698
+  short interest: 677 / 741
+  beta: 664 / 741
+  gross profitability: 404 / 701
+  accruals: 661 / 701
+  asset growth: 669 / 701
+  net issuance: 578 / 701
+  insider buying: 741 / 741
+ranked 409 names; top 10: WDC, ANET, MU, SPCX, NET, PLTR, FLEX, TXG, TSM, STX
+point-in-time backtest: 83 months; out of sample 0.0135 per month vs pool, t = 1.17
+paper portfolio: $1,898 (-29.4%); S&P 2454.19 QQQ 2369.23; next rebalance none (manual)
+emerging winners: 662 names with 3+ signals; top 5: NVDA, RKLB, LSCC, SITM, NKTR
+side door universe IWM: 1703 names
+side door universe IWR: 815 names
+side door calendar: 3 days read, 0 failed, 4598 reports on file
+side door: 529 names reported a 10%+ beat in the last 30 days and are held by 0-1 funds
+side door: enriched 80 names from Yahoo
+side door: top 5 VCEL, XERS, CRCT, GDYN, TRC; live record 69 measured entries
+track record: 6 boards tracked; concentration: 4.4 effective bets, avg correlation 0.389
