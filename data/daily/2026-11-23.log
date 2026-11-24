@@ -10,7 +10,7 @@ holdings TCAF: FAILED (HTTP Error 400: Bad Request); keeping previous list
 holdings FBCG: FAILED (HTTP Error 400: Bad Request); keeping previous list
 holdings FCNTX: FAILED (HTTP Error 400: Bad Request); keeping previous list
 holdings FDGRX: FAILED (HTTP Error 400: Bad Request); keeping previous list
-holdings FFLG: FAILED (HTTP Error 400: Bad Request); keeping previous list
+holdings FFLG: FAILED (HTTP Error 503: Service Unavailable); keeping previous list
 holdings JGRO: FAILED (HTTP Error 400: Bad Request); keeping previous list
 holdings HFGO: FAILED (HTTP Error 400: Bad Request); keeping previous list
 holdings FDG: FAILED (HTTP Error 400: Bad Request); keeping previous list
@@ -28,7 +28,7 @@ holdings FDTX: FAILED (HTTP Error 400: Bad Request); keeping previous list
 holdings FSPTX: FAILED (HTTP Error 400: Bad Request); keeping previous list
 holdings FSELX: FAILED (HTTP Error 400: Bad Request); keeping previous list
 holdings PRSCX: FAILED (HTTP Error 400: Bad Request); keeping previous list
-holdings SLMCX: FAILED (HTTP Error 503: Service Unavailable); keeping previous list
+holdings SLMCX: FAILED (HTTP Error 400: Bad Request); keeping previous list
 holdings FBIOX: FAILED (HTTP Error 400: Bad Request); keeping previous list
 holdings FIDSX: FAILED (HTTP Error 400: Bad Request); keeping previous list
 holdings ARKW: 36 rows, 82.4% of weight, as of 2026-11-23
@@ -45,19 +45,19 @@ holdings CGMM: 117 rows, 98.6% of weight, as of 2026-11-20
 holdings CGBL: 78 rows, 99.9% of weight, as of 2026-11-20
 holdings JPSV: 119 rows, 100.0% of weight, as of 2026-11-23
 funds in the overlap analysis: 46 (17 on daily issuer files)
-benchmarks refreshed: SPY, IWF, IWD, IWN, IWO, IWM, IWR, IWS, SOXX, IYW, IBB, ITA, IYF
+benchmark IWF: FAILED (only 31 rows / 84%); keeping previous list
+benchmarks refreshed: SPY, IWD, IWN, IWO, IWM, IWR, IWS, SOXX, IYW, IBB, ITA, IYF
 fund returns (Yahoo): 56 funds and benchmarks
 regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads try failed (The read operation timed out)
 regime: credit spreads from FRED FAILED (FRED did not answer after 3 tries); using high-yield vs Treasury bond prices instead
-market regime: STRESS ({'asof': '2026-11-23', 'spy': 726.16, 'spy_200d': 730.49, 'spy_below_200d': True, 'credit_proxy': 'HYG/IEF', 'hy_vs_tsy_3m': -0.014, 'spreads_widening': False, 'risk_off': True})
+market regime: STRESS ({'asof': '2026-11-23', 'spy': 722.29, 'spy_200d': 730.47, 'spy_below_200d': True, 'credit_proxy': 'HYG/IEF', 'hy_vs_tsy_3m': -0.0184, 'spreads_widening': False, 'risk_off': True})
 AI capex gauge: $475.8bn trailing 12 months, 1.008 year on year
 prices: updated 682 names
 consensus ADTTF: 'current'
 consensus ASMXF: 'current'
 consensus BESVF: 'current'
-consensus BME: 'current'
 consensus GDERF: 'current'
 consensus IDRSF: 'current'
 consensus KXHCF: 'current'
@@ -68,24 +68,82 @@ consensus UCBJF: 'current'
 consensus ZLDPF: 'current'
 consensus: 1406 rows for 741 names; history spans 18 days
 revisions: 706 names (665 from our own history); consensus growth: 703 names
-earnings (Yahoo): 40 names refreshed, 0 failed, 40 due of 741
+earnings (Yahoo): 3 names refreshed, 0 failed, 3 due of 741
 market reaction to reports: 697 names
-short interest / beta / P/E (Yahoo): 420 names refreshed
+short interest / beta / P/E (Yahoo): 321 names refreshed
 sec ATZAF: HTTP Error 404: Not Found
 sec BYDDF: HTTP Error 404: Not Found
 sec GDERF: HTTP Error 404: Not Found
 sec KATJF: HTTP Error 404: Not Found
 sec KXHCF: HTTP Error 404: Not Found
 sec ZLDPF: HTTP Error 404: Not Found
-SEC fundamentals: 180 names refreshed, 34 not SEC filers
-form4 ALB: HTTP Error 503: Service Unavailable
-insiders: time budget reached, rest continue tomorrow
-insiders (SEC Form 4): 120 names checked today, 741 covered, 68 with open-market buying
+SEC fundamentals: 0 names refreshed, 34 not SEC filers
+form4 PAYX: HTTP Error 503: Service Unavailable
+form4 PBLS: HTTP Error 503: Service Unavailable
+form4 PBR: HTTP Error 503: Service Unavailable
+form4 PCOR: HTTP Error 503: Service Unavailable
+form4 PCVX: HTTP Error 503: Service Unavailable
+form4 PFE: HTTP Error 503: Service Unavailable
+form4 PFGC: HTTP Error 503: Service Unavailable
+form4 PHM: HTTP Error 503: Service Unavailable
+form4 PHVS: HTTP Error 503: Service Unavailable
+form4 PI: HTTP Error 503: Service Unavailable
+form4 PODD: HTTP Error 503: Service Unavailable
+form4 PUB: HTTP Error 503: Service Unavailable
+form4 QNT: HTTP Error 503: Service Unavailable
+form4 QSR: HTTP Error 503: Service Unavailable
+form4 QURE: HTTP Error 503: Service Unavailable
+form4 RACE: HTTP Error 503: Service Unavailable
+form4 RAPP: HTTP Error 503: Service Unavailable
+form4 RBC: HTTP Error 503: Service Unavailable
+form4 RELY: HTTP Error 503: Service Unavailable
+form4 RGLD: HTTP Error 503: Service Unavailable
+form4 RH: HTTP Error 503: Service Unavailable
+form4 RHHVF: HTTP Error 503: Service Unavailable
+form4 RJF: HTTP Error 503: Service Unavailable
+form4 RL: HTTP Error 503: Service Unavailable
+form4 RMBS: HTTP Error 503: Service Unavailable
+form4 RNG: HTTP Error 503: Service Unavailable
+form4 RNR: HTTP Error 503: Service Unavailable
+form4 ROST: HTTP Error 503: Service Unavailable
+form4 RPRX: HTTP Error 503: Service Unavailable
+form4 RR: HTTP Error 503: Service Unavailable
+form4 BBD-B: HTTP Error 503: Service Unavailable
+form4 BFLY: HTTP Error 503: Service Unavailable
+form4 RVTY: HTTP Error 503: Service Unavailable
+form4 RYAAY: HTTP Error 503: Service Unavailable
+form4 RYCEF: HTTP Error 503: Service Unavailable
+form4 SAMPO: HTTP Error 503: Service Unavailable
+form4 SANM: HTTP Error 503: Service Unavailable
+form4 SCI: HTTP Error 503: Service Unavailable
+form4 SFM: HTTP Error 503: Service Unavailable
+form4 SGI: HTTP Error 503: Service Unavailable
+form4 SHEL: HTTP Error 503: Service Unavailable
+form4 SIE: HTTP Error 503: Service Unavailable
+form4 SIMO: HTTP Error 503: Service Unavailable
+form4 SITM: HTTP Error 503: Service Unavailable
+form4 SOLQ-U: HTTP Error 503: Service Unavailable
+form4 SPTX: HTTP Error 503: Service Unavailable
+form4 SPXC: HTTP Error 503: Service Unavailable
+form4 SSNLF: HTTP Error 503: Service Unavailable
+form4 STT: HTTP Error 503: Service Unavailable
+form4 SW: HTTP Error 503: Service Unavailable
+form4 SWK: HTTP Error 503: Service Unavailable
+form4 SWKS: HTTP Error 503: Service Unavailable
+form4 SYF: HTTP Error 503: Service Unavailable
+form4 SYRE: HTTP Error 503: Service Unavailable
+form4 TARS: HTTP Error 503: Service Unavailable
+form4 TDG: HTTP Error 503: Service Unavailable
+form4 TEAM: HTTP Error 503: Service Unavailable
+form4 TECX: HTTP Error 503: Service Unavailable
+form4 TEL: HTTP Error 503: Service Unavailable
+form4 TER: HTTP Error 503: Service Unavailable
+insiders (SEC Form 4): 80 names checked today, 741 covered, 68 with open-market buying
 ivol: 693 names
 resmom: 688 names
 customer_mom: 32 names
-options skew (Yahoo): 189 names refreshed
-filing text similarity (SEC): 2 new comparisons
+options skew (Yahoo): 182 names refreshed
+filing text similarity (SEC): 1 new comparisons
 coverage of 741 candidates (has value / updated within 7 days):
   momentum: 683 / 683
   EPS growth: 702 / 701
@@ -100,12 +158,12 @@ coverage of 741 candidates (has value / updated within 7 days):
   asset growth: 669 / 701
   net issuance: 578 / 701
   insider buying: 741 / 741
-ranked 411 names; top 10: SPCX, ANET, PLTR, NET, MU, MRNA, TXG, SNOW, FLEX, MRK
+ranked 411 names; top 10: ANET, SPCX, NET, PLTR, MRNA, TXG, MU, SNOW, FLEX, MRK
 point-in-time backtest: 83 months; out of sample 0.0135 per month vs pool, t = 1.17
-paper portfolio: $2,216 (-17.6%); S&P 2581.38 QQQ 2550.37; next rebalance none (manual)
+paper portfolio: $2,189 (-18.6%); S&P 2569.74 QQQ 2535.03; next rebalance none (manual)
 emerging winners: 662 names with 3+ signals; top 5: NVDA, RKLB, LSCC, SITM, NKTR
 side door calendar: 1 days read, 0 failed, 4631 reports on file
 side door: 495 names reported a 10%+ beat in the last 30 days and are held by 0-1 funds
 side door: enriched 80 names from Yahoo
-side door: top 5 XERS, VCEL, CRCT, GDYN, TRC; live record 70 measured entries
-track record: 6 boards tracked; concentration: 5.5 effective bets, avg correlation 0.324
+side door: top 5 VCEL, XERS, CRCT, GDYN, TRC; live record 70 measured entries
+track record: 6 boards tracked; concentration: 5.1 effective bets, avg correlation 0.342
