@@ -125,6 +125,12 @@
    1922.12,
    2549.86,
    2468.44
+  ],
+  [
+   "2026-11-27",
+   2041.65,
+   2591.2,
+   2534.87
   ]
  ],
  "bench_start": {
@@ -136,7 +142,7 @@
    "shares": 2,
    "cost_basis": 413.38,
    "entry_date": "2026-10-30",
-   "last": 333.1099853515625,
+   "last": 346.0,
    "name": "Analog Devices, Inc.",
    "sector": "Technology"
   },
@@ -144,7 +150,7 @@
    "shares": 1,
    "cost_basis": 878.47,
    "entry_date": "2026-10-30",
-   "last": 601.25,
+   "last": 646.9500122070312,
    "name": "Micron Technology, Inc.",
    "sector": "Technology"
   },
@@ -152,7 +158,7 @@
    "shares": 5,
    "cost_basis": 196.69,
    "entry_date": "2026-10-30",
-   "last": 130.92999267578125,
+   "last": 140.5399932861328,
    "name": "Marvell Technology, Inc.",
    "sector": "Technology"
   }
